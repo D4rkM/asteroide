@@ -1,0 +1,160 @@
+/*
+Editores: Magno, Bruno, Bruna, Lucas, William
+Data de modificação: 19/03/2018
+Obs: Arquivo principal para edições nas páginas
+*/
+
+/*
+  Paleta de cores:
+  -- Definir --
+*/
+
+/*
+  Fonts
+
+*/
+
+
+
+
+/* Configurações dos itens para todas as páginas */
+body{
+  margin-left: auto;
+  margin-right: auto;
+  height: 1000px;
+}
+
+input{
+
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+/* ------------------------------------------------------------------------- */
+
+/* Configurações do menu superior */
+
+/* Container do menu */
+.menu-container{
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  border-bottom: solid 1px black;
+}
+
+.conteudo-menu{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+/* Configurações */
+.itens-menu{
+
+}
+
+.logo-menu img{
+  margin-top: 50px;
+  width: 100px;
+  height: 120px;
+}
+
+/* ------------------------------------------------------------------------- */
+
+/* Conteudo das páginas */
+
+.conteudo{
+  width: 600px;
+  height: 1000px;
+}
+
+/* ------------------------------------------------------------------------- */
+
+
+/* Configurações do footer (rodapé) */
+
+/* Container principal do rodapé */
+.footer-container{
+  display: flex;
+  width: 100%;
+  height: 400px;
+  /* background-color: blue; */
+}
+
+.borda-footer{
+  width: 98%;
+  border-top: 2px solid black;
+}
+
+/* Div de conteúdo do menu */
+.conteudo-footer{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  height: 390px;  
+}
+
+/* Configura titulos do footer */
+.links-footer{
+  display: flex;
+  width: 100%;
+  /* width: 70em; */
+  height: 130px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+/*  */
+.conteudo-footer table td {
+  border: solid 1px black;
+}
+
+/* Inserindo sublinhagen no titulo de links do rodapé */
+.conteudo-footer table td h3{
+  text-decoration: underline;
+}
+
+.itens-rodape{
+
+}
+
+/* Área para inserir icones de redes sociais */
+.campo-redes-sociais{
+  display: flex;
+  flex-direction:row;
+  align-items: center
+}
+/* Configuração de icones-redes sociais */
+.redes-sociais img{
+  width: 50px;
+  height: 50px;
+}
+
+/* Config informações de pagamento-footer */
+.pagamento-footer{
+  width: 200px;
+  height: 100px;
+  background-color: blue;
+}
+
+/* Informações de contato footer */
+.contato-footer{
+  width: 200px;
+  height: 100px;
+  background-color: blue;
+}
+/* ------------------------------------------------------------------------- */
