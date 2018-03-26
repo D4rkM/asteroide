@@ -163,6 +163,6 @@
     </footer>
 
     <!-- Chama os scripts  -->
-    <script src="js/jquery-3.3.1.js"></script>
+    
   </body>
 </html>

@@ -143,12 +143,25 @@ a{
   height: auto;
 }
 
+.conteudo_locais{
+
+}
+/* Mantém centralizados os titulos */
+.titulo_locais{
+  display: flex;
+  justify-content: center;
+}
+
 .locais-viagem{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
 
 }
 
 .polaroid {
-    width: 80%;
+    width: 350px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -158,6 +171,42 @@ a{
 .texto-polaroid {
     text-align: center;
     padding: 10px 20px;
+}
+
+.comentarios-pag-inicial{
+}
+
+.comentarios-pag-inicial img{
+  border-radius: 1000px;
+}
+
+/* Carrosel de conteudo */
+
+#content {
+	margin: 0 auto;
+	width: 650px;
+	height: 200px;
+}
+
+#carrossel {
+	float: left;
+	width: 630px;
+	overflow: hidden;
+	height: 150px;
+}
+
+#carrossel ul li {
+	width: 200px;
+	height: 150px;
+	float: left;
+	margin: 0 5px;
+}
+
+#menu-carrossel {
+	float: left;
+	clear: both;
+	width: 100%;
+	text-align: center;
 }
 
 /* **************************************** */
@@ -218,6 +267,7 @@ a{
   text-align: center;
   line-height: 30px;
   border-radius: 15px;
+
 }
 /* **************************************** */
 /* Conteudo da página de ranking  modal*/
