@@ -7,6 +7,10 @@ Obs: Arquivo principal para edições nas páginas
 /*
   Paleta de cores:
   -- Definir --
+  #4d9b61
+  #162E44
+  #1F405E
+  #000000
 */
 
 /*
@@ -14,14 +18,18 @@ Obs: Arquivo principal para edições nas páginas
 
 */
 
-
-
+@font-face {
+  src: url('../fonts/nunito/Nunito-Regular.ttf');
+  font-family: "Nunito", sans-serif;
+}
 
 /* Configurações dos itens para todas as páginas */
 body{
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.0rem;
   margin-left: auto;
   margin-right: auto;
-  height: 1000px;
+  height: auto;
 }
 
 input{
@@ -30,6 +38,8 @@ input{
 
 ul{
   list-style: none;
+  padding: 0px;
+  margin: 0px;
 }
 
 a{
@@ -44,18 +54,23 @@ a{
 /* Container do menu */
 .menu-container{
   display: flex;
+  background-color: #FFF;
   flex-direction: row;
   position: fixed;
+  justify-content: space-between;
   width: 100%;
   height: 80px;
   border-bottom: solid 1px black;
+  transition: 2s;
+  z-index: 2;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
 }
 
 .conteudo-menu{
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  width: 600px;
+  width: 1000px;
   align-items: center;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -67,10 +82,24 @@ a{
 
 }
 
+
 .logo-menu img{
   margin-top: 50px;
   width: 100px;
   height: 120px;
+}
+
+.espaco-do-menu{
+  display: block;
+  height: 80px;
+}
+/* Utilizada no espaço do login e para aproveitamento da centralização dos itens do menu */
+.login-menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  /* background-color: red; */
 }
 
 /* ------------------------------------------------------------------------- */
@@ -78,10 +107,566 @@ a{
 /* Conteudo das páginas */
 
 .conteudo{
-  width: 600px;
-  height: 1000px;
+  /* display: flex;
+  flex-direction: column;
+  height: 92vh;
+  display: block;
+  /* background-color: blue; /
+  width: 100vw; */
 }
 
+/* Pagina Home */
+
+.video-principal{
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+}
+
+/* ************************************** */
+
+/* Pagina Home */
+
+.video-principal video{
+  height: 100px;
+  display: block;
+  width: 100px;
+  margin: auto;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  z-index: 1;
+}
+
+.container{
+  display: block;
+  min-height:1000px;
+  height: auto;
+}
+
+.locais-viagem{
+
+}
+
+.polaroid {
+    width: 80%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.polaroid img {width: 100%}
+
+.texto-polaroid {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+/* **************************************** */
+/* Conteudo da página de ranking */
+.conteudo_ranking{
+  width: 100%;
+  min-height: 1430px;
+  height: auto;
+  padding-top: 70px;
+  background-color: #E0FFFF;
+}
+/*Segura todo conteudo do ranking*/
+.raking_container{
+  width: 70%;
+  min-height: 1430px;
+  height: auto;
+  background-color: #00FA9A;
+  margin: auto;
+
+}
+/*Titulo da pagina*/
+.title_ranking{
+  width: 100%;
+  height: 70px;
+  background-color: #000;
+  border: solid 1px #000;
+
+  text-align: center;
+  color: #fff;
+  margin-bottom: 50px;
+}
+/*Posição do ranking*/
+.posicao{
+  margin-left: 120px;
+}
+/*Conatiner da imagem do posto rodoviario*/
+.postos_content{
+  width: 80%;
+  height: 250px;
+  background-color: #C71585;
+  margin: auto;
+  border-radius: 5px;
+}
+/*Imagem do posto rodoviario*/
+.img_posto{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+/*Detalhes do posto rodoviario*/
+.detalhes{
+  width: 120px;
+  height: 30px;
+  background-color: #00FA9A;
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 45%;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 15px;
+}
+/* **************************************** */
+/* Conteudo da página de ranking  modal*/
+.modal{
+    width: 60%;
+    height: 50%;
+    margin: auto;
+    margin-top: 150px;
+    z-index: 99999;
+	background-color: #fff;
+}
+
+.modalContainer{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    display: none;
+    z-index: 99999;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Conteudo da página de frotas de onibus*/
+.conteuno_frotas{
+  width: 100%;
+  min-height: 1430px;
+  height: auto;
+  padding-top: 70px;
+  background-color: #DCDCDC;
+}
+
+.frotas_container{
+  width: 70%;
+  min-height: 1430px;
+  height: auto;
+  background-color: #D3D3D3;
+  margin: auto;
+  border: solid 1px #000;
+}
+
+.title_frotas{
+  width: 99.9%;
+  height: 130px;
+  background-color: #fff;
+  border: solid 1px #fff;
+
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+h1{
+  text-align: center;
+}
+
+.container_onibus{
+  width: 85%;
+  height: 270px;
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 30px;
+  /* box shadow */
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
+}
+
+.container_onibus_imagem{
+  width: 40%;
+  height: 270px;
+  float: left;
+  border-radius: 100%;
+}
+
+.imagens_onibus{
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.container_onibus_texto{
+  width: 60%;
+  height: 245px;
+  float: left;
+  padding-top: 15px;
+
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 17px;
+}
+/* ------------------------------------------------------------------------- */
+/* Conteudo da página de postos rodoviarios*/
+.conteuno_postos_rodoviarios{
+  width: 100%;
+  min-height: 1430px;
+  height: auto;
+  padding-top: 50px;
+  background-color: #C0C0C0;
+}
+
+.postos_rodoviarios_container{
+  width: 85%;
+  min-height: 1430px;
+  height: auto;
+  background-color: #3f635f;
+  margin: auto;
+  border: solid 1px #000;
+}
+
+.title_postos_rodoviarios{
+  width: 99.9%;
+  height: 130px;
+  background-color: #fff;
+  border: solid 1px #fff;
+
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+/*Slide postos rodoviarios*/
+.w3-button{
+    width: 100px;
+    height: 30px;
+}
+.w3-display-right{
+    margin-left: 82.2%;
+}
+.mySlides{
+    width: 100%;
+    height: 350px;
+}
+.informacoes_postos{
+  width: 33%;
+  height: 100%;
+  float: left;;
+  margin-right: 3px;
+  background-color: #1f405e;
+
+  font-family: sans-serif;
+  font-size: 17px;
+  color: #fff;
+  text-align: center;
+}
+
+.imagens_rodoviaria{
+    width: 100%;
+    height: 100%;
+}
+
+.mapa{
+    width: 100%;
+    height: 100%;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Pagina de duvidas frequentes */
+.conteuno_duvidas{
+  width: 100%;
+  min-height: 800px;
+  height: auto;
+  padding-top: 50px;
+  background-color: #C0C0C0;
+}
+
+.duvidas_container{
+  width: 85%;
+  min-height: 800px;
+  height: auto;
+  background-color: #458665;
+  margin: auto;
+  border: solid 1px #000;
+}
+
+.title_duvidas{
+  width: 99.9%;
+  height: 85px;
+  background-color: #fff;
+  border: solid 1px #fff;
+
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.perguntas_frequentes{
+    width: 48.7%;
+    height: 680px;
+    background-color: #1f405e;
+    float: left;
+    margin-left: 1%;
+    border-radius: 10px;
+}
+
+.perguntas_frequentes ul li{
+    margin-top: 8px;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+#div_email {
+    font-family: sans-serif;
+    font-size: 18px;
+    display: none;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#div_email2 {
+    font-family: sans-serif;
+    font-size: 18px;
+    display: none;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#div_email3 {
+    font-family: sans-serif;
+    font-size: 18px;
+    display: none;
+    text-align: center;
+    margin-top: 50px;
+}
+/* ------------------------------------------------------------------------- */
+/* Pagina de sobre a empresa */
+.conteuno_sobre_empresa{
+  width: 100%;
+  min-height: 1200px;
+  height: auto;
+  padding-top: 50px;
+  background-color: #C0C0C0;
+}
+/*Container que segura o conteudo*/
+.sobre_empresa_container{
+  width: 85%;
+  min-height: 1200px;
+  height: auto;
+  background-color: #458665;
+  margin: auto;
+  border: solid 1px #000;
+}
+/*Container que segura o titulo da pagina*/
+.title_sobre_empresaa{
+  width: 99.9%;
+  height: 85px;
+  background-color: #fff;
+  border: solid 1px #fff;
+
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+/*Primeiro texto da pagina*/
+.first_info{
+    width: 90%;
+    margin-left: 50px;
+    text-align: justify;
+    font-family: sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+/*Conteiner que segura a imagem e o texto do primeiro conteudo*/
+.container_historia{
+    width: 100%;
+    height: 350px;
+    background-color: #fff;
+}
+/*Conteiner que segura a imagem*/
+.container_imagem{
+    width: 40%;
+    height: 350px;
+    float: left;
+}
+/*Classe imagem*/
+.imagem_empresa{
+    width: 100%;
+    height: 100%;
+}
+/*Container que segura o texto*/
+.container_texto{
+    width: 60%;
+    height: 350px;
+    float: left;
+}
+/*Classe texto*/
+.second_info{
+    width: 95%;
+    margin-left: 20px;
+    margin-top: 10px;
+    text-align: justify;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+/*Conteiner que segura as quatros imagens*/
+.container_images{
+    width: 100%;
+    height: 250px;
+    background-color: #458665;
+}
+/*Classe das quatros imagens*/
+.various_images{
+    width: 23.5%;
+    height: 180px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+/*Classe dos quatros textos*/
+.text_images{
+    width: 23.5%;
+    height: 50px;
+    margin-left: 10px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    float: left;
+}
+/*Conteiner que segura a imagem e o texto do primeiro conteudo*/
+.container_historia2{
+    width: 100%;
+    height: 350px;
+    background-color: #fff;
+}
+/*Conteiner que segura o texto*/
+.container_texto2{
+    width: 60%;
+    height: 350px;
+    float: left;
+}
+/*Classe texto*/
+.third_info{
+    width: 95%;
+    margin-left: 20px;
+    margin-top: 10px;
+    text-align: justify;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+/*Conteiner que segura a imagem*/
+.container_texto2{
+    width: 40%;
+    height: 350px;
+    float: left;
+}
+/*Classe imagem*/
+.imagem_empresa2{
+    width: 100%;
+    height: 100%;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Página de cadastro */
+.conteuno_cadastro{
+  width: 100%;
+  min-height: 1100px;
+  height: auto;
+  padding-top: 50px;
+  background-color: #C0C0C0;
+}
+/*Container que segura o conteudo*/
+.cadastro_container{
+  width: 85%;
+  min-height: 1100px;
+  height: auto;
+  background-color: #458665;
+  margin: auto;
+  border: solid 1px #000;
+}
+/*Container que segura o titulo da pagina*/
+.title_cadastro{
+  width: 99.9%;
+  height: 85px;
+  background-color: #fff;
+  border: solid 1px #fff;
+
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.cadastro{
+    width: 70%;
+    height: 950px;
+    background-color: #fff;
+    margin: auto;
+}
+
+.text{
+    width: 20%;
+    margin: auto;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+.imagem_usuario{
+    width: 25%;
+    height: 150px;
+    background-color: black;
+    margin: auto;
+}
+
+.botao_foto_perfil{
+    margin-left: 37.5%;
+}
+
+.text_left{
+    margin-left: 18%;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.box_text{
+    width: 60%;
+    margin-left: 18%;
+    border-radius: 10px;
+}
+
+.box_text2{
+    width: 85%;
+    height: 22px;
+    border-radius: 10px;
+}
+
+.tabela_cadastro{
+    width: 60%;
+    height: 400px;
+    margin: auto;
+}
+
+.colunas_cadastro_nome{
+    width: 50%;
+    height: 15px;
+}
+
+.colunas_cadastro_caixa{
+    width: 50%;
+    height: 40px;
+}
+
+.text_box{
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.btnsalvar{
+    margin-left: 43%;
+    width: 120px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: greenyellow;
+    font-family: sans-serif;
+    font-size: 15px;
+}
 /* ------------------------------------------------------------------------- */
 
 
@@ -89,23 +674,39 @@ a{
 
 /* Container principal do rodapé */
 .footer-container{
-  display: flex;
-  width: 100%;
-  height: 400px;
-  /* background-color: blue; */
+  display: block;
+  /* width: 100%; */
+  height: 370px;
+  border-top: 2px solid black;
+  align-items: center;
+  background-color: #FFF;
 }
 
-.borda-footer{
+/* .borda-footer{
   width: 98%;
+  margin-left: auto;
+  margin-right: auto;
   border-top: 2px solid black;
-}
+} */
 
 /* Div de conteúdo do menu */
 .conteudo-footer{
   display: flex;
   flex-direction: column;
+  width: 60%;
   margin: auto;
-  height: 390px;  
+  height: 370px;
+  /* background-color: grey; */
+}
+
+/* Define padrões para o conteudo */
+.conteudo-footer table td {
+  /* border: solid 1px black; */
+}
+
+/* Inserindo sublinhagen no titulo de links do rodapé */
+.conteudo-footer table td h3{
+  text-decoration: underline;
 }
 
 /* Configura titulos do footer */
@@ -118,16 +719,27 @@ a{
   justify-content: space-between;
 }
 
+/* Div que contem formas de pagamentos e telefones da empresa */
+/* Ajusta a organização das outras div's */
+.info-empresa{
+  display: flex;
+  height: 170px;
+  justify-content: space-around;
+}
+
+/* Configura a div de pagamentos */
+.pagamento-info{
+
+}
+
+/* Define tamanho padrão para os icones de pagamento */
+.icones-pagamento img{
+  width: 30px;
+  height: 30px;
+}
+
+
 /*  */
-.conteudo-footer table td {
-  border: solid 1px black;
-}
-
-/* Inserindo sublinhagen no titulo de links do rodapé */
-.conteudo-footer table td h3{
-  text-decoration: underline;
-}
-
 .itens-rodape{
 
 }
@@ -136,7 +748,8 @@ a{
 .campo-redes-sociais{
   display: flex;
   flex-direction:row;
-  align-items: center
+  align-items: center;
+  /* justify-content: space-around; */
 }
 /* Configuração de icones-redes sociais */
 .redes-sociais img{
@@ -153,8 +766,29 @@ a{
 
 /* Informações de contato footer */
 .contato-footer{
-  width: 200px;
-  height: 100px;
-  background-color: blue;
+  width: auto;
+  height: auto;
+  /* background-color: blue; */
+}
+
+.final-rodape{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.final-rodape img{
+  width: 30px;
+  height: 30px;
+}
+
+.referencias-rodape{
+  display: flex;
+  align-items: center;
+
+  /* text-align: center; */
 }
 /* ------------------------------------------------------------------------- */
+
+/* Mobile */

@@ -1,60 +1,70 @@
-<!--
-  Autor: Magno
-  Data de modificação: 19/03/2018
-  Obs: Página principal contém menu e rodapé para inserir as outras páginas
-  -->
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Magno">
+    <!--
+      Data de modificação: 19/03/2018
+      Obs: Página principal contém menu e rodapé para inserir as outras páginas
+    -->
     <title>Home - Bem vindo</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <!-- Menu Superior -->
     <nav>
       <div class="menu-container">
+        <div class="login-menu">
+
+        </div>
+
         <!-- Área com Itens e Logo do menu superior -->
         <div class="conteudo-menu">
           <div class="itens-menu">
-            Empresa
+            <h2>Empresa</h2>
             <div class="">
 
             </div>
           </div>
           <div class="itens-menu">
-            <h2>itens</h2>
+            <h2>Blog</h2>
           </div>
           <div class="logo-menu">
             <a href="index.php"><h1><img src="img/logo.png" alt="Logo"></h1></a>
           </div>
           <div class="itens-menu">
-            <h2>itens</h2>
+            <h2>Passagens</h2>
           </div>
           <div class="itens-menu">
-            <h2>itens</h2>
+            <h2>asdfasd</h2>
           </div>
         </div>
         <!--  -->
         <div class="login-menu">
-          Login
+          <a href="#"> <h4> <b>Acesso</b> </h4> </a>
         </div>
       </div>
     </nav>
+    <!-- Aplica um espaçamento para o conteudo não invadir o menu superior -->
+    <div class="espaco-do-menu">
+
+    </div>
 
 
     <!-- Conteúdo da página -->
     <div class="conteudo">
-
+      <?php require_once("pagina-principal.php"); ?>
     </div>
 
 
     <!-- rodapé -->
     <footer>
       <div class="footer-container">
+        <!-- Define a borda do rodapé -->
+        <div class="borda-footer"></div>
         <!-- Caixa com todo o conteudo do rodapé -->
-
         <div class="conteudo-footer">
           <!-- Titulos rodapé -->
           <div class="links-footer">
@@ -117,19 +127,42 @@
               </div>
             </div>
           </div>
-          <div class="">
-            <div class="pagamento-footer">
-              <div class="">
-                asdf
+          <div class="info-empresa">
+            <div class="pagamento-info">
+              <h3>Formas de Pagamento</h3>
+              <div class="icones-pagamento">
+                <img src="img/icon/Visa-icon.png" alt="Visa">
+                <img src="img/icon/mastercard-icon.png" alt="Mastercard">
+                <img src="img/icon/americanexpress-icon.png" alt="American-Express">
+                <img src="img/icon/elo-icon.png" alt="Elo">
+                <!-- <img src="img/icon/" alt=""> -->
+                <!-- <img src="img/icon/" alt=""> -->
               </div>
+              <h3> <b>EM ATÉ 6X SEM JUROS</b> </h3>
             </div>
             <div class="contato-footer">
-
+              <h3>Para entrar em contato diretamente com a empresa</h3>
+              <h2><b>4002-8922</b></h2>
+              <h3>Segunda a Sexta das <b>9h</b> ás <b>21h</b></h3>
+            </div>
+          </div>
+          <div class="final-rodape">
+            <div class="referencias-rodape">
+              <img src="img/icon/security-icon.png" alt="Seguro">
+              <h4> <b>SEGURO</b> </h4>
+            </div>
+            <div class="referencias-rodape">
+              <h4>Copyright © 2018 Viação Asteróide</h4>
+            </div>
+            <div class="referencias-rodape">
+              <h4>Desenvolvido por <a href="#"> <b>Pulsar</b> </a> </h4>
             </div>
           </div>
         </div>
       </div>
     </footer>
+
+    <!-- Chama os scripts  -->
     <script src="js/jquery-3.3.1.js"></script>
   </body>
 </html>
