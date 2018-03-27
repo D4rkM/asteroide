@@ -11,11 +11,31 @@
     <title>Home - Bem vindo</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.3.1.js">
+
+    </script>
+    <script type="text/javascript">
+    $(function(){
+    //Função para utilizar a posição do scroll na animação
+     $(window).scroll(function() {
+       var top = $(window).scrollTop();//top pega a posição do scroll
+       if(top > 1000){ //verifica se a posição do srcoll é maior do que 150 para diminuir a opacidade
+         // alert(top);
+         $("#men").css("background-color","#000");
+         $("#men").css("border-bottom","solid 1px white");
+         $("")
+       }else{ //se não mantem a opacidade
+         $("#men").css("background-color","#fff");
+       }
+     });
+
+    });
+    </script>
   </head>
   <body>
     <!-- Menu Superior -->
     <nav>
-      <div class="menu-container">
+      <div class="menu-container" id="men">
         <div class="login-menu">
 
         </div>
@@ -55,7 +75,7 @@
 
     <!-- Conteúdo da página -->
     <div class="conteudo">
-      <?php require_once("pagina-principal.php"); ?>
+      <?php require_once("postos_rodoviarios.php"); ?>
     </div>
 
 
@@ -163,6 +183,6 @@
     </footer>
 
     <!-- Chama os scripts  -->
-    
+
   </body>
 </html>

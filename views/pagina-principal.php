@@ -1,11 +1,16 @@
 
 <div class="container">
   <div class="video-principal">
-    <!-- <video autoplay loop>
+    <video muted autoplay loop>
       <source src="img/Paleta-de-Cores.jpg" type="video/mp4">
-    </video> -->
-    <img src="img/Paleta-de-Cores.jpg" alt="" width="500">
+    </video>
+    <!-- <img src="img/Paleta-de-Cores.jpg" alt="" width="500"> -->
+
   </div>
+  <div class="">
+    <h2>Texto</h2>
+  </div>
+
   <div class="conteudo_locais">
     <div class="titulo_locais">
       <p style="color:#458665;">
@@ -65,41 +70,35 @@
     <div class="titulo_locais">
             <h2> Veja quem está viajando com a gente</h2>
     </div>
-    <div class="" id="content">
+    <div id="content">
       <nav id="menu-carrossel">
-        <a href="#" class="prev" title="Anterior">Anterior</a>
+        <a href="#" class="prev" title="Anterior"> <img src="img/icon/left.svg" alt="Esquerda"> </a>
       </nav>
             <div id="carrossel">
                 <ul>
+                  <?php
+                  $a = 0;
+                  while ($a <= 5) {
+                   ?>
                     <li>
                       <div class="comentarios-pag-inicial">
-                        <img src="img/rio-de-janeiro.jpg" alt="Nome da Imagem" title="Nome da Imagem" />
+                        <div class="comentario-usuario">
+                          <img src="img/rio-de-janeiro.jpg" alt="Nome da Imagem" title="Nome da Imagem" />
+                          Username
+                        </div>
+                        <div class="comentario-conteudo">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
                       </div>
                     </li>
-                    <li>
-                      <div class="comentarios-pag-inicial">
-                        <img src="img/rio-de-janeiro.jpg" alt="Nome da Imagem" title="Nome da Imagem" />
-                      </div>
-                    </li>
-                    <li>
-                      <div class="comentarios-pag-inicial">
-                        <img src="img/rio-de-janeiro.jpg" alt="Nome da Imagem" title="Nome da Imagem" />
-                      </div>
-                    </li>
-                    <li>
-                      <div class="comentarios-pag-inicial">
-                        <img src="img/rio-de-janeiro.jpg" alt="Nome da Imagem" title="Nome da Imagem" />
-                      </div>
-                    </li>
-                    <li>
-                      <div class="comentarios-pag-inicial">
-                        <img src="img/rio-de-janeiro.jpg" alt="Nome da Imagem" title="Nome da Imagem" />
-                      </div>
-                    </li>
+                    <?php
+                      $a ++;
+                      }
+                    ?>
                 </ul>
             </div>
             <nav id="menu-carrossel">
-                <a href="#" class="next" title="Próximo">Próximo</a>
+                <a href="#" class="next" title="Próximo"> <img src="img/icon/right.svg" alt="Direita"> </a>
             </nav>
         </div>
   </div>

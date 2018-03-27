@@ -116,17 +116,18 @@ a{
 }
 
 /* Pagina Home */
-
+/* area de video */
 .video-principal{
+  display: flex;
+  justify-content: center;
+  font-size: 2.8rem;
   height: 100vh;
   width: 100%;
-  background-color: black;
+  background-color: grey;
+  align-items: center;
 }
 
-/* ************************************** */
-
-/* Pagina Home */
-
+/* Configuracao do video */
 .video-principal video{
   height: 100px;
   display: block;
@@ -134,9 +135,9 @@ a{
   margin: auto;
   -webkit-filter: blur(10px);
   filter: blur(10px);
-  z-index: 1;
+  z-index: -100;
 }
-
+/* Define um padrao pra container */
 .container{
   display: block;
   min-height:1000px;
@@ -144,10 +145,10 @@ a{
 }
 
 .conteudo_locais{
-  width: 1400px;
-  height: auto;
+  width: 1500px;
+  height: 450px;
   margin:auto;
-  overflow: auto;
+  overflow: hidden;
 }
 /* Mantém centralizados os titulos */
 .titulo_locais{
@@ -164,9 +165,15 @@ a{
 }
 
 .polaroid {
-    width: 350px;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 350px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 1s;
+}
+
+.polaroid:hover {
+  width: 380px;
+  transition: 1s;
 }
 
 .polaroid img {width: 100%}
@@ -177,38 +184,67 @@ a{
 }
 
 .comentarios-pag-inicial{
+  display: flex;
+  flex-direction: row;
   width: 400px;
   height: 180px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 1s;
+
 }
 
+.comentarios-pag-inicial:hover{
+  width: 410px;
+  height: 190px;
+  transition: 1s;
+}
 
+.comentario-usuario{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  width: 110px;
+}
+
+.comentario-conteudo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 280px;
+  height: 160px;
+  /* text-align: center; */
+}
 
 .comentarios-pag-inicial img{
   width: 100px;
   height: 100px;
   border-radius: 1000px;
-
 }
 
 /* Carrosel de conteudo */
 
 #content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 	margin: 0 auto;
-	width: 1000px;
-	height: 200px;
+	width: 1500px;
+	height: 210px;
 }
 
 #carrossel {
 	float: left;
-	width: 1000px;
+	width: 1300px;
 	overflow: hidden;
-	height: 300px;
+	height: 200px;
 }
 
 #carrossel ul li {
-	width: 500px;
+	width: 420px;
 	height: 200px;
 	float: left;
 	margin: 0 5px;
@@ -217,8 +253,16 @@ a{
 #menu-carrossel {
 	float: left;
 	clear: both;
-	width: 100%;
+  align-self: center;
+	width: 80px;
+  height: 50px;
 	text-align: center;
+}
+
+#menu-carrossel img{
+  width:50px;
+  height: 50px;
+
 }
 
 /* **************************************** */

@@ -73,7 +73,7 @@ Além das viagens interestaduais e da internacional, são operadas linhas metrop
           <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
           <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
         </div>
-      
+
 <!--Scrip responsavel pelo movimento do slide-->
 <script>
         var slideIndex = 1;
@@ -86,12 +86,12 @@ Além das viagens interestaduais e da internacional, são operadas linhas metrop
         function showDivs(n) {
           var i;
           var x = document.getElementsByClassName("mySlides");
-          if (n > x.length) {slideIndex = 1}    
+          if (n > x.length) {slideIndex = 1}
           if (n < 1) {slideIndex = x.length}
           for (i = 0; i < x.length; i++) {
-             x[i].style.display = "none";  
+             x[i].style.display = "none";
           }
-          x[slideIndex-1].style.display = "block";  
+          x[slideIndex-1].style.display = "block";
         }
 </script>
 
