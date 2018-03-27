@@ -144,7 +144,10 @@ a{
 }
 
 .conteudo_locais{
-
+  width: 1400px;
+  height: auto;
+  margin:auto;
+  overflow: auto;
 }
 /* Mantém centralizados os titulos */
 .titulo_locais{
@@ -174,30 +177,39 @@ a{
 }
 
 .comentarios-pag-inicial{
+  width: 400px;
+  height: 180px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+
+
 .comentarios-pag-inicial img{
+  width: 100px;
+  height: 100px;
   border-radius: 1000px;
+
 }
 
 /* Carrosel de conteudo */
 
 #content {
 	margin: 0 auto;
-	width: 650px;
+	width: 1000px;
 	height: 200px;
 }
 
 #carrossel {
 	float: left;
-	width: 630px;
+	width: 1000px;
 	overflow: hidden;
-	height: 150px;
+	height: 300px;
 }
 
 #carrossel ul li {
-	width: 200px;
-	height: 150px;
+	width: 500px;
+	height: 200px;
 	float: left;
 	margin: 0 5px;
 }

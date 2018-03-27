@@ -1,0 +1,371 @@
+/*
+Editores: Magno, Bruno, Bruna, Lucas, William
+Data de modificação: 19/03/2018
+Obs: Arquivo principal para edições nas páginas
+*/
+
+/*
+  Paleta de cores:
+  -- Definir --
+*/
+
+/*
+  Fonts
+
+*/
+
+/* Configurações dos itens para todas as páginas */
+
+@font-face{
+    font-family:opensansbold;
+    src:url("../fonte/Open Sans/OpenSans-Bold.ttf");
+
+}
+
+@font-face{
+    font-family:opensansnormal;
+    src:url("../fonte/Open Sans/OpenSans-Light.ttf");
+}
+
+body{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input{
+
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+/* ------------------------------------------------------------------------- */
+
+/*Configução da Página*/
+.area-total{
+  width: 100%;
+  height: 100vh;
+  background-color: #d4d6d8;
+}
+
+/*Configuração dos Menus*/
+.area-menu{
+  display: block;
+  height: 40px;
+  background-color: #162e44;
+}
+
+.divs-principais{
+  display: flex;
+  flex-direction: row;
+}
+
+.icone-empresa{
+  width: 3%;
+  float:left;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.itens-menu{
+  width: 97%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  float:left;
+}
+
+.nome-usuario{
+  width: 200px;
+  height: 40px;
+  float: left;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  color: #e5e5e5;
+  font-family: "opensansbold";
+}
+
+.foto-usuario{
+  width: 50px;
+  height: 40px;
+  float: left;
+  display: flex;
+  justify-content: center;
+}
+
+/*Configuração Menu Lateral e Conteudo*/
+.area-abaixo-menu{
+  width:100%;
+  height: 100%;
+}
+
+.menu-lateral{
+  width: 10%;
+  height: 100%;
+  background-color: #1f405e;
+  float: left;
+}
+
+.itens-menu-lateral{
+  width: 100%;
+  height: 130px;
+  text-align: center;
+  line-height: 40px;
+  color: #e5e5e5;
+  margin-bottom: 10px;
+  font-family: "opensansbold";
+  transition: 1s;
+}
+
+.itens-menu-lateral:hover
+{
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: 1s;
+}
+
+.img-menu-lateral{
+  width: 50%;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.txt-menu-lateral{
+  width: 100%;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.conteudo{
+  width: 90%;
+  height: 100%;
+  float: left;
+  overflow: auto;
+}
+
+/**********************************************************************************************/
+
+/*AREA DO LOGIN DO FUNCIONÁRIO*/
+.area-total-login{
+  width: 630px;
+  height: 350px;
+  background-color: #ededed;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 200px;
+  padding-top: 20px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.logo-login{
+  width: 100px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titulo-login-cms{
+  width: 170px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: "opensansbold";
+}
+
+.itens-login-container{
+  width: 400px;
+  height: 180px;
+  margin: auto;
+  padding-top: 20px;
+  padding-left: 100px;
+}
+
+.usuario-senha-txt{
+  width: 60px;
+  height: 15px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-family: "opensansbold";
+}
+
+.area-txt{
+  width: 300px;
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.area-txt input{
+  width: 300px;
+}
+
+.btnLogin{
+  width: 60px;
+  height: 25px;
+  margin-left: 260px;
+  margin-top: 20px;
+}
+
+.conteudoFunc{
+  width: 100%;
+  height: 100%;
+}
+
+/*Labels*/
+.labels{
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  border-bottom: 1px #4c4c4c solid;
+}
+
+.txt-label{
+  width: 99px;
+  height: 49px;
+  float: left;
+  margin-left:10px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+}
+
+.txt-label:hover{
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: 1s;
+}
+
+.menu-list-funcionario{
+  width: 70%;
+  height: 40px;
+  background-color: #162e44;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.itens-list-funcionario{
+  width: 16%;
+  height: 40px;
+  float: left;
+  margin-left:5px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+}
+
+.container-itens-list-funcionario{
+  width: 70%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.itens-list-funcionario-mostrar{
+  width: 16%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/*CADASTRO DE FUNCIONARIO*/
+.area-cad-func{
+  width: 100%;
+  height: 100%;
+}
+
+.tlt-dado-func{
+  width: 300px;
+  height: 30px;
+  margin-left: 100px;
+  margin-top: 10px;
+  font-family: "opensansbold";
+  font-size:16px;
+}
+
+.area-dado-func{
+  width: 500px;
+  height: 30px;
+  margin-left: 100px;
+  margin-top: 2px;
+  margin-bottom: 30px;
+}
+
+.area-dado-func input{
+  width: 300px;
+}
+
+.area-radio-dado-func{
+  width: 500px;
+  height: 30px;
+  margin-left: 100px;
+  margin-top: 2px;
+  margin-bottom: 30px;
+  font-family: "opensansbold";
+  font-size:16px;
+}
+
+.div-cad-func{
+  width: 40%;
+  height: 100%;
+  float: left;
+  margin-left:15px;
+}
+
+.box-dois-itens-cad-func{
+  width: 65%;
+  height: 100px;
+  margin-left: 100px;
+}
+
+.itens-dois{
+  width: 50%;
+  height:100%;
+  float: left;
+}
+
+.tlt-dados-pequenos-cad-func{
+  width: 100%;
+  height: 30%;
+  font-family: "opensansbold";
+  font-size:16px;
+}
+
+.dados-pequenos-cad-func{
+  width: 100%;
+  height: 70%;
+}
+
+.dados-pequenos-cad-func input{
+  width: 150px;
+}
