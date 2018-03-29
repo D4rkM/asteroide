@@ -90,7 +90,7 @@
 
     <!-- Conteúdo da página -->
     <div class="conteudo">
-      <?php require_once("pagina-principal.php"); ?>
+      <?php require_once("duvidas_frequentes.php"); ?>
     </div>
 
 

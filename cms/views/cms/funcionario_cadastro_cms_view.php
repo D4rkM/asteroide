@@ -113,7 +113,6 @@ function mascara(o,f){
     }
 </script>
 
-
 <form class="frmCadFunc" method="post" action="router.php?controller=funcionario&modo=novo">
   <div class="area-cad-func">
     <div class="div-cad-func">
@@ -218,65 +217,68 @@ function mascara(o,f){
             </div>
           </div>
         </div> -->
+        <div class="area-radio-dado-func">
+          <input type="checkbox" name="chkAtivo" value="1" checked>Ativo
+        </div>
       </div>
 
-      <div class="area-radio-dado-func">
-        <input type="checkbox" name="chkAtivo" value="1" checked>Ativo
+
+
+      <div class="div-cad-func">
+        <div class="tlt-dado-func">
+          E-mail:
+        </div>
+        <div class="area-dado-func">
+          <input type="text" name="txtEmailFunc" value="" placeholder="Ex.: jubileu@hotmail.com" maxlength="40">
+        </div>
+        <div class="tlt-dado-func">
+          Senha:
+        </div>
+        <div class="area-dado-func">
+          <input type="password" name="txtSenhaFunc" value="" placeholder="******" maxlength="10">
+        </div>
+
+        <div class="tlt-dado-func">
+          Sexo:
+        </div>
+        <div class="area-radio-dado-func">
+          <input type="radio" name="rdoSexoFunc" value="F">Feminino
+          <input type="radio" name="rdoSexoFunc" value="M">Masculino
+        </div>
+
+        <div class="tlt-dado-func">
+          Celular:
+        </div>
+        <div class="area-dado-func">
+          <input type="text" id='celular' name="txtCelularFunc" value="" placeholder="DDD XXXXX-XXXX" maxlength="15">
+        </div>
+
+        <div class="tlt-dado-func">
+          RG:
+        </div>
+        <div class="area-dado-func">
+          <input type="text" name="txtRGFunc" value="" maxlength="12">
+        </div>
+
+        <div class="tlt-dado-func">
+          Logradouro:
+        </div>
+        <div class="area-dado-func">
+          <input type="text" name="txtLogradouroFunc" value="" maxlength="40">
+        </div>
+
+        <div class="tlt-dado-func">
+          Complemento:
+        </div>
+        <div class="area-dado-func">
+          <input type="text" name="txtComplementoFunc" value="" maxlength="40">
+        </div>
+        <div class="area-dado-func">
+          <input type="submit" name="btnCadastrarFunc" value="Cadastrar" >
+        </div>
       </div>
     </div>
-    <div class="div-cad-func">
-      <div class="tlt-dado-func">
-        E-mail:
-      </div>
-      <div class="area-dado-func">
-        <input type="text" name="txtEmailFunc" value="" placeholder="Ex.: jubileu@hotmail.com" maxlength="40">
-      </div>
-      <div class="tlt-dado-func">
-        Senha:
-      </div>
-      <div class="area-dado-func">
-        <input type="password" name="txtSenhaFunc" value="" placeholder="******" maxlength="10">
-      </div>
 
-      <div class="tlt-dado-func">
-        Sexo:
-      </div>
-      <div class="area-radio-dado-func">
-        <input type="radio" name="rdoSexoFunc" value="F">Feminino
-        <input type="radio" name="rdoSexoFunc" value="M">Masculino
-      </div>
-
-      <div class="tlt-dado-func">
-        Celular:
-      </div>
-      <div class="area-dado-func">
-        <input type="text" id='celular' name="txtCelularFunc" value="" placeholder="DDD XXXXX-XXXX" maxlength="15">
-      </div>
-
-      <div class="tlt-dado-func">
-        RG:
-      </div>
-      <div class="area-dado-func">
-        <input type="text" name="txtRGFunc" value="" maxlength="12">
-      </div>
-
-      <div class="tlt-dado-func">
-        Logradouro:
-      </div>
-      <div class="area-dado-func">
-        <input type="text" name="txtLogradouroFunc" value="" maxlength="40">
-      </div>
-
-      <div class="tlt-dado-func">
-        Complemento:
-      </div>
-      <div class="area-dado-func">
-        <input type="text" name="txtComplementoFunc" value="" maxlength="40">
-      </div>
-      <div class="area-dado-func">
-        <input type="submit" name="btnCadastrarFunc" value="Cadastrar" >
-      </div>
-    </div>
 
   </div>
 </form>

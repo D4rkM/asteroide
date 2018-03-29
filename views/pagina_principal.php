@@ -112,7 +112,7 @@
 <script src="js/carrossel.js"></script>
 <script>
 $(document).ready(function(){
-  var textos = ["DEIXE O STRESS DE LADO E CURTA NOSSA VIAGEM", 'Viajar de "Bus" pode ser tão divertido como estar em família' , "Veja nossos pacotes de passagens"];
+  var textos = ["Deixe o stress de lado e curta nossa viagem", 'Viajar de "Bus" pode ser tão divertido como estar em família' , "Veja nossos pacotes de passagens"];
   var atual = 0;
   $('#frases').text(textos[atual++]);
   setInterval(function() {

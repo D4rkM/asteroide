@@ -63,7 +63,62 @@
           break;
       }
 
+      break;
+
+    case 'duvida':
+      require_once('controllers/duvidas_controller.php');
+      require_once('models/duvidas_class.php');
+      switch ($modo) {
+
+        case 'excluir':
+
+          //instanciando a classe da controller
+          $controllerDuvida = new controllerDuvidas();
+
+          $controllerDuvida::Excluir();
+
+
+          break;
+
+          case 'editar':
+
+            //instanciando a classe da controller
+            $controllerDuvida = new controllerDuvidas();
+
+            $controllerDuvida::Editar($_GET['id']);
+
+          break;
+
+          case 'novo':
+
+            $controllerDuvida = new controllerDuvidas();
+
+            $controllerDuvida::Novo();
+
+            break;
+
+          case 'buscar':
+
+            $controllerFuncionario = new controllerFuncionario();
+
+            $controllerFuncionario::Buscar();
+
+            break;
+
+          case 'buscarEstados':
+
+            $controllerFuncionario = new controllerFuncionario();
+
+            $controllerFuncionario::Listar();
+
+            break;
+
+          default:
+            # code...
+            break;
+      }
   }
+
 
 
 

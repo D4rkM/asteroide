@@ -9,7 +9,7 @@
     $("#lista").click(function(){
       $.ajax({
         type:"POST",
-        url:"views/cms/funcionario_lista_cms_view.php",
+        url:"views/cms/pagina_lista_duvidas_frequentes_cms_view.php",
         data:{},
         success: function(dados){
           $("#conteudoFuncArea").html(dados);
@@ -23,7 +23,7 @@
 
       $.ajax({
         type:"POST",
-        url:"views/cms/funcionario_cadastro_cms_view.php",
+        url:"views/cms/pagina_cadastro_duvidas_frequentes_cadastro_cms_view.php",
         data:{},
         success: function(dados){
           $("#conteudoFuncArea").html(dados);

@@ -45,6 +45,10 @@ a{
   color: black;
 }
 
+textarea{
+  resize: none;
+}
+
 /* ------------------------------------------------------------------------- */
 
 /*Configução da Página*/
@@ -275,6 +279,8 @@ a{
   border-radius: 10px 10px 0px 0px;
 }
 
+
+
 .itens-list-funcionario{
   width: 16%;
   height: 40px;
@@ -310,10 +316,14 @@ a{
   justify-content: center;
 }
 
+
+
 /*CADASTRO DE FUNCIONARIO*/
 .area-cad-func{
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .tlt-dado-func{
@@ -349,8 +359,9 @@ a{
 
 .div-cad-func{
   width: 40%;
+  /* width: auto; */
   height: 100%;
-  float: left;
+  /* float: left; */
   margin-left:15px;
 }
 
@@ -385,7 +396,7 @@ a{
 /*MODAL*/
 .modal{
 	width:800px;
-	height:800px;
+	min-height:100px;
 	background-color:#ffffff;
 	margin:auto;
   margin-top: 90px;
@@ -418,10 +429,131 @@ a{
   color:#1f405e;
 }
 
+
 .areaMensagem{
   width: 100%;
   height: 30px;
   text-align: center;
   font-family: "opensansbold";
   color: #960707;
+}
+
+/*************************DUVIDAS FREQUENTES*******************/
+.menu-list-pagina{
+  width: 30%;
+  height: 40px;
+  background-color: #162e44;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.itens-list-pagina{
+  width: 30%;
+  height: 40px;
+  float: left;
+  margin-left:5px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+}
+
+.container-itens-list-pagina{
+  width: 30%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+
+.itens-list-pagina-mostrar{
+  width: 32%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/*******AREA CADASTRO DUVIDAS*******/
+.area-cad-duvida{
+  width: 100%;
+  height: 500px;
+}
+
+.area-form-duvida{
+  width: 800px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pergunta{
+  width: 40%;
+  height: 150px;
+  float: left;
+  margin-left: 50px;
+}
+
+.txt-pergunta{
+  width: 100%;
+  height: 40%;
+  line-height: 50px;
+  font-family: "opensansbold";
+}
+
+.area-chk-btn-duvida{
+  width: 100%;
+  height: 40px;
+  margin-top: 25px;
+  font-family: "opensansbold";
+}
+
+.input-pergunta input{
+  width: 100%;
+}
+/**************************OPCOES DE PAGINAS**************************/
+.area-opcs{
+  width: 100%;
+  height: 200px;
+  margin-top: 200px;
+}
+
+.itens-opcs{
+  width: 200px;
+  height: 200px;
+  margin-left: 80px;
+}
+
+.itens-opcs:hover{
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: 1s;
+}
+
+.img-itens-opcs{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 170px;
+}
+
+.txt-itens-opcs{
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-family: "opensansbold";
+  color: #353638;
 }

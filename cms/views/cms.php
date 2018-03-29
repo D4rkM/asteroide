@@ -22,6 +22,39 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <script src="js/jquery-3.3.1.js"></script>
 
+    <script type="text/javascript ">
+      $(document).ready(function() {
+
+        $("#funcionario").click(function(){
+          $.ajax({
+            type:"POST",
+            url:"views/cms/funcionario_layout_cms_view.php",
+            data:{},
+            success: function(dados){
+              $("#conteudoCMS").html(dados);
+
+            }
+          });
+
+        });
+
+        $("#pagina").click(function(){
+          $.ajax({
+            type:"POST",
+            url:"views/cms/pagina_layout_cms_view.php",
+            data:{},
+            success: function(dados){
+              $("#conteudoCMS").html(dados);
+
+            }
+          });
+
+        });
+
+
+      });
+
+    </script>
 
   </head>
   <?php
@@ -67,7 +100,7 @@
             <a href="#" <?php $pagina = "funcionario" ?>>
             <div class="menu-lateral">
 
-                <div class="itens-menu-lateral">
+                <div class="itens-menu-lateral"  id = "funcionario">
 
                   <div class="img-menu-lateral">
 
@@ -75,23 +108,14 @@
 
                   </div>
 
-                  <div class="txt-menu-lateral" id = "deslogartxt">
-                    Funcionario <?php
-
-                    if(isset($_POST['deslogarJS'])){
-                      $deslogar = $_POST['deslogarJS'];
-
-                      echo $deslogar;
-
-                    }
-
-                     ?>
+                  <div class="txt-menu-lateral">
+                    Funcionario
                   </div>
 
                 </div>
               <!-- </a> -->
 
-              <div class="itens-menu-lateral">
+              <div class="itens-menu-lateral" id='pagina'>
 
                 <div class="img-menu-lateral">
 
@@ -100,7 +124,7 @@
                 </div>
 
                 <div class="txt-menu-lateral">
-                  Cliente
+                  Paginas
                 </div>
 
               </div>
@@ -108,14 +132,7 @@
             </div>
 
             <!-- Área do contruedo -->
-            <div class="conteudo">
-                <?php
-                  require_once('cms/funcionario_layout_cms_view.php');
-                  /*if($pagina=='funcionario'){
-                    require_once('cms/funcionario_list_cms_view.php');
-                  }*/
-                  // require_once('cms/funcionario_cadastro_cms_view.php');
-                 ?>
+            <div class="conteudo" id='conteudoCMS'>
 
 
             </div>

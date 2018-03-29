@@ -40,7 +40,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			url: "views/cms/modal.php",
-			data: {id:idIten},
+			data: {id:idIten, pagina:'funcionario'},
 			success: function(dados){
 				$('.modal').html(dados);
 			}
