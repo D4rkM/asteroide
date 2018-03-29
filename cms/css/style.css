@@ -76,10 +76,22 @@ a{
 
 .itens-menu{
   width: 97%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   float:left;
+}
+
+.deslogar{
+  width: 100px;
+  height: 40px;
+  float: left;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  color: #fff;
+  font-family: "opensansbold";
 }
 
 .nome-usuario{
@@ -368,4 +380,48 @@ a{
 
 .dados-pequenos-cad-func input{
   width: 150px;
+}
+
+/*MODAL*/
+.modal{
+	width:800px;
+	height:800px;
+	background-color:#ffffff;
+	margin:auto;
+  margin-top: 90px;
+}
+
+.modalContainer{
+	width:100%;
+	height:100%;
+	background: rgba(0, 0, 0, 0.7);
+	position:fixed;
+	display:none;
+}
+
+.fecharModal{
+  width: 30px;
+  height: 30px;
+  margin-left: 770px;
+  color: #af1f1f;
+}
+
+.tltModal{
+  width: 500px;
+  height: 20px;
+  margin: auto;
+  text-align: center;
+  font-family: "opensansbold";
+  font-size: 18px;
+  border-bottom: 1px #1f405e solid;
+  margin-bottom: 10px;
+  color:#1f405e;
+}
+
+.areaMensagem{
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-family: "opensansbold";
+  color: #960707;
 }

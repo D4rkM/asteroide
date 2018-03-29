@@ -1,3 +1,13 @@
+<?php
+
+  if(isset($_POST['btnDeslogin'])){
+    session_destroy();
+
+    header('location:index.php');
+  }
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,11 +21,19 @@
     <link rel="stylesheet"  type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <script src="js/jquery-3.3.1.js"></script>
+
+
   </head>
   <?php
     $pagina = null;
    ?>
   <body>
+    <div class="modalContainer">
+      <div class="modal">
+
+      </div>
+    </div>
+
       <div class="area-total">
           <!-- Área do Menu superior do CMS -->
           <nav>
@@ -26,8 +44,14 @@
                 </div>
                 <div class="itens-menu">
                   <div class="nome-usuario">
-                    Bem-vindo, <?php echo $dadosFuncionario->nome ?>
+                    Bem-vindo, <?php echo $_SESSION['nomeUser'] ?>
                   </div>
+                  <form class="cms.php" action="#" method="post">
+                    <div class="deslogar" id="deslogar">
+                        <input type="submit" name="btnDeslogin" value="Logout">
+                    </div>
+                  </form>
+
                   <div class="foto-usuario">
                     <img src="img/user-icon-cms.png" alt="">
                   </div>
@@ -51,8 +75,17 @@
 
                   </div>
 
-                  <div class="txt-menu-lateral">
-                    Funcionario
+                  <div class="txt-menu-lateral" id = "deslogartxt">
+                    Funcionario <?php
+
+                    if(isset($_POST['deslogarJS'])){
+                      $deslogar = $_POST['deslogarJS'];
+
+                      echo $deslogar;
+
+                    }
+
+                     ?>
                   </div>
 
                 </div>

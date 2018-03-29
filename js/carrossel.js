@@ -1,7 +1,7 @@
 $(function() {
     $("#carrossel"). jCarouselLite({
-        btnPrev: '.prev', 
+        btnPrev: '.prev',
         btnNext: '.next',
         visible: 3
-    })
-})
+    });
+});

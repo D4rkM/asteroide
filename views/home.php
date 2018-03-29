@@ -14,22 +14,24 @@
     <script src="js/jquery-3.3.1.js">
 
     </script>
-    <script type="text/javascript">
-    $(function(){
-    //Função para utilizar a posição do scroll na animação
-     $(window).scroll(function() {
-       var top = $(window).scrollTop();//top pega a posição do scroll
-       if(top > 1000){ //verifica se a posição do srcoll é maior do que 150 para diminuir a opacidade
-         // alert(top);
-         $("#men").css("background-color","#000");
-         $("#men").css("border-bottom","solid 1px white");
-         $("")
-       }else{ //se não mantem a opacidade
-         $("#men").css("background-color","#fff");
-       }
-     });
-
-    });
+    <script>
+    // $(function(){
+    // //Função para utilizar a posição do scroll na animação
+    //  $(window).scroll(function() {
+    //    var top = $(window).scrollTop();//top pega a posição do scroll
+    //    if(top > 600){ //verifica se a posição do srcoll é maior do que 150 para diminuir a opacidade
+    //      // alert(top);
+    //      $("#men").css("background-color","#000");
+    //      $("#men").css("border-bottom","solid 1px white");
+    //
+    //    }else{ //se não mantem a opacidade
+    //      $("#men").css("background-color","#fff");
+    //    }
+    //  });
+    //
+    //  $(".conteudo").load("pagina-principal.php");
+    //
+    // });
     </script>
   </head>
   <body>
@@ -44,21 +46,34 @@
         <div class="conteudo-menu">
           <div class="itens-menu">
             <h2>Empresa</h2>
-            <div class="">
-
-            </div>
+            <ul class="submenu">
+              <li>Sobre a Empresa</li>
+              <li>item</li>
+            </ul>
           </div>
           <div class="itens-menu">
             <h2>Blog</h2>
+            <ul class="submenu">
+              <li>Interação</li>
+              <li>item</li>
+            </ul>
           </div>
           <div class="logo-menu">
             <a href="index.php"><h1><img src="img/logo.png" alt="Logo"></h1></a>
           </div>
           <div class="itens-menu">
             <h2>Passagens</h2>
+            <ul class="submenu">
+              <li>item</li>
+              <li>item</li>
+            </ul>
           </div>
           <div class="itens-menu">
-            <h2>asdfasd</h2>
+            <h2>locais</h2>
+            <ul class="submenu">
+              <li>item</li>
+              <li>item</li>
+            </ul>
           </div>
         </div>
         <!--  -->
@@ -75,7 +90,7 @@
 
     <!-- Conteúdo da página -->
     <div class="conteudo">
-      <?php require_once("postos_rodoviarios.php"); ?>
+      <?php require_once("pagina-principal.php"); ?>
     </div>
 
 
@@ -182,6 +197,9 @@
       </div>
     </footer>
 
+    <script type="text/javascript">
+      // $('html, body').animate({scrollTop:0}, 'slow');
+    </script>
     <!-- Chama os scripts  -->
 
   </body>

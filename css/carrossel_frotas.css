@@ -1,0 +1,45 @@
+#content {
+  flex-direction: column;
+	margin: 0 auto;
+	width: 100%;
+	height: 400px;
+  overflow: hidden;
+}
+
+#carrossel {
+	float: left;
+	width: 100%;
+	overflow: hidden;
+	height: 800px;
+}
+
+#carrossel ul li {
+	width: 99%;
+	height: 400px;
+	float: left;
+	margin: 0 5px;
+}
+
+#menu-carrossel {
+  display: block;
+  /* justify-content: center; */
+	/* float: left; */
+	/* clear: both; */
+	width: 100%;
+  height: 100px;
+	/* text-align: center; */
+}
+
+.prev{
+  align-self: flex-start;
+}
+
+.next{
+  align-self: flex-end;
+}
+
+.mySlides{
+  display: block;
+  width: 1200px;
+  height: 350px;
+}

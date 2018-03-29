@@ -1,3 +1,6 @@
+
+
+
 <div class="area-total-login">
   <div class="logo-login">
     <img src="img/logo-cms.png" width="100px" height="100px" alt="">
@@ -26,4 +29,14 @@
       </div>
     </div>
   </form>
+  <div class="areaMensagem">
+
+    <?php
+
+    if(isset($_SESSION['erro'])){
+      echo $_SESSION['erro'];
+    }
+
+     ?>
+  </div>
 </div>

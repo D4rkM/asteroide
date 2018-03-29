@@ -23,6 +23,11 @@ class Funcionario{
   public $ativo;
   public $online;
   public $login;
+  public $cep;
+  public $logradouro;
+  public $bairro;
+  public $complemento;
+  public $id_cidade;
 
   public function __construct(){
     require_once('db_class.php');
@@ -32,7 +37,7 @@ class Funcionario{
 
     $sql = "insert into funcionario set nome='$funcionario_dados->nome',
                                         login='$funcionario_dados->login',
-                                        data_nasc='$funcionario_dados->data_nasc',
+                                        datanasc='$funcionario_dados->data_nasc',
                                         telefone='$funcionario_dados->telefone',
                                         cpf='$funcionario_dados->cpf',
                                         ativo='$funcionario_dados->ativo',
@@ -40,7 +45,13 @@ class Funcionario{
                                         senha='$funcionario_dados->senha',
                                         sexo='$funcionario_dados->sexo',
                                         celular='$funcionario_dados->celular',
-                                        rg='$funcionario_dados->rg';";
+                                        rg='$funcionario_dados->rg',
+                                        cep='$funcionario_dados->cep',
+                                        logradouro='$funcionario_dados->logradouro',
+                                        bairro='$funcionario_dados->bairro',
+                                        numero='$funcionario_dados->numero',
+                                        complemento='$funcionario_dados->complemento';";
+
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -61,9 +72,41 @@ class Funcionario{
 
   }
 
-  public function Update($dadosFuncionario){
+  public function Update($funcionario_dados){
 
+    $sql = "update funcionario set nome='$funcionario_dados->nome',
+                                        login='$funcionario_dados->login',
+                                        datanasc='$funcionario_dados->data_nasc',
+                                        telefone='$funcionario_dados->telefone',
+                                        cpf='$funcionario_dados->cpf',
+                                        ativo='$funcionario_dados->ativo',
+                                        email='$funcionario_dados->email',
+                                        senha='$funcionario_dados->senha',
+                                        sexo='$funcionario_dados->sexo',
+                                        celular='$funcionario_dados->celular',
+                                        rg='$funcionario_dados->rg',
+                                        cep='$funcionario_dados->cep',
+                                        logradouro='$funcionario_dados->logradouro',
+                                        bairro='$funcionario_dados->bairro',
+                                        complemento='$funcionario_dados->complemento',
+                                        numero='$funcionario_dados->numero'
+                                        where id = $funcionario_dados->id;";
 
+    //Instancia a classe do banco
+    $conex = new Mysql_db();
+
+    //Chama o metodo para conectar no BD,
+    //e guarda o retorno da conexao na variavel $PDO_conex
+    $PDO_conex = $conex->Conectar();
+
+    //Executa o script $sql no Banco de Dados
+    if($PDO_conex->query($sql))
+        header('location:index.php');
+    else
+        echo("Erro ao atualizar no BD");
+
+    //Fecha a conexão com o Banco de Dados
+    $conex->Desconectar();
   }
 
   public function Delete($funcionario_dados){
@@ -121,9 +164,48 @@ class Funcionario{
 
   }
 
-  public function SelectById(){
+  public function SelectById($funcionario_dados){
 
+    $sql = "select * from funcionario where id = $funcionario_dados->id";
+
+    $conex = new Mysql_db();
+
+    $PDO_conex = $conex->Conectar();
+
+    $select = $PDO_conex->query($sql);
+
+    if($rs=$select->fetch(PDO::FETCH_ASSOC)){
+
+      $funcionario = new Funcionario();
+
+      $funcionario = new Funcionario();
+
+      $funcionario->nome = $rs['nome'];
+      $funcionario->login = $rs['login'];
+      $funcionario->data_nasc = $rs['datanasc'];
+      $funcionario->telefone = $rs['telefone'];
+      $funcionario->cpf = $rs['cpf'];
+      $funcionario->cep = $rs['cep'];
+      $funcionario->numero = $rs['numero'];
+      $funcionario->bairro = $rs['bairro'];
+      $funcionario->ativo = $rs['ativo'];
+      $funcionario->email = $rs['email'];
+      $funcionario->senha = $rs['senha'];
+      $funcionario->sexo = $rs['sexo'];
+      $funcionario->celular = $rs['celular'];
+      $funcionario->rg = $rs['rg'];
+      $funcionario->logradouro = $rs['logradouro'];
+      $funcionario->complemento = $rs['complemento'];
+
+      $conex->Desconectar();
+
+
+    }
+    if(isset($funcionario))
+      return $funcionario;
   }
+
+
 
   public function Login($funcionario_dados){
 
@@ -165,11 +247,10 @@ class Funcionario{
       }
 
     }else{
-      ?>
-        <script type="text/javascript">
-          alert('Usuário ou senha incorreto, tente novamente.');
-        </script>
-      <?php
+
+
+      echo("<script> alert('Usuário ou senha incorreto, tente novamente.'); </script>");
+      return false;
     }
 
   }

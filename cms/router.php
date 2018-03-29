@@ -19,18 +19,44 @@
 
         case 'excluir':
 
-        //instanciando a classe da controller
-        $controllerFuncionario = new controllerFuncionario();
+          //instanciando a classe da controller
+          $controllerFuncionario = new controllerFuncionario();
 
-        $controllerFuncionario::Excluir();
+          $controllerFuncionario::Excluir();
+
+        break;
+
+        case 'editar':
+
+          //instanciando a classe da controller
+          $controllerFuncionario = new controllerFuncionario();
+
+          $controllerFuncionario::Editar($_GET['id']);
 
         break;
 
         case 'novo':
 
-        $controllerFuncionario = new controllerFuncionario();
+          $controllerFuncionario = new controllerFuncionario();
 
-        $controllerFuncionario::Novo();
+          $controllerFuncionario::Novo();
+          break;
+
+        case 'buscar':
+
+          $controllerFuncionario = new controllerFuncionario();
+
+          $controllerFuncionario::Buscar();
+
+          break;
+
+        case 'buscarEstados':
+
+          $controllerFuncionario = new controllerFuncionario();
+
+          $controllerFuncionario::Listar();
+
+          break;
 
         default:
           # code...

@@ -1,3 +1,4 @@
+
 <div class="menu-list-funcionario">
 
   <div class="itens-list-funcionario">
@@ -20,6 +21,32 @@
   </div>
 </div>
 
+<script type="text/javascript" src="js/jquery.js"></script>
+
+<script>
+$(document).ready(function() {
+
+  $(".ver").click(function() {
+    $(".modalContainer").fadeIn(500);
+	//slideToggle
+	//toggle
+	//FadeIn
+  });
+});
+
+
+
+	function Modal(idIten){
+		$.ajax({
+			type: "POST",
+			url: "views/cms/modal.php",
+			data: {id:idIten},
+			success: function(dados){
+				$('.modal').html(dados);
+			}
+		});
+	}
+</script>
 <?php
 
   require_once("../../controllers/funcionario_controller.php");
@@ -50,9 +77,6 @@
         <?php echo $list[$cont]->cpf ?>
       </div>
       <div class="itens-list-funcionario-mostrar">
-        <!-- <a href="router.php?controller=funcionario&modo=excluir&id=<?php echo($list[$cont]->id)?>" onclick="return confirm('Deseja realmente excluir?');">
-          <img src="img/icon-config.png" alt="">
-        </a> -->
         <?php
           if($list[$cont]->ativo == 1){
             echo "Ativado";
@@ -61,7 +85,7 @@
           }
          ?>
 
-        <a href="funcionario_cadastro_cms_view.php?controller=funcionario&modo=editar&id=<?php echo($list[$cont]->id)?>">
+        <a href="#" class="ver" onclick="Modal(<?php echo($list[$cont]->id);?>)">
           <img src="img/icon-edit.png" alt="">
         </a>
 
