@@ -62,26 +62,80 @@
       </div>
     </div>
     <div class="pagamento">
-      <table class="tabela_pagamento">
-        <tr>
-          <td class="linha_campo">Bandeiras</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="linha_campo">Dados do titular</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="linha_campo">Parcelamento</td>
-          <td></td>
-        </tr>
-      </table>
+      <div class="propriedades">
+        <div class="atributos">
+          <div class="bandeiras">
+            <div class="segura_div">
+              <div class="tit_banderia">
+                Bandeira
+              </div>
+              <div class="segura">
+                <div class="quadradinho">
+
+                </div>
+                <div class="quadrados">
+
+                </div>
+              </div>
+              <div class="segura">
+                <div class="quadradinho">
+
+                </div>
+                <div class="quadrados">
+
+                </div>
+              </div>
+              <div class="segura">
+                <div class="quadradinho">
+
+                </div>
+                <div class="quadrados">
+
+                </div>
+              </div>
+              <div class="segura">
+                <div class="quadradinho">
+
+                </div>
+                <div class="quadrados">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dados">
+            <div class="tit_dados">
+              Dados do titular
+            </div>
+            <div class="nada">
+
+            </div>
+            <div class="seg_preenchimento">
+              <div class="controla_input">
+                <input type="text" name="Nome" value="">
+              </div>
+              <div class="controla_input">
+                <input type="text" name="Nome" value="">
+              </div>
+              <div class="controla_input">
+                <input type="text" name="Nome" value="">
+              </div>
+              <div class="controla_input">
+                <input type="text" name="Nome" value="">
+              </div>
+
+              <!-- div que contenha uma seleção data visivel para o usuario -->
+
+              <div class="controla_input">
+                <input type="text" name="Nome" value="">
+              </div>
+            </div>
+          </div>
+          <div class="parcelamento">
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  </div>
+</div>
