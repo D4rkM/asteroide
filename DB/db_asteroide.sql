@@ -185,8 +185,8 @@ CREATE TABLE `compra` (
   PRIMARY KEY (`id`),
   KEY `fk_viagem_idx` (`id_viagem`),
   KEY `fk_usuario_idx` (`id_usuario`),
-  CONSTRAINT `fk_usuario_compra` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_viagem_compra` FOREIGN KEY (`id_viagem`) REFERENCES `viagem` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_viagem_compra` FOREIGN KEY (`id_viagem`) REFERENCES `viagem` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuario_compra` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -213,8 +213,8 @@ CREATE TABLE `compra_passagem` (
   PRIMARY KEY (`id`),
   KEY `fk_usuario_idx` (`id_usuario`),
   KEY `fk_postorodoviario_idx` (`id_postorodoviario`),
-  CONSTRAINT `fk_postorodoviario` FOREIGN KEY (`id_postorodoviario`) REFERENCES `posto_rodoviario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_usuario_passagem` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_usuario_passagem` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_postorodoviario` FOREIGN KEY (`id_postorodoviario`) REFERENCES `posto_rodoviario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -371,7 +371,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (1,'teste','asdasd','123','2000-10-02','F','123123','123','23123','123123',1,'teste','123123','1','123','123','123',NULL);
+INSERT INTO `funcionario` VALUES (1,'teste','asdasd','123','2000-02-12','F','123123','123','23123','123123',1,'teste','123123','1','123','123','123',NULL);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -649,8 +649,8 @@ CREATE TABLE `oleo_onibus` (
   PRIMARY KEY (`id`),
   KEY `fk_onibus_idx` (`id_onibus`),
   KEY `fk_oleo_idx` (`id_oleo`),
-  CONSTRAINT `fk_oleo_onibus` FOREIGN KEY (`id_oleo`) REFERENCES `oleo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_onibus_oleo` FOREIGN KEY (`id_onibus`) REFERENCES `onibus` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_onibus_oleo` FOREIGN KEY (`id_onibus`) REFERENCES `onibus` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_oleo_onibus` FOREIGN KEY (`id_oleo`) REFERENCES `oleo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -708,8 +708,8 @@ CREATE TABLE `onibus_pneu` (
   PRIMARY KEY (`id`),
   KEY `fk_pneu_idx` (`id_pneu`),
   KEY `fk_onibus_idx` (`id_onibus`),
-  CONSTRAINT `fk_onibus_pneu` FOREIGN KEY (`id_onibus`) REFERENCES `onibus` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pneu_onibus` FOREIGN KEY (`id_pneu`) REFERENCES `pneu` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_pneu_onibus` FOREIGN KEY (`id_pneu`) REFERENCES `pneu` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_onibus_pneu` FOREIGN KEY (`id_onibus`) REFERENCES `onibus` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -807,7 +807,7 @@ CREATE TABLE `pgduvidas_frequentes` (
   `aparecer` int(11) DEFAULT NULL,
   `pergunta` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -816,7 +816,6 @@ CREATE TABLE `pgduvidas_frequentes` (
 
 LOCK TABLES `pgduvidas_frequentes` WRITE;
 /*!40000 ALTER TABLE `pgduvidas_frequentes` DISABLE KEYS */;
-INSERT INTO `pgduvidas_frequentes` VALUES (4,'asdasdasd123123',0,'teste123');
 /*!40000 ALTER TABLE `pgduvidas_frequentes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -902,10 +901,6 @@ CREATE TABLE `pgsobre_nos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `txt1` varchar(45) DEFAULT NULL,
   `txt2` varchar(45) DEFAULT NULL,
-  `imagemGrande` varchar(200) DEFAULT NULL,
-  `imagem1` varchar(200) DEFAULT NULL,
-  `imagem2` varchar(200) DEFAULT NULL,
-  `imagem3` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1068,11 +1063,11 @@ CREATE TABLE `viagem` (
   KEY `fk_partida_idx` (`id_partida`),
   KEY `fk_caminho_idx` (`id_caminho`),
   KEY `fk_motorista_idx` (`id_motorista`),
-  CONSTRAINT `fk_caminho_viagem` FOREIGN KEY (`id_caminho`) REFERENCES `caminho` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_chegada_viagem` FOREIGN KEY (`id_chegada`) REFERENCES `chegada` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_motorista_viagem` FOREIGN KEY (`id_motorista`) REFERENCES `motorista` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_onibus_viagem` FOREIGN KEY (`id_onibus`) REFERENCES `onibus` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_partida_viagem` FOREIGN KEY (`id_partida`) REFERENCES `partida` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_chegada_viagem` FOREIGN KEY (`id_chegada`) REFERENCES `chegada` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_partida_viagem` FOREIGN KEY (`id_partida`) REFERENCES `partida` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_caminho_viagem` FOREIGN KEY (`id_caminho`) REFERENCES `caminho` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_motorista_viagem` FOREIGN KEY (`id_motorista`) REFERENCES `motorista` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1099,8 +1094,8 @@ CREATE TABLE `viagem_notificacao` (
   PRIMARY KEY (`id`),
   KEY `fk_viagem_idx` (`id_viagem`),
   KEY `fk_mensagemnotificacao_idx` (`id_mensagemnotificacao`),
-  CONSTRAINT `fk_mensagem_ntf` FOREIGN KEY (`id_mensagemnotificacao`) REFERENCES `mensagem_notificacao` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_viagem_ntf` FOREIGN KEY (`id_viagem`) REFERENCES `viagem` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_viagem_ntf` FOREIGN KEY (`id_viagem`) REFERENCES `viagem` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_mensagem_ntf` FOREIGN KEY (`id_mensagemnotificacao`) REFERENCES `mensagem_notificacao` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1122,4 +1117,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-29 11:08:56
+-- Dump completed on 2018-03-28  8:22:40

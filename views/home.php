@@ -11,9 +11,48 @@
     <title>Home - Bem vindo</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/jquery-3.3.1.js">
-
-    </script>
+    <link rel="stylesheet" href="css/style_login.css">
+    <link rel="stylesheet" href="css/style_detalhes.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/jquery-3.3.1.js"></script>
+    <!--Modal de Login-->
+    <script>
+        $(document).ready(function() {
+              $(".login").click(function() {
+                $(".modalContainerLogin").slideToggle(1000);
+              });
+        });
+        //função para abrir a modal 
+        function Login(){
+            $.ajax({
+                type: "POST",
+                url: "views/login.php",
+                success: function(dados){
+                    $('.modal_login').html(dados);
+                 }
+                });
+            }
+       
+        </script>
+      <!--Modal da pagina de ranking (detalhes)-->
+      <script>
+        $(document).ready(function() {
+              $(".detalhes").click(function() {
+                $(".modalContainerDetalhes").slideToggle(1000);
+              });
+        });
+        
+        function Detalhes(){
+            $.ajax({
+                type: "POST",
+                url: "views/detalhes.php",
+                success: function(dados){
+                    $('.modal_detalhes').html(dados);
+                 }
+                });
+            }
+       
+        </script>
     <script>
     // $(function(){
     // //Função para utilizar a posição do scroll na animação
@@ -35,9 +74,14 @@
     </script>
   </head>
   <body>
+      <div class="modalContainerLogin">
+           <div class="modal_login">
+               
+           </div>
+       </div>
     <!-- Menu Superior -->
     <nav>
-      <div class="menu-container" id="men">
+      <div class="menu-container" id="men" style="background-color:#162E44;">
         <div class="login-menu">
 
         </div>
@@ -78,7 +122,7 @@
         </div>
         <!--  -->
         <div class="login-menu">
-          <a href="#"> <h4> <b>Acesso</b> </h4> </a>
+           <a class="login" href="#" onclick="Login();"> <h4> <b>Acesso</b> </h4> </a>
         </div>
       </div>
     </nav>
@@ -90,7 +134,7 @@
 
     <!-- Conteúdo da página -->
     <div class="conteudo">
-      <?php require_once("duvidas_frequentes.php"); ?>
+      <?php require_once("cadastro/cadastro_usuario.php"); ?>
     </div>
 
 

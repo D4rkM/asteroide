@@ -8,8 +8,11 @@ Obs: Arquivo principal para edições nas páginas
   Paleta de cores:
   -- Definir --
   #4d9b61
-  #162E44
+  #458665
+  #3f635f
+  #384e59
   #1F405E
+  #162E44
   #000000
 */
 
@@ -33,6 +36,16 @@ body{
 }
 
 input{
+  border: none;
+  border-bottom: 2px solid #1F405E;
+}
+
+label{
+  color:#1F405E;
+  font-weight: bold;
+}
+
+.btn{
 
 }
 
@@ -1706,14 +1719,15 @@ box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
   color: #000;
   margin-bottom: 20px;
 }
-
+/*Segura todos os itens do cadastro*/
 .cadastro{
     width: 70%;
     height: 950px;
     background-color: #fff;
     margin: auto;
+    border-radius: 10px;
 }
-
+/*texto da imagem de inserir foto de perfil*/
 .text{
     width: 20%;
     margin: auto;
@@ -1721,57 +1735,137 @@ box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
     font-family: sans-serif;
     font-size: 18px;
 }
-
-.imagem_usuario{
-    width: 25%;
-    height: 150px;
-    background-color: black;
+/*Container para colocar a imagem de perfil*/
+#imagem{
+    width: 190px;
+    height: 200px;
     margin: auto;
 }
 
+#id_sua_img{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
+    
+}
+/*Botão para selecionar a foto*/
 .botao_foto_perfil{
     margin-left: 37.5%;
 }
-
+/*titulo das caixas de textos*/
 .text_left{
-    margin-left: 18%;
+    margin-left: 19%;
     font-family: sans-serif;
     font-size: 15px;
 }
-
+/*Caixas de textos*/
 .box_text{
     width: 60%;
-    margin-left: 18%;
+    margin-left: 19%;
     border-radius: 10px;
 }
-
-.box_text2{
-    width: 85%;
-    height: 22px;
-    border-radius: 10px;
-}
-
+/*Tabela que segura todos os itens dos dados pessoais do usuario*/
 .tabela_cadastro{
     width: 60%;
     height: 400px;
-    margin: auto;
+    margin-left: 19%;
 }
-
+/*Colunas que seguram o titulo da caixa de texto*/
 .colunas_cadastro_nome{
     width: 50%;
     height: 15px;
 }
-
+/*Titulo das caixas de textos - Dados Pessoais*/
+.text_box{
+    width: 25%;
+    font-family: sans-serif;
+    font-size: 15px;
+    float: left;
+}
+/*Colunas que seguram a caixa de texto*/
 .colunas_cadastro_caixa{
     width: 50%;
     height: 40px;
 }
-
-.text_box{
-    font-family: sans-serif;
-    font-size: 15px;
+/*caixas de textos - Dados Pessoais*/
+.box_text2{
+    width: 92%;
+    height: 22px;
+    border-radius: 10px;
+}
+#telefone{
+  width: 92%;
+  height: 22px;
+  border-radius: 10px;
 }
 
+#celular{
+  width: 92%;
+  height: 22px;
+  border-radius: 10px;
+}
+
+#dataNascimento{
+  width: 92%;
+  height: 22px;
+  border-radius: 10px;
+}
+#cpf{
+  width: 92%;
+  height: 22px;
+  border-radius: 10px;
+}
+#rg{
+  width: 92%;
+  height: 22px;
+  border-radius: 10px;
+}
+#cep{
+  width: 25%;
+  height: 22px;
+  border-radius: 10px;
+}
+
+.logradouro{
+  width:68%;
+  height: 22px;
+  border-radius: 10px;
+  margin-left: 4%;
+}
+
+.logradouro_texto{
+    width: 100px;
+    font-family: sans-serif;
+    font-size: 15px;
+    float: left;
+    margin-left: 4%;
+}
+
+.numero{
+  width: 25%;
+  height: 22px;
+  border-radius: 10px;
+}
+
+.bairro{
+  width: 35%;
+  height: 22px;
+  border-radius: 10px;
+}
+
+.complemento{
+  width: 35%;
+  height: 22px;
+  border-radius: 10px;
+}
+
+.bairro_texto{
+  width: 25%;
+  margin-left: 5px;
+  margin-right: 11%;
+  float: left;
+}
+/*Botão Salvar*/
 .btnsalvar{
     margin-left: 43%;
     width: 120px;
@@ -1781,7 +1875,7 @@ box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
     font-family: sans-serif;
     font-size: 15px;
 }
-
+/* ------------------------------------------------------------------------- */
 /* Pagina de interação do usuario*/
 .conteudo_interacao{
   width: 100%;

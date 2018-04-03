@@ -6,13 +6,13 @@
   -->
 
 <!-- Conteúdo da página -->
-<div class="conteuno_cadastro">
+<div class="conteudo_cadastro">
+  <div class="title_duvidas">
+    <h2 style="color:#3f635f;">EDITAR PERFIL</h2>
+  </div>
   <!--Container que segura todas as informações da pagina -->
   <div class="cadastro_container">
     <!--Container responsael por segurar o titulo da pagima -->
-     <div class="title_cadastro">
-      <h1>Editar Perfil</h1>
-     </div>
      <!--Segura todos os itens do cadastro-->
       <div class="cadastro">
           <!--Form dos itens do cadastro-->
@@ -20,22 +20,23 @@
               <!--texto da imagem de inserir foto de perfil-->
               <div class="text">Foto de Perfil</div>
               <!--Container para colocar a imagem de perfil-->
-              <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">                       </script>
-              <div id="imagem">
-                  <img id="id_sua_img" src="" alt="teste"/>
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+              <div id="imagem" class="">
+                <img id="id_sua_img" src="" alt="teste"/>
               </div>
-              <!--Botão para selecionar a foto-->
-              <input id="teste" class="botao_foto_perfil" type="file" name="flefoto"/>
-              <br>
-              <br>
+              <div class="">
+                <!--Botão para selecionar a foto-->
+                <input id="teste" class="botao_foto_perfil" type="file" name="flefoto"/>
+
+              </div>
               <!--titulo das caixas de textos (class="text_left")-->
-              <div class="text_left">Nome completo</div>
+              <div class="text_left" style="color:#1f405e;">Nome completo</div>
               <!--Caixas de textos (class="box_text")-->
               <input class="box_text" type="text" name="txtnome">
                 <!--titulo da caixa de texto (class="text_left")-->
-              <div class="text_left">E-mail</div>
+              <label for="email">E-mail</label>
               <!--Caixas de textos (class="box_text")-->
-              <input class="box_text" type="text" name="txtemail">
+              <input id="email"class="box_text" type="text" name="txtemail">
                 <!--titulo da caixa de texto (class="text_left")-->
               <div class="text_left">Senha</div>
               <!--Caixas de textos (class="box_text")-->

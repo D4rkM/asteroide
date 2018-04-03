@@ -6,12 +6,13 @@
   mais vende passagens no brasil
   Obs: Página principal contém menu e rodapé para inserir as outras páginas
   -->
-    <!--Modal responsavel por detalhes do posto-->
-    <div class="modalContainer">
-            <div class="modal">
 
-            </div>
-        </div>
+<div class="modalContainerDetalhes">
+    <div class="modal_detalhes">
+    </div>
+</div>
+
+ 
     <!-- Conteúdo da página -->
     <div class="conteudo_ranking">
           <!--Conteiner reponsavel por segurar o conteudo-->
@@ -29,7 +30,7 @@
                 <!--Imagem do posto rodoviario-->
               <img class="img_posto" src="img/v.php" alt="rod">
                 <!--Responsavel por chamar a modal de detalhes do posto rodoviario-->
-              <a class="detalhes" href="#" onclick="Modal()">Detalhes</a>
+              <a class="detalhes" href="#" onclick="Detalhes()">Detalhes</a>
             </div>
 
             <div class="posicao">
@@ -37,7 +38,7 @@
             </div>
             <div class="postos_content">
               <img class="img_posto" src="img/rodoviaria.jpg" alt="rod">
-              <a class="detalhes" href="#" onclick="Modal()">Detalhes</a>
+              <a class="detalhes" href="#" onclick="Detalhes()">Detalhes</a>
             </div>
 
             <div class="posicao">
@@ -45,7 +46,7 @@
             </div>
             <div class="postos_content">
               <img class="img_posto" src="img/rod2.jpeg" alt="rod">
-              <a class="detalhes" href="#" onclick="Modal()">Detalhes</a>
+              <a class="detalhes" href="#" onclick="Detalhes()">Detalhes</a>
             </div>
 
             <div class="posicao">
@@ -53,7 +54,7 @@
             </div>
             <div class="postos_content">
               <img class="img_posto" src="img/sp.png" alt="rod">
-              <a class="detalhes" href="#" onclick="Modal()">Detalhes</a>
+              <a class="detalhes" href="#" onclick="Detalhes()">Detalhes</a>
             </div>
           </div>
     </div>
