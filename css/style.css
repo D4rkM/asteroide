@@ -37,7 +37,8 @@ body{
 
 input{
   border: none;
-  border-bottom: 2px solid #1F405E;
+  background-color: inherit;
+  border-bottom: 2px solid #C0C0C0;
 }
 
 label{
@@ -46,7 +47,25 @@ label{
 }
 
 .btn{
+  /* font-family:"Nunito",sans-serif; */
+  cursor: pointer;
+  align-self: flex-end;
+  color: #FFFFFF;
+  background-color: #458665;
+  border:none;
+  outline: 0;
+  font-weight: bold;
+  padding:15px 30px;
+  border-radius:5px;
+  width: auto;
+  text-transform: uppercase;
+  transition: 1s;
+}
 
+input.btn:hover{
+  background-color: #4d9b61;
+  border:0px;
+  transition: 1s;
 }
 
 ul{
@@ -63,6 +82,39 @@ a{
 textarea{
   resize:none;
 }
+
+.display-none{
+  display: none;
+}
+
+.titulo-conteudo-padrao{
+  display: block;
+  height: auto;
+  /* background-color: #fff; */
+  border-bottom: solid 1px green;
+  text-align: center;
+  color: #3F635F;
+  margin-bottom: 20px;
+}
+
+.subtitulo{
+  width: auto;
+  /* margin: auto; */
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #458665;
+}
+
+textarea:focus, input:focus, select:focus {
+    box-shadow: 5 5;
+    border-bottom:  none;
+    outline: 0;
+    border-bottom: 2px solid #1F405E;
+    transition:1s;
+}
+
 
 /* ------------------------------------------------------------------------- */
 
@@ -152,6 +204,8 @@ textarea{
   width: 100px;
   /* background-color: red; */
 }
+
+
 
 /* ------------------------------------------------------------------------- */
 
@@ -1120,17 +1174,7 @@ h1{
   /* border: solid 1px #000; */
 }
 
-.title_duvidas{
-  display: block;
 
-  height: auto;
-  /* background-color: #fff; */
-  border-bottom: solid 1px green;
-
-  text-align: center;
-  color: #000;
-  margin-bottom: 20px;
-}
 
 .perguntas{
     display: flex;
@@ -1692,138 +1736,169 @@ box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
 /* ------------------------------------------------------------------------- */
 
 /* Página de cadastro */
-.conteuno_cadastro{
+.conteudo-cadastro{
   width: 100%;
   min-height: 1100px;
   height: auto;
   padding-top: 50px;
-  background-color: #C0C0C0;
+  /* background-color: #C0C0C0; */
 }
 /*Container que segura o conteudo*/
-.cadastro_container{
-  width: 85%;
-  min-height: 1100px;
+.cadastro-container{
+  display: flex;
+  width: 1000px;
+  min-height: 950px;
   height: auto;
-  background-color: #458665;
+  flex-direction: row;
+  justify-content: center;
+  /* background-color: #fff; */
   margin: auto;
-  border: solid 1px #000;
+  /* border-radius: 10px; */
 }
-/*Container que segura o titulo da pagina*/
-.title_cadastro{
-  width: 99.9%;
-  height: 85px;
-  background-color: #fff;
-  border: solid 1px #fff;
 
-  text-align: center;
-  color: #000;
-  margin-bottom: 20px;
-}
 /*Segura todos os itens do cadastro*/
 .cadastro{
-    width: 70%;
-    height: 950px;
-    background-color: #fff;
-    margin: auto;
-    border-radius: 10px;
+  display: flex;
+  width: 100%;
+  min-height: 950px;
+  height: auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #fff; */
+  margin: auto;
+  /* border-radius: 10px; */
 }
-/*texto da imagem de inserir foto de perfil*/
-.text{
-    width: 20%;
-    margin: auto;
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 18px;
-}
+
 /*Container para colocar a imagem de perfil*/
 #imagem{
-    width: 190px;
-    height: 200px;
-    margin: auto;
+  cursor: pointer;
+  width: 190px;
+  height: 200px;
+  /* margin: auto; */
+}
+
+label#imagem{
+  margin: 0px;
+  align-self: center;
 }
 
 #id_sua_img{
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
-    
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 100px;
 }
+
+/* contem os campos para adicionar as fotos */
+.campo-foto{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  height: 250px;
+  /* height: auto; */
+  padding: 0px;
+  margin: 0px;
+}
+/* Armazena os dados principais para cadastro */
+.dados-principais-cad{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 200px;
+  /* background-color: grey; */
+}
+/* Armazena os dados de conteudo que serão inseridos */
+.dados-complementares-cad{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  width: 500px;
+  height: 500px;
+}
+
+.dados-pessoais{
+  display: flex;
+  flex-direction: row ;
+}
+
+.dados-esquerda{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  /* align-items: center; */
+}
+
+.dados-direita{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+}
+
+/* mantem a label e input padronizadas */
+.caixa-dados{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+  width: 400px;
+  height: 60px;
+  /* margin: 10px 0px; */
+}
+
+
+/* Adiciona foto no cadastro ou edição de funcionarios */
+.adicionar-foto{
+  display: flex;
+  align-self: center;
+  width: 190px;
+  height: 200px;
+}
+
+.input-foto{
+  display: none;
+}
+
 /*Botão para selecionar a foto*/
 .botao_foto_perfil{
-    margin-left: 37.5%;
+  margin-left: 37.5%;
 }
 /*titulo das caixas de textos*/
 .text_left{
-    margin-left: 19%;
-    font-family: sans-serif;
-    font-size: 15px;
+  margin-left: 19%;
+  font-family: sans-serif;
+  font-size: 15px;
 }
-/*Caixas de textos*/
-.box_text{
-    width: 60%;
-    margin-left: 19%;
-    border-radius: 10px;
-}
+
+
 /*Tabela que segura todos os itens dos dados pessoais do usuario*/
 .tabela_cadastro{
-    width: 60%;
-    height: 400px;
-    margin-left: 19%;
+  width: 60%;
+  height: 400px;
+  /* margin-left: 19%; */
 }
 /*Colunas que seguram o titulo da caixa de texto*/
 .colunas_cadastro_nome{
-    width: 50%;
-    height: 15px;
+  width: 50%;
+  height: 15px;
 }
 /*Titulo das caixas de textos - Dados Pessoais*/
 .text_box{
-    width: 25%;
-    font-family: sans-serif;
-    font-size: 15px;
-    float: left;
+  width: 25%;
+  font-family: sans-serif;
+  font-size: 15px;
+  float: left;
 }
 /*Colunas que seguram a caixa de texto*/
 .colunas_cadastro_caixa{
-    width: 50%;
-    height: 40px;
-}
-/*caixas de textos - Dados Pessoais*/
-.box_text2{
-    width: 92%;
-    height: 22px;
-    border-radius: 10px;
-}
-#telefone{
-  width: 92%;
-  height: 22px;
-  border-radius: 10px;
-}
-
-#celular{
-  width: 92%;
-  height: 22px;
-  border-radius: 10px;
-}
-
-#dataNascimento{
-  width: 92%;
-  height: 22px;
-  border-radius: 10px;
-}
-#cpf{
-  width: 92%;
-  height: 22px;
-  border-radius: 10px;
-}
-#rg{
-  width: 92%;
-  height: 22px;
-  border-radius: 10px;
-}
-#cep{
-  width: 25%;
-  height: 22px;
-  border-radius: 10px;
+  width: 50%;
+  height: 40px;
 }
 
 .logradouro{

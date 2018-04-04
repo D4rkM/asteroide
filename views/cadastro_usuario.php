@@ -8,8 +8,8 @@
 
 <!-- Conteúdo da página -->
 <div class="conteudo_cadastro">
-  <div class="title_duvidas">
-    <h2 style="color:#3f635f;">EDITAR - CADASTRO - PERFIL</h2>
+  <div class="title_padrao">
+    <h2>EDITAR - CADASTRO - PERFIL</h2>
   </div>
   <!--Container que segura todas as informações da pagina -->
   <div class="cadastro_container">
