@@ -4,10 +4,10 @@
       INFORMAÇÕES SOBRE SERVIÇO
     </div>
     <div class="inf">
-      <div class="escrita">
+      <div class="escrita subtitulo">
         INFORMAÇÃO
       </div>
-      <div class="caixas_inf">
+      <div class="caixas-inf">
         <div class="escrita_principal">
           ATENDIMENTO PREFERENCIAL
         </div>
@@ -15,7 +15,7 @@
           <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
         </div>
       </div>
-      <div class="caixas_inf">
+      <div class="caixas-inf">
         <div class="escrita_principal">
           DOS ENCARGOS DO PODER CONCEDENTE
         </div>
@@ -23,7 +23,7 @@
           <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
         </div>
       </div>
-      <div class="caixas_inf">
+      <div class="caixas-inf">
         <div class="escrita_principal">
           DOS DIREITOS E OBRIGAÇÕES DO USUARIO
         </div>
@@ -31,7 +31,7 @@
           <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
         </div>
       </div>
-      <div class="caixas_inf">
+      <div class="caixas-inf">
         <div class="escrita_principal">
           DO ATENDIMENTO AO USUARIO ANTT
         </div>
@@ -39,7 +39,7 @@
           <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
         </div>
       </div>
-      <div class="caixas_inf">
+      <div class="caixas-inf">
         <div class="escrita_principal">
           IDENTIFICAÇÃO DE PASSAGEIRO PARA EMBARQUE
         </div>
@@ -47,7 +47,7 @@
           <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
         </div>
       </div>
-      <div class="caixas_inf">
+      <div class="caixas-inf">
         <div class="escrita_principal">
           DA BAGAGEM E DAS ENCOMENDAS
         </div>
@@ -55,7 +55,7 @@
           <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
         </div>
       </div>
-      <div class="caixas_inf">
+      <div class="caixas-inf">
         <div class="escrita_principal">
           DA BAGAGEM E DAS ENCOMENDAS
         </div>
@@ -63,7 +63,7 @@
           <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
         </div>
       </div>
-      <div class="caixas_inf">
+      <div class="caixas-inf">
         <div class="escrita_principal">
           DA BAGAGEM E DAS ENCOMENDAS
         </div>
@@ -71,7 +71,7 @@
           <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
         </div>
       </div>
-      <div class="caixas_inf">
+      <div class="caixas-inf">
         <div class="escrita_principal">
           DA BAGAGEM E DAS ENCOMENDAS
         </div>
@@ -79,7 +79,7 @@
           <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
         </div>
       </div>
-      <div class="caixas_inf">
+      <div class="caixas-inf">
         <div class="escrita_principal">
           DA BAGAGEM E DAS ENCOMENDAS
         </div>
@@ -87,7 +87,7 @@
           <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
         </div>
       </div>
-      <div class="caixas_inf">
+      <div class="caixas-inf">
         <div class="escrita_principal">
           DA BAGAGEM E DAS ENCOMENDAS
         </div>
@@ -95,7 +95,7 @@
           <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
         </div>
       </div>
-      <div class="caixas_inf">
+      <div class="caixas-inf">
         <div class="escrita_principal">
           DA BAGAGEM E DAS ENCOMENDAS
         </div>

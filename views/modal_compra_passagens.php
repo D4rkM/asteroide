@@ -64,7 +64,7 @@
     </div>
   </div>
   <div class="botao_busque">
-    <button type="button" name="btn_buscar">Buscar Passagem </button>
+    <button type="button" name="btn_buscar" class="btn">Buscar Passagem </button>
   </div>
 
 

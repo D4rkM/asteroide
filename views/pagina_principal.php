@@ -16,7 +16,7 @@
 
   <div class="conteudo_locais">
     <div class="titulo_locais">
-      <p style="color:#3f635f;">
+      <p style="color:#3f635f;" class="subtitulo">
         <b>  SE SENTINDO AVENTUREIRO? </b>
         </p>
     </div>

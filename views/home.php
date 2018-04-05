@@ -22,7 +22,7 @@
                 $(".modalContainerLogin").slideToggle(1000);
               });
         });
-        //função para abrir a modal 
+        //função para abrir a modal
         function Login(){
             $.ajax({
                 type: "POST",
@@ -32,7 +32,7 @@
                  }
                 });
             }
-       
+
         </script>
       <!--Modal da pagina de ranking (detalhes)-->
       <script>
@@ -41,7 +41,7 @@
                 $(".modalContainerDetalhes").slideToggle(1000);
               });
         });
-        
+
         function Detalhes(){
             $.ajax({
                 type: "POST",
@@ -51,7 +51,7 @@
                  }
                 });
             }
-       
+
         </script>
     <script>
     // $(function(){
@@ -76,7 +76,7 @@
   <body>
       <div class="modalContainerLogin">
            <div class="modal_login">
-               
+
            </div>
        </div>
     <!-- Menu Superior -->
@@ -134,7 +134,7 @@
 
     <!-- Conteúdo da página -->
     <div class="conteudo">
-      <?php require_once("cadastro/cadastro_usuario.php"); ?>
+      <?php require_once("fale_conosco.php"); ?>
     </div>
 
 
