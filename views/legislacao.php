@@ -1,111 +1,42 @@
-<div class="cont_principal_dois">
-  <div class="cont_legislacao">
+<div class="container-conteudo">
+  <div class="imagem-de-fundo-legislacao">
     <div class="sobre_servico">
       INFORMAÇÕES SOBRE SERVIÇO
     </div>
-    <div class="inf">
-      <div class="escrita subtitulo">
-        INFORMAÇÃO
-      </div>
-      <div class="caixas-inf">
-        <div class="escrita_principal">
+  </div>
+  <div class="inf">
+      <p class="subtitulo">
+        <b>
+          SAIBA SEUS DIREITOS E DEVERES AO VIAJAR COM A GENTE
+        </b>
+      </p>
+      <!-- <h2 class="titulo_locais">INFORMAÇÕES</h2> -->
+
+    <?php
+      $a = 0;
+      while($a < 13){
+
+
+     ?>
+    <div class="caixas-inf">
+      <div class="inf-subtitulos">
+        <div class="escrita-principal">
           ATENDIMENTO PREFERENCIAL
         </div>
         <div class="icon">
-          <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
+          <img src="img\icon\down.svg" alt="Mostrar Mais" title="Mostrar mais">
         </div>
       </div>
-      <div class="caixas-inf">
-        <div class="escrita_principal">
-          DOS ENCARGOS DO PODER CONCEDENTE
-        </div>
-        <div class="icon">
-          <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
-        </div>
-      </div>
-      <div class="caixas-inf">
-        <div class="escrita_principal">
-          DOS DIREITOS E OBRIGAÇÕES DO USUARIO
-        </div>
-        <div class="icon">
-          <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
-        </div>
-      </div>
-      <div class="caixas-inf">
-        <div class="escrita_principal">
-          DO ATENDIMENTO AO USUARIO ANTT
-        </div>
-        <div class="icon">
-          <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
-        </div>
-      </div>
-      <div class="caixas-inf">
-        <div class="escrita_principal">
-          IDENTIFICAÇÃO DE PASSAGEIRO PARA EMBARQUE
-        </div>
-        <div class="icon">
-          <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
-        </div>
-      </div>
-      <div class="caixas-inf">
-        <div class="escrita_principal">
-          DA BAGAGEM E DAS ENCOMENDAS
-        </div>
-        <div class="icon">
-          <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
-        </div>
-      </div>
-      <div class="caixas-inf">
-        <div class="escrita_principal">
-          DA BAGAGEM E DAS ENCOMENDAS
-        </div>
-        <div class="icon">
-          <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
-        </div>
-      </div>
-      <div class="caixas-inf">
-        <div class="escrita_principal">
-          DA BAGAGEM E DAS ENCOMENDAS
-        </div>
-        <div class="icon">
-          <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
-        </div>
-      </div>
-      <div class="caixas-inf">
-        <div class="escrita_principal">
-          DA BAGAGEM E DAS ENCOMENDAS
-        </div>
-        <div class="icon">
-          <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
-        </div>
-      </div>
-      <div class="caixas-inf">
-        <div class="escrita_principal">
-          DA BAGAGEM E DAS ENCOMENDAS
-        </div>
-        <div class="icon">
-          <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
-        </div>
-      </div>
-      <div class="caixas-inf">
-        <div class="escrita_principal">
-          DA BAGAGEM E DAS ENCOMENDAS
-        </div>
-        <div class="icon">
-          <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
-        </div>
-      </div>
-      <div class="caixas-inf">
-        <div class="escrita_principal">
-          DA BAGAGEM E DAS ENCOMENDAS
-        </div>
-        <div class="icon">
-          <img src="img\icon\if_ic_keyboard_arrow_down_48px_352466.png" alt="">
+      <div class="inf-conteudo">
+        <div class="conteudo-legislacao">
+
         </div>
       </div>
     </div>
+    <?php
+    $a++;
+   } ?>
   </div>
-
     <!-- <div class="inf">
       qualquer coisinha
     </div> -->

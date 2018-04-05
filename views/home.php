@@ -127,14 +127,12 @@
       </div>
     </nav>
     <!-- Aplica um espaçamento para o conteudo não invadir o menu superior -->
-    <div class="espaco-do-menu">
-
-    </div>
+    <div class="espaco-do-menu"></div>
 
 
     <!-- Conteúdo da página -->
     <div class="conteudo">
-      <?php require_once("fale_conosco.php"); ?>
+      <?php require_once("sobre_empresa.php"); ?>
     </div>
 
 
