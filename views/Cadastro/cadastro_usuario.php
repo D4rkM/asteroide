@@ -23,7 +23,6 @@
               <h3>Foto de Perfil</h3>
             </div>
             <!--Container para colocar a imagem de perfil-->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <label for="foto">
               <div  class="adicionar-foto" id="imagem">
                 <img id="id_sua_img" src="img/camera.png" alt="foto"/>
@@ -36,15 +35,15 @@
           </div>
           <!-- Inicia a entrada de dados principais do usuario -->
           <div class="dados-principais-cad">
-            <div class="caixa-dados">
+            <div class="caixa-dados large">
               <label for="nome">Nome completo</label>
               <input id="nome" class="" type="text" name="txtnome">
             </div>
-            <div class="caixa-dados">
+            <div class="caixa-dados large">
               <label for="email" class="">E-mail</label>
               <input id="email" class="" type="text" name="txtemail">
             </div>
-            <div class="caixa-dados">
+            <div class="caixa-dados large">
               <label for="senha" class="">Senha</label>
               <input id="senha" class="" type="password" name="txtsenha">
             </div>
@@ -58,37 +57,100 @@
 
             <div class="dados-pessoais">
               <div class="dados-esquerda">
-                <div class="caixa-dados">
+                <div class="caixa-dados small">
                   <label for="dataNascimento">Data de Nascimento</label>
                   <input id="dataNascimento" type="date" name="txtdatanasc" maxlength="10">
                 </div>
-                <div class="caixa-dados">
-
+                <div class="caixa-dados small">
+                  <label for="telefone">Telefone</label>
+                  <input id="telefone" type="text" name="txttelefone" maxlength="14">
+                </div>
+                <div class="caixa-dados small">
+                  <label for="cpf">CPF</label>
+                  <input id="cpf" name="txtcpf" type="text" maxlength="14">
+                </div>
+                <div class="caixa-dados small">
+                  <label for="cep">CEP</label>
+                  <input id="cep" type="text" name="txtcep" maxlength="9">
                 </div>
                 <div class="caixa-dados">
-
+                  <label for="estado">Estado</label>
+                  <select id="estado" class="box_text2" name="txtestado">
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AP">Amapá</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="BA">Bahia</option>
+                      <option value="CE">Ceará</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espírito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="TO">Tocantins</option>
+                  </select>
                 </div>
               </div>
               <div class="dados-direita">
                 <div class="caixa-dados">
                   <label for="sexo">Sexo</label>
-                  <div class="radio-group">
-                    <input id="sexo" type="radio" name="rdosexo" value="M">Masculino
-                    <input id="sexo" type="radio" name="rdosexo" value="F" checked>Feminino
+                  <div id="sexo" class="radio-group">
+                    <input type="radio" name="rdosexo" value="M">Masculino
+                    <input type="radio" name="rdosexo" value="F" checked>Feminino
                   </div>
                 </div>
                 <div class="caixa-dados">
-
+                  <label for="celular">Celular</label>
+                  <input id="celular" type="text" name="txtcelular" maxlength="15" >
                 </div>
                 <div class="caixa-dados">
-
+                  <label for="rg">RG</label>
+                  <input id="rg" name="txtrg" type="text" maxlength="12">
                 </div>
-
+                <div class="caixa-dados">
+                  <label for="logradouro">Logradouro</label>
+                  <input id="logradouro" type="text" name="txtlogradouro">
+                </div>
+                <div class="caixa-dados">
+                  <label for="cidade">Cidade</label>
+                  <select id="cidade" name="txtcidade">
+                     <option value="">Osasco</option>
+                     <option value="">São Paulo</option>
+                     <option value="">Barueri</option>
+                     <option value="">Itapevi</option>
+                  </select>
+                </div>
               </div>
             </div>
 
             <div class="dados-endereco">
-
+              <div class="caixa-dados small">
+                <label for="numero">Numero</label>
+                <input id="numero" class="" type="number" name="txtnumero">
+              </div>
+              <div class="caixa-dados small">
+                <label>Bairro</label>
+                <input class="" type="text" name="txtbairro">
+              </div>
+              <div class="caixa-dados small">
+                <label for="complemento">Complemento</label>
+                <input id="complemento" class="" type="text" name="txtcomplemento">
+              </div>
             </div>
 
             <div class="campo-salvar">
@@ -99,27 +161,27 @@
 
             <!--Tabela que segura todos os itens dos dados pessoais do usuario-->
             <!-- <table class="tabela_cadastro">
-                <!Primeira linha - Titulo das caixas de texto Data de Nascimento e Sexo--
+                <!-- Primeira linha - Titulo das caixas de texto Data de Nascimento e Sexo ->
                 <tr>
-                    <!--Colunas titulos das caixas de texto (class="colunas_cadastro_nome")--
+                    <!-- olunas titulos das caixas de texto (class="colunas_cadastro_nome") ->
                     <td class="colunas_cadastro_nome">
-                        <!--titulo das caixas de textos (class="text_box")-
+                        <!-- titulo das caixas de textos (class="text_box")- ->
 
                     </td>
-                    <!--Colunas titulos das caixas de texto (class="colunas_cadastro_nome")--
+                    <!--Colunas titulos das caixas de texto (class="colunas_cadastro_nome")->
                     <td class="colunas_cadastro_nome">
                         <!--titulo das caixas de textos (class="text_box")->
                         <div class="text_box">Sexo</div>
                     </td>
                 </tr>
-                <!--Primeira linha - Titulo das caixas de texto Data de Nascimento e Sexo--
+                <!--Primeira linha - Titulo das caixas de texto Data de Nascimento e Sexo->
                 <tr>
-                    <!--Colunas caixas de textos (class="colunas_cadastro_caixa")--
+                    <!--Colunas caixas de textos (class="colunas_cadastro_caixa")->
                     <td class="colunas_cadastro_caixa">
-                        <!--Caixas de textos (class="box_text2")--
+                        <!--Caixas de textos (class="box_text2")->
                         <input id="dataNascimento" type="text" name="txtdatanasc" maxlength="10">
                     </td>
-                    <!--Colunas caixas de textos (class="colunas_cadastro_caixa")--
+                    <!--Colunas caixas de textos (class="colunas_cadastro_caixa")->
                     <td class="colunas_cadastro_caixa">
                         <input type="radio" name="rdosexo" value="M" >Masculino
                       <input type="radio" name="rdosexo" value="F" checked>Feminino
@@ -243,6 +305,7 @@
     </div>
   </div>
 </div>
+<script src="js/jquery.min.js"></script>
 <script>
 $("#foto").change(function(){
    if($(this).val()){ // só se o input não estiver vazio
@@ -254,8 +317,20 @@ $("#foto").change(function(){
       f.readAsDataURL(img); // lê o arquivo
    }
 });
+$('#cep').focusout(function(){
+    var cep = $('#cep');
+    $.ajax({
+    type:'post',
+    datatype:'jsonp',
+    url:'http://www.viacep.com.br/ws/'+cep.val()+'/json/',
+    success: function(dados){
+      console.log(url);
+      // console.log(dados);
+    }
+  });
+});
 </script>
-<script type="text/javascript">
+<script>
 function mascara(o,f){
             v_obj=o
             v_fun=f

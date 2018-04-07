@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/style_detalhes.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery.routes.js"></script>
     <!--Modal de Login-->
     <script>
         $(document).ready(function() {
@@ -22,7 +23,7 @@
                 $(".modalContainerLogin").slideToggle(1000);
               });
         });
-        //função para abrir a modal 
+        //função para abrir a modal
         function Login(){
             $.ajax({
                 type: "POST",
@@ -32,7 +33,7 @@
                  }
                 });
             }
-       
+
         </script>
       <!--Modal da pagina de ranking (detalhes)-->
       <script>
@@ -41,7 +42,7 @@
                 $(".modalContainerDetalhes").slideToggle(1000);
               });
         });
-        
+
         function Detalhes(){
             $.ajax({
                 type: "POST",
@@ -51,7 +52,7 @@
                  }
                 });
             }
-       
+
         </script>
     <script>
     // $(function(){
@@ -76,7 +77,7 @@
   <body>
       <div class="modalContainerLogin">
            <div class="modal_login">
-               
+
            </div>
        </div>
     <!-- Menu Superior -->
@@ -96,7 +97,7 @@
             </ul>
           </div>
           <div class="itens-menu">
-            <h2>Blog</h2>
+            <h2 class="link">Blog</h2>
             <ul class="submenu">
               <li>Interação</li>
               <li>item</li>
@@ -133,9 +134,7 @@
 
 
     <!-- Conteúdo da página -->
-    <div class="conteudo">
-      <?php require_once("cadastro/cadastro_usuario.php"); ?>
-    </div>
+    <div id="conteudo"></div>
 
 
     <!-- rodapé -->
@@ -174,7 +173,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li> <a href="#">Informações</a> </li>
+                    <li> <span class="link">Informações</span> </li>
                   </ul>
                 </td>
                 <td>
@@ -241,8 +240,22 @@
       </div>
     </footer>
 
-    <script type="text/javascript">
-      // $('html, body').animate({scrollTop:0}, 'slow');
+    <script>
+    var asteroide = {
+      // fetch: function() {
+      //   $('#conteudo').load('news.php?id=' + this.id).show();
+      // },
+      home: function() {
+        $('#conteudo').load('views/pagina_principal.php').show();
+      },
+      legislacao: function(){
+        $('#conteudo').load('views/legislacao.php').show();
+      }
+
+    };
+
+      // $.routes.add('/news/{id:int}/', newsModule.fetch);
+      $.routes.add('/conteudo/', asteroide.legislacao());
     </script>
     <!-- Chama os scripts  -->
 

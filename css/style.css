@@ -34,11 +34,48 @@ body{
   margin-right: auto;
   height: auto;
 }
-
+/* Padroniza  a input */
 input{
   border: none;
   background-color: inherit;
+  width: auto;
   border-bottom: 2px solid #C0C0C0;
+}
+
+.small input{
+  width: 180px;
+}
+
+.medium input{
+  width: 296px;
+}
+
+.large input{
+  width: 400px;
+}
+
+/* Aplica efeito de troca de cores na borda da input */
+input.btn:hover{
+  background-color: #4d9b61;
+  border:0px;
+  transition: 1s;
+}
+/* Padroniza a estilização de inputs ao receber foco */
+textarea:focus, input:focus, select:focus {
+    box-shadow: 5 5;
+    border-bottom:  none;
+    outline: 0;
+    border-bottom: 2px solid #384e59;
+    /* border-bottom: 2px solid #1F405E; */
+    transition:1s;
+}
+
+select{
+  border-radius:5px;
+}
+
+textarea{
+  resize:none;
 }
 
 label{
@@ -62,11 +99,6 @@ label{
   transition: 1s;
 }
 
-input.btn:hover{
-  background-color: #4d9b61;
-  border:0px;
-  transition: 1s;
-}
 
 ul{
   list-style: none;
@@ -77,10 +109,6 @@ ul{
 a{
   text-decoration: none;
   color: black;
-}
-
-textarea{
-  resize:none;
 }
 
 .display-none{
@@ -107,12 +135,8 @@ textarea{
   color: #458665;
 }
 
-textarea:focus, input:focus, select:focus {
-    box-shadow: 5 5;
-    border-bottom:  none;
-    outline: 0;
-    border-bottom: 2px solid #1F405E;
-    transition:1s;
+.link{
+  cursor: pointer;
 }
 
 
@@ -884,8 +908,10 @@ h1{
 /* ------------------------------------------------------------------------- */
 .cont_principal_dois{
   width: 100%;
-  height: 1250px;
-  border: solid black;
+  min-height: 1000px;
+  height: auto;
+  padding-bottom: 150px;
+  /* border: solid black; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -894,8 +920,13 @@ h1{
   width: 100%;
   height: 500px;
   border: solid black 1px;
+  /* margin-top: -0px; */
   margin-left: auto;
   margin-right: auto;
+  background-attachment: fixed;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100% 65%;
   background-image: url('../img/inf_legislacao.jpg');
 }
 
@@ -919,16 +950,22 @@ h1{
 .inf{
   margin-top: 200px;
   width: 900px;
-  height: 700px;
-  border: solid black 1px;
-  background-color: #ADD8E6;
+  min-height: 700px;
+  height: auto;
+  padding: 1px 0px;
+  /* border: solid black 1px; */
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* background-color: #ADD8E6; */
   margin-left: auto;
   margin-right: auto;
 }
 
 .sobre_servico{
-  width: 480px;
+  width: 500px;
   height: 40px;
+  background-color: black;
+  opacity: 0.7;
   margin-left: auto;
   margin-right: auto;
   margin-top: 150px;
@@ -945,10 +982,12 @@ h1{
   font-size: 25px;
 }
 
-.caixas_inf{
+.caixas-inf{
   width: 850px;
-  height: 40px;
+  min-height: 40px;
+  height: auto;
   border: solid black 1px;
+
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -1058,6 +1097,7 @@ h1{
 .origem{
   width: 150px;
   height: 30px;
+  background-color: blue;
   border: solid black 1px;
   margin-top: 10px;
   margin-left: 10px;
@@ -1794,10 +1834,10 @@ label#imagem{
 .campo-foto{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: auto;
-  height: 250px;
+  height: 300px;
   /* height: auto; */
   padding: 0px;
   margin: 0px;
@@ -1818,7 +1858,7 @@ label#imagem{
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
-  width: 500px;
+  width: 100%;
   height: 500px;
 }
 
@@ -1847,8 +1887,10 @@ label#imagem{
   display: flex;
   flex-direction: column;
   padding: 10px 10px;
-  width: 400px;
+  /* width: 400px; */
   height: 60px;
+  /* background-color: grey; */
+  /* border: solid 1px blue; */
   /* margin: 10px 0px; */
 }
 
@@ -1876,7 +1918,6 @@ label#imagem{
   font-size: 15px;
 }
 
-
 /*Tabela que segura todos os itens dos dados pessoais do usuario*/
 .tabela_cadastro{
   width: 60%;
@@ -1888,67 +1929,16 @@ label#imagem{
   width: 50%;
   height: 15px;
 }
-/*Titulo das caixas de textos - Dados Pessoais*/
-.text_box{
-  width: 25%;
-  font-family: sans-serif;
-  font-size: 15px;
-  float: left;
-}
 /*Colunas que seguram a caixa de texto*/
 .colunas_cadastro_caixa{
   width: 50%;
   height: 40px;
 }
 
-.logradouro{
-  width:68%;
-  height: 22px;
-  border-radius: 10px;
-  margin-left: 4%;
-}
-
-.logradouro_texto{
-    width: 100px;
-    font-family: sans-serif;
-    font-size: 15px;
-    float: left;
-    margin-left: 4%;
-}
-
-.numero{
-  width: 25%;
-  height: 22px;
-  border-radius: 10px;
-}
-
-.bairro{
-  width: 35%;
-  height: 22px;
-  border-radius: 10px;
-}
-
-.complemento{
-  width: 35%;
-  height: 22px;
-  border-radius: 10px;
-}
-
-.bairro_texto{
-  width: 25%;
-  margin-left: 5px;
-  margin-right: 11%;
-  float: left;
-}
-/*Botão Salvar*/
-.btnsalvar{
-    margin-left: 43%;
-    width: 120px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: greenyellow;
-    font-family: sans-serif;
-    font-size: 15px;
+.dados-endereco{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 /* ------------------------------------------------------------------------- */
 /* Pagina de interação do usuario*/
