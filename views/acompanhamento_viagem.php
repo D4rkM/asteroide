@@ -6,13 +6,13 @@
   -->
 
 <!-- Conteúdo da página -->
-<div class="conteudo_acompanhamento">
+<div class="duvidas-container">
+  <!--Container responsael por segurar o titulo da pagima -->
+  <div class="titulo-conteudo-padrao">
+    <h2>ACOMPANHE SUA VIAGEM</h2>
+  </div>
   <!--Container que segura todas as informações da pagina -->
   <div class="acompanhamento_container">
-    <!--Container responsael por segurar o titulo da pagima -->
-     <div class="title_acompanhamento">
-      <h1>Acompanhe sua Viagem!</h1>
-     </div>
      <!--Segura todos os itens do cadastro-->
       <div class="acompanhamento">
         <div class="info_viagem">
