@@ -20,9 +20,6 @@ var asteroide = {
   fale_conosco: function(){
     $('#conteudo').load('views/fale_conosco.php').show();
   },
-  fetch: function(){
-    $('#conteudo').load('frotas.php').show();
-  },
   interacao: function(){
     $('#conteudo').load('views/interacao.php').show();
   },
@@ -38,7 +35,7 @@ var asteroide = {
 };
 
  $(document).ready(function(e){
-   $.routes.add('/conteudo/', asteroide.interacao());
+   $.routes.add('/conteudo/', asteroide.fale_conosco());
 });
 
   $('#leg').click(function(){

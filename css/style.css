@@ -61,7 +61,7 @@ input.btn:hover{
   transition: 1s;
 }
 /* Padroniza a estilização de inputs ao receber foco */
-textarea:focus, input:focus, select:focus {
+input:focus, select:focus {
     box-shadow: 5 5;
     border-bottom:  none;
     outline: 0;
@@ -76,6 +76,15 @@ select{
 /* retira o aumento de tamanho da textarea */
 textarea{
   resize:none;
+}
+
+textarea:focus{
+  box-shadow: 5 5;
+  border-bottom:  none;
+  outline: 0;
+  border: 2px solid #384e59;
+  /* border-bottom: 2px solid #1F405E; */
+  transition:1s;
 }
 /* Configura padrão de label */
 label{
@@ -245,7 +254,7 @@ p{
 }
 
 .logo-menu img{
-  margin-left: -40px;
+  /* margin-left: -40px; */
   width: 100px;
   height: 120px;
 }
@@ -354,7 +363,9 @@ margin: 1.6em 0;
 }
 
 .polaroid {
+  cursor: pointer;
   width: 350px;
+  max-height: 380px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: 1s;
@@ -365,7 +376,10 @@ margin: 1.6em 0;
   transition: 1s;
 }
 
-.polaroid img {width: 100%}
+.polaroid img {
+  width: 100%;
+  min-height:280px;
+}
 
 .texto-polaroid {
     text-align: center;
@@ -540,60 +554,54 @@ margin: 1.6em 0;
 
 /* ------------------------------------------------------------------------- */
 /* Conteudo da página de frotas de onibus*/
-.conteuno_frotas{
-  width: 100%;
+.conteudo-frotas{
+  /* width: 100%; */
   min-height: 1430px;
   height: auto;
-  padding-top: 70px;
-  background-color: #DCDCDC;
 }
 
-.frotas_container{
-  width: 70%;
-  min-height: 1430px;
-  height: auto;
-  background-color: #D3D3D3;
-  margin: auto;
-  border: solid 1px #000;
+.galeria{
+  width: 80vw;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
 }
 
-.title_frotas{
-  width: 99.9%;
-  height: 130px;
-  background-color: #fff;
-  border: solid 1px #fff;
-
-  text-align: center;
-  color: #000;
-  margin-bottom: 20px;
+.img-galery{
+  width: 380px;
+}
+.img-galery:hover{
+  /* width: 390px; */
+  /* height: 390px; */
 }
 
-h1{
-  text-align: center;
+.galery-text{
+  background-color: black;
+  opacity: 0.6;
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  display: none;
+  margin-top: -305px;
 }
 
-.container_onibus{
-  width: 85%;
-  height: 270px;
-  border-radius: 10px;
-  margin: auto;
-  margin-bottom: 30px;
-  /* box shadow */
-  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
+.galery-img-onibus:hover .galery-text{
+  display: flex;
 }
 
 .container_onibus_imagem{
-  width: 40%;
+  width: 200px;
   height: 270px;
-  float: left;
-  border-radius: 100%;
+  /* float: left; */
+  /* border-radius: 100%; */
 }
 
-.imagens_onibus{
+/* .imagens_onibus{
   width: 100%;
   height: 100%;
-  border-radius: 100%;
-}
+} */
+
 .container_onibus_texto{
   width: 60%;
   height: 245px;
@@ -788,60 +796,32 @@ h1{
 .conteudo_fale_conosco{
   width: 100%;
   height: 1000px;
-
 }
 
-/* essa div segura a caixa do titulo */
-.seg_caixa{
-  width: 100%;
-  height: 200px;
-  background-image: url('../img/f_conosco.jpg');
+.container-contato{
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  flex-direction: column;
-  padding-top: 400px;
-  justify-content: center;
-}
-
-/* onde esta localizado o titulo */
-.titulo{
-  width: 50%;
-  height: 60px;
-  text-align: center;
-  font-size: 50px;
-  color: white;
-  margin-left: auto;
+  margin-top: -200px;
+  width: 1200px;
+  min-height: 700px;
+  height: auto;
+  overflow: hidden;
+  padding: 1px 0px;
+  /* border: solid black 1px; */
+  /* background-color: white; */
   margin-right: auto;
-}
-
-/* div onde segura o conteudo dessa pagina */
-.seg_conteudo{
-  width: 100%;
-  height: 1100px;
-}
-
-.cont_principal{
-  width: 90%;
-  height: 800px;
   margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-}
-
-/* aqui é a div onde segura as caixas onde estao guardadas as informações */
-.seg_caixas_texto{
-  width: 1800px;
-  height: 660px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 15px;
+  padding:10px 0px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  /* background-color: #ADD8E6; */
 }
 
 /* caixa onde nos damos a opção do cliente fazer uma reclamação, sujestão ou critica */
-.caixa1{
+.contato-box{
   width: 30%;
-  height: 650px;
-  float: left;
+  height: 605px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-top: 2px;
@@ -859,15 +839,15 @@ h1{
   margin-top: 3px;
 }
 
-.foto{
-  width: 90%;
+.contato-img{
+  width: 100%;
   height: 310px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3px;
+  /* margin-top: -3px; */
 }
 
-.foto img{
+.contato-img img{
   width: 100%;
   height: 100%;
   margin-left: auto;
@@ -875,26 +855,25 @@ h1{
 }
 
 /* div onde o usuario vai fazer suas kavaliações */
-.campo_escrita{
+.feedback-cliente{
   width: 100%;
-  height: 200px;
+  height: 150px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3px;
+  /* margin-top: 3px; */
 }
 
-
-.escrita input{
-  width: 99%;
-  /* height: 194px; */
+.feedback-cliente textarea{
+  width: 98.5%;
+  overflow: auto;
 }
 
-/* botao criado para enviar sua avaliação para o nosso atendimento */
-.btn_enviar button{
-  width: 25%;
-  height: 30px;
-  margin-left: 360px;
-  margin-top: 20px;
+.btn_enviar{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 /* onde estão guardados nossos numeros para contato */
@@ -974,7 +953,6 @@ h1{
   width: 100%;
   height: 500px;
   border: solid black 1px;
-
 }
 
 

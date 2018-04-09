@@ -6,52 +6,52 @@
   Asteroide
   Obs: Página principal contém menu e rodapé para inserir as outras páginas
   -->
-    <!-- Conteúdo da página -->
-<div class="conteuno_frotas">
-  <div class="frotas_container">
-    <div class="title_frotas">
-      <h1>Nossas Frotas</h1>
-      <h3>Conheça nossas frotas, a qualidade e o conforto que nossos passageiros merecem para suas viagens!!Inclusive, os ônibus de primeira classe Asteroide oferecem tomada para notebooks, carregadores de celular e outros aparelhos eletrônicos. </h3>
-    </div>
-    <div class="container_onibus">
-        <div class="container_onibus_imagem">
-          <img class="imagens_onibus" src="img/onibus4.jpg" alt="bus">
-        </div>
-        <div class="container_onibus_texto">
-          <p>Viajar de ônibus não é mais sinônimo de desconforto, cansaço ou falta de estrutura. Muitas empresas têm investido em maior conforto para os passageiros, atraindo clientes empresariais ou pessoas que buscam mais comodidade nas estradas.
-A viação Asteroide, por exemplo, oferece dois tipos de ônibus com serviços mais exclusivos, o 1º classe e o leito cama. O 1ª classe possui cabine independente com isolamento acústico, manta e travesseiro higienizados, nove poltronas extra largas leito em couro, podendo ser duplas ou individuais, além de frigobar, kit lanche, ar condicionado com controle individual e wifi 4G. Já a opção leito cama oferece seis poltronas leito com apoio para os pés, banheiro pressurizado com isolamento acústico, ar condicionado individual com controle remoto, manta e travesseiro higienizados e wifi 4G.</p>
-        </div>
-    </div>
-
-    <div class="container_onibus">
-        <div class="container_onibus_texto">
-          <p>Viajar de ônibus não é mais sinônimo de desconforto, cansaço ou falta de estrutura. Muitas empresas têm investido em maior conforto para os passageiros, atraindo clientes empresariais ou pessoas que buscam mais comodidade nas estradas.
-A viação Asteroide, por exemplo, oferece dois tipos de ônibus com serviços mais exclusivos, o 1º classe e o leito cama. O 1ª classe possui cabine independente com isolamento acústico, manta e travesseiro higienizados, nove poltronas extra largas leito em couro, podendo ser duplas ou individuais, além de frigobar, kit lanche, ar condicionado com controle individual e wifi 4G. Já a opção leito cama oferece seis poltronas leito com apoio para os pés, banheiro pressurizado com isolamento acústico, ar condicionado individual com controle remoto, manta e travesseiro higienizados e wifi 4G.</p>
-        </div>
-        <div class="container_onibus_imagem">
-          <img class="imagens_onibus" src="img/onibus1.jpg" alt="bus">
-        </div>
-    </div>
-
-    <div class="container_onibus">
-        <div class="container_onibus_imagem">
-          <img class="imagens_onibus" src="img/onibus2.jpg" alt="bus">
-        </div>
-        <div class="container_onibus_texto">
-          <p>Viajar de ônibus não é mais sinônimo de desconforto, cansaço ou falta de estrutura. Muitas empresas têm investido em maior conforto para os passageiros, atraindo clientes empresariais ou pessoas que buscam mais comodidade nas estradas.
-A viação Asteroide, por exemplo, oferece dois tipos de ônibus com serviços mais exclusivos, o 1º classe e o leito cama. O 1ª classe possui cabine independente com isolamento acústico, manta e travesseiro higienizados, nove poltronas extra largas leito em couro, podendo ser duplas ou individuais, além de frigobar, kit lanche, ar condicionado com controle individual e wifi 4G. Já a opção leito cama oferece seis poltronas leito com apoio para os pés, banheiro pressurizado com isolamento acústico, ar condicionado individual com controle remoto, manta e travesseiro higienizados e wifi 4G.</p>
-        </div>
-    </div>
-
-    <div class="container_onibus">
-        <div class="container_onibus_texto">
-          <p>Viajar de ônibus não é mais sinônimo de desconforto, cansaço ou falta de estrutura. Muitas empresas têm investido em maior conforto para os passageiros, atraindo clientes empresariais ou pessoas que buscam mais comodidade nas estradas.
-A viação Asteroide, por exemplo, oferece dois tipos de ônibus com serviços mais exclusivos, o 1º classe e o leito cama. O 1ª classe possui cabine independente com isolamento acústico, manta e travesseiro higienizados, nove poltronas extra largas leito em couro, podendo ser duplas ou individuais, além de frigobar, kit lanche, ar condicionado com controle individual e wifi 4G. Já a opção leito cama oferece seis poltronas leito com apoio para os pés, banheiro pressurizado com isolamento acústico, ar condicionado individual com controle remoto, manta e travesseiro higienizados e wifi 4G.</p>
-        </div>
-        <div class="container_onibus_imagem">
-          <img class="imagens_onibus" src="img/onibus5.jpg" alt="bus">
-        </div>
-    </div>
-
+<div class="imagem-de-fundo" style="background-image:url('img/inf_legislacao.jpg');">
+  <div class="titulo-sobre-imagem">
+    FROTAS
   </div>
+</div>
+<div class="conteudo-frotas">
+  <!-- <div class="galeria"> -->
+
+    <div class="titulo-conteudo-padrao text-center">
+      <!-- Subtitulo e descrição da página de frotas -->
+      <h2 style="text-transform:uppercase;">Nossas Frotas</h2>
+    </div>
+    <div class="titulo_locais">
+      <h3 class="text-center" style="text-transform:uppercase;">
+        A qualidade e o conforto que nossos passageiros merecem para suas viagens
+      </h3>
+    </div>
+
+    <?php
+    $y = 0;
+     while ($y <= 3) {
+      # code...
+     ?>
+    <div class="locais-viagem galeria">
+      <!-- Conteúdo da página -->
+      <?php
+        $a =0;
+        while ($a <= 2 ) {
+          # code...
+
+        ?>
+      <div class="polaroid img-galery">
+          <!-- <div class="container_onibus_imagem"> -->
+            <img class="" src="img/busasteroide.jpg" alt="bus" title="frotas">
+          <!-- </div> -->
+          <div class="texto-polaroid">
+            <p>Viajar de ônibus não é mais</p>
+          </div>
+      </div>
+      <?php
+          $a++;
+        }
+      ?>
+    </div>
+    <?php
+      $y++;
+    }?>
+  <!-- </div> -->
 </div>

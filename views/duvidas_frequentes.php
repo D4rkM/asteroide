@@ -10,8 +10,9 @@ usuarios e ajudar aqueles que estão com duvidas
 <!-- Conteúdo da página -->
 <div class="conteuno_duvidas">
   <!--Container que segura todas as informações dos postos rodoviarios -->
-
-   <h2 class="title_duvidas" style="color:#3f635f;">DÚVIDAS FREQUENTES</h2>
+  <div class="titulo-conteudo-padrao text-center">
+    <h2>DÚVIDAS FREQUENTES</h2>
+  </div>
 
   <div class="duvidas_container">
     <!--Container responsael por segurar o titulo da pagima -->
