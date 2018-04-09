@@ -8,68 +8,71 @@
 
 <!-- Conteúdo da página -->
 
-<div class="imagem-de-fundo-legislacao"></div>
+<div class="imagem-de-fundo" style="background-image: url('img/inf_legislacao.jpg');">
+  <div class="titulo-sobre-imagem"  style="margin-top:180px;">
+    SOBRE A EMPRESA
+  </div>
+</div>
+<!--Container responsael por segurar o titulo da pagima -->
+<div class="titulo-conteudo-padrao">
+  <h2>A VIAÇÃO ASTERÓIDE</h2>
+</div>
+
 <div class="conteudo-sobre-empresa">
-  <!--Container responsael por segurar o titulo da pagima -->
-
-
-   <div class="titulo-conteudo-padrao">
-    <h2>Sobre a Empresa</h2>
-   </div>
-  <!--Container que segura todas as informações dos postos rodoviarios -->
-  <div class="sobre-empresa-container">
-
-      <!--Primeiro texto da pagina-->
-      <div class="first_info">A viação Asteróide atende o ramo de transportes de passageiros e tem mais de 20 anos de tradição.           O principal serviço oferecido são viagens intermunicipais e interestaduais por toda a região sudeste e algumas áreas             ao redor, em transporte executivo atendendo como público alvo as classes C, D e E. A empresa tem sua sede na cidade             de Campinas-SP e conta com escritórios no Rio de Janeiro e em São Paulo. A empresa também conta com uma vasta frota             de ônibus e atende boa parte da região sudeste e algumas áreas próximas a região.
-      </div>
+  <!--Primeiro texto da pagina-->
+    <div class="intro-sobre">
+      <p>A viação Asteróide atende o ramo de transportes de passageiros e tem mais de 20 anos de tradição.           O principal serviço oferecido são viagens intermunicipais e interestaduais por toda a região sudeste e algumas áreas             ao redor, em transporte executivo atendendo como público alvo as classes C, D e E. A empresa tem sua sede na cidade             de Campinas-SP e conta com escritórios no Rio de Janeiro e em São Paulo. A empresa também conta com uma vasta frota             de ônibus e atende boa parte da região sudeste e algumas áreas próximas a região.</p>
+    </div>
       <!--Conteiner que segura a imagem e o texto do primeiro conteudo-->
-      <div class="container_historia">
-        <div class="cardview-img-text">
-          <!--Conteiner que segura a imagem-->
-          <div class="container_imagem">
-              <!--Classe imagem-->
-              <img class="imagem_empresa" src="img/empresa.jpg" alt="empresa">
+
+    <div class="cardview-img-text">
+        <div class="cardview-img">
+          <img src="img/empresa.jpg" alt="empresa">
+        </div>
+        <div class="cardview-text">
+          <h2 class="subtitulo cardview-title">Nossa empresa</h2>
+          <p>A viação Asteróide atende o ramo de transportes de passageiros e tem mais de 20 anos de                    tradição. O principal serviço oferecido são viagens intermunicipais e interestaduais por toda a região sudeste                  e algumas áreas ao redor, em transporte executivo atendendo como público alvo as classes C, D e E. A empresa                    tem sua sede na cidade de Campinas-SP e conta com escritórios no Rio de Janeiro e em São Paulo. A empresa                        também conta com uma vasta frota de ônibus e atende boa parte da região sudeste e algumas áreas próximas a                      região.A viação Asteróide atende o ramo de transportes de passageiros e tem mais de 20 anos de tradição. O                      principal serviço oferecido são viagens intermunicipais e interestaduais por toda a região sudeste e algumas                    áreas ao redor, em transporte executivo atendendo como público alvo as classes C, D e E. A empresa tem sua sede                  na cidade de Campinas-SP e conta com escritórios no Rio de Janeiro e em São Paulo.
+          </p>
+        </div>
+    </div>
+      <!-- </div> -->
+      <!--Conteiner que segura as quatros imagens-->
+    <div class="servicos-oferecidos">
+        <!--Classe das quatros imagens-->
+        <div class="card-itens">
+          <div class="card-img">
+            <img src="img/icon/bus-img.png" alt="Frota">
           </div>
-          <!--Container que segura o texto-->
-          <div class="container_texto">
-              <!--Classe texto-->
-             <div class="second_info">A viação Asteróide atende o ramo de transportes de passageiros e tem mais de 20 anos de                    tradição. O principal serviço oferecido são viagens intermunicipais e interestaduais por toda a região sudeste                  e algumas áreas ao redor, em transporte executivo atendendo como público alvo as classes C, D e E. A empresa                    tem sua sede na cidade de Campinas-SP e conta com escritórios no Rio de Janeiro e em São Paulo. A empresa                        também conta com uma vasta frota de ônibus e atende boa parte da região sudeste e algumas áreas próximas a                      região.A viação Asteróide atende o ramo de transportes de passageiros e tem mais de 20 anos de tradição. O                      principal serviço oferecido são viagens intermunicipais e interestaduais por toda a região sudeste e algumas                    áreas ao redor, em transporte executivo atendendo como público alvo as classes C, D e E. A empresa tem sua sede                  na cidade de Campinas-SP e conta com escritórios no Rio de Janeiro e em São Paulo. A empresa também conta com                    uma vasta frota de ônibus e atende boa parte da região sudeste e algumas áreas próximas a região.
-              </div>
+          <div class="card-itens-center subtitulo text-center">
+            <p>Contamos com as melhores frotas de ônibus do Brasil.</p>
           </div>
         </div>
-      </div>
-      <!--Conteiner que segura as quatros imagens-->
-      <div class="servicos-oferecidos">
-          <!--Classe das quatros imagens-->
-          <img class="various_images" src="img/onibus1.jpg" alt="bus">
-          <!--Classe das quatros imagens-->
-          <img class="various_images" src="img/rodoviaria.jpg" alt="bus">
-          <!--Classe das quatros imagens-->
-          <img class="various_images" src="img/conforto.jpg" alt="bus">
-          <!--Classe das quatros imagens-->
-          <img class="various_images" src="img/equipe.jpg" alt="bus">
-          <!--Classe dos quatros textos-->
-          <div class="text_images subtitulo">Contamos com as mlhores frotas de onibus do Brasil</div>
-          <!--Classe dos quatros textos-->
-          <div class="text_images">Guiches nos maiores terminais rodoviarios de todo o país</div>
-          <!--Classe dos quatros textos-->
-          <div class="text_images">Conforto e qualidade para a sua viagem</div>
-          <!--Classe dos quatros textos-->
-          <div class="text_images">Equipe dedicada para melhorar o serviço de viagem</div>
-      </div>
-      <!--Conteiner que segura a imagem e o texto do primeiro conteudo-->
-      <div class="container_historia2">
-          <!--Conteiner que segura o texto-->
-          <div class="container_texto2">
-              <!--Classe texto-->
-             <div class="third_info">A viação Asteróide atende o ramo de transportes de passageiros e tem mais de 20 anos de                    tradição. O principal serviço oferecido são viagens intermunicipais e interestaduais por toda a região sudeste                  e algumas áreas ao redor, em transporte executivo atendendo como público alvo as classes C, D e E. A empresa                    tem sua sede na cidade de Campinas-SP e conta com escritórios no Rio de Janeiro e em São Paulo. A empresa                        também conta com uma vasta frota de ônibus e atende boa parte da região sudeste e algumas áreas próximas a                      região.A viação Asteróide atende o ramo de transportes de passageiros e tem mais de 20 anos de tradição. O                      principal serviço oferecido são viagens intermunicipais e interestaduais por toda a região sudeste e algumas                    áreas ao redor, em transporte executivo atendendo como público alvo as classes C, D e E. A empresa tem sua sede                  na cidade de Campinas-SP e conta com escritórios no Rio de Janeiro e em São Paulo. A empresa também conta com                    uma vasta frota de ônibus e atende boa parte da região sudeste e algumas áreas próximas a região.
-              </div>
+        <!--Classe das quatros imagens-->
+        <div class="card-itens">
+          <div class="card-img">
+            <img src="img/icon/payment.png" alt="bus">
           </div>
-          <!--Conteiner que segura a imagem-->
-          <div class="container_texto2">
-              <!--Classe imagem-->
-              <img class="imagem_empresa2" src="img/empresa.jpg" alt="empresa">
+          <div class="card-itens-center subtitulo text-center">
+            <p>Formas de pagamento rápidas e fáceis, sejam online ou nos guichês.</p>
           </div>
-      </div>
+        </div>
+        <!--Classe das quatros imagens-->
+        <div class="card-itens">
+          <div class="card-img">
+            <img src="img/icon/confort.png" alt="bus">
+          </div>
+          <div class="card-itens-center subtitulo text-center">
+            <p>Total conforto e qualidade para a sua viagem.</p>
+          </div>
+        </div>
+        <!--Classe das quatros imagens-->
+        <div class="card-itens">
+          <div class="card-img">
+            <img src="img/icon/happy.png" alt="bus">
+          </div>
+          <div class="card-itens-center subtitulo text-center">
+            <p>Equipe dedicada para manter o melhor serviço de viagem.</p>
+          </div>
+        </div>
     </div>
 </div>

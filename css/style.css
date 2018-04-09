@@ -41,15 +41,15 @@ input{
   width: auto;
   border-bottom: 2px solid #C0C0C0;
 }
-
+/* padrão de input pequena */
 .small input{
   width: 180px;
 }
-
+/* padrão de input media */
 .medium input{
   width: 296px;
 }
-
+/* padrão de input grande */
 .large input{
   width: 400px;
 }
@@ -69,20 +69,20 @@ textarea:focus, input:focus, select:focus {
     /* border-bottom: 2px solid #1F405E; */
     transition:1s;
 }
-
+/* Define padrao de curvatura da select */
 select{
   border-radius:5px;
 }
-
+/* retira o aumento de tamanho da textarea */
 textarea{
   resize:none;
 }
-
+/* Configura padrão de label */
 label{
   color:#1F405E;
   font-weight: bold;
 }
-
+/* Configura padrão de botao */
 .btn{
   /* font-family:"Nunito",sans-serif; */
   cursor: pointer;
@@ -98,8 +98,11 @@ label{
   text-transform: uppercase;
   transition: 1s;
 }
-
-
+/* Deixa o botão mais claro quando passa o mouse em cima */
+.btn:hover{
+  background-color: #4d9b61;
+}
+/* Padrão de lista desordenada */
 ul{
   list-style: none;
   padding: 0px;
@@ -109,6 +112,15 @@ ul{
 a{
   text-decoration: none;
   color: black;
+}
+
+p{
+  line-height: 1.4;
+  font-size: 1.1rem;
+}
+
+.justify-text{
+  text-align: justify;
 }
 
 .display-none{
@@ -128,14 +140,24 @@ a{
 .subtitulo{
   width: auto;
   /* margin: auto; */
-  text-align: center;
+  /* text-align: center; */
   font-family: sans-serif;
   font-size: 18px;
   font-weight: bold;
   color: #458665;
 }
 
+.text-center{
+  text-align:center;
+}
+/* Estiliza o titulo de cardviews */
+.cardview-title{
+  font-size: 1.6rem;
+}
 
+.link{
+  cursor:pointer;
+}
 
 
 /* ------------------------------------------------------------------------- */
@@ -155,6 +177,7 @@ a{
   transition: 2s;
   z-index: 1000;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+  color: white;
 }
 
 .conteudo-menu{
@@ -168,48 +191,63 @@ a{
   justify-content: space-between;
 }
 
+.segura-itens-menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
+  height: 100%;
+}
+
 /* Configurações */
 .itens-menu{
-  position: relative;
-  float: left;
+  cursor: pointer;
+  text-align: center;
+  /* position: relative; */
+  /* float: left; */
 }
 
 .submenu{
     display: flex;
     flex-direction: column;
-  	width:130px;
+  	width:150px;
     height:0px;
   	overflow:hidden;
   	opacity:0;
-    background-color: #fff;
-  	transition:2s;
-    border-right: solid 1px orange;
-    border-bottom: solid 1px orange;
-    margin-top: 30px;
+    background-color: #4d9b61;
+  	/* transition:1s; */
+    margin-top: 34px;
   }
 
   .submenu li{
-  	width:50px;
-  	height:70px;
-  	margin-left:10px;
-  	margin-top:5px;
+    text-align: left;
+    width:130px;
+  	height:85px;
+    padding: 20px 10px;
     /*background-color: green;*/
   }
 
+  .submenu li:hover{
+    background-color: #458665;
+  }
+
 .itens-menu:hover>.submenu{
-  width:130px;
-  	height:115px;
-  	opacity:1;
-  	overflow:visible;
-  	transition:2s;
-    box-shadow: 11px 5px 5px /*rgb(102, 132, 29)*/rgba(0,0,0,0.5);
-    border-right: solid 1px orange;
-      border-bottom: solid 1px orange;
+  /* width:130px; */
+	height:115px;
+	opacity:1;
+	overflow:visible;
+	/* transition:1s; */
+  box-shadow: 11px 5px 5px /*rgb(102, 132, 29)*/rgba(0,0,0,0.5);
 }
 
+.logo-menu{
+  /* justify-content: center; */
+  /* display: flex; */
+  width: 200px;
+}
 
 .logo-menu img{
-  margin-top: -20px;
+  margin-left: -40px;
   width: 100px;
   height: 120px;
 }
@@ -223,7 +261,8 @@ a{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
+  width: 130px;
+  color: white;
   /* background-color: red; */
 }
 
@@ -233,6 +272,8 @@ a{
 
 /* Conteudo das páginas */
 
+
+/* Pagina Home */
 .conteudo{
   /* display: flex;
   flex-direction: column;
@@ -478,11 +519,11 @@ margin: 1.6em 0;
 /* **************************************** */
 /* Conteudo da página de ranking  modal*/
 .modal{
-    width: 60%;
-    height: 50%;
-    margin: auto;
-    margin-top: 150px;
-    z-index: 99999;
+  width: 60%;
+  height: 50%;
+  margin: auto;
+  margin-top: 150px;
+  z-index: 999;
 	background-color: #fff;
 }
 
@@ -492,7 +533,11 @@ margin: 1.6em 0;
     background: rgba(0, 0, 0, 0.7);
     position: fixed;
     display: none;
-    z-index: 99999;
+    z-index: 998;
+}
+
+.modal-space{
+
 }
 
 /* ------------------------------------------------------------------------- */
@@ -915,18 +960,18 @@ h1{
 
 }
 
-.imagem-de-fundo-legislacao{
+.imagem-de-fundo{
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: 500px;
-  border: solid black 1px;
+  /* border: solid black 1px; */
   background-attachment: fixed;
   background-size: contain;
   background-repeat: no-repeat;
   background-size: 100% 65%;
-  background-image: url('../img/inf_legislacao.jpg');
+
 }
 
 .cont_legislacao img{
@@ -965,14 +1010,15 @@ h1{
 
 }
 
-.sobre_servico{
+.titulo-sobre-imagem{
   width: 500px;
-  height: 40px;
+  min-height: 40px;
+  height: auto;
   background-color: black;
   opacity: 0.7;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 150px;
+  margin-top: 190px;
   text-align: center;
   font-size: 30px;
   padding: 10px;
@@ -1047,6 +1093,7 @@ h1{
 .inf-conteudo{
   display: none;
   border: 1px solid black;
+  cursor: default;
 }
 
 .caixas-inf:hover .inf-conteudo{
@@ -1323,10 +1370,15 @@ h1{
 /* ------------------------------------------------------------------------- */
 /* Pagina de sobre a empresa */
 .conteudo-sobre-empresa{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
   width: 80vw;
-  min-height: 1200px;
+  /* min-height: 1200px; */
   height: auto;
-  padding-top: 50px;
+  overflow: hidden;
+  padding: 50px 0px;
   margin-right: auto;
   margin-left: auto;
   /* background-color: #C0C0C0; */
@@ -1339,7 +1391,7 @@ h1{
   align-items: center;
   min-height: 1200px;
   height: auto;
-  background-color: #458665;
+  /* background-color: #458665; */
   margin-left: auto;
   margin-right: auto;
   /* border: solid 1px #000; */
@@ -1357,107 +1409,85 @@ h1{
 }
 
 .cardview-img-text{
-  width: 1000px;
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  width: auto;
+  min-height: 350px;
+  height: 350px;
   background-color: white;
   margin: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
   transition: 1s;
 }
+
+.cardview-img{
+  width: 40%;
+  height: 100%;
+}
+
+.cardview-img img{
+  width: 450px;
+  height: 350px;
+  background-attachment: fixed;
+}
+
+.cardview-text{
+  width: 60%;
+  text-align: justify;
+}
+
 /*Primeiro texto da pagina*/
-.first_info{
-    width: 90%;
-    margin-left: 50px;
+.intro-sobre{
     text-align: justify;
-    font-family: sans-serif;
-    font-size: 18px;
     margin-bottom: 10px;
 }
-/*Conteiner que segura a imagem e o texto do primeiro conteudo*/
-.container_historia{
-    width: 100%;
-    height: 350px;
-    background-color: #fff;
-}
-/*Conteiner que segura a imagem*/
-.container_imagem{
-    width: 40%;
-    height: 350px;
-    float: left;
-}
-/*Classe imagem*/
-.imagem_empresa{
-    width: 100%;
-    height: 100%;
-}
-/*Container que segura o texto*/
-.container_texto{
-    width: 60%;
-    height: 350px;
-    float: left;
-}
-/*Classe texto*/
-.second_info{
-    width: 95%;
-    margin-left: 20px;
-    margin-top: 10px;
-    text-align: justify;
-    font-family: sans-serif;
-    font-size: 18px;
-}
+
+
 /*Conteiner que segura as quatros imagens*/
 .servicos-oferecidos{
-    width: 100%;
-    height: 250px;
-    background-color: #458665;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin:20px 0px;
+    width: 80%;
+    height: 350px;
+    /* background-color: #458665; */
+    /* background-color: #f3f3f3; */
 }
+
+.card-itens{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 320px;
+}
+
 /*Classe das quatros imagens*/
-.various_images{
-    width: 23.5%;
-    height: 180px;
-    margin-top: 10px;
-    margin-left: 10px;
+.card-img{
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 10px; */
+    /* margin-left: 10px; */
 }
 /*Classe dos quatros textos*/
-.text_images{
-    width: 23.5%;
-    height: 50px;
-    margin-left: 10px;
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 18px;
-    float: left;
+.card-itens-text{
+  padding-top: 20px;
+  height: 200px;
+  text-align: center;
 }
-/*Conteiner que segura a imagem e o texto do primeiro conteudo*/
-.container_historia2{
-    width: 100%;
-    height: 350px;
-    background-color: #fff;
-}
-/*Conteiner que segura o texto*/
-.container_texto2{
-    width: 60%;
-    height: 350px;
-    float: left;
-}
-/*Classe texto*/
-.third_info{
-    width: 95%;
-    margin-left: 20px;
-    margin-top: 10px;
-    text-align: justify;
-    font-family: sans-serif;
-    font-size: 18px;
-}
-/*Conteiner que segura a imagem*/
-.container_texto2{
-    width: 40%;
-    height: 350px;
-    float: left;
-}
-/*Classe imagem*/
-.imagem_empresa2{
-    width: 100%;
-    height: 100%;
+
+.img-historia{
+  display: block;
+  width: 100%;
+  height: 300px;
+  background: black;
+  background-attachment:fixed;
+  background-repeat: no-repeat;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -1703,133 +1733,6 @@ box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
 
 /* ------------------------------------------------------------------------- */
 
-/* Pagina de sobre a empresa */
-.conteuno_sobre_empresa{
-  width: 100%;
-  min-height: 1200px;
-  height: auto;
-  padding-top: 50px;
-  background-color: #C0C0C0;
-}
-/*Container que segura o conteudo*/
-.sobre_empresa_container{
-  width: 85%;
-  min-height: 1200px;
-  height: auto;
-  background-color: #458665;
-  margin: auto;
-  border: solid 1px #000;
-}
-/*Container que segura o titulo da pagina*/
-.title_sobre_empresaa{
-  width: 99.9%;
-  height: 85px;
-  background-color: #fff;
-  border: solid 1px #fff;
-
-  text-align: center;
-  color: #000;
-  margin-bottom: 20px;
-}
-/*Primeiro texto da pagina*/
-.first_info{
-    width: 90%;
-    margin-left: 50px;
-    text-align: justify;
-    font-family: sans-serif;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-/*Conteiner que segura a imagem e o texto do primeiro conteudo*/
-.container_historia{
-    width: 100%;
-    height: 350px;
-    background-color: #fff;
-}
-/*Conteiner que segura a imagem*/
-.container_imagem{
-    width: 40%;
-    height: 350px;
-    float: left;
-}
-/*Classe imagem*/
-.imagem_empresa{
-    width: 100%;
-    height: 100%;
-}
-/*Container que segura o texto*/
-.container_texto{
-    width: 60%;
-    height: 350px;
-    float: left;
-}
-/*Classe texto*/
-.second_info{
-    width: 95%;
-    margin-left: 20px;
-    margin-top: 10px;
-    text-align: justify;
-    font-family: sans-serif;
-    font-size: 18px;
-}
-/*Conteiner que segura as quatros imagens*/
-.container_images{
-    width: 100%;
-    height: 250px;
-    background-color: #458665;
-}
-/*Classe das quatros imagens*/
-.various_images{
-    width: 23.5%;
-    height: 180px;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-/*Classe dos quatros textos*/
-.text_images{
-    width: 23.5%;
-    height: 50px;
-    margin-left: 10px;
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 18px;
-    float: left;
-}
-/*Conteiner que segura a imagem e o texto do primeiro conteudo*/
-.container_historia2{
-    width: 100%;
-    height: 350px;
-    background-color: #fff;
-}
-/*Conteiner que segura o texto*/
-.container_texto2{
-    width: 60%;
-    height: 350px;
-    float: left;
-}
-/*Classe texto*/
-.third_info{
-    width: 95%;
-    margin-left: 20px;
-    margin-top: 10px;
-    text-align: justify;
-    font-family: sans-serif;
-    font-size: 18px;
-}
-/*Conteiner que segura a imagem*/
-.container_texto2{
-    width: 40%;
-    height: 350px;
-    float: left;
-}
-/*Classe imagem*/
-.imagem_empresa2{
-    width: 100%;
-    height: 100%;
-}
-
-/* ------------------------------------------------------------------------- */
-
 /* Página de cadastro */
 .conteudo-cadastro{
   width: 100%;
@@ -1998,21 +1901,14 @@ label#imagem{
 /* ------------------------------------------------------------------------- */
 /* Pagina de interação do usuario*/
 .conteudo_interacao{
-  width: 100%;
-  min-height: 1600px;
+  /* width: 100%; */
+  /* min-height: 1600px; */
   height: auto;
+  margin: 0px auto;
   padding-top: 50px;
-  background-color: #C0C0C0;
+  /* background-color: #C0C0C0; */
 }
-/*Container que segura o conteudo*/
-.interacao_container{
-  width: 85%;
-  min-height: 1600px;
-  height: auto;
-  background-color: #458665;
-  margin: auto;
-  border: solid 1px #000;
-}
+
 /*Container que segura o titulo da pagina*/
 .title_interacao{
   width: 99.9%;
@@ -2199,18 +2095,22 @@ border-radius: 10px;
 
 /*Div que seguro toda pagina*/
 .conteudo_interacao{
+  display: flex;
+  justify-content: center;
   height: auto;
-  width: 100%;
-  background-color: #ffffff;
-  margin-top: 1%;
+  /* width: 100%; */
+  margin: 0px auto;
+  /* background-color: #ffffff; */
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 /*Container que segura todas as caixas*/
 .interacao_container{
-  width: 70%;
+  /* width: 70%; */
   min-height: 1200px;
   height: auto;
-  background-color: #458665;
+  /* background-color: #458665; */
   margin: auto;
 
 }
@@ -2226,155 +2126,77 @@ border-radius: 10px;
   margin-bottom: 50px;
 }
 
-/*Div que segura os dados e fotos.*/
-.caixa1{
-  width: 95%;
+/* caixa com o conteudo da postagem */
+.cardbox{
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 1200px;
   height:500px;
-  background-color: #458665;
-  margin: auto;
-  margin-bottom: 5%;
-  border: solid 2px #000;
-
+  margin-bottom: 30px;
 }
+
+/*  */
+.cardbox-title{
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  font-size: 1.4rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4d9b61;
+  padding: 0px 10px;
+}
+
+.foto-user{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 /*Foto usuario*/
-.foto_user{
-  background-color: #162e44;
-  width: 8%;
-  height: 50px;
-  float: left;
-  padding-top: 1px;
-}
-/*Div do nome do usuario*/
-.caixa1_nome{
-  width: 46%;
-  height: 10%;
-  background-color: #162e44;
-  float: left;
-  font: Georgia;
-  font-size: 25px;
-  padding-right:5px;
-  padding-top: 1px;
-
+.foto-user img{
+  width: 80px;
+  height: 80px;
+  margin: 0px 8px;
+  border-radius: 100px;
+  /* float: left; */
+  /* padding-top: 1px; */
 }
 
-/*Div do nome do local*/
-.caixa1_local{
-  width: 45%;
-  height: 10%;
-  background-color: #162e44;
-  float: right;
-  text-align: right;
-  font: Georgia;
-  font-size: 25px;
-  padding-right:5px;
-  padding-top: 1px;
+.cardbox-local{
+  /* align-self: flex-end; */
 }
 
-/*Div da caixa de comentario do usuario*/
-.caixa1_texto{
-  width: 40%;
-  height: 80%;
-  background-color: #556;
-  float: left;
-  margin-top:3%;
-  margin-left: 2%;
-  border: 1px solid black;
-  border-radius: 10px 10px 10px 10px;
-    }
+.cardbox-content{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+  width: 1200px;
+  height: 420px;
+}
 
-/*Div com a imagem que o usuario vai postar*/
-.img_viagem{
+.cardbox-text{
+  width: 660px;
+  height: 380px;
+  padding: 20px;
+  /* background-color: black; */
+  text-align: justify;
+}
+
+.cardbox-img{
+  /* margin-left: 50px; */
+  width: 500px;
+  height: 418px;
+  /* overflow: hidden; */
+}
+
+.cardbox-img img{
   width: 100%;
   height: 100%;
-  border: 1px solid black;
-  border-radius: 10px 10px 10px 10px;
-
-}
-/*Div que segura a imagem que o usuario postou*/
-.caixa1_img1{
-  width: 50%;
-  height: 80%;
-  background-color: #454;
-  float: right;
-  margin-top:3%;
-  margin-left: 3%;
-  margin-right: 3%;
-  border: 1px solid black;
-  border-radius: 10px 10px 10px 10px;
 }
 
-/*Div que segura os dados e fotos.*/
-.caixa2{
-  width: 90%;
-  height:500px;
-  background-color: #458665;
-  margin: auto;
-  border: solid 2px #000;
-}
-
-/*Foto usuario*/
-.foto_user2{
-  background-color: #162e44;
-  width: 8%;
-  height: 50px;
-  float: left;
-  padding-top: 1px;
-}
-
-/*Div do nome do usuario*/
-.caixa2_nome{
-  width: 46%;
-  height: 10%;
-  background-color: #162e44;
-  float: left;
-  font: Georgia;
-  font-size: 25px;
-  padding-right:5px;
-  padding-top: 1px;
-}
-/*Div do nome do local*/
-.caixa2_local{
-  width: 45%;
-  height: 10%;
-  background-color: #162e44;
-  float: right;
-  text-align: right;
-  font: Georgia;
-  font-size: 25px;
-  padding-right:5px;
-  padding-top: 1px;
-}
-/*Div da caixa de comentario do usuario*/
-.caixa2_texto{
-  width: 45%;
-  height: 80%;
-  background-color: #556;
-  float: left;
-  margin-top:3%;
-  margin-left: 1%;
-  border: 1px solid black;
-  border-radius: 10px 10px 10px 10px;
-  }
-/*Div com a imagem que o usuario vai postar*/
-  .img_viagem2{
-    width: 100%;
-    height: 100%;
-    border: 1px solid black;
-    border-radius: 10px 10px 10px 10px;
-
-  }
-
-/*Div que segura a imagem que o usuario postou*/
-.caixa2_img1{
-  width: 45%;
-  height: 80%;
-  background-color: #454;
-  float: right;
-  margin-top:3%;
-  margin-right: 2%;
-  border: 1px solid black;
-  border-radius: 10px 10px 10px 10px;
-}
 /********************************************************/
 
 /*Pagina de pagamento*/

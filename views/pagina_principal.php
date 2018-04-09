@@ -84,15 +84,17 @@
                   while ($a <= 5) {
                    ?>
                     <li>
-                      <div class="comentarios-pag-inicial">
-                        <div class="comentario-usuario">
-                          <img src="img/rio-de-janeiro.jpg" alt="Nome da Imagem" title="Nome da Imagem" />
-                          <b>Username</b>
+                      <a href="#">
+                        <div class="comentarios-pag-inicial">
+                          <div class="comentario-usuario">
+                            <img src="img/client.png" alt="Nome da Imagem" title="Nome da Imagem" />
+                            <b>Username</b>
+                          </div>
+                          <div class="comentario-conteudo" style="color:grey;">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                          </div>
                         </div>
-                        <div class="comentario-conteudo" style="color:grey;">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </div>
-                      </div>
+                      </a>
                     </li>
                     <?php
                       $a ++;

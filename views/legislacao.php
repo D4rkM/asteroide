@@ -1,6 +1,6 @@
 <div class="container-conteudo">
-  <div class="imagem-de-fundo-legislacao">
-    <div class="sobre_servico">
+  <div class="imagem-de-fundo" style='background-image: url("img/inf_legislacao.jpg");'>
+    <div class="titulo-sobre-imagem">
       INFORMAÇÕES SOBRE SERVIÇO
     </div>
   </div>
@@ -15,8 +15,6 @@
     <?php
       $a = 0;
       while($a < 13){
-
-
      ?>
     <div class="caixas-inf">
       <div class="inf-subtitulos">
