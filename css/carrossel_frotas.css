@@ -10,7 +10,8 @@
 	float: left;
 	width: 100%;
 	overflow: hidden;
-	height: 800px;
+  background-color: blue;
+	height: 2100px;
 }
 
 #carrossel ul li {

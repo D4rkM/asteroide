@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
     <meta name="author" content="Magno">
     <!--
       Data de modificação: 19/03/2018
@@ -13,13 +14,18 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_login.css">
     <link rel="stylesheet" href="css/style_detalhes.css">
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/jquery-3.3.1.js"></script>
+    <!-- <script src="js/jquery-3.2.1.js"></script> -->
+    <!-- <script src="js/jquery-3.3.1.js"></script> -->
+    <script src="js/jquery.min.js">
+
+    </script>
+    <script src="js/jquery.routes.js"></script>
+
     <!--Modal de Login-->
     <script>
         $(document).ready(function() {
               $(".login").click(function() {
-                $(".modalContainerLogin").slideToggle(1000);
+                $(".modalContainerLogin").fadeIn(500);
               });
         });
         //função para abrir a modal
@@ -28,7 +34,7 @@
                 type: "POST",
                 url: "views/login.php",
                 success: function(dados){
-                    $('.modal_login').html(dados);
+                    $('.modal-login').html(dados);
                  }
                 });
             }
@@ -47,7 +53,7 @@
                 type: "POST",
                 url: "views/detalhes.php",
                 success: function(dados){
-                    $('.modal_detalhes').html(dados);
+                    $('.modal-detalhes').html(dados);
                  }
                 });
             }
@@ -75,7 +81,7 @@
   </head>
   <body>
       <div class="modalContainerLogin">
-           <div class="modal_login">
+           <div class="modal-login">
 
            </div>
        </div>
@@ -88,41 +94,50 @@
 
         <!-- Área com Itens e Logo do menu superior -->
         <div class="conteudo-menu">
+          <div class="segura-itens-menu">
+            <div class="itens-menu">
+              <h2>Empresa</h2>
+              <ul class="submenu">
+                <li>Sobre a Empresa</li>
+                <li>item</li>
+              </ul>
+            </div>
+            <div class="itens-menu">
+              <h2>Blog</h2>
+              <ul class="submenu">
+                <li>Interação</li>
+                <li>item</li>
+              </ul>
+            </div>
+
+
           <div class="itens-menu">
-            <h2>Empresa</h2>
-            <ul class="submenu">
-              <li>Sobre a Empresa</li>
-              <li>item</li>
-            </ul>
+            <div class="logo-menu">
+              <a href="index.php"><h1 style="margin:0px;"><img src="img/logo.png" alt="Logo"></h1></a>
+            </div>
           </div>
-          <div class="itens-menu">
-            <h2>Blog</h2>
-            <ul class="submenu">
-              <li>Interação</li>
-              <li>item</li>
-            </ul>
+
+
+            <div class="itens-menu">
+              <h2>Passagens</h2>
+              <ul class="submenu">
+                <li>item</li>
+                <li>item</li>
+              </ul>
+            </div>
+            <div class="itens-menu">
+              <h2>locais</h2>
+              <ul class="submenu">
+                <li>item</li>
+                <li>item</li>
+              </ul>
+            </div>
           </div>
-          <div class="logo-menu">
-            <a href="index.php"><h1><img src="img/logo.png" alt="Logo"></h1></a>
-          </div>
-          <div class="itens-menu">
-            <h2>Passagens</h2>
-            <ul class="submenu">
-              <li>item</li>
-              <li>item</li>
-            </ul>
-          </div>
-          <div class="itens-menu">
-            <h2>locais</h2>
-            <ul class="submenu">
-              <li>item</li>
-              <li>item</li>
-            </ul>
-          </div>
+
         </div>
         <!--  -->
         <div class="login-menu">
-           <a class="login" href="#" onclick="Login();"> <h4> <b>Acesso</b> </h4> </a>
+           <a class="login" href="#" onclick="Login();"> <h5 class="btn"> <b>Acesso</b> </h5> </a>
         </div>
       </div>
     </nav>
@@ -131,9 +146,7 @@
 
 
     <!-- Conteúdo da página -->
-    <div class="conteudo">
-      <?php require_once("sobre_empresa.php"); ?>
-    </div>
+    <div id="conteudo"></div>
 
 
     <!-- rodapé -->
@@ -151,7 +164,7 @@
                   <h3>Empresa</h3>
                 </td>
                 <td>
-                 <h3>Legislação</h3>
+                 <h3><span class="link" id="leg">Legislação</span></h3>
                 </td>
                 <td>
                  <h3> Agência</h3>
@@ -219,7 +232,7 @@
             </div>
             <div class="contato-footer">
               <h3>Para entrar em contato diretamente com a empresa</h3>
-              <h2><b>4002-8922</b></h2>
+              <h2><b>0800 400 28922</b></h2>
               <h3>Segunda a Sexta das <b>9h</b> ás <b>21h</b></h3>
             </div>
           </div>
@@ -238,11 +251,6 @@
         </div>
       </div>
     </footer>
-
-    <script type="text/javascript">
-      // $('html, body').animate({scrollTop:0}, 'slow');
-    </script>
-    <!-- Chama os scripts  -->
-
+    <script src="js/links.js"></script>
   </body>
 </html>

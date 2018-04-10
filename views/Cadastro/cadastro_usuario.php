@@ -19,7 +19,7 @@
         <form action="router.php?controller=usuario&modo=novo" enctype="multipart/form-data" method="post">
           <div class="campo-foto">
             <!--texto da imagem de inserir foto de perfil-->
-            <div class="subtitulo">
+            <div class="subtitulo text-center">
               <h3>Foto de Perfil</h3>
             </div>
             <!--Container para colocar a imagem de perfil-->
@@ -49,7 +49,7 @@
             </div>
           </div>
           <!--Titulo dos dados pessoais-->
-          <div class="subtitulo">
+          <div class="subtitulo text-center">
             <h3>Dados Pessoais</h3>
           </div>
           <!-- O usuário insere os dados complementares no seu cadastro-->
