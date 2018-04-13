@@ -320,7 +320,8 @@ p{
 .frase-inicial{
   display: flex;
   position: absolute;
-  width: auto;
+  justify-content: center;
+  width: 80%;
   height: auto;
   font-size: 1.8rem;
   /* background-color: blue; */

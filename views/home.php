@@ -119,7 +119,7 @@
 
          <div class="conteudo_locais">
            <div class="titulo_locais" style="color:#1f405e;">
-             <h2><strong>VEJA NOSSAS SUGESTÕES DE VIAGENS!</strong> </h2>
+             <h2><strong>APROVEITE NOSSAS SUGESTÕES DE VIAGENS!</strong> </h2>
            </div>
            <div class="locais-viagem">
 
@@ -144,7 +144,7 @@
 
          <div class="conteudo_locais">
            <div class="titulo_locais" style="color:#1f405e;">
-                   <h2> Veja quem está viajando com a gente</h2>
+                   <h2>VEJA QUEM ESTÁ VIAJANDO COM A GENTE!</h2>
            </div>
            <div id="content">
              <nav id="menu-carrossel">

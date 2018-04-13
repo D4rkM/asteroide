@@ -1,3 +1,12 @@
+<?php
+  // Links para a página Home
+
+
+  // Links para outras páginas
+
+ ?>
+
+
 <!-- Menu Superior -->
 <nav>
   <div class="menu-container" id="men" style="background-color:#162E44;">
@@ -11,7 +20,7 @@
         <div class="itens-menu">
           <h2>Empresa</h2>
           <ul class="submenu">
-            <li>Sobre a Empresa</li>
+            <li><a href="views/sobre_empresa.php">Sobre a Empresa</a></li>
             <li>item</li>
           </ul>
         </div>
@@ -39,10 +48,10 @@
           </ul>
         </div>
         <div class="itens-menu">
-          <h2>locais</h2>
+          <h2>Locais</h2>
           <ul class="submenu">
-            <li>item</li>
-            <li>item</li>
+            <li>Postos Rodoviários</li>
+            <li>Ranking</li>
           </ul>
         </div>
       </div>
