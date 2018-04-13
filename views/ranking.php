@@ -11,50 +11,44 @@
     <div class="modal_detalhes">
     </div>
 </div>
+<div class="imagem-de-fundo" style="background-image:url('img/inf_legislacao.jpg');">
 
- 
+</div>
     <!-- Conteúdo da página -->
-    <div class="conteudo_ranking">
+    <div class="conteudo-ranking">
+      <div class="titulo-conteudo-padrao">
+        <h2 style="text-transform:uppercase;">Confira agora o ranking dos dos postos rodoviarios que mais vendem passagens!</h2>
+      </div>
+
           <!--Conteiner reponsavel por segurar o conteudo-->
-          <div class="raking_container">
+          <div class="raking-container">
               <!--Titulo da pagina-->
-            <div class="title_ranking">
-              <h2>Confira agora o ranking dos dos postos rodoviarios que mais vendem passagens!</h2>
-            </div>
             <!--Div responsavel por informar a posição do ranking-->
-            <div class="posicao">
-              <h2>1°Lugar - Terminal Rodoviario Tiete</h2>
-            </div>
-              <!--Div responsavel por segurar a imagem do posto rodoviario-->
-            <div class="postos_content">
-                <!--Imagem do posto rodoviario-->
-              <img class="img_posto" src="img/v.php" alt="rod">
-                <!--Responsavel por chamar a modal de detalhes do posto rodoviario-->
-              <a class="detalhes" href="#" onclick="Detalhes()">Detalhes</a>
-            </div>
+            <?php
+            $a=1;
+             while ($a <= 5) {
+              # code...
+             ?>
+             <div class="classificacao" style="background-image:url('img/rodoviaria.jpg');">
+               <!--Deixa a imagem mais escura -->
+               <div class="bg-dark"></div>
+                 <div class="info-ranking" style="">
 
-            <div class="posicao">
-              <h2>2°Lugar - Terminal Rodoviario Jabaguara</h2>
-            </div>
-            <div class="postos_content">
-              <img class="img_posto" src="img/rodoviaria.jpg" alt="rod">
-              <a class="detalhes" href="#" onclick="Detalhes()">Detalhes</a>
-            </div>
+                   <div class="subtitulo rank-subtitulo" style="color:white;">
+                     <h2><?php echo($a); ?>°Lugar - Terminal Rodoviario Tiete</h2>
+                   </div>
+                   <!--Div responsavel por segurar a imagem do posto rodoviario-->
 
-            <div class="posicao">
-              <h2>3°Lugar - Terminal Rodoviario Barra Funda</h2>
-            </div>
-            <div class="postos_content">
-              <img class="img_posto" src="img/rod2.jpeg" alt="rod">
-              <a class="detalhes" href="#" onclick="Detalhes()">Detalhes</a>
-            </div>
+                   <div class="btn-ranking">
+                     <a class="btn" href="#" onclick="Detalhes()">Detalhes</a>
+                   </div>
 
-            <div class="posicao">
-              <h2>4°Lugar - Terminal Rodoviario Novo Rio</h2>
-            </div>
-            <div class="postos_content">
-              <img class="img_posto" src="img/sp.png" alt="rod">
-              <a class="detalhes" href="#" onclick="Detalhes()">Detalhes</a>
-            </div>
+                 </div>
+
+
+             </div>
+          <?php
+          $a++;
+        } ?>
           </div>
     </div>

@@ -55,36 +55,38 @@
   </div>
 </div>
 <div style="padding:50px;">
-  <div class="item_dois_dois">
-    <div class="comunicacao_dois">
-      <div class="segura_titulo">
+  <div class="cont-forma-de-contato">
+    <div class="forma-de-contato">
+      <div class="subtitulo text-center">
         Fale diretamente conosco
       </div>
-      <div class="inf_contatos">
+      <div class="numero-contato">
         0800 575 9858
       </div>
     </div>
-    <div class="comunicacao_dois">
-      <div class="segura_titulo_dois">
-        Ouvidoria da Viação Asteroide
+
+      <div class="forma-de-contato">
+        <div class="subtitulo text-center">
+          Ouvidoria da Viação Asteroide
+        </div>
+        <div class="numero-contato">
+          0800 963 2336
+        </div>
       </div>
-      <div class="inf_contatos">
-        0800 963 2336
-      </div>
-    </div>
-    <div class="comunicacao_dois">
-      <div class="segura_titulo_dois">
+
+    <div class="forma-de-contato">
+      <div class="subtitulo text-center">
         Redes sociais
       </div>
-      <div class="inf_redess">
+      <div class="cont-redes-sociais">
         Atendemos também pelo Facebook, Twitter, Consumidor gov
       </div>
     </div>
-    <div class="comunicacao_dois">
-      <div class="segura_titulo_dois">
+    <div class="forma-de-contato">
+      <div class="subtitulo text-center">
         Suporte Tecnologico
       </div>
-      <div class="inf_contatos">
+      <div class="numero-contato">
         0800 744 9668
       </div>
     </div>

@@ -150,7 +150,7 @@ p{
   /* margin: auto; */
   /* text-align: center; */
   font-family: sans-serif;
-  font-size: 18px;
+  font-size: 1.4rem;
   font-weight: bold;
   color: #458665;
 }
@@ -202,7 +202,7 @@ p{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 400px;
+  width: 1000px;
   height: 100%;
 }
 
@@ -249,12 +249,14 @@ p{
 
 .logo-menu{
   /* justify-content: center; */
+  /* padding-left: 40px;
+  padding-right: 50px; */
   /* display: flex; */
-  width: 200px;
+  width: 110px;
 }
 
 .logo-menu img{
-  /* margin-left: -40px; */
+
   width: 100px;
   height: 120px;
 }
@@ -343,7 +345,7 @@ margin: 1.6em 0;
 
 .conteudo_locais{
   width: 1500px;
-  height: 480px;
+  height: 510px;
   margin:auto;
   overflow: hidden;
 }
@@ -363,9 +365,7 @@ margin: 1.6em 0;
 }
 
 .polaroid {
-  cursor: pointer;
   width: 350px;
-  max-height: 380px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: 1s;
@@ -378,7 +378,6 @@ margin: 1.6em 0;
 
 .polaroid img {
   width: 100%;
-  min-height:280px;
 }
 
 .texto-polaroid {
@@ -470,64 +469,79 @@ margin: 1.6em 0;
 
 /* **************************************** */
 /* Conteudo da página de ranking */
-.conteudo_ranking{
+.conteudo-ranking{
   width: 100%;
   min-height: 1430px;
   height: auto;
-  padding-top: 70px;
-  background-color: #E0FFFF;
+  /* padding-top: 70px; */
+  /* background-color: #E0FFFF; */
 }
 /*Segura todo conteudo do ranking*/
-.raking_container{
-  width: 70%;
+.raking-container{
+  width: 1000px;
   min-height: 1430px;
   height: auto;
-  background-color: #00FA9A;
+  /* background-color: #00FA9A; */
   margin: auto;
-
 }
-/*Titulo da pagina*/
-.title_ranking{
-  width: 100%;
-  height: 70px;
-  background-color: #000;
-  border: solid 1px #000;
-
-  text-align: center;
-  color: #fff;
-  margin-bottom: 50px;
+.rank-subtitulo{
+  width: 1000px;
 }
+
 /*Posição do ranking*/
-.posicao{
-  margin-left: 120px;
+.classificacao{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-size: 100% 100%;
+  height: 300px;
+  margin:50px 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+/* .classificacao:hover>.bg-dark{
+  transition: 1s;
+  opacity: 0;
+} */
+
+/* deixa o fundo escuro */
+.bg-dark{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  position: relative;
+  /* transition: 1s; */
+}
+
+.btn-ranking{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  width: 20%;
+}
+
+.info-ranking{
+  width: 990px;
+  padding-left: 10px;
+  display: flex;
+  height: 300px;
+  flex-direction: row;
+  justify-content: flex-end;
+  opacity: 1;
+  position:absolute;
+}
+
 /*Conatiner da imagem do posto rodoviario*/
-.postos_content{
-  width: 80%;
+.postos-content{
+  width: 1000px;
   height: 250px;
   background-color: #C71585;
   margin: auto;
   border-radius: 5px;
 }
-/*Imagem do posto rodoviario*/
-.img_posto{
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-}
-/*Detalhes do posto rodoviario*/
-.detalhes{
-  width: 120px;
-  height: 30px;
-  background-color: #00FA9A;
-  position: absolute;
-  margin-top: -50px;
-  margin-left: 45%;
-  text-align: center;
-  line-height: 30px;
-  border-radius: 15px;
 
-}
 /* **************************************** */
 /* Conteudo da página de ranking  modal*/
 .modal{
@@ -801,7 +815,7 @@ margin: 1.6em 0;
 .container-contato{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin-top: -200px;
   width: 1200px;
@@ -825,7 +839,7 @@ margin: 1.6em 0;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-top: 2px;
-  margin-left: 35px;
+  /* margin-left: 35px; */
 }
 
 .opcoes{
@@ -877,34 +891,28 @@ margin: 1.6em 0;
 }
 
 /* onde estão guardados nossos numeros para contato */
-.item_dois_dois{
+.cont-forma-de-contato{
   width: 1800px;
   height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border: solid black 1px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.comunicacao_dois{
-  width: 30%;
-  height: 100px;
-  border: solid black 1px;
-}
-
-.segura_titulo_dois{
-  width: 200px;
-  height: 15px;
   /* border: solid black 1px; */
   margin-left: auto;
   margin-right: auto;
-  margin-top: 12px;
-  text-align: center;
 }
-
-.inf_contatos{
+/* Armazena um tipo de contato  */
+.forma-de-contato{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  width: 30%;
+  height: 90px;
+  border: solid 1px #1F405E;
+}
+/* Estiliza os numeros que aparecerao para contato */
+.numero-contato{
   width: 250px;
   height: 40px;
   /* border: solid black 1px; */
@@ -915,7 +923,7 @@ margin: 1.6em 0;
   font-size: 35px;
 }
 
-.inf_redess{
+.cont-redes-sociais{
   width: 250px;
   height: 40px;
   /* border: solid black 1px; */
@@ -923,6 +931,7 @@ margin: 1.6em 0;
   margin-right: auto;
   margin-top: 15px;
   text-align: center;
+
   font-size: 15px;
 }
 
@@ -940,7 +949,8 @@ margin: 1.6em 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  min-width: 100%;
+  width: 100vh;
   height: 500px;
   /* border: solid black 1px; */
   background-attachment: fixed;
@@ -1184,15 +1194,17 @@ margin: 1.6em 0;
 /* ------------------------------------------------------------------------- */
 
 /* Conteudo da página de postos rodoviarios*/
-.conteuno_postos_rodoviarios{
-  width: 100%;
+.inf-postos-rodoviarios{
+  width: 1500px;
   min-height: 1430px;
   height: auto;
-  padding-top: 50px;
-  background-color: #C0C0C0;
+  padding-top: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
+  /* background-color: #C0C0C0; */
 }
 
-.postos_rodoviarios_container{
+.campo-postos{
   width: 85%;
   min-height: 1430px;
   height: auto;
@@ -1247,16 +1259,15 @@ margin: 1.6em 0;
 
 /* ------------------------------------------------------------------------- */
 /* Pagina de duvidas frequentes */
-.conteuno_duvidas{
+.conteudo-duvidas{
   width: 100%;
   /* min-height: 800; */
-
   height: auto;
-  padding: 80px 0px;
+  padding: 70px 0px;
   /* background-color: #C0C0C0; */
 }
 
-.duvidas_container{
+.duvidas-container{
   display: flex;
   width: 1300px;
   min-height: 500px;
@@ -1265,8 +1276,6 @@ margin: 1.6em 0;
   /* background-color: #458665; */
   /* border: solid 1px #000; */
 }
-
-
 
 .perguntas{
     display: flex;

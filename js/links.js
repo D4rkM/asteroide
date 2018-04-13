@@ -1,6 +1,6 @@
 // Cria um objeto que ira receber as devidas funções para ab
-
 var asteroide = {
+
   // fetch: function() {
   //   $('#news').load('news.php?id=' + this.id).show();
   // },
@@ -34,14 +34,16 @@ var asteroide = {
   }
 };
 
- $(document).ready(function(e){
-   $.routes.add('/conteudo/', asteroide.fale_conosco());
-});
+$(function(){
 
-  $('#leg').click(function(){
-    // $('#conteudo').css('display','none');
-    console.log('ok');
-    $.routes.add('/conteudo/', asteroide.fetch());
+  $($.routes.add('/conteudo/', asteroide.inicio())).ready(function(){
+    $('#leg').click(function(){
+      // $('#conteudo').css('display','none');
+      $.routes.add('/conteudo/', asteroide.leg());
+    });
   });
+
+
+});
 
 // $.routes.add('/news/{id:int}/', asteroide.home);

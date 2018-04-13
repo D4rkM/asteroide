@@ -8,13 +8,13 @@ usuarios e ajudar aqueles que estão com duvidas
   -->
 
 <!-- Conteúdo da página -->
-<div class="conteuno_duvidas">
+<div class="conteudo-duvidas">
   <!--Container que segura todas as informações dos postos rodoviarios -->
   <div class="titulo-conteudo-padrao text-center">
     <h2>DÚVIDAS FREQUENTES</h2>
   </div>
 
-  <div class="duvidas_container">
+  <div class="duvidas-container">
     <!--Container responsael por segurar o titulo da pagima -->
 
 
@@ -28,7 +28,7 @@ usuarios e ajudar aqueles que estão com duvidas
       </div>
       <div class="respostas">
           <div id="legenda">
-            Sua resposta aparece aqui...
+           <p>Sua resposta aparece aqui...</p>  
           </div>
            <div id="div_email" >
              <p style='color:#162E44;'>Para comprar passagem você deve se direcionar a pagina <a href="#"> <strong>Compra de passagem</strong> </a> ou
