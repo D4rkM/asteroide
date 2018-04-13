@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_asteroide
 -- ------------------------------------------------------
--- Server version	5.0.67-community-nt
+-- Server version	5.6.10-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,10 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Not dumping tablespaces as no INFORMATION_SCHEMA.FILES table on this server
---
-
---
 -- Table structure for table `auditoria`
 --
 
@@ -27,10 +23,10 @@ DROP TABLE IF EXISTS `auditoria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `auditoria` (
-  `id` int(11) NOT NULL auto_increment,
-  `acao` varchar(45) default NULL,
-  `id_funcionario` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `acao` varchar(45) DEFAULT NULL,
+  `id_funcionario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_funcionario_idx` (`id_funcionario`),
   CONSTRAINT `fk_funcionario_auditoria` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -53,10 +49,10 @@ DROP TABLE IF EXISTS `caminho`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `caminho` (
-  `id` int(11) NOT NULL auto_increment,
-  `latitude` float default NULL,
-  `longitude` float default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `latitude` float DEFAULT NULL,
+  `longitude` float DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -77,11 +73,11 @@ DROP TABLE IF EXISTS `caminho_parada`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `caminho_parada` (
-  `id` int(11) NOT NULL auto_increment,
-  `id_caminho` int(11) default NULL,
-  `id_parada` int(11) default NULL,
-  `ponto_localizacao_onibus` varchar(45) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_caminho` int(11) DEFAULT NULL,
+  `id_parada` int(11) DEFAULT NULL,
+  `ponto_localizacao_onibus` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_caminho_idx` (`id_caminho`),
   KEY `fk_parada_idx` (`id_parada`),
   CONSTRAINT `fk_caminho_parada` FOREIGN KEY (`id_caminho`) REFERENCES `caminho` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -106,9 +102,9 @@ DROP TABLE IF EXISTS `chegada`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `chegada` (
-  `id` int(11) NOT NULL auto_increment,
-  `id_postorodoviario` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_postorodoviario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_posto_rodoviario_idx` (`id_postorodoviario`),
   CONSTRAINT `fk_postorodoviario_chegada` FOREIGN KEY (`id_postorodoviario`) REFERENCES `posto_rodoviario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -133,8 +129,8 @@ DROP TABLE IF EXISTS `cidade`;
 CREATE TABLE `cidade` (
   `id` int(11) NOT NULL,
   `cidade` varchar(45) NOT NULL,
-  `id_estado` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id_estado` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_estado_idx` (`id_estado`),
   CONSTRAINT `fk_estado_cidade` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -157,9 +153,9 @@ DROP TABLE IF EXISTS `classe`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `classe` (
-  `id` int(11) NOT NULL auto_increment,
-  `tipo_classe` varchar(45) default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_classe` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -180,17 +176,17 @@ DROP TABLE IF EXISTS `compra`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `compra` (
-  `id` int(11) NOT NULL auto_increment,
-  `id_viagem` int(11) default NULL,
-  `qrcode` varchar(45) default NULL,
-  `validacao_qrcode` tinyint(1) default NULL,
-  `id_usuario` int(11) default NULL,
-  `numero_poltrona` varchar(45) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_viagem` int(11) DEFAULT NULL,
+  `qrcode` varchar(45) DEFAULT NULL,
+  `validacao_qrcode` tinyint(1) DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  `numero_poltrona` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_viagem_idx` (`id_viagem`),
   KEY `fk_usuario_idx` (`id_usuario`),
-  CONSTRAINT `fk_usuario_compra` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_viagem_compra` FOREIGN KEY (`id_viagem`) REFERENCES `viagem` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_viagem_compra` FOREIGN KEY (`id_viagem`) REFERENCES `viagem` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuario_compra` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -211,14 +207,14 @@ DROP TABLE IF EXISTS `compra_passagem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `compra_passagem` (
-  `id` int(11) NOT NULL auto_increment,
-  `id_usuario` int(11) default NULL,
-  `id_postorodoviario` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) DEFAULT NULL,
+  `id_postorodoviario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_usuario_idx` (`id_usuario`),
   KEY `fk_postorodoviario_idx` (`id_postorodoviario`),
-  CONSTRAINT `fk_postorodoviario` FOREIGN KEY (`id_postorodoviario`) REFERENCES `posto_rodoviario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_usuario_passagem` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_usuario_passagem` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_postorodoviario` FOREIGN KEY (`id_postorodoviario`) REFERENCES `posto_rodoviario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -239,9 +235,9 @@ DROP TABLE IF EXISTS `estado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `estado` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `estado` varchar(45) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -262,12 +258,12 @@ DROP TABLE IF EXISTS `fale_conosco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fale_conosco` (
-  `id` int(11) NOT NULL auto_increment,
-  `id_usuario` int(11) default NULL,
-  `sugestao` varchar(255) default NULL,
-  `reclamacoes` varchar(255) default NULL,
-  `elogios` varchar(255) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) DEFAULT NULL,
+  `sugestao` varchar(255) DEFAULT NULL,
+  `reclamacoes` varchar(255) DEFAULT NULL,
+  `elogios` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_usuario_idx` (`id_usuario`),
   CONSTRAINT `fk_usuario_fale` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -290,11 +286,11 @@ DROP TABLE IF EXISTS `freio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `freio` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   `estoque` varchar(45) NOT NULL,
-  `id_tipofreio` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id_tipofreio` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_tipofreio_idx` (`id_tipofreio`),
   CONSTRAINT `fk_tipofreio` FOREIGN KEY (`id_tipofreio`) REFERENCES `tipo_freio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -317,10 +313,10 @@ DROP TABLE IF EXISTS `freio_onibus`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `freio_onibus` (
-  `id` int(11) NOT NULL auto_increment,
-  `id_freio` int(11) default NULL,
-  `id_onibus` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_freio` int(11) DEFAULT NULL,
+  `id_onibus` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_freio_idx` (`id_freio`),
   KEY `fk_onibus_idx` (`id_onibus`),
   CONSTRAINT `fk_freio_onibus` FOREIGN KEY (`id_freio`) REFERENCES `freio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -345,28 +341,28 @@ DROP TABLE IF EXISTS `funcionario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `funcionario` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `senha` varchar(45) NOT NULL,
   `datanasc` date NOT NULL,
   `sexo` varchar(45) NOT NULL,
-  `telefone` varchar(45) default NULL,
-  `celular` varchar(45) default NULL,
+  `telefone` varchar(45) DEFAULT NULL,
+  `celular` varchar(45) DEFAULT NULL,
   `cpf` varchar(45) NOT NULL,
   `rg` varchar(45) NOT NULL,
   `ativo` tinyint(1) NOT NULL,
   `login` varchar(45) NOT NULL,
-  `cep` varchar(45) default NULL,
-  `logradouro` varchar(45) default NULL,
-  `numero` varchar(45) default NULL,
-  `bairro` varchar(45) default NULL,
-  `complemento` varchar(45) default NULL,
-  `id_cidade` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `cep` varchar(45) DEFAULT NULL,
+  `logradouro` varchar(45) DEFAULT NULL,
+  `numero` varchar(45) DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `complemento` varchar(45) DEFAULT NULL,
+  `id_cidade` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_funcionario_cidade_idx` (`id_cidade`),
   CONSTRAINT `fk_funcionario_cidade` FOREIGN KEY (`id_cidade`) REFERENCES `cidade` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -375,7 +371,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (1,'teste','asdasd','123','2000-02-12','F','123123','123','23123','123123',1,'teste','123123','1','123','123','123',NULL),(2,'FGSDF','DFGDFG@FGDF','fhngh','2000-02-20','F','111 1111-2523','111111111111111','5235','4532',1,'GFG','4532','54354','453','534','45',NULL);
+INSERT INTO `funcionario` VALUES (1,'teste','asdasd','123','2000-10-02','F','123123','123','23123','123123',1,'teste','123123','1','123','123','123',NULL);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -387,10 +383,10 @@ DROP TABLE IF EXISTS `funcionario_nivel`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `funcionario_nivel` (
-  `id` int(11) NOT NULL auto_increment,
-  `id_funcionario` int(11) default NULL,
-  `id_nivel` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_funcionario` int(11) DEFAULT NULL,
+  `id_nivel` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_funcionario_idx` (`id_funcionario`),
   KEY `fk_nivel_idx` (`id_nivel`),
   CONSTRAINT `fk_funcionario_nivel` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -415,13 +411,13 @@ DROP TABLE IF EXISTS `interacao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `interacao` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `local` varchar(45) NOT NULL,
-  `img` varchar(45) default NULL,
-  `comentario` varchar(100) default NULL,
-  `aparecer` varchar(45) default NULL,
-  `id_usuario` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `img` varchar(45) DEFAULT NULL,
+  `comentario` varchar(100) DEFAULT NULL,
+  `aparecer` varchar(45) DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_usuario_idx` (`id_usuario`),
   CONSTRAINT `fk_usuario_interacao` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -444,9 +440,9 @@ DROP TABLE IF EXISTS `marca_oleo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `marca_oleo` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `marca` varchar(45) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -467,9 +463,9 @@ DROP TABLE IF EXISTS `marca_pneu`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `marca_pneu` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `marca` varchar(45) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -490,9 +486,9 @@ DROP TABLE IF EXISTS `mensagem_notificacao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `mensagem_notificacao` (
-  `id` int(11) NOT NULL auto_increment,
-  `mensagem` varchar(45) default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mensagem` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -513,9 +509,9 @@ DROP TABLE IF EXISTS `modulo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `modulo` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `modulo` varchar(45) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -536,19 +532,19 @@ DROP TABLE IF EXISTS `motorista`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `motorista` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   `cpf` varchar(45) NOT NULL,
   `cnh` varchar(45) NOT NULL,
   `senha` varchar(45) NOT NULL,
-  `email` varchar(45) default NULL,
-  `telefone` varchar(45) default NULL,
-  `celular` varchar(45) default NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `telefone` varchar(45) DEFAULT NULL,
+  `celular` varchar(45) DEFAULT NULL,
   `rg` varchar(45) NOT NULL,
   `sexo` varchar(45) NOT NULL,
   `datanasc` date NOT NULL,
   `ativo` tinyint(1) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -569,9 +565,9 @@ DROP TABLE IF EXISTS `nivel`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `nivel` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nivel` varchar(45) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -592,10 +588,10 @@ DROP TABLE IF EXISTS `nivel_modulo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `nivel_modulo` (
-  `id` int(11) NOT NULL auto_increment,
-  `id_modulo` int(11) default NULL,
-  `id_nivel` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_modulo` int(11) DEFAULT NULL,
+  `id_nivel` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_nivel_nm_idx` (`id_modulo`),
   KEY `fk_nv_idx` (`id_nivel`),
   CONSTRAINT `fk_nivel_nm` FOREIGN KEY (`id_modulo`) REFERENCES `modulo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -620,11 +616,11 @@ DROP TABLE IF EXISTS `oleo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oleo` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
-  `estoque` varchar(45) default NULL,
-  `id_marcaoleo` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `estoque` varchar(45) DEFAULT NULL,
+  `id_marcaoleo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_marcaoleo_idx` (`id_marcaoleo`),
   CONSTRAINT `fk_marcaoleo` FOREIGN KEY (`id_marcaoleo`) REFERENCES `marca_oleo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -647,14 +643,14 @@ DROP TABLE IF EXISTS `oleo_onibus`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oleo_onibus` (
-  `id` int(11) NOT NULL auto_increment,
-  `id_oleo` int(11) default NULL,
-  `id_onibus` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_oleo` int(11) DEFAULT NULL,
+  `id_onibus` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_onibus_idx` (`id_onibus`),
   KEY `fk_oleo_idx` (`id_oleo`),
-  CONSTRAINT `fk_oleo_onibus` FOREIGN KEY (`id_oleo`) REFERENCES `oleo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_onibus_oleo` FOREIGN KEY (`id_onibus`) REFERENCES `onibus` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_onibus_oleo` FOREIGN KEY (`id_onibus`) REFERENCES `onibus` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_oleo_onibus` FOREIGN KEY (`id_oleo`) REFERENCES `oleo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -675,15 +671,15 @@ DROP TABLE IF EXISTS `onibus`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `onibus` (
-  `id` int(11) NOT NULL auto_increment,
-  `numeros_poltronas` varchar(45) default NULL,
-  `status_manutencao` varchar(45) default NULL,
-  `km_rodado` varchar(45) default NULL,
-  `km_manutencao` varchar(45) default NULL,
-  `id_classe` int(11) default NULL,
-  `imagem` varchar(45) default NULL,
-  `descricao` varchar(255) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `numeros_poltronas` varchar(45) DEFAULT NULL,
+  `status_manutencao` varchar(45) DEFAULT NULL,
+  `km_rodado` varchar(45) DEFAULT NULL,
+  `km_manutencao` varchar(45) DEFAULT NULL,
+  `id_classe` int(11) DEFAULT NULL,
+  `imagem` varchar(45) DEFAULT NULL,
+  `descricao` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_classe_idx` (`id_classe`),
   CONSTRAINT `fk_classe_onibus` FOREIGN KEY (`id_classe`) REFERENCES `classe` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -706,14 +702,14 @@ DROP TABLE IF EXISTS `onibus_pneu`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `onibus_pneu` (
-  `id` int(11) NOT NULL auto_increment,
-  `id_pneu` int(11) default NULL,
-  `id_onibus` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pneu` int(11) DEFAULT NULL,
+  `id_onibus` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_pneu_idx` (`id_pneu`),
   KEY `fk_onibus_idx` (`id_onibus`),
-  CONSTRAINT `fk_onibus_pneu` FOREIGN KEY (`id_onibus`) REFERENCES `onibus` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pneu_onibus` FOREIGN KEY (`id_pneu`) REFERENCES `pneu` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_pneu_onibus` FOREIGN KEY (`id_pneu`) REFERENCES `pneu` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_onibus_pneu` FOREIGN KEY (`id_onibus`) REFERENCES `onibus` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -734,9 +730,9 @@ DROP TABLE IF EXISTS `parada`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `parada` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -757,9 +753,9 @@ DROP TABLE IF EXISTS `partida`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `partida` (
-  `id` int(11) NOT NULL auto_increment,
-  `id_postorodoviario` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_postorodoviario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_posto_rodoviario_idx` (`id_postorodoviario`),
   CONSTRAINT `fk_postorodoviario_partida` FOREIGN KEY (`id_postorodoviario`) REFERENCES `posto_rodoviario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -782,10 +778,10 @@ DROP TABLE IF EXISTS `pergunta_chatbot`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pergunta_chatbot` (
-  `id` int(11) NOT NULL auto_increment,
-  `pergunta` varchar(100) default NULL,
-  `resposta` varchar(100) default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pergunta` varchar(100) DEFAULT NULL,
+  `resposta` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -806,11 +802,11 @@ DROP TABLE IF EXISTS `pgduvidas_frequentes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pgduvidas_frequentes` (
-  `id` int(11) NOT NULL auto_increment,
-  `resposta` varchar(100) default NULL,
-  `aparecer` int(11) default NULL,
-  `pergunta` varchar(100) default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `resposta` varchar(100) DEFAULT NULL,
+  `aparecer` int(11) DEFAULT NULL,
+  `pergunta` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -824,30 +820,6 @@ LOCK TABLES `pgduvidas_frequentes` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `pgestados_postos`
---
-
-DROP TABLE IF EXISTS `pgestados_postos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pgestados_postos` (
-  `id` int(11) NOT NULL auto_increment,
-  `datainseri` date default NULL,
-  `estado` varchar(45) default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pgestados_postos`
---
-
-LOCK TABLES `pgestados_postos` WRITE;
-/*!40000 ALTER TABLE `pgestados_postos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pgestados_postos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `pgfrota_onibus`
 --
 
@@ -855,11 +827,9 @@ DROP TABLE IF EXISTS `pgfrota_onibus`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pgfrota_onibus` (
-  `id` int(11) NOT NULL auto_increment,
-  `datainseri` date NOT NULL,
-  `imagem` varchar(255) default NULL,
-  `nomeimagem` varchar(255) default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -880,10 +850,10 @@ DROP TABLE IF EXISTS `pginteracao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pginteracao` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(45) NOT NULL,
   `subtitulo` varchar(45) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -904,16 +874,10 @@ DROP TABLE IF EXISTS `pgposto_rodoviarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pgposto_rodoviarios` (
-  `id` int(11) NOT NULL auto_increment,
-  `datainseri` date default NULL,
-  `nome` varchar(45) default NULL,
-  `imagem` varchar(45) default NULL,
-  `localizacao` varchar(255) default NULL,
-  `texto` varchar(45) default NULL,
-  `idEstadoPosto` int(11) NOT NULL,
-  PRIMARY KEY  (`id`),
-  KEY `fkidEstadoPosto_idx` (`idEstadoPosto`),
-  CONSTRAINT `fkidEstadoPosto` FOREIGN KEY (`idEstadoPosto`) REFERENCES `pgestados_postos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `txt` varchar(45) DEFAULT NULL,
+  `titulo_pagina` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -934,16 +898,10 @@ DROP TABLE IF EXISTS `pgsobre_nos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pgsobre_nos` (
-  `id` int(11) NOT NULL auto_increment,
-  `titulo` varchar(255) default NULL,
-  `datainseri` date default NULL,
-  `imagem1` varchar(255) default NULL,
-  `nomeimagem1` varchar(45) default NULL,
-  `imagem2` varchar(255) default NULL,
-  `nomeimagem2` varchar(45) default NULL,
-  `texto1` text,
-  `texto2` text,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `txt1` varchar(45) DEFAULT NULL,
+  `txt2` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -964,12 +922,12 @@ DROP TABLE IF EXISTS `pneu`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pneu` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
-  `estoque` varchar(45) default NULL,
-  `km_rodado` varchar(45) default NULL,
-  `id_marcapeneu` int(11) default NULL,
-  PRIMARY KEY  (`id`,`nome`),
+  `estoque` varchar(45) DEFAULT NULL,
+  `km_rodado` varchar(45) DEFAULT NULL,
+  `id_marcapeneu` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`,`nome`),
   KEY `fk_marcapeneu_idx` (`id_marcapeneu`),
   CONSTRAINT `fk_marcapneu` FOREIGN KEY (`id_marcapeneu`) REFERENCES `marca_pneu` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -992,15 +950,15 @@ DROP TABLE IF EXISTS `posto_rodoviario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `posto_rodoviario` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
-  `cep` varchar(45) default NULL,
-  `logradouro` varchar(45) default NULL,
-  `numero` varchar(45) default NULL,
-  `bairro` varchar(45) default NULL,
-  `complemento` varchar(45) default NULL,
-  `id_cidade` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `cep` varchar(45) DEFAULT NULL,
+  `logradouro` varchar(45) DEFAULT NULL,
+  `numero` varchar(45) DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `complemento` varchar(45) DEFAULT NULL,
+  `id_cidade` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `logradouro_UNIQUE` (`logradouro`),
   KEY `fk_pr_cidade_idx` (`id_cidade`),
   CONSTRAINT `fk_pr_cidade` FOREIGN KEY (`id_cidade`) REFERENCES `cidade` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -1024,9 +982,9 @@ DROP TABLE IF EXISTS `tipo_freio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tipo_freio` (
-  `id` int(11) NOT NULL auto_increment,
-  `tipo` varchar(45) default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1047,24 +1005,24 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `senha` varchar(45) NOT NULL,
-  `datanasc` date default NULL,
+  `datanasc` date DEFAULT NULL,
   `sexo` varchar(45) NOT NULL,
-  `telefone` varchar(45) default NULL,
-  `celular` varchar(45) default NULL,
+  `telefone` varchar(45) DEFAULT NULL,
+  `celular` varchar(45) DEFAULT NULL,
   `cpf` varchar(45) NOT NULL,
   `rg` varchar(45) NOT NULL,
-  `cep` varchar(45) default NULL,
-  `logradouro` varchar(45) default NULL,
-  `numero` varchar(45) default NULL,
-  `bairro` varchar(45) default NULL,
-  `complemento` varchar(45) default NULL,
-  `id_cidade` int(11) default NULL,
-  `foto` varchar(200) default NULL,
-  PRIMARY KEY  (`id`),
+  `cep` varchar(45) DEFAULT NULL,
+  `logradouro` varchar(45) DEFAULT NULL,
+  `numero` varchar(45) DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `complemento` varchar(45) DEFAULT NULL,
+  `id_cidade` int(11) DEFAULT NULL,
+  `foto` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_usuario_cidade_idx` (`id_cidade`),
   CONSTRAINT `fk_usuario_cidade` FOREIGN KEY (`id_cidade`) REFERENCES `cidade` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1087,29 +1045,29 @@ DROP TABLE IF EXISTS `viagem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `viagem` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `valor` varchar(45) NOT NULL,
   `data` date NOT NULL,
   `hora` time NOT NULL,
-  `imagem` varchar(45) default NULL,
-  `descricao` varchar(100) default NULL,
-  `id_onibus` int(11) default NULL,
-  `id_chegada` int(11) default NULL,
-  `id_partida` int(11) default NULL,
-  `km` varchar(45) default NULL,
-  `id_caminho` int(11) default NULL,
-  `id_motorista` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `imagem` varchar(45) DEFAULT NULL,
+  `descricao` varchar(100) DEFAULT NULL,
+  `id_onibus` int(11) DEFAULT NULL,
+  `id_chegada` int(11) DEFAULT NULL,
+  `id_partida` int(11) DEFAULT NULL,
+  `km` varchar(45) DEFAULT NULL,
+  `id_caminho` int(11) DEFAULT NULL,
+  `id_motorista` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_onibus_idx` (`id_onibus`),
   KEY `gk_chegada_idx` (`id_chegada`),
   KEY `fk_partida_idx` (`id_partida`),
   KEY `fk_caminho_idx` (`id_caminho`),
   KEY `fk_motorista_idx` (`id_motorista`),
-  CONSTRAINT `fk_caminho_viagem` FOREIGN KEY (`id_caminho`) REFERENCES `caminho` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_chegada_viagem` FOREIGN KEY (`id_chegada`) REFERENCES `chegada` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_motorista_viagem` FOREIGN KEY (`id_motorista`) REFERENCES `motorista` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_onibus_viagem` FOREIGN KEY (`id_onibus`) REFERENCES `onibus` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_partida_viagem` FOREIGN KEY (`id_partida`) REFERENCES `partida` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_chegada_viagem` FOREIGN KEY (`id_chegada`) REFERENCES `chegada` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_partida_viagem` FOREIGN KEY (`id_partida`) REFERENCES `partida` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_caminho_viagem` FOREIGN KEY (`id_caminho`) REFERENCES `caminho` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_motorista_viagem` FOREIGN KEY (`id_motorista`) REFERENCES `motorista` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1130,14 +1088,14 @@ DROP TABLE IF EXISTS `viagem_notificacao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `viagem_notificacao` (
-  `id` int(11) NOT NULL auto_increment,
-  `id_viagem` int(11) default NULL,
-  `id_mensagemnotificacao` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_viagem` int(11) DEFAULT NULL,
+  `id_mensagemnotificacao` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_viagem_idx` (`id_viagem`),
   KEY `fk_mensagemnotificacao_idx` (`id_mensagemnotificacao`),
-  CONSTRAINT `fk_mensagem_ntf` FOREIGN KEY (`id_mensagemnotificacao`) REFERENCES `mensagem_notificacao` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_viagem_ntf` FOREIGN KEY (`id_viagem`) REFERENCES `viagem` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_viagem_ntf` FOREIGN KEY (`id_viagem`) REFERENCES `viagem` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_mensagem_ntf` FOREIGN KEY (`id_mensagemnotificacao`) REFERENCES `mensagem_notificacao` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1159,4 +1117,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-11  2:00:10
+-- Dump completed on 2018-03-28 11:25:50

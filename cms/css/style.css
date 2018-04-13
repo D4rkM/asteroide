@@ -1,6 +1,7 @@
 /*
 Editores: Magno, Bruno, Bruna, Lucas, William
-Data de modificação: 19/03/2018
+Data primeira modificação: 19/03/2018
+Data ultima modificação: 10/04/2018
 Obs: Arquivo principal para edições nas páginas
 */
 
@@ -50,26 +51,26 @@ textarea{
 }
 
 /* ------------------------------------------------------------------------- */
-
-/*Configução da Página*/
+/*Arquivo cms.php*/
+/*Cantainer que segura o conteudo inteiro*/
 .area-total{
   width: 100%;
   height: 100vh;
   background-color: #d4d6d8;
 }
 
-/*Configuração dos Menus*/
+/*Area dos Menus*/
 .area-menu{
   display: block;
   height: 40px;
   background-color: #162e44;
 }
-
+/*divi principal dos menus*/
 .divs-principais{
   display: flex;
   flex-direction: row;
 }
-
+/*icone da empresa*/
 .icone-empresa{
   width: 3%;
   float:left;
@@ -77,7 +78,7 @@ textarea{
   justify-content: center;
   color: white;
 }
-
+/*segura os itens do menu*/
 .itens-menu{
   width: 97%;
   height: 100%;
@@ -86,18 +87,7 @@ textarea{
   justify-content: flex-end;
   float:left;
 }
-
-.deslogar{
-  width: 100px;
-  height: 40px;
-  float: left;
-  text-align: center;
-  line-height: 40px;
-  font-size: 16px;
-  color: #fff;
-  font-family: "opensansbold";
-}
-
+/*nome do usuario*/
 .nome-usuario{
   width: 200px;
   height: 40px;
@@ -108,7 +98,18 @@ textarea{
   color: #e5e5e5;
   font-family: "opensansbold";
 }
-
+/*deslogar usuario*/
+.deslogar{
+  width: 100px;
+  height: 40px;
+  float: left;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  color: #fff;
+  font-family: "opensansbold";
+}
+/*foto do usuario*/
 .foto-usuario{
   width: 50px;
   height: 40px;
@@ -116,20 +117,19 @@ textarea{
   display: flex;
   justify-content: center;
 }
-
-/*Configuração Menu Lateral e Conteudo*/
+/*Area Menu Lateral e Conteudo*/
 .area-abaixo-menu{
   width:100%;
   height: 100%;
 }
-
+/*menu lateral*/
 .menu-lateral{
   width: 10%;
   height: 100%;
   background-color: #1f405e;
   float: left;
 }
-
+/*Itens do menu lateral*/
 .itens-menu-lateral{
   width: 100%;
   height: 130px;
@@ -141,14 +141,13 @@ textarea{
   transition: 1s;
 }
 
-.itens-menu-lateral:hover
-{
+.itens-menu-lateral:hover{
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
   transition: 1s;
 }
-
+/*Imagem do menu lateral*/
 .img-menu-lateral{
   width: 50%;
   height: 80px;
@@ -157,7 +156,7 @@ textarea{
   display: flex;
   justify-content: center;
 }
-
+/*Nome do menu lateral*/
 .txt-menu-lateral{
   width: 100%;
   height: 40px;
@@ -165,17 +164,52 @@ textarea{
   margin-right: auto;
   margin-top: 10px;
 }
-
+/*Conteudos que aparecera nas novas requisições*/
 .conteudo{
   width: 90%;
   height: 100%;
   float: left;
   overflow: auto;
 }
-
+/*Menu Paginas*/
+#menu_cruds{
+    display: none;
+    width: 250px;
+    height: 400px;
+    background-color: #fff;
+    margin-left: 100px;
+    margin-top: -120px;
+    position: absolute;
+    opacity:1;
+  	overflow:visible;
+  	transition:2s;
+    border-radius: 10px;
+    box-shadow: 11px 5px 5px /*rgb(102, 132, 29)*/rgba(0,0,0,0.5);
+}
+/*Listas de paginas*/
+#menu_cruds ul{
+  width: 100%;
+  height: 400px;
+  margin: 0px;
+  padding: 0px;
+}
+/*Itens das paginas*/
+#menu_cruds ul li{
+  width: 80%;
+  height: 35px;
+  background-color: #20B2AA;
+  margin: auto;
+  margin-top: 10px;
+  padding-top: 17px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 18px;
+}
 /**********************************************************************************************/
-
 /*AREA DO LOGIN DO FUNCIONÁRIO*/
+/*Conteudo de login*/
 .area-total-login{
   width: 630px;
   height: 350px;
@@ -186,14 +220,12 @@ textarea{
   padding-top: 20px;
   border-radius: 10px 10px 10px 10px;
 }
-
 .logo-login{
   width: 100px;
   height: 100px;
   margin-left: auto;
   margin-right: auto;
 }
-
 .titulo-login-cms{
   width: 170px;
   height: 30px;
@@ -204,7 +236,6 @@ textarea{
   font-size: 14px;
   font-family: "opensansbold";
 }
-
 .itens-login-container{
   width: 400px;
   height: 180px;
@@ -212,7 +243,6 @@ textarea{
   padding-top: 20px;
   padding-left: 100px;
 }
-
 .usuario-senha-txt{
   width: 60px;
   height: 15px;
@@ -220,31 +250,35 @@ textarea{
   font-size: 16px;
   font-family: "opensansbold";
 }
-
 .area-txt{
   width: 300px;
   height: 30px;
   margin-left: 10px;
   margin-top: 5px;
 }
-
 .area-txt input{
   width: 300px;
 }
-
 .btnLogin{
   width: 60px;
   height: 25px;
   margin-left: 260px;
   margin-top: 20px;
 }
-
+.areaMensagem{
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-family: "opensansbold";
+  color: #960707;
+}
+/**********************************************************************************************/
+/*Area de Funcionario*/
 .conteudoFunc{
   width: 100%;
   height: 100%;
 }
-
-/*Labels*/
+/*Labels onde ficara icons de lista de cadastro das paginas*/
 .labels{
   width: 100%;
   height: 50px;
@@ -268,7 +302,15 @@ textarea{
   transform: scale(1.1);
   transition: 1s;
 }
-
+/*Lista Funcionario*/
+.txt_pagina{
+    margin: auto;
+    width: 400px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 25px;
+}
+/*Segura os nomes dos itens que serão listados*/
 .menu-list-funcionario{
   width: 70%;
   height: 40px;
@@ -278,9 +320,7 @@ textarea{
   margin-top: 10px;
   border-radius: 10px 10px 0px 0px;
 }
-
-
-
+/*Itens que serão listados*/
 .itens-list-funcionario{
   width: 16%;
   height: 40px;
@@ -292,7 +332,7 @@ textarea{
   color: #fff;
   line-height: 40px;
 }
-
+/*Container que segura os itens que serão listados*/
 .container-itens-list-funcionario{
   width: 70%;
   height: 50px;
@@ -300,7 +340,7 @@ textarea{
   margin-right: auto;
   margin-top: 10px;
 }
-
+/*Itens listados*/
 .itens-list-funcionario-mostrar{
   width: 16%;
   height: 50px;
@@ -315,17 +355,23 @@ textarea{
   display: flex;
   justify-content: center;
 }
-
-
-
 /*CADASTRO DE FUNCIONARIO*/
+/*Area que segura o cadastro dos funcionarios*/
 .area-cad-func{
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row;
 }
-
+/*cadastro*/
+.div-cad-func{
+  width: 40%;
+  /* width: auto; */
+  height: 100%;
+  /* float: left; */
+  margin-left:15px;
+}
+/*nome da input*/
 .tlt-dado-func{
   width: 300px;
   height: 30px;
@@ -334,7 +380,7 @@ textarea{
   font-family: "opensansbold";
   font-size:16px;
 }
-
+/*inputs*/
 .area-dado-func{
   width: 500px;
   height: 30px;
@@ -342,11 +388,11 @@ textarea{
   margin-top: 2px;
   margin-bottom: 30px;
 }
-
+/*input*/
 .area-dado-func input{
   width: 300px;
 }
-
+/*caixa de radio - sexos*/
 .area-radio-dado-func{
   width: 500px;
   height: 30px;
@@ -356,44 +402,36 @@ textarea{
   font-family: "opensansbold";
   font-size:16px;
 }
-
-.div-cad-func{
-  width: 40%;
-  /* width: auto; */
-  height: 100%;
-  /* float: left; */
-  margin-left:15px;
-}
-
+/*segura os itens de numero e bairro*/
 .box-dois-itens-cad-func{
   width: 65%;
   height: 100px;
   margin-left: 100px;
 }
-
+/*itens numeros e bairro*/
 .itens-dois{
   width: 50%;
   height:100%;
   float: left;
 }
-
+/*nome das inputs*/
 .tlt-dados-pequenos-cad-func{
   width: 100%;
   height: 30%;
   font-family: "opensansbold";
   font-size:16px;
 }
-
+/*inputs*/
 .dados-pequenos-cad-func{
   width: 100%;
   height: 70%;
 }
-
+/*inputs*/
 .dados-pequenos-cad-func input{
   width: 150px;
 }
-
-/*MODAL*/
+/***************************************************************************/
+/*MODAL De edição das paginas*/
 .modal{
 	width:800px;
 	min-height:100px;
@@ -401,7 +439,6 @@ textarea{
 	margin:auto;
   margin-top: 90px;
 }
-
 .modalContainer{
 	width:100%;
 	height:100%;
@@ -409,14 +446,12 @@ textarea{
 	position:fixed;
 	display:none;
 }
-
 .fecharModal{
   width: 30px;
   height: 30px;
   margin-left: 770px;
   color: #af1f1f;
 }
-
 .tltModal{
   width: 500px;
   height: 20px;
@@ -428,19 +463,9 @@ textarea{
   margin-bottom: 10px;
   color:#1f405e;
 }
-
-
-.areaMensagem{
-  width: 100%;
-  height: 30px;
-  text-align: center;
-  font-family: "opensansbold";
-  color: #960707;
-}
-
 /*************************DUVIDAS FREQUENTES*******************/
 .menu-list-pagina{
-  width: 30%;
+  width: 60%;
   height: 40px;
   background-color: #162e44;
   margin-left: auto;
@@ -448,7 +473,6 @@ textarea{
   margin-top: 10px;
   border-radius: 10px 10px 0px 0px;
 }
-
 .itens-list-pagina{
   width: 30%;
   height: 40px;
@@ -460,16 +484,13 @@ textarea{
   color: #fff;
   line-height: 40px;
 }
-
 .container-itens-list-pagina{
-  width: 30%;
+  width: 60%;
   height: 50px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
 }
-
-
 .itens-list-pagina-mostrar{
   width: 32%;
   height: 50px;
@@ -484,43 +505,148 @@ textarea{
   display: flex;
   justify-content: center;
 }
-
-/*******AREA CADASTRO DUVIDAS*******/
+/******************************************************************************/
+/****************************AREA CADASTRO DUVIDAS****************************/
 .area-cad-duvida{
   width: 100%;
   height: 500px;
 }
-
 .area-form-duvida{
   width: 800px;
   height: 300px;
   margin-left: auto;
   margin-right: auto;
 }
-
 .pergunta{
   width: 40%;
   height: 150px;
   float: left;
   margin-left: 50px;
 }
-
 .txt-pergunta{
   width: 100%;
   height: 40%;
   line-height: 50px;
   font-family: "opensansbold";
 }
-
 .area-chk-btn-duvida{
   width: 100%;
   height: 40px;
   margin-top: 25px;
   font-family: "opensansbold";
 }
-
 .input-pergunta input{
   width: 100%;
+}
+/******************************************************************************/
+/*************************AREA CADASTRO SOBRE A EMPRESA************************/
+.tabela_gerenciamento{
+    width: 90%;
+    height: 570px;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 7px 5px 7px rgba(0, 0, 0, 0.5);
+}
+
+.containers_tables{
+  width: 48%;
+  height: 570px;
+  float: left;
+  margin-right: 1%;
+}
+
+.box_text_small{
+  width: 180px;
+  height: 25px;
+  border-radius: 10px;
+}
+
+.box_text_big{
+  width: 300px;
+  height: 25px;
+  border-radius: 10px;
+}
+
+.font_text{
+  font-size: 18px;
+  font-family: sans-serif;
+  margin-top: 10px;
+}
+
+.salva_empresa{
+  width: 130px;
+  height: 25px;
+  background-color: green;
+  border-radius: 10px;
+  margin-top: 60px;
+}
+/*************************Area de listar frotas*******************/
+.menu-list-pagina-frotas{
+  width: 80%;
+  height: 40px;
+  background-color: #162e44;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+.itens-list-pagina-frotas{
+  width: 24%;
+  height: 40px;
+  float: left;
+  margin-left:5px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+}
+.container-itens-list-pagina-frotas{
+  width: 80%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.itens-list-pagina-mostrar-frotas{
+  width: 24%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.tabela_gerenciamento_frotas{
+    width: 90%;
+    height: 430px;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 7px 5px 7px rgba(0, 0, 0, 0.5);
+}
+
+.btn_salvar{
+  margin-top: 20px;
+}
+/******************************************************************************/
+/*************************AREA CADASTRO POSTOS RODOVIARIOS************************/
+/*Estado*/
+.area_estado_postos{
+    width: 49%;
+    height: 650px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 7px 5px 7px rgba(0, 0, 0, 0.5);
+    margin-right: 1%;
+    float: left;
 }
 /**************************OPCOES DE PAGINAS**************************/
 .area-opcs{
@@ -528,20 +654,17 @@ textarea{
   height: 200px;
   margin-top: 200px;
 }
-
 .itens-opcs{
   width: 200px;
   height: 200px;
   margin-left: 80px;
 }
-
 .itens-opcs:hover{
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
   transition: 1s;
 }
-
 .img-itens-opcs{
   display: flex;
   align-items: center;
@@ -549,7 +672,6 @@ textarea{
   width: 100%;
   height: 170px;
 }
-
 .txt-itens-opcs{
   width: 100%;
   height: 30px;

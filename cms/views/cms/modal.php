@@ -167,7 +167,7 @@ $(document).ready(function() {
 		        <input type="text" name="txtComplementoFunc" value="<?php echo $dadosFuncionario->complemento ?>" >
 		      </div>
 		      <div class="area-dado-func">
-		        <input type="submit" name="btnCadastrarFunc" value="Atualizar" >
+		        <input type="submit" name="btnCadastrarFunc" value="Atualizar">
 		      </div>
 		    </div>
 
@@ -298,7 +298,7 @@ $(document).ready(function() {
 									Edição de Duvidas Frequentes
 								</div>
 
-								<form class="frmCadDuvida" method="post" action="router.php?controller=duvida&modo=editar&id=<?php echo $id; ?>">
+								<form class="frmCadDuvida" method="post" action="router.php?controller=sobreEmpresa&modo=editar&id=<?php echo $id; ?>">
 									<div class="area-cad-duvida">
 										<div class="area-form-duvida">
 											<div class="pergunta">
@@ -332,10 +332,94 @@ $(document).ready(function() {
 									</div>
 								</form>
 
-						<?php
-				}
+ <?php
+ }elseif($pagina=='sobre_empresa'){
 
- ?>
+ 							require_once("../../controllers/sobre_empresa_controller.php");
+ 							require_once("../../models/sobre_empresa_class.php");
 
+ 							$sobre_empresa_controller = new controllerSobreEmpresa();
+
+ 							$sobre_empresa_dados = $sobre_empresa_controller::Buscar($id);
+ 						?>
+
+ 								<div class="tltModal">
+ 									Edição de Sobre a Empresa
+ 								</div>
+
+ 								<form class="frmCadDuvida" method="post" action="router.php?controller=duvida&modo=editar&id=<?php echo $id; ?>">
+									<div class="tabela_gerenciamento">
+					          <div class="line_empresa">
+					              <h3>Data de inserção</h3>
+					              <input id="datainsercao" class="box_text2" type="text" name="txtdatainsercao" maxlength="10" value="<?php echo $sobre_empresa_dados->datainseri ?>">
+					          </div>
+					            <div class="line_empresa">
+					                <h3>Titulo da pagina Sobre a Empresa</h3>
+					                <input class="box_text" type="text" name="txttitulo" value="<?php echo $sobre_empresa_dados->titulo ?>">
+					            </div>
+					            <div class="line_empresa">
+					                <h3>Imagens da pagina Sobre a Empresa</h3>
+					                <label for="Foto">
+					                  <img class="img_empresa" src="../img/camera.png" alt="imagem">
+					                </label>
+					                <div class="inpt_foto">
+					                  <input id="Foto" type="file" name="imagem1" value="<?php echo $sobre_empresa_dados->imagem1 ?>">
+					                </div>
+					                <input class="box_text2 box_position" type="text" name="txtnomeimagem1" value="<?php echo $sobre_empresa_dados->nomeimagem1 ?>">
+
+					                <label for="Foto">
+					                  <img class="img_empresa" src="../img/camera.png" alt="imagem">
+					                </label>
+					                <div class="inpt_foto">
+					                  <input id="Foto" type="file" name="imagem2" value="<?php echo $sobre_empresa_dados->imagem2 ?>">
+					                </div>
+					                  <input class="box_text2 " type="text" name="txtnomeimagem2" value="<?php echo $sobre_empresa_dados->nomeimagem2 ?>">
+					            </div>
+					            <div class="line_empresa_text">
+					                 <h3>Textos da pagina sobre a empresa</h3>
+					                <textarea name="txttexto1" rows="7" cols="35" value="<?php echo $sobre_empresa_dados->texto1 ?>"></textarea>
+					                <textarea name="txttexto2" rows="7" cols="35" valeu="<?php echo $sobre_empresa_dados->texto2 ?>"></textarea>
+					            </div>
+					            <input class="btn_salvar" type="submit" name="btnCadastrar" value="Atualizar">
+					        </div>
+ 								</form>
+
+	<?php
+}elseif($pagina=='frotas'){
+
+  							require_once("../../controllers/frotas_controller.php");
+  							require_once("../../models/frotas_class.php");
+
+  							$frotas_controller = new controllerFrotas();
+
+  							$frotas_dados = $frotas_controller::Buscar($id);
+  						?>
+
+  								<div class="tltModal">
+  									Edição de Frotas de Onibus
+  								</div>
+
+  								<form class="frmCadDuvida" method="post" action="router.php?controller=frotas&modo=editar&id=<?php echo $id; ?>">
+										<div class="area-cad-duvida">
+									        <div class="tabela_gerenciamento">
+									          <div >
+									              <h3>Data de inserção</h3>
+									              <input id="datainsercao" class="box_text2" type="text" name="txtdatainsercao" maxlength="10" value="<?php echo $frotas_dados->datainseri;?>">
+									          </div>
+									            <div >
+									              <h3>Nome do Onibus</h3>
+									              <input class="box_text2" type="text" name="txtnome" value="<?php echo $frotas_dados->nome;?>">
+									            </div>
+									            <div>
+									              <h3>Imagem do Onibus</h3>
+									              <input type="file" name="imagem" value="<?php echo $frotas_dados->imagem;?>">
+									            </div>
+									            <input class="btn_salvar" type="submit" name="btnatualizar" value="Atualizar">
+									        </div>
+									  </div>
+  								</form>
+  						<?php
+  				}
+   ?>
 </body>
 </html>

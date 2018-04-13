@@ -91,6 +91,7 @@ class Funcionario{
                                         complemento='$funcionario_dados->complemento',
                                         numero='$funcionario_dados->numero'
                                         where id = $funcionario_dados->id;";
+                                        echo "$sql";
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -214,7 +215,7 @@ class Funcionario{
     $sqlCall = "CALL sp_login_funcionario('$funcionario_dados->login', '$funcionario_dados->senha', @mensagem, @ativo, @id, @nome);";
     $sqlResultado = "Select @mensagem, @ativo, @id, @nome";
 
-
+      echo('teste');
 
     $conex = new Mysql_db();
 

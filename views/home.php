@@ -74,7 +74,7 @@
     //    }
     //  });
     //
-    //  $(".conteudo").load("pagina-principal.php");
+    //  $(".").load("pagina-principal.php");
     //
     // });
     </script>
@@ -142,10 +142,8 @@
     <!-- Aplica um espaçamento para o conteudo não invadir o menu superior -->
     <div class="espaco-do-menu"></div>
 
-
     <!-- Conteúdo da página -->
-    <div id="conteudo"></div>
-
+    <div id="conteudo"><?php require_once('views/sobre_empresa.php'); ?></div>
 
     <!-- rodapé -->
     <footer>

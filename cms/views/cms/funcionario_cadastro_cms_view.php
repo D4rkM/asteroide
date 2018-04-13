@@ -1,13 +1,10 @@
 
 <?php
-
   require_once("../../controllers/funcionario_controller.php");
   require_once("../../models/funcionario_class.php");
   require_once("../../controllers/estado_controller.php");
   require_once("../../models/estado_class.php");
-
 ?>
-
 <script type="text/javascript">
 function mascara(o,f){
             v_obj=o
@@ -82,7 +79,6 @@ function mascara(o,f){
                 mascara( this, mcep );
             }
         }
-
         //mascara para caracter
         function validar(caracter,blockType,campo){
         if(window.event){
@@ -109,7 +105,6 @@ function mascara(o,f){
 
                            }
                 }
-
     }
 </script>
 

@@ -7,7 +7,6 @@
   Obs:Essa Classe é uma replica dos campos de dados com ações do CRUD
 
 */
-
 class Duvidas{
   public $id;
   public $pergunta;
