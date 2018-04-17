@@ -66,6 +66,47 @@ router.patch('/v1/funcionarios/:id', (req, res) =>{
     db.execSQLQuery(`UPDATE funcionario SET nome='${nome}', cpf='${cpf}', email='${email}', senha='${senha}', datanasc='${datanasc}', sexo='${sexo}', rg='${rg}', ativo='${ativo}', login='${login}'  WHERE ID=${id}`, res);
 });
 
+// CLIENTE ---------------------------------------------------------------------
+
+// Autentica o cliente no app
+router.post('/api/v1/autenticar/cliente', (req, res) => {
+  const email = req.body.email.substring(0,45);
+  const senha = req.body.senha.substring(0, 45);
+
+  // var hash = crypto.createHash('sha256').update(senha).digest('base64');
+
+  db.execSQLQuery(`SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}' limit 1`, res);
+});
+
+//Insere cliente no banco de dados
+router.post('/api/v1/cliente', (req,res) => {
+  // const id = parseInt(req.params.id);
+  const nome = req.body.nome.substring(0,150);
+  const email = req.body.email.substring(0, 45);
+  const senha = req.body.senha.substring(0, 45);
+  const datanasc = req.body.datanasc.substring(0, 45);
+  const sexo = req.body.sexo.substring(0, 45);
+  const cpf = req.body.cpf.substring(0, 11);
+  const rg = req.body.rg.substring(0, 45);
+  // const ativo = req.body.ativo.substring(0, 45);
+  // const login = req.body.login.substring(0, 45);
+  db.execSQLQuery(`INSERT INTO usuario(nome, email, cpf, senha, datanasc, sexo, rg ) VALUES('${nome}', '${email}','${cpf}', '${senha}', '${datanasc}','${sexo}','${rg}')`, res);
+});
+
+// FIM API CLIENTE -------------------------------------------------------------
+
+// MOTORISTA -------------------------------------------------------------------
+router.post('/api/v1/autenticar/motorista', (req, res) => {
+  const login = req.body.login.substring(0,45);
+  const senha = req.body.senha.substring(0, 45);
+  // console.log(email);
+
+  // var hash = crypto.createHash('sha256').update(senha).digest('base64');
+
+  db.execSQLQuery(`SELECT * FROM motorista WHERE login = '${login}' AND senha = '${senha}' limit 1`, res);
+});
+// FIM API MOTORISTA -----------------------------------------------------------
+
 
 // inicia o servidor
 app.listen(port);

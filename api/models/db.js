@@ -12,7 +12,7 @@ const mysql = require('mysql');
 
 
   module.exports = {
-    execSQLQuery:  function(sqlQry, res){
+    execSQLQuery:  function(sqlQry, res, state){
         connection.query(sqlQry, function(error, results, fields){
           if(error)
             res.json(error);

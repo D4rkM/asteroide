@@ -109,7 +109,31 @@
            </div>
            <div class="inf-conteudo">
              <div class="conteudo-legislacao">
+               <div class="pesquisar-posto">
+                 <input type="text" name="txt_pesquisa" value="">
+               </div>
+               <div class="lista-posto">
+                 <?php
+                  $i = 0;
+                  while ($i <= 10) {
+                    # code...
+                  ?>
+                 <div class="" style="width:100%; height:50px;">
+                  <div class="">
+                    Posto
+                  </div>
+                  <div class="">
 
+                  </div>
+                  <div class="">
+
+                  </div>
+                 </div>
+                 <?php
+                 $i++;
+               }
+                  ?>
+               </div>
              </div>
            </div>
          </div>
