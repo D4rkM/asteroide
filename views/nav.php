@@ -42,7 +42,7 @@
         <div class="itens-menu">
           <h2>Locais</h2>
           <ul class="submenu">
-            <li>Postos Rodoviários</li>
+            <li><a href="<?php echo($paths); ?>postos_rodoviarios.php">Postos Rodoviários</a></li>
             <li>Ranking</li>
           </ul>
         </div>

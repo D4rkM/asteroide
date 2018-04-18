@@ -7,11 +7,11 @@
 
  ?>
 <!DOCTYPE html>
-<html>
+<html lang="br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="Magno">
     <!--
       Data de modificação: 19/03/2018
@@ -74,7 +74,6 @@
          para compram de passagens da viação Asterpide
          Obs: Página principal contém menu e rodapé para inserir as outras páginas
          -->
-       <link rel="stylesheet" href="css/carrossel_frotas.css">
        <!-- Conteúdo da página -->
        <div class="imagem-de-fundo" style="background-image:url('<?php echo($links); ?>img/inf_legislacao.jpg');">
          <div class="titulo-sobre-imagem">
@@ -87,46 +86,55 @@
          <div class="titulo-conteudo-padrao">
            <h2>ENCONTRE O POSTO MAIS PRÓXIMO DE VOCÊ</h2>
          </div>
+         <div class="pesquisar-posto">
+           <input type="text" name="txt_pesquisa" value="" placeholder="Pesquise um posto...">
+           <img src="<?php echo($links); ?>img/icon/search.svg" alt="Pesquise">
+         </div>
          <?php
            $a = 0;
-           $cidades = array('Sao paulo','Rio de Janeiro','Parana','Rio grande do sul');
-           while($a < 4){
+           $cidades = array('São paulo','Rio de Janeiro','Paraná','Rio grande do sul','asdf','asdf','asdf','asdf');
+           while($a < 8){
           ?>
          <div class="caixas-inf">
            <div class="inf-subtitulos">
              <div class="escrita-principal">
-               <?php echo($cidades[$a]); ?>
+              <h2 class="subtitulo" style="padding:0px; margin:0px; color:#1f405e;"><?php echo($cidades[$a]); ?></h2>
              </div>
              <div class="icon">
-               <img src="<?php echo($links); ?>img\icon\down.svg" alt="Mostrar Mais" title="Mostrar mais">
+               <img src="<?php echo($links); ?>img/icon/down.svg" alt="Mostrar Mais" title="Mostrar mais">
              </div>
            </div>
-           <div class="inf-conteudo">
+           <div class="inf-conteudo border-none">
              <div class="conteudo-legislacao">
-               <div class="pesquisar-posto">
-                 <input type="text" name="txt_pesquisa" value="">
-               </div>
                <div class="lista-posto">
-                 <?php
-                  $i = 0;
-                  while ($i <= 10) {
-                    # code...
-                  ?>
-                 <div class="" style="width:100%; height:50px;">
-                  <div class="">
-                    Posto
-                  </div>
-                  <div class="">
+                 <table class="table-postos" >
+                   <thead>
+                     <tr>
+                       <th>Município</th>
+                       <th>Endereço</th>
+                       <th></th>
+                       <th style="text-align:right;">Localização</th>
+                     </tr>
+                   </thead>
+                   <tbody style="overflow:auto;">
+                     <?php
+                      $i = 0;
+                      while ($i <= 10) {
+                        # code...
+                      ?>
+                    <tr>
+                      <td>Osasco</td>
+                      <td>Av-Tietê lalala</td>
+                      <td></td>
+                      <td style="text-align:right;">Veja no Maps</td>
+                    </tr>
+                    <?php
+                    $i++;
+                  }
+                     ?>
+                   </tbody>
+                 </table>
 
-                  </div>
-                  <div class="">
-
-                  </div>
-                 </div>
-                 <?php
-                 $i++;
-               }
-                  ?>
                </div>
              </div>
            </div>
