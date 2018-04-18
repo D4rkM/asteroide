@@ -464,7 +464,7 @@ margin: 1.6em 0;
 	margin: 0 5px;
 }
 
-#menu-carrossel {
+.menu-carrossel {
 	float: left;
 	clear: both;
   align-self: center;
@@ -473,7 +473,7 @@ margin: 1.6em 0;
 	text-align: center;
 }
 
-#menu-carrossel img{
+.menu-carrossel img{
   width:50px;
   height: 50px;
 

@@ -1,3 +1,11 @@
+<?php
+
+  include('../links.php');
+
+  $links = alterarLinks(false);
+  $paths = alterarCaminhos(false);
+
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,11 +18,11 @@
       Obs: Página principal contém menu e rodapé para inserir as outras páginas
     -->
     <title>Home - Bem vindo</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style_login.css">
-    <link rel="stylesheet" href="css/style_detalhes.css">
-    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
+    <script src="<?php echo($links); ?>js/jquery.min.js"></script>
     <script>
       // Modal Login
       $(document).ready(function() {
@@ -74,7 +82,7 @@
     </div>
        <?php require_once('nav.php'); ?>
 
-       <div class="imagem-de-fundo" style='background-image: url("img/inf_legislacao.jpg");'>
+       <div class="imagem-de-fundo" style='background-image: url("<?php echo($links); ?>img/inf_legislacao.jpg");'>
          <div class="titulo-sobre-imagem">
            FALE CONOSCO
          </div>
@@ -86,7 +94,7 @@
              <h2>RECLAMAÇÕES</h2>
            </div>
            <div class="contato-img">
-             <img src="img/Reclamacao.jpg" alt="">
+             <img src="<?php echo($links); ?>img/Reclamacao.jpg" alt="">
            </div>
            <div class="feedback-cliente">
              <div class="escrita">
@@ -102,7 +110,7 @@
              <h2>SUGESTÕES</h2>
            </div>
            <div class="contato-img">
-             <img src="img/ideias.png" alt="">
+             <img src="<?php echo($links); ?>img/ideias.png" alt="">
            </div>
            <div class="feedback-cliente">
              <div class="escrita">
@@ -118,7 +126,7 @@
              <h2>ELOGIOS</h2>
            </div>
            <div class="contato-img">
-             <img src="img/elogios.jpg" alt="">
+             <img src="<?php echo($links); ?>img/elogios.jpg" alt="">
            </div>
            <div class="feedback-cliente">
              <div class="escrita">
@@ -168,7 +176,7 @@
            </div>
          </div>
        </div>
-       
+
     <?php require_once('footer.php'); ?>
 
   </body>

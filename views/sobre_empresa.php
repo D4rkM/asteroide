@@ -1,3 +1,11 @@
+<?php
+
+  include('../links.php');
+
+  $links = alterarLinks(false);
+  $paths = alterarCaminhos(false);
+
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,11 +18,11 @@
       Obs: Página principal contém menu e rodapé para inserir as outras páginas
     -->
     <title>Home - Bem vindo</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style_login.css">
-    <link rel="stylesheet" href="css/style_detalhes.css">
-    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
+    <script src="<?php echo($links); ?>js/jquery.min.js"></script>
     <script>
       // Modal Login
       $(document).ready(function() {
@@ -84,7 +92,7 @@
 
        <!-- Conteúdo da página -->
 
-       <div class="imagem-de-fundo" style="background-image: url('img/inf_legislacao.jpg');">
+       <div class="imagem-de-fundo" style="background-image: url('<?php echo($links); ?>img/inf_legislacao.jpg');">
          <div class="titulo-sobre-imagem"  style="margin-top:180px;">
            SOBRE A EMPRESA
          </div>
@@ -103,7 +111,7 @@
 
            <div class="cardview-img-text">
                <div class="cardview-img">
-                 <img src="img/empresa.jpg" alt="empresa">
+                 <img src="<?php echo($links); ?>img/empresa.jpg" alt="empresa">
                </div>
                <div class="cardview-text">
                  <h2 class="subtitulo cardview-title">Nossa empresa</h2>
@@ -117,7 +125,7 @@
                <!--Classe das quatros imagens-->
                <div class="card-itens">
                  <div class="card-img">
-                   <img src="img/icon/bus-img.png" alt="Frota">
+                   <img src="<?php echo($links); ?>img/icon/bus-img.png" alt="Frota">
                  </div>
                  <div class="card-itens-center subtitulo text-center">
                    <p>Contamos com as melhores frotas de ônibus do Brasil.</p>
@@ -126,7 +134,7 @@
                <!--Classe das quatros imagens-->
                <div class="card-itens">
                  <div class="card-img">
-                   <img src="img/icon/payment.png" alt="bus">
+                   <img src="<?php echo($links); ?>img/icon/payment.png" alt="bus">
                  </div>
                  <div class="card-itens-center subtitulo text-center">
                    <p>Formas de pagamento rápidas e fáceis, sejam online ou nos guichês.</p>
@@ -135,7 +143,7 @@
                <!--Classe das quatros imagens-->
                <div class="card-itens">
                  <div class="card-img">
-                   <img src="img/icon/confort.png" alt="bus">
+                   <img src="<?php echo($links); ?>img/icon/confort.png" alt="bus">
                  </div>
                  <div class="card-itens-center subtitulo text-center">
                    <p>Total conforto e qualidade para a sua viagem.</p>
@@ -144,7 +152,7 @@
                <!--Classe das quatros imagens-->
                <div class="card-itens">
                  <div class="card-img">
-                   <img src="img/icon/happy.png" alt="bus">
+                   <img src="<?php echo($links); ?>img/icon/happy.png" alt="bus">
                  </div>
                  <div class="card-itens-center subtitulo text-center">
                    <p>Equipe dedicada para manter o melhor serviço de viagem.</p>

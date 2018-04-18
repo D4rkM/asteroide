@@ -1,16 +1,22 @@
+<?php
+//Aplica a verificação dos links que a pagina vai receber
+  if(!isset($links)){
+    $links = alterarLinks(true);
+  }
+ ?>
 <!DOCTYPE html>
-<html>
+<html lang="br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="Magno">
     <!--
       Data de modificação: 19/03/2018
       Obs: Página principal contém menu e rodapé para inserir as outras páginas
     -->
     <title>Home - Bem vindo</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_login.css">
     <link rel="stylesheet" href="css/style_detalhes.css">
@@ -78,11 +84,11 @@
          <!-- <div class="conteudo-video"> -->
            <div class="video-principal">
              <video muted autoplay loop>
-               <source src="img/video.mp4" type="video/mp4">
+               <source src="<?php echo($links); ?>img/video.mp4" type="video/mp4">
              </video>
              <!-- <img src="img/Paleta-de-Cores.jpg" alt="" width="500"> -->
              <div class="frase-inicial">
-                <h2 id="frases"></h2>
+                <h2 id="frases">Deixe o stress de lado e curta nossa viagem</h2>
              </div>
            </div>
          <!-- </div> -->
@@ -103,7 +109,7 @@
              while ($a <= 2) {
               ?>
              <div class="polaroid" >
-               <img src="img/rio-de-janeiro.jpg" alt="Rio" style="width:100%">
+               <img src="<?php echo($links); ?>img/rio-de-janeiro.jpg" alt="Rio" style="width:100%">
                <div class="texto-polaroid">
                  <p>Rio de Janeiro</p>
                </div>
@@ -128,7 +134,7 @@
              while ($a <= 2) {
               ?>
              <div class="polaroid">
-               <img src="img/rio-de-janeiro.jpg" alt="Rio" style="width:100%">
+               <img src="<?php echo($links); ?>img/rio-de-janeiro.jpg" alt="Rio" style="width:100%">
                <div class="texto-polaroid">
                  <p>Rio de Janeiro</p>
                </div>
@@ -147,8 +153,8 @@
                    <h2>VEJA QUEM ESTÁ VIAJANDO COM A GENTE!</h2>
            </div>
            <div id="content">
-             <nav id="menu-carrossel">
-               <a href="#" class="prev" title="Anterior"> <img src="img/icon/left.svg" alt="Esquerda"> </a>
+             <nav class="menu-carrossel">
+               <a href="#" class="prev" title="Anterior"> <img src="<?php echo($links); ?>img/icon/left.svg" alt="Esquerda"> </a>
              </nav>
                    <div id="carrossel">
                        <ul>
@@ -175,16 +181,16 @@
                            ?>
                        </ul>
                    </div>
-                   <nav id="menu-carrossel">
+                   <nav class="menu-carrossel">
                        <a href="#" class="next" title="Próximo"> <img src="img/icon/right.svg" alt="Direita"> </a>
                    </nav>
                </div>
          </div>
 
        </div>
-       <script src="js/jquery.min.js"></script>
-       <script src="js/jcarousellite.js"></script>
-       <script src="js/carrossel.js"></script>
+       <script src="<?php echo($links); ?>js/jquery.min.js"></script>
+       <script src="<?php echo($links); ?>js/jcarousellite.js"></script>
+       <script src="<?php echo($links); ?>js/carrossel.js"></script>
        <script>
 
        </script>

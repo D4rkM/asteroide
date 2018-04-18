@@ -56,13 +56,13 @@
         </table>
         <div class="campo-redes-sociais">
           <div class="redes-sociais">
-            <img src="img/icon/facebook.png" alt="">
+            <img src="<?php echo($links); ?>img/icon/facebook.png" alt="">
           </div>
           <div class="redes-sociais">
-            <img src="img/icon/instagram.png" alt="">
+            <img src="<?php echo($links); ?>img/icon/instagram.png" alt="">
           </div>
           <div class="redes-sociais">
-            <img src="img/icon/youtube.png" alt="">
+            <img src="<?php echo($links); ?>img/icon/youtube.png" alt="">
           </div>
         </div>
       </div>
@@ -70,10 +70,10 @@
         <div class="pagamento-info">
           <h3>Formas de Pagamento</h3>
           <div class="icones-pagamento">
-            <img src="img/icon/Visa-icon.png" alt="Visa">
-            <img src="img/icon/mastercard-icon.png" alt="Mastercard">
-            <img src="img/icon/americanexpress-icon.png" alt="American-Express">
-            <img src="img/icon/elo-icon.png" alt="Elo">
+            <img src="<?php echo($links); ?>img/icon/Visa-icon.png" alt="Visa">
+            <img src="<?php echo($links); ?>img/icon/mastercard-icon.png" alt="Mastercard">
+            <img src="<?php echo($links); ?>img/icon/americanexpress-icon.png" alt="American-Express">
+            <img src="<?php echo($links); ?>img/icon/elo-icon.png" alt="Elo">
             <!-- <img src="img/icon/" alt=""> -->
             <!-- <img src="img/icon/" alt=""> -->
           </div>
@@ -87,7 +87,7 @@
       </div>
       <div class="final-rodape">
         <div class="referencias-rodape">
-          <img src="img/icon/security-icon.png" alt="Seguro">
+          <img src="<?php echo($links); ?>img/icon/security-icon.png" alt="Seguro">
           <h4> <b>SEGURO</b> </h4>
         </div>
         <div class="referencias-rodape">

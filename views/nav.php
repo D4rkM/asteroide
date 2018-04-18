@@ -1,11 +1,3 @@
-<?php
-  // Links para a página Home
-
-
-  // Links para outras páginas
-
- ?>
-
 
 <!-- Menu Superior -->
 <nav>
@@ -18,16 +10,16 @@
     <div class="conteudo-menu">
       <div class="segura-itens-menu">
         <div class="itens-menu">
-          <h2>Empresa</h2>
+          <h2>Empresa <img src="<?php echo($links); ?>img/icon/down.svg" alt="" style="width:20px; height:20px;"> </h2>
           <ul class="submenu">
-            <li><a href="views/sobre_empresa.php">Sobre a Empresa</a></li>
-            <li>item</li>
+            <li><a href="<?php echo($paths); ?>sobre_empresa.php">Sobre a Empresa</a></li>
+            <li><a href="<?php echo($paths); ?>fale_conosco.php">Fale Conosco</a></li>
           </ul>
         </div>
         <div class="itens-menu">
           <h2>Blog</h2>
           <ul class="submenu">
-            <li>Interação</li>
+            <li><a href="<?php echo($paths); ?>interacao.php">Interação</a></li>
             <li>item</li>
           </ul>
         </div>
@@ -35,7 +27,7 @@
 
       <div class="itens-menu">
         <div class="logo-menu">
-          <a href="index.php"><h1 style="margin:0px;"><img src="img/logo.png" alt="Logo"></h1></a>
+          <a href="<?php echo($links); ?>index.php"><h1 style="margin:0px;"><img src="<?php echo($links); ?>img/logo.png" alt="Logo"></h1></a>
         </div>
       </div>
 

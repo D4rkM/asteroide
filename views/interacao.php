@@ -1,3 +1,11 @@
+<?php
+
+  include('../links.php');
+
+  $links = alterarLinks(false);
+  $paths = alterarCaminhos(false);
+
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,11 +18,11 @@
       Obs: Página principal contém menu e rodapé para inserir as outras páginas
     -->
     <title>Home - Bem vindo</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style_login.css">
-    <link rel="stylesheet" href="css/style_detalhes.css">
-    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
+    <script src="<?php echo($links); ?>js/jquery.min.js"></script>
     <script>
       // Modal Login
       $(document).ready(function() {
@@ -72,8 +80,9 @@
       <div class="modal-login">
       </div>
     </div>
+    <?php require_once('nav.php'); ?>
 
-    <div class="imagem-de-fundo" style="background-image:url('img/travel.jpg');">
+    <div class="imagem-de-fundo" style="background-image:url('<?php echo($links); ?>img/travel.jpg');">
       <div class="titulo-sobre-imagem">
         VEJA QUEM ESTÁ VIAJANDO CONOSCO
       </div>
@@ -89,13 +98,13 @@
         <div class="cardbox">
           <div class="cardbox-title">
             <div class="foto-user">
-              <img src="img/client.png" alt="user">
+              <img src="<?php echo($links); ?>img/client.png" alt="user">
               <h3>
                 Medusa
               </h3>
             </div>
             <div class="cardbox-local">
-              <img src="img/icon/location.svg" alt="local">
+              <img src="<?php echo($links); ?>img/icon/location.svg" alt="local">
               Angra dos Reis
             </div>
           </div>
@@ -105,7 +114,7 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. lorem Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
             <div class="cardbox-img">
-              <img class="" src="img/praia-rio.jpg" alt="angra">
+              <img class="" src="<?php echo($links); ?>img/praia-rio.jpg" alt="angra">
             </div>
           </div>
         </div>

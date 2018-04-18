@@ -1,3 +1,11 @@
+<?php
+
+  include('../links.php');
+
+  $links = alterarLinks(false);
+  $paths = alterarCaminhos(false);
+
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,11 +18,11 @@
       Obs: Página principal contém menu e rodapé para inserir as outras páginas
     -->
     <title>Home - Bem vindo</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style_login.css">
-    <link rel="stylesheet" href="css/style_detalhes.css">
-    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
+    <script src="<?php echo($links); ?>js/jquery.min.js"></script>
     <script>
       // Modal Login
       $(document).ready(function() {
@@ -51,20 +59,6 @@
               });
           }
       // --------------------------------------------------------------------------------------
-    </script>
-    <script>
-      // Configura o Texto que irá aparecer na pagina inicial
-      $(document).ready(function(){
-        var textos = ["Deixe o stress de lado e curta nossa viagem", 'Viajar de "Bus" pode ser tão divertido como estar em família' , "Veja nossos pacotes de passagens"];
-        var atual = 0;
-        $('#frases').text(textos[atual++]);
-        setInterval(function() {
-            $('#frases').fadeOut(function() {
-                if (atual >= textos.length) atual = 0;
-                $('#frases').text(textos[atual++]).fadeIn();
-            });
-        }, 5000);
-      });
     </script>
   </head>
   <body>
@@ -123,16 +117,16 @@
            <div class="estagio_pagamento">
              <div class="fundo-estagio">
                <div class="placa-estagio">
-                 <img src="img/icon/ponto.png" alt="estado">
+                 <img src="<?php echo($links); ?>img/icon/ponto.png" alt="estado">
                </div>
                <div class="placa-estagio">
-                 <img src="img/icon/ponto.png" alt="estado">
+                 <img src="<?php echo($links); ?>img/icon/ponto.png" alt="estado">
                </div>
                <div class="placa-estagio">
-                 <img src="img/icon/ponto.png" alt="estado">
+                 <img src="<?php echo($links); ?>img/icon/ponto.png" alt="estado">
                </div>
                <div class="onibus-estagio">
-                 <img src="img/icon/bus.png" alt="">
+                 <img src="<?php echo($links); ?>img/icon/bus.png" alt="">
                </div>
              </div>
            </div>
