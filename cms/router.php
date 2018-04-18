@@ -207,7 +207,7 @@
 
         case 'editar':
         $controllerPostos = new controllerPostos();
-        $controllerPostos::Editar();
+        $controllerPostos::Editar($_GET['id']);
         break;
 
         case 'excluir':
@@ -229,6 +229,152 @@
         break;
       }
       break;
-  }
+
+      case 'postos_rodoviarios':
+
+      require_once('controllers/postos_rodoviarios_controller.php');
+      require_once('models/postos_rodoviarios_class.php');
+
+        switch ($modo) {
+          case 'novo':
+          $controllerPostosRodoviarios = new controllerPostosRodoviarios();
+          $controllerPostosRodoviarios::Novo();
+          break;
+
+          case 'editar':
+          $controllerPostosRodoviarios = new controllerPostosRodoviarios();
+          $controllerPostosRodoviarios::Editar($_GET['id']);
+          break;
+
+          case 'excluir':
+          $controllerPostosRodoviarios = new controllerPostosRodoviarios();
+          $controllerPostosRodoviarios::Excluir();
+          break;
+
+          case 'buscar':
+          $controllerPostosRodoviarios = new controllerPostosRodoviarios();
+          $controllerPostosRodoviarios::Buscar();
+          break;
+
+          case 'listar':
+          $controllerPostosRodoviarios = new controllerPostosRodoviarios();
+          $controllerPostosRodoviarios::Listar();
+          break;
+
+          default:
+          break;
+        }
+        break;
+
+      case 'home':
+
+      require_once('controllers/home_controller.php');
+      require_once('models/home_class.php');
+
+        switch ($modo) {
+          case 'novo':
+          $controllerHome = new controllerHome();
+          $controllerHome::Novo();
+          break;
+
+          case 'editar':
+          $controllerHome = new controllerHome();
+          $controllerHome::Editar($_GET['id']);
+          break;
+
+          case 'excluir':
+          $controllerHome = new controllerHome();
+          $controllerHome::Excluir();
+          break;
+
+          case 'buscar':
+          $controllerHome = new controllerHome();
+          $controllerHome::Buscar();
+          break;
+
+          case 'listar':
+          $controllerHome = new controllerHome();
+          $controllerHome::Listar();
+          break;
+
+          default:
+          break;
+        }
+        break;
+
+        case 'tipo_destino':
+
+        require_once('controllers/tipo_destino_controller.php');
+        require_once('models/tipo_destino_class.php');
+
+          switch ($modo) {
+            case 'novo':
+            $controllerTipoDestino = new controllerTipoDestino();
+            $controllerTipoDestino::Novo();
+            break;
+
+            case 'editar':
+            $controllerTipoDestino = new controllerTipoDestino();
+            $controllerTipoDestino::Editar($_GET['id']);
+            break;
+
+            case 'excluir':
+            $controllerTipoDestino = new controllerTipoDestino();
+            $controllerTipoDestino::Excluir();
+            break;
+
+            case 'buscar':
+            $controllerTipoDestino = new controllerTipoDestino();
+            $controllerTipoDestino::Buscar();
+            break;
+
+            case 'listar':
+            $controllerTipoDestino = new controllerTipoDestino();
+            $controllerTipoDestino::Listar();
+            break;
+
+            default:
+            break;
+          }
+          break;
+
+        case 'motorista':
+
+          require_once('controllers/motorista_controller.php');
+          require_once('models/motorista_class.php');
+
+          switch ($modo) {
+            case 'novo':
+              $controllerMotorista = new controllerMotorista();
+              $controllerMotorista::Novo();
+              break;
+
+            case 'editar':
+                //instanciando a classe da controller
+                $controllerMotorista = new controllerMotorista();
+                $controllerMotorista::Editar($_GET['id']);
+              break;
+
+            case 'excluir':
+              //instanciando a classe da controller
+              $controllerMotorista = new controllerMotorista();
+              $controllerMotorista::Excluir();
+              break;
+
+              case 'buscar':
+                $controllerMotorista = new controllerMotorista();
+                $controllerMotorista::Buscar();
+                break;
+
+              case 'listar':
+                $controllerMotorista = new controllerMotorista();
+                $controllerMotorista::Listar();
+                break;
+
+                default:
+                break;
+          }
+              break;
+    }
 
  ?>

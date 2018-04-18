@@ -9,7 +9,6 @@
 */
 class Frotas{
   public $id;
-  public $datainseri;
   public $imagem;
   public $nome;
 
@@ -19,9 +18,9 @@ class Frotas{
 
   public function Insert($frotas_dados){
 
-    $sql = "insert into pgfrota_onibus set datainseri='$frotas_dados->datainseri',
-                                        imagem='$frotas_dados->imagem',
-                                        nome='$frotas_dados->nome';";
+    $sql = "insert into pgfrota_onibus set imagem='$frotas_dados->imagem',
+                                            nome='$frotas_dados->nome';";
+// echo($sql);die;
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -40,8 +39,7 @@ class Frotas{
   }
 
   public function Update($frotas_dados){
-    $sql = "update pgfrota_onibus set datainseri='$frotas_dados->datainseri',
-                                        imagem='$frotas_dados->imagem',
+    $sql = "update pgfrota_onibus set imagem='$frotas_dados->imagem',
                                         nome='$frotas_dados->nome'
                                         where id=$frotas_dados->id;";
 
@@ -99,7 +97,6 @@ class Frotas{
       $listFrotas[] = new Frotas();
 
       $listFrotas[$cont]->id = $rs['id'];
-      $listFrotas[$cont]->datainseri = $rs['datainseri'];
       $listFrotas[$cont]->imagem = $rs['imagem'];
       $listFrotas[$cont]->nome = $rs['nome'];
 
@@ -126,7 +123,6 @@ class Frotas{
       $frotas = new Frotas();
 
       $frotas->id = $rs['id'];
-      $frotas->datainseri = $rs['datainseri'];
       $frotas->imagem = $rs['imagem'];
       $frotas->nome = $rs['nome'];
 

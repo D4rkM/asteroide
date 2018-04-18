@@ -5,38 +5,34 @@
  */
 class controllerPostos{
 
-  public function dateEmMysql($dateSql){
-      $ano= substr($dateSql, 6);
-      $mes= substr($dateSql, 3,-5);
-      $dia= substr($dateSql, 0,-8);
-      return $ano."-".$mes."-".$dia;
-    }
-
   public function Novo(){
-    require_once('trata_imagem.php');
     $postos = new Postos();
+    require_once('trata_imagem.php');
 
-    $data = implode("-",array_reverse(explode("/",$_POST['txtdatainsercao'])));
-    $postos->datainseri=$data;
-    $postos->nome=$_POST['txtnome'];
-    $postos->imagem = SalvarImagem($_FILES["imagem"]);
-    $postos->localizacao=$_POST['txtlocalizacao'];
-    $postos->texto=$_POST['txttexto'];
-    $postos->estados=$_POST['estados'];
-
-    $postos::Insert($postos);
+    $salvarimagem = SalvarImagem($_FILES['imagem']);
+    //var_dump($_FILES['imagem']);
+    if($salvarimagem == "false"){
+      echo('Erro no uploade ');
+    }else{
+      $postos->imagem=$salvarimagem;
+      $postos->nome=$_POST['txtnome'];
+      $postos->localizacao=$_POST['txtlocalizacao'];
+      $postos->texto=$_POST['txttexto'];
+      $postos->logradouro=$_POST['txtlogradouro'];
+      $postos->estado=$_POST['estado'];
+      $frotas::Insert($frotas);
+    }
   }
 
   public function Editar($idPosto){
     $postos = new Postos();
 
     $postos->id =$idPosto;
-    $postos->datainseri=$_POST['txtdatainsercao'];
     $postos->nome=$_POST['txtnome'];
-    $postos->imagem = SalvarImagem($_FILES["imagem"]);
+    $postos->imagem=$_POST['imagem'];
     $postos->localizacao=$_POST['txtlocalizacao'];
     $postos->texto=$_POST['txttexto'];
-    $postos->estados=$_POST['estados'];
+    $postos->estado=$_POST['estado'];
 
     $postos::Updadte($postos);
   }
@@ -56,7 +52,9 @@ class controllerPostos{
   }
 
   public function Listar(){
+
     $postos = new Postos();
+
     return $postos::Select();
 
   }

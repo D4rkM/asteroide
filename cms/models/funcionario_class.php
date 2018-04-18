@@ -91,7 +91,6 @@ class Funcionario{
                                         complemento='$funcionario_dados->complemento',
                                         numero='$funcionario_dados->numero'
                                         where id = $funcionario_dados->id;";
-                                        echo "$sql";
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -176,8 +175,6 @@ class Funcionario{
     $select = $PDO_conex->query($sql);
 
     if($rs=$select->fetch(PDO::FETCH_ASSOC)){
-
-      $funcionario = new Funcionario();
 
       $funcionario = new Funcionario();
 

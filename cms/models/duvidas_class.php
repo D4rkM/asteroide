@@ -58,6 +58,7 @@ class Duvidas{
 
     //Executa o script $sql no Banco de Dados
     if($PDO_conex->query($sql))
+        //echo "<script>alert('Atualizado com Sucesso!')</script>";
         header('location:index.php');
     else
         echo("Erro ao atualizar no BD");

@@ -8,24 +8,24 @@
 */
 class Postos{
   public $id;
-  public $datainseri;
   public $nome;
   public $imagem;
   public $localizacao;
+  public $logradouro;
   public $texto;
-  public $estados;
+  public $estado;
 
   public function __construct(){
     require_once('db_class.php');
   }
 
   public function Insert($postos_dados){
-    $sql = "insert into pgposto_rodoviarios set datainseri='$postos_dados->datainseri',
-                                                 nome='$postos_dados->nome',
-                                                 imagem='$postos_dados->imagem'
-                                                 localizacao='$postos_dados->localizacao',
-                                                 texto='$postos_dados->texto',
-                                                 idEstado='$postos_dados->estados';";
+    $sql = "insert into pgposto_rodoviarios set nome='$postos_dados->nome',
+                                                imagem='$postos_dados->imagem',
+                                                localizacao='$postos_dados->localizacao',
+                                                texto='$postos_dados->texto',
+                                                logradouro='$postos_dados->logradouro',
+                                                idEstado='$postos_dados->estado';";
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -46,12 +46,12 @@ class Postos{
   }
 
   public function Update($postos_dados){
-    $sql = "update pgposto_rodoviarios set datainseri='$postos_dados->datainseri',
-                                                 nome='$postos_dados->nome',
-                                                 imagem='$postos_dados->imagem'
-                                                 localizacao='$postos_dados->localizacao',
-                                                 texto='$postos_dados->texto',
-                                                 idEstado='$postos_dados->estados' where id=$postos_dados->id;";
+    $sql = "update pgposto_rodoviarios set nome='$postos_dados->nome',
+                                           imagem='$postos_dados->imagem'
+                                           localizacao='$postos_dados->localizacao',
+                                           texto='$postos_dados->texto',
+                                           logradouro='$postos_dados->logradouro',
+                                           idEstado='$postos_dados->estados' where id=$postos_dados->id;";
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -90,7 +90,7 @@ class Postos{
     $conex->Desconectar();
   }
 
-  public function Select($postos_dados){
+  public function Select(){
     $sql = "select * from pgposto_rodoviarios order by id desc";
 
     $conex = new Mysql_db();
@@ -107,12 +107,12 @@ class Postos{
       $listPostos[] = new Postos();
 
       $listPostos[$cont]->id = $rs['id'];
-      $listPostos[$cont]->datainseri = $rs['datainseri'];
       $listPostos[$cont]->nome = $rs['nome'];
       $listPostos[$cont]->imagem = $rs['imagem'];
       $listPostos[$cont]->localizacao = $rs['localizacao'];
+      $listPostos[$cont]->logradouro = $rs['logradouro'];
       $listPostos[$cont]->texto = $rs['texto'];
-      $listPostos[$cont]->estados = $rs['idEstado'];
+      $listPostos[$cont]->estado = $rs['idEstado'];
 
       $cont+=1;
     }
@@ -137,10 +137,10 @@ class Postos{
       $postos = new Postos();
 
       $postos->id = $rs['id'];
-      $postos->datainseri = $rs['datainseri'];
       $postos->nome = $rs['noma'];
       $postos->imagem = $rs['imagem'];
       $postos->localizacao = $rs['localizacao'];
+      $postos->logradouro = $rs['logradouro'];
       $postos->texto = $rs['texto'];
       $postos->estados = $rs['idEstado'];
 
