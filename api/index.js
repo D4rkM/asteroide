@@ -70,12 +70,12 @@ router.patch('/v1/funcionarios/:id', (req, res) =>{
 
 // Autentica o cliente no app
 router.post('/api/v1/autenticar/cliente', (req, res) => {
-  const email = req.body.email.substring(0,45);
+  // const email = req.body.email.substring(0,45);
   const senha = req.body.senha.substring(0, 45);
-
+  const login = req.body.login.substring(0, 45);
   // var hash = crypto.createHash('sha256').update(senha).digest('base64');
 
-  db.execSQLQuery(`SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}' limit 1`, res);
+  db.execSQLQuery(`SELECT * FROM usuario WHERE login = '${login}' AND senha = '${senha}' limit 1`, res);
 });
 
 //Insere cliente no banco de dados
@@ -88,9 +88,10 @@ router.post('/api/v1/cliente', (req,res) => {
   const sexo = req.body.sexo.substring(0, 45);
   const cpf = req.body.cpf.substring(0, 11);
   const rg = req.body.rg.substring(0, 45);
+  const login = req.body.login.substring(0, 12);
   // const ativo = req.body.ativo.substring(0, 45);
   // const login = req.body.login.substring(0, 45);
-  db.execSQLQuery(`INSERT INTO usuario(nome, email, cpf, senha, datanasc, sexo, rg ) VALUES('${nome}', '${email}','${cpf}', '${senha}', '${datanasc}','${sexo}','${rg}')`, res);
+  db.execSQLQuery(`INSERT INTO usuario(nome, email, cpf, senha, datanasc, sexo, rg, login) VALUES('${nome}', '${email}','${cpf}', '${senha}', '${datanasc}','${sexo}','${rg}', '${login}')`, res);
 });
 
 // FIM API CLIENTE -------------------------------------------------------------
@@ -100,12 +101,27 @@ router.post('/api/v1/autenticar/motorista', (req, res) => {
   const login = req.body.login.substring(0,45);
   const senha = req.body.senha.substring(0, 45);
   // console.log(email);
-
   // var hash = crypto.createHash('sha256').update(senha).digest('base64');
-
   db.execSQLQuery(`SELECT * FROM motorista WHERE login = '${login}' AND senha = '${senha}' limit 1`, res);
 });
 // FIM API MOTORISTA -----------------------------------------------------------
+
+// Funcionarlidades do app
+
+//  Sugestões de viagens da empresas
+router.get('/api/v1/sugestoes', (req,res) => {
+  db.execSQLQuery('SELECT * FROM posto_rodoviario', res);
+});
+
+// Busca de endereçoptimize
+router.get('/api/v1/busca_endereco', (req,res) => {
+
+  const cpf = req.body.cpf.substring(0, 11);
+  var hostname = `https://www.viacep.com.br/ws/'${cpf}'/json/`;
+
+});
+
+
 
 
 // inicia o servidor
