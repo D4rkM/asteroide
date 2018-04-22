@@ -1,5 +1,7 @@
 'use strict';
 
+const request = require('request');
+const http = require('http');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -113,11 +115,20 @@ router.get('/api/v1/sugestoes', (req,res) => {
   db.execSQLQuery('SELECT * FROM posto_rodoviario', res);
 });
 
-// Busca de endereçoptimize
-router.get('/api/v1/busca_endereco', (req,res) => {
+// Busca de endereço viacep
+router.get('/api/v1/busca_endereco/:cep?', (req,res) => {
 
-  const cpf = req.body.cpf.substring(0, 11);
-  var hostname = `https://www.viacep.com.br/ws/'${cpf}'/json/`;
+  const cep = "0" + parseInt(req.params.cep);
+	console.log(cep);
+  const path = `/${cep}/json/`;
+	console.log(path);
+  const hostname = `http://www.viacep.com.br/ws`;
+  console.log(hostname+path);
+  
+  request(`${hostname}${path}`,(err,res,body) => {
+	console.log(body);
+	//return res.json(body);
+  });
 
 });
 
