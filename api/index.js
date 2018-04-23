@@ -115,20 +115,36 @@ router.get('/api/v1/sugestoes', (req,res) => {
   db.execSQLQuery('SELECT * FROM posto_rodoviario', res);
 });
 
+function jsonReturn(consulta, callback){
+  request(consulta,(err,res,body) => {
+    // console.log(body);
+    // dados = body;
+    if(err){
+      // res.json(err);
+      console.log(err);
+    }else{
+      callback(body);
+    }
+  });
+}
+
 // Busca de endereço viacep
 router.get('/api/v1/busca_endereco/:cep?', (req,res) => {
 
   const cep = "0" + parseInt(req.params.cep);
-	console.log(cep);
+	// console.log(cep);
   const path = `/${cep}/json/`;
-	console.log(path);
+	// console.log(path);
   const hostname = `http://www.viacep.com.br/ws`;
   console.log(hostname+path);
-  
-  request(`${hostname}${path}`,(err,res,body) => {
-	console.log(body);
-	//return res.json(body);
+  const consulta = hostname+path;
+  jsonReturn(consulta, function(dadosReturn){
+    res.json(dadosReturn);
   });
+  // const dados;
+
+  // console.log(dados);
+  // res.json(dados);
 
 });
 
