@@ -32,7 +32,7 @@
     	function Modal(idIten){
     		$.ajax({
     			type: "POST",
-    			url: "views/cms/modal.php",
+    			url: "views/modal.php",
     			data: {id:idIten, pagina:'estado_postos'},
     			success: function(dados){
     				$('.modal').html(dados);
@@ -73,6 +73,8 @@
       }
 
     ?>
+
+  
 
   </div>
   <form class="frmEstadosPostos" action="router.php?controller=estado_postos&modo=novo" method="post">

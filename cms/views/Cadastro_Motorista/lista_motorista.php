@@ -1,8 +1,9 @@
 <div class="lista_duvida">
-  <div class="item_duvida">Nome</div>
-  <div class="item_duvida">Email</div>
-  <div class="item_duvida">Data de Nascimento</div>
-  <div class="item_duvida">Opções</div>
+  <div class="item_motorista">Nome</div>
+  <div class="item_motorista">Email</div>
+  <div class="item_motorista">Data de Nascimento</div>
+  <div class="item_motorista">Ativo</div>
+  <div class="item_motorista">Opções</div>
 </div>
 
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -16,7 +17,7 @@ $(document).ready(function() {
 	function Modal(idIten){
 		$.ajax({
 			type: "POST",
-			url: "views/cms/modal.php",
+			url: "views/modal.php",
 			data: {id:idIten, pagina:'motorista'},
 			success: function(dados){
 				$('.modal').html(dados);
@@ -35,10 +36,11 @@ $(document).ready(function() {
   while($cont < count($list)){
 ?>
 <div class="container_lista">
-  <div class="itens_mostrar"><?php echo $list[$cont]->nome ?></div>
-  <div class="itens_mostrar"><?php echo $list[$cont]->email ?></div>
-  <div class="itens_mostrar"><?php echo $list[$cont]->data_nasc ?></div>
-  <div class="itens_mostrar">
+  <div class="itens_mostrar_motorista"><?php echo $list[$cont]->nome ?></div>
+  <div class="itens_mostrar_motorista"><?php echo $list[$cont]->email ?></div>
+  <div class="itens_mostrar_motorista"><?php echo $list[$cont]->data_nasc ?></div>
+  <div class="itens_mostrar_motorista"><?php echo $list[$cont]->ativo ?></div>
+  <div class="itens_mostrar_motorista">
     <a href="router.php?controller=motorista&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
         <img src="img/icon-delete.png" alt="">
       </a>

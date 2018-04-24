@@ -11,14 +11,20 @@ session_start();
         //Insere novo contato
         public function Novo(){
           $home = new Home();
+          require_once('trata_imagem.php');
 
+          $salvarimagem = SalvarImagem($_FILES['imagem']);
+          //var_dump($_FILES['imagem']);
+          if($salvarimagem == "false"){
+            echo('Erro no uploade ');
+          }else{
           $home->destino = $_POST['txtdestino'];
-          $home->imagem = $_POST['imagem'];
+          $home->imagem=$salvarimagem;
           $home->tipo = $_POST['tipo'];
 
           $home::Insert($home);
         }
-
+}
         //Atualiza um contato existente
         public function Editar($idAlterar){
           $home = new Home();
@@ -63,16 +69,6 @@ session_start();
           $home = new Home();
 
           return $home::Select();
-
-        }
-
-
-        //Lista todos os contatos existentes
-        public function ListarTipo(){
-
-          $home = new Home();
-
-          return $home::SelectType();
 
         }
 

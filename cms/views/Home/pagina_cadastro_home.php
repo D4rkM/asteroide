@@ -1,4 +1,21 @@
-<form class="" action="router.php?controller=home&modo=novo" method="post">
+<?php
+   require_once("../../controllers/home_controller.php");
+   require_once("../../models/home_class.php");
+?>
+<script src="js/jquery.min.js"></script>
+<script>
+$("#foto").change(function(){
+   if($(this).val()){ // só se o input não estiver vazio
+      var img = this.files[0]; // seleciona o arquivo do input
+      var f = new FileReader(); // cria o objeto FileReader
+      f.onload = function(e){ // ao carregar a imagem
+         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+      }
+      f.readAsDataURL(img); // lê o arquivo
+   }
+});
+</script>
+<form class="" action="router.php?controller=home&modo=novo" method="post" enctype="multipart/form-data">
   <div class="cadastro_home">
     <div class="text_home">Nome do destino</div>
     <input class="box_home" type="text" name="txtdestino" value="">

@@ -19,18 +19,14 @@ session_start();
         //Insere novo contato
         public function Novo(){
           $motorista = new Motorista();
+          require_once('trata_imagem.php');
 
-          if($_SERVER['REQUEST_METHOD']=='POST'){
-
-          $upload_dir = "arquivo/";
-
-            //Tratamnto de arquivo
-          $arq = basename($_FILES['flefoto']['name']);
-
-          $caminho = $upload_dir.$arq;
-
-          if(strstr($arq,'.jpg') || strstr($arq,'.png') || strstr($arq,'.PNG') || strstr($arq,'.gif')){
-          $motorista->imagem = $caminho;
+          $salvarimagem = SalvarImagem($_FILES['imagem']);
+          //var_dump($_FILES['imagem']);
+          if($salvarimagem == "false"){
+            echo('Erro no uploade ');
+          }else{
+          $motorista->imagem=$salvarimagem;
           $motorista->nome = $_POST['txtNome'];
           $motorista->email = $_POST['txtEmail'];
           $motorista->usuario = $_POST['txtUsuario'];
@@ -43,17 +39,12 @@ session_start();
           $motorista->cpf = $_POST['txtCPF'];
           $motorista->rg = $_POST['txtRG'];
           $motorista->cnh = $_POST['txtcnh'];
-          $motorista->imagem = $_POST['imagem'];
           $motorista->ativo = $_POST['chkAtivo'];
 
           $motorista::Insert($motorista);
-        }else{
-                      echo("<script>alert('Esse repositorio não é um arquivo de imagem!!')</script>");
-                      require_once('index.php');
-                  }
-
-            }
         }
+
+      }
 
         //Atualiza um contato existente
         public function Editar($idMotorista){

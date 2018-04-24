@@ -284,6 +284,11 @@ nav{
   height: 100px;
   margin: auto;
 }
+
+.imagem_lista{
+  width: 100px;
+  height: 50px;
+}
 /*Home*/
 .cadastro_home{
   width: 50%;
@@ -329,6 +334,49 @@ nav{
   margin-left: 38%;
   border-radius: 15px;
   background-color: #084B8A;
+}
+
+/*lista*/
+.lista_duvida{
+  background-color: #084B8A;
+  width: 70%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.item_home{
+  width: 25%;
+  height: 40px;
+  float: left;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.container_lista{
+  width: 70%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.itens_mostrar_home{
+  width: 24.2%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
 }
 /*Interacao*/
 /*Pagina Postos_Rodoviarios*/
@@ -606,8 +654,8 @@ nav{
 }
 /*MODAL de edição das paginas*/
 .modal{
-	width:800px;
-	min-height:450px;
+	width:900px;
+	min-height:650px;
 	background-color:#ffffff;
 	margin:auto;
   margin-top: 90px;
@@ -882,8 +930,8 @@ nav{
   border-top-right-radius: 15px;
 }
 
-.item_duvida{
-  width: 20%;
+.item_motorista{
+  width: 19%;
   height: 40px;
   float: left;
   color: #fff;
@@ -891,6 +939,7 @@ nav{
   text-align: center;
   font-size: 18px;
   font-family: sans-serif;
+  margin-right: 10px;
 }
 .container_lista{
   width: 70%;
@@ -899,8 +948,158 @@ nav{
   margin-right: auto;
   margin-top: 10px;
 }
-.itens_mostrar{
+.itens_mostrar_motorista{
   width: 19%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+/* Cadastro de onibus */
+
+.adicionar-foto{
+  display: flex;
+  align-self: center;
+  width: 190px;
+  height: 200px;
+  margin-right: 15%;
+}
+
+.input-foto{
+  display: none;
+}
+
+/*Botão para selecionar a foto*/
+.botao_foto_perfil{
+  margin-left: 37.5%;
+}
+/*Container para colocar a imagem de perfil*/
+#imagem{
+  cursor: pointer;
+  width: 190px;
+  height: 200px;
+  /* margin: auto; */
+}
+
+label#imagem{
+  margin: 0px;
+  align-self: center;
+}
+
+#id_sua_img{
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 100px;
+  margin-right: 5%;
+}
+
+.cadastro_onibus{
+  width: 60%;
+  height: 50vh;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+.cont_onibus1{
+  width: 50%;
+  height: 50vh;
+  float: left;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.cont_onibus2{
+  width: 50%;
+  height: 50vh;
+  float: left;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.text_onibus{
+  font-size: 15px;
+  font-family: sans-serif;
+  margin-top: 13px;
+  margin-left: 10%;
+  color: #084B8A;
+}
+.box_onibus{
+  width: 80%;
+  margin-left: 10%;
+  height: 25px;
+  border-radius: 10px;
+}
+.select_onibus{
+  width: 44%;
+  margin-left: 10%;
+  height: 25px;
+  border-radius: 10px;
+}
+/*.inpt_foto{
+  display: none;
+}*/
+.img_onibus{
+  width: 15%;
+  height: 60px;
+  margin-left: 10%;
+}
+.salva_onibus{
+  width: 25%;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 65%;
+  border-radius: 15px;
+  background-color: #084B8A;
+}
+.title_page_posto{
+  float: left;
+  font-size: 20px;
+  margin-left: 43%;
+  font-family: sans-serif;
+  color: #084B8A;
+  margin-top: 10px;
+}
+/*Lista onibus*/
+
+/*lista*/
+.lista_onibus{
+  background-color:#000000 /*#084B8A*/;
+  width: 70%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.item_onibus{
+  width: 24.6%;
+  height: 40px;
+  float: left;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+  background-color: #000000;
+}
+.container_lista{
+  width: 90%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.itens_mostrar{
+  width: 24%;
   height: 50px;
   float: left;
   margin-left:4px;

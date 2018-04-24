@@ -39,7 +39,7 @@ $(document).ready(function() {
 ?>
 <div class="container_lista_empresa">
   <div class="itens_mostrar_empresa"><?php echo $list[$cont]->nome ?></div>
-  <div class="itens_mostrar_empresa"></div>
+  <div class="itens_mostrar_empresa"> <img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt="imagem"> </div>
   <div class="itens_mostrar_empresa">
     <a href="router.php?controller=frotas&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
       <img src="img/icon-delete.png" alt="">

@@ -26,7 +26,7 @@ class Postos{
                                                 texto='$postos_dados->texto',
                                                 logradouro='$postos_dados->logradouro',
                                                 idEstado='$postos_dados->estado';";
-
+//echo($sql);
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -46,13 +46,23 @@ class Postos{
   }
 
   public function Update($postos_dados){
+
+    if($postos_dados->imagem == "nada"){
     $sql = "update pgposto_rodoviarios set nome='$postos_dados->nome',
-                                           imagem='$postos_dados->imagem'
+                                             localizacao='$postos_dados->localizacao',
+                                             texto='$postos_dados->texto',
+                                             logradouro='$postos_dados->logradouro',
+                                             idEstado='$postos_dados->estados' where id=$postos_dados->id;";
+
+    }else{
+    $sql = "update pgposto_rodoviarios set nome='$postos_dados->nome',
+                                           imagem='$postos_dados->imagem',
                                            localizacao='$postos_dados->localizacao',
                                            texto='$postos_dados->texto',
                                            logradouro='$postos_dados->logradouro',
                                            idEstado='$postos_dados->estados' where id=$postos_dados->id;";
-
+    }
+    echo $sql;
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -137,7 +147,7 @@ class Postos{
       $postos = new Postos();
 
       $postos->id = $rs['id'];
-      $postos->nome = $rs['noma'];
+      $postos->nome = $rs['nome'];
       $postos->imagem = $rs['imagem'];
       $postos->localizacao = $rs['localizacao'];
       $postos->logradouro = $rs['logradouro'];

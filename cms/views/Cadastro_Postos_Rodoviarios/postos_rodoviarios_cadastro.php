@@ -40,9 +40,23 @@ $("#foto").change(function(){
     <input class="box_duvida" type="text" name="bairro">
     <div class="text_duvida">Cidade</div>
     <select class="select_postos_rodoviarios" name="cidade">
-      <option value="">Itapevi</option>
-      <option value="">Cotia</option>
-      <option value="">Osasco</option>
+      <?php
+    require_once("../../controller/cidade_controller.php");
+    require_once("../../controller/cidade_class.php");
+
+    $controllerCidade = new controllerCidade();
+    $list=$controllerCidade::Listar();
+
+    $cont = 0;
+
+    while($cont < cont($list)){
+     ?>
+
+     <option value="<?php echo $list[$cont]->id?>"><?php echo($list[$cont]->nome) ?></option>
+     <?php
+     $cont+=1;
+   }
+      ?>
     </select>
     <input class="salvar_postos_rodoviarios" type="submit" name="btnCadastrar" value="Cadastrar">
   </div>

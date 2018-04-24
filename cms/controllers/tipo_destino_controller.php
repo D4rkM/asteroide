@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 
     /*
@@ -22,6 +21,7 @@ class controllerTipoDestino{
   public function Editar($idAltera){
     $tipo_destino = new TipoDestino();
 
+    $tipo_destino->id = $idAltera;
     $tipo_destino->tipo=$_POST['txttipo'];
 
     $tipo_destino::Update($tipo_destino);

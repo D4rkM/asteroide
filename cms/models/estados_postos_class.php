@@ -41,14 +41,15 @@ class EstadosPostos{
   }
 
   public function Update($estados_postos_dados){
-    $sql = "update pgestados_postos set estado='$estados_postos_dados->estado';";
+    $sql = "update pgestados_postos set estado='$estados_postos_dados->estado' where id=$estados_postos_dados->id;";
+    echo $sql;
 
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
     //Chama o metodo para conectar no BD,
-    //e guarda o retorno da conexao na variavel $PDO_conex
+    //e guarda o retorno da conexao na variavel $PDO_conex  
     $PDO_conex = $conex->Conectar();
 
     //Executa o script $sql no Banco de Dados
@@ -63,7 +64,6 @@ class EstadosPostos{
 
   public function Delete($estados_postos_dados){
     $sql = "delete from pgestados_postos where id = $estados_postos_dados->id";
-
     //Instancia a classe do banco
     $conex = new Mysql_db();
 

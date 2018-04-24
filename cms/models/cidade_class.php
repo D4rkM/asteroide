@@ -2,9 +2,9 @@
 
 
 /*
-  Autor:William
-  Data de Modificação:22/03/2018
-  Class:Funcionario
+  Autor:William e bruna
+  Data de Modificação:20/04/2018
+  Class:Cidade
   Obs:Essa Classe é uma replica dos campos de dados com ações do CRUD
 
 */
@@ -12,31 +12,20 @@
 class Cidade{
   public $id;
   public $id_estado;
-  public $nom_cidade;
+  public $nome;
 
   public function __construct(){
     require_once('db_class.php');
   }
 
-  public function Insert($funcionario_dados){
-
-
-
-  }
-
-  public function Update($funcionario_dados){
-
-
-  }
-
-  public function Delete($funcionario_dados){
+  public function Delete($cidade_dados){
 
   }
 
   public function Select(){
 
-    $sql = "select * from estado";
-
+    $sql = "select * from cidade;";
+echo($sql);
     $conex = new Mysql_db();
 
     $PDO_conex = $conex->Conectar();
@@ -48,10 +37,11 @@ class Cidade{
 
     while($rs=$select->fetch(PDO::FETCH_ASSOC)){
 
-      $listEstado[] = new Estado();
+      $listCidade[] = new Cidade();
 
-      $listEstado[$cont]->id = $rs['id'];
-      $listEstado[$cont]->nom_estado = $rs['nom_estado'];
+      $listCidade[$cont]->id = $rs['id'];
+      $listCidade[$cont]->id_estado = $rs['id_estado'];
+      $listCidade[$cont]->nome = $rs['nom_cidade'];
 
 
       $cont+=1;
@@ -59,20 +49,8 @@ class Cidade{
 
     $conex->Desconectar();
 
-    if(isset($listEstado))
-        return $listEstado;
-
+    if(isset($listCidade))
+        return $listCidade;
   }
-
-  public function SelectById($funcionario_dados){
-
-
-  }
-
-
-
-
 }
-
-
  ?>
