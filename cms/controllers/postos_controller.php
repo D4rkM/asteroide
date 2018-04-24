@@ -20,6 +20,7 @@ class controllerPostos{
       $postos->texto=$_POST['txttexto'];
       $postos->logradouro=$_POST['txtlogradouro'];
       $postos->estado=$_POST['estado'];
+      $postos->cidade=$_POST['id_cidade'];
       $frotas::Insert($frotas);
     }
   }

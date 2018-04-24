@@ -149,6 +149,7 @@ class Funcionario{
       $listFuncionario[$cont]->id = $rs['id'];
       $listFuncionario[$cont]->nome = $rs['nome'];
       $listFuncionario[$cont]->email = $rs['email'];
+      $listFuncionario[$cont]->datanasc = $rs['datanasc'];
       $listFuncionario[$cont]->telefone = $rs['telefone'];
       $listFuncionario[$cont]->celular = $rs['celular'];
       $listFuncionario[$cont]->cpf = $rs['cpf'];
