@@ -42,7 +42,7 @@ class Motorista{
                                         rg='$motorista_dados->rg',
                                         cnh='$motorista_dados->cnh',
                                         imagem='$motorista_dados->imagem',
-                                        ativo='$funcionario_dados->ativo';";
+                                        ativo='$motorista_dados->ativo';";
 echo($sql);
 
     //Instancia a classe do banco
@@ -141,6 +141,7 @@ echo($sql);
       $listMotorista[$cont]->telefone = $rs['telefone'];
       $listMotorista[$cont]->celular = $rs['celular'];
       $listMotorista[$cont]->cpf = $rs['cpf'];
+      $listMotorista[$cont]->data_nasc = $rs['datanasc'];
       $listMotorista[$cont]->ativo = $rs['ativo'];
 
       $cont+=1;
@@ -170,7 +171,7 @@ echo($sql);
       $motorista->nome = $rs['nome'];
       $motorista->email = $rs['email'];
       $motorista->usuario = $rs['usuario'];
-      $motrista->senha = $rs['senha'];
+      $motorista->senha = $rs['senha'];
       $motorista->data_nasc = $rs['datanasc'];
       $motorista->sexo = $rs['sexo'];
       $motorista->telefone = $rs['telefone'];
@@ -179,7 +180,7 @@ echo($sql);
       $motorista->rg = $rs['rg'];
       $motorista->cnh =$rs['cnh'];
       $motorista->imagem = $rs['imagem'];
-      $motorista->ativar = $rs['ativar'];
+      $motorista->ativar = $rs['ativo'];
 
       $conex->Desconectar();
 

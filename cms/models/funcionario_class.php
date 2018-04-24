@@ -37,7 +37,7 @@ class Funcionario{
 
     $sql = "insert into funcionario set nome='$funcionario_dados->nome',
                                         login='$funcionario_dados->login',
-                                        datanasc='$funcionario_dados->data_nasc',
+                                        data_nasc='$funcionario_dados->data_nasc',
                                         telefone='$funcionario_dados->telefone',
                                         cpf='$funcionario_dados->cpf',
                                         ativo='$funcionario_dados->ativo',
@@ -45,14 +45,13 @@ class Funcionario{
                                         senha='$funcionario_dados->senha',
                                         sexo='$funcionario_dados->sexo',
                                         celular='$funcionario_dados->celular',
-                                        rg='$funcionario_dados->rg',
-                                        cep='$funcionario_dados->cep',
-                                        logradouro='$funcionario_dados->logradouro',
-                                        bairro='$funcionario_dados->bairro',
-                                        numero='$funcionario_dados->numero',
-                                        complemento='$funcionario_dados->complemento';";
+                                        rg='$funcionario_dados->rg';";
 
-
+    $sql_endereco = "insert into endereco set cep='$funcionario_dados->cep',
+                                              logradouro='$funcionario_dados->logradouro',
+                                              bairro='$funcionario_dados->bairro',
+                                              numero='$funcionario_dados->numero',
+                                              complemento='$funcionario_dados->complemento';";
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -76,7 +75,7 @@ class Funcionario{
 
     $sql = "update funcionario set nome='$funcionario_dados->nome',
                                         login='$funcionario_dados->login',
-                                        datanasc='$funcionario_dados->data_nasc',
+                                        data_nasc='$funcionario_dados->data_nasc',
                                         telefone='$funcionario_dados->telefone',
                                         cpf='$funcionario_dados->cpf',
                                         ativo='$funcionario_dados->ativo',
@@ -152,6 +151,7 @@ class Funcionario{
       $listFuncionario[$cont]->telefone = $rs['telefone'];
       $listFuncionario[$cont]->celular = $rs['celular'];
       $listFuncionario[$cont]->cpf = $rs['cpf'];
+      $listFuncionario[$cont]->data_nasc = $rs['data_nasc'];
       $listFuncionario[$cont]->ativo = $rs['ativo'];
 
       $cont+=1;
@@ -180,20 +180,20 @@ class Funcionario{
 
       $funcionario->nome = $rs['nome'];
       $funcionario->login = $rs['login'];
-      $funcionario->data_nasc = $rs['datanasc'];
+      $funcionario->data_nasc = $rs['data_nasc'];
       $funcionario->telefone = $rs['telefone'];
       $funcionario->cpf = $rs['cpf'];
-      $funcionario->cep = $rs['cep'];
-      $funcionario->numero = $rs['numero'];
-      $funcionario->bairro = $rs['bairro'];
+      $funcionario->celular = $rs['celular'];
+      $funcionario->rg = $rs['rg'];
       $funcionario->ativo = $rs['ativo'];
       $funcionario->email = $rs['email'];
       $funcionario->senha = $rs['senha'];
       $funcionario->sexo = $rs['sexo'];
-      $funcionario->celular = $rs['celular'];
-      $funcionario->rg = $rs['rg'];
-      $funcionario->logradouro = $rs['logradouro'];
-      $funcionario->complemento = $rs['complemento'];
+      // $funcionario->cep = $rs['cep'];
+      // $funcionario->numero = $rs['numero'];
+      // $funcionario->bairro = $rs['bairro'];
+      // $funcionario->logradouro = $rs['logradouro'];
+      // $funcionario->complemento = $rs['complemento'];
 
       $conex->Desconectar();
 

@@ -16,8 +16,8 @@ $(document).ready(function() {
 	function Modal(idIten){
 		$.ajax({
 			type: "POST",
-			url: "views/cms/modal.php",
-			data: {id:idIten, pagina:'duvida'},
+			url: "views/modal.php",
+			data: {id:idIten, pagina:'funcionario'},
 			success: function(dados){
 				$('.modal').html(dados);
 			}

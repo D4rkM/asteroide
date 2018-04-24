@@ -141,6 +141,17 @@
               }
             });
           });
+
+          $("#parada").click(function(){
+                $.ajax({
+                  type:"POST",
+                  url:"views/Parada/parada_layout.php",
+                  data:{},
+                  success: function(dados){
+                    $("#main").html(dados);
+                  }
+                });
+              });
       });
     </script>
   </head>
@@ -177,6 +188,7 @@
                 <li id="funcionario"><a href="#">Cadastro de funcionarios</a></li>
                 <li id="motorista"><a href="#">Cadastro de Motorista</a></li>
                 <li id="usuarios"><a href="#">Usuarios</a></li>
+                <li id="parada"><a href="#">Parada</a></li>
               </ul>
           <li>
           <li class="itens"><a href="#">Marketing</a>

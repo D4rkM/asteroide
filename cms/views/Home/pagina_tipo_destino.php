@@ -32,7 +32,7 @@
     	function Modal(idIten){
     		$.ajax({
     			type: "POST",
-    			url: "views/cms/modal.php",
+    			url: "views/modal.php",
     			data: {id:idIten, pagina:'tipo_destino'},
     			success: function(dados){
     				$('.modal').html(dados);

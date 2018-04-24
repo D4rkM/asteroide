@@ -4,10 +4,23 @@
   require_once("../../controllers/estado_controller.php");
   require_once("../../models/estado_class.php");
 ?>
+<script>
+$("#foto").change(function(){
+   if($(this).val()){ // só se o input não estiver vazio
+      var img = this.files[0]; // seleciona o arquivo do input
+      var f = new FileReader(); // cria o objeto FileReader
+      f.onload = function(e){ // ao carregar a imagem
+         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+      }
+      f.readAsDataURL(img); // lê o arquivo
+   }
+});
+</script>
 <form class="frmCadFunc" method="post" action="router.php?controller=funcionario&modo=novo">
   <div class="cadastro_funcionario">
     <div class="cont_pessoais">
       <div class="text_frotas">Imagem do Funcionario</div>
+      <!--Container para colocar a imagem de perfil-->
       <label for="foto">
         <div  class="adicionar_frota" id="imagem">
           <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
@@ -31,13 +44,13 @@
       <div class="radio">
         <input type="radio" name="rdoSexoFunc" value="F">Feminino
         <input type="radio" name="rdoSexoFunc" value="M">Masculino
-        <div class="text_funcionario">CPF</div>
       </div>
+    </div>
+    <div class="cont_endereco">
+      <div class="text_funcionario">CPF</div>
       <input class="box_funcionario" type="text" name="txtCPFFunc" value="" maxlength="14">
       <div class="text_funcionario">RG</div>
       <input class="box_funcionario" type="text" name="txtRGFunc" value="" maxlength="12">
-    </div>
-    <div class="cont_endereco">
       <div class="text_funcionario">Telefone</div>
       <input class="box_funcionario" type="text" id='telefone' name="txtTelefoneFunc" value="" placeholder="DDD XXXX-XXXX" maxlength="13">
       <div class="text_funcionario">Celular</div>

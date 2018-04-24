@@ -3,8 +3,20 @@
    require_once("../../controllers/postos_controller.php");
    require_once("../../models/postos_class.php");
 ?>
-
-<form class="frmCadDuvida" method="post" action="router.php?controller=postos&modo=novo" enctype="multipart/form-data">
+<script src="js/jquery.min.js"></script>
+<script>
+$("#foto").change(function(){
+   if($(this).val()){ // só se o input não estiver vazio
+      var img = this.files[0]; // seleciona o arquivo do input
+      var f = new FileReader(); // cria o objeto FileReader
+      f.onload = function(e){ // ao carregar a imagem
+         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+      }
+      f.readAsDataURL(img); // lê o arquivo
+   }
+});
+</script>
+<form class="frmCadDuvida" method="post" enctype="multipart/form-data" action="router.php?controller=postos&modo=novo" enctype="multipart/form-data">
   <div class="cadastro_postos">
       <div class="text_postos">Nome do Posto Rodoviario</div>
       <input class="box_postos" type="text" name="txtnome">

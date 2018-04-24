@@ -20,7 +20,7 @@ class Frotas{
 
     $sql = "insert into pgfrota_onibus set imagem='$frotas_dados->imagem',
                                             nome='$frotas_dados->nome';";
-// echo($sql);die;
+    // echo($sql);die;
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -39,10 +39,19 @@ class Frotas{
   }
 
   public function Update($frotas_dados){
-    $sql = "update pgfrota_onibus set imagem='$frotas_dados->imagem',
-                                        nome='$frotas_dados->nome'
-                                        where id=$frotas_dados->id;";
 
+    if ($frotas_dados->imagem == "nada"){
+    $sql = "update pgfrota_onibus set nome='$frotas_dados->nome'
+                                      where id=$frotas_dados->id;";
+
+    }else{
+      $sql = "update pgfrota_onibus set imagem='$frotas_dados->imagem',
+                                          nome='$frotas_dados->nome'
+                                          where id=$frotas_dados->id;";
+
+    }
+
+    echo $sql;
     //Instancia a classe do banco
     $conex = new Mysql_db();
 

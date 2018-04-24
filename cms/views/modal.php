@@ -56,10 +56,6 @@
 	$home_controller = new controllerHome();
 	$dadosHome = $home_controller::Buscar($id);
 ?>
-		<div class="tltModal">
-			Edição de Pagina Home
-		</div>
-
 		<form class="frmCadDuvida" method="post" action="router.php?controller=home&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
 			<div class="text_home">Nome do destino</div>
 	    <input class="box_home" type="text" name="txtdestino" value="<?php echo $dadosHome->destino ?>">
@@ -72,7 +68,22 @@
 	    </div>
 	    <div class="text_home">Tipo</div>
 	    <select class="select_home" name="tipo" valeu="">
-	        <option value="<?php echo $dadosHome->tipo?>"></option>
+				<?php
+	          require_once("../controllers/tipo_destino_controller.php");
+	          require_once("../models/tipo_destino_class.php");
+
+	          $controllerTipoDestino = new controllerTipoDestino;
+	          $list=$controllerTipoDestino::Listar();
+
+	          $cont = 0;
+	          while($cont < count($list)){
+	          ?>
+	          <option value="<?php echo($list[$cont]->id)?>">
+	              <?php echo($list[$cont]->tipo)?></option>
+	          <?php
+	            $cont+=1;
+	              }
+	              ?>
 	    </select>
 	    <input class="salvar_home" type="submit" name="" value="Salvar">
 		</form>
@@ -89,23 +100,27 @@
 			Edição de Frotas
 		</div>
 
-		<form class="frmCadDuvida" method="post" action="router.php?controller=frotas&modo=editar&id=<?php echo $id; ?>">
+		<form method="post" action="router.php?controller=frotas&modo=editar&id=<?php echo $id ?>" enctype="multipart/form-data">
 			<div class="text_frotas">Nome do Onibus</div>
 			<input class="box_frotas" type="text" name="txtnome" value="<?php echo $dadosFrotas->nome ?>">
 			<div class="text_frotas">Imagem do Onibus</div>
-			<label for="Foto">
-			    <img class="img_frotas" src="img/bus.jpg" alt="imagem">
-			</label>
-			<div class="inpt_foto">
-			  <input id="Foto" type="file" name="imagem" value="<?php echo $dadosFrotas->imagem ?>">
-			</div>
+			<label for="foto">
+        <div  class="adicionar_frota" id="imagem">
+          <img id="id_sua_img" src="<?php echo $dadosFrotas->imagem ?>" alt="foto"/>
+					<input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
+        </div>
+      </label>
+      <!--Botão para selecionar a foto-->
+      <div class="input-foto">
+
+      </div>
 			<input class="salvar_frota" type="submit" name="btnsalvar" value="Alterar">
 		</form>
 <!-- Editar da pagina de FUNCIONARIOS -->
 <?php
- }if($pagina=='funcionarios'){
- 	require_once("../controllers/funcionarios_controller.php");
-	require_once("../models/funcionarios_class.php");
+ }if($pagina=='funcionario'){
+ 	require_once("../controllers/funcionario_controller.php");
+	require_once("../models/funcionario_class.php");
 
 	$funcionarios_controller = new controllerFuncionario();
 	$dadosFuncionarios = $funcionarios_controller::Buscar($id);
@@ -128,8 +143,8 @@
 		<input class="box_funcionario" id="dataNascimento" type="text"  name="txtDataNascFunc" placeholder="DD/MM/AAAA" maxlength="10" value="<?php echo $dadosFuncionarios->data_nasc ?>">
 		<div class="text_funcionario">Sexo</div>
 		<div class="radio">
-		<input type="radio" name="rdoSexoFunc" value="F" <?php if($dadosFuncionario->sexo == 'F') echo "checked"?>>Feminino
-		<input type="radio" name="rdoSexoFunc" value="M" <?php if($dadosFuncionario->sexo == 'M') echo "checked"?>>Masculino
+		<input type="radio" name="rdoSexoFunc" value="F" <?php if($dadosFuncionarios->sexo == 'F') echo "checked"?>>Feminino
+		<input type="radio" name="rdoSexoFunc" value="M" <?php if($dadosFuncionarios->sexo == 'M') echo "checked"?>>Masculino
 		</div>
 		<div class="text_funcionario">CPF</div>
 		<input class="box_funcionario" type="text" name="txtCPFFunc" <?php echo $dadosFuncionarios->cpf ?> maxlength="14" >
@@ -142,18 +157,18 @@
 		<div class="text_funcionario">Celular</div>
 		<input class="box_funcionario" type="text" id='celular' name="txtCelularFunc" <?php echo $dadosFuncionarios->celular ?> placeholder="DDD XXXXX-XXXX" maxlength="15">
 		<div class="text_funcionario">CEP</div>
-		<input class="box_funcionario" type="text" name="txtCEPFunc" <?php echo $dadosFuncionarios->cep ?> >
+		<input class="box_funcionario" type="text" name="txtCEPFunc" <?php //echo $dadosFuncionarios->cep ?> >
 		<div class="text_funcionario">Logradouro</div>
-		<input class="box_funcionario" type="text" name="txtLogradouroFunc" <?php echo $dadosFuncionarios->logradouro ?> maxlength="40">
+		<input class="box_funcionario" type="text" name="txtLogradouroFunc" <?php //echo $dadosFuncionarios->logradouro ?> maxlength="40">
 		<div class="text_funcionario">Numero</div>
-		<input class="box_funcionario" type="text" name="txtNumeroCasaFunc" <?php echo $dadosFuncionarios->numero ?> placeholder="Ex.: 123" maxlength="5">
+		<input class="box_funcionario" type="text" name="txtNumeroCasaFunc" <?php //echo $dadosFuncionarios->numero ?> placeholder="Ex.: 123" maxlength="5">
 		<div class="text_funcionario">bairro</div>
-		<input class="box_funcionario" type="text" name="txtBairroFunc" <?php echo $dadosFuncionarios->bairro ?> maxlength="15">
+		<input class="box_funcionario" type="text" name="txtBairroFunc" <?php //echo $dadosFuncionarios->bairro ?> maxlength="15">
 		<div class="text_funcionario">Complemento</div>
-		<input class="box_funcionario" type="text" name="txtComplementoFunc" <?php echo $dadosFuncionarios->complemento ?> maxlength="40">
+		<input class="box_funcionario" type="text" name="txtComplementoFunc" <?php //echo $dadosFuncionarios->complemento ?> maxlength="40">
 		<div class="text_funcionario">Ativar<input type="checkbox" name="chkAtivo" value="1" checked>Ativo>
 		<?php
-			if($dadosDuvida->aparecer=='1'){
+			if($dadosFuncionarios->ativar=='1'){
 			 echo 'checked';
 		 }
 		 ?>
@@ -163,6 +178,7 @@
 <!-- Editar da pagina de MOTORISTA -->
 <?php
   }if($pagina=='motorista'){
+
 	require_once("../controllers/motorista_controller.php");
 	require_once("../models/motorista_class.php");
 
@@ -175,6 +191,16 @@
 
   <form class="frmFuncionario" method="post" action="router.php?controller=motorista&modo=editar&id=<?php echo $id; ?>">
   <div class="cont_pessoais">
+		<!--Container para colocar a imagem de perfil-->
+		<label for="foto">
+			<div  class="adicionar_frota" id="imagem">
+				<img id="id_sua_img" src="<?php echo $dadosMotorista->imagem?>" alt="foto"/>
+			</div>
+		</label>
+		<!--Botão para selecionar a foto-->
+		<div class="input-foto">
+			<input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
+		</div>
 		<div class="text_funcionario">Nome</div>
 		<input class="box_funcionario" type="text" name="txtNome" placeholder="Ex.: Jubileu Afonseca" maxlength="35" value="<?php echo $dadosMotorista->nome?>">
 		<div class="text_funcionario">Email</div>
@@ -189,13 +215,13 @@
 		<div class="radio">
 		<input type="radio" name="rdoSexo" value="F" <?php if($dadosMotorista->sexo == 'F') echo "checked"?>>Feminino
 		<input type="radio" name="rdoSexo" value="M" <?php if($dadosMotorista->sexo == 'M') echo "checked"?>>Masculino
-		<div class="text_funcionario">CPF</div>
 		</div>
+	</div>
+  <div class="cont_endereco">
+		<div class="text_funcionario">CPF</div>
 		<input class="box_funcionario" type="text" name="txtCPF" value="<?php echo $dadosMotorista->cpf?>" maxlength="14">
 		<div class="text_funcionario">RG</div>
 		<input class="box_funcionario" type="text" name="txtRG" value="<?php echo $dadosMotorista->rg?>" maxlength="12">
-	</div>
-  <div class="cont_endereco">
 		<div class="text_funcionario">Telefone</div>
 		<input class="box_funcionario" type="text" id='telefone' name="txtTelefone" value="<?php echo $dadosMotorista->telefone?>" placeholder="DDD XXXX-XXXX" maxlength="13">
 		<div class="text_funcionario">CNH</div>
@@ -204,7 +230,7 @@
 		<input class="box_funcionario" type="text" id='celular' name="txtCelular" value="<?php echo $dadosMotorista->celular?>" placeholder="DDD XXXXX-XXXX" maxlength="15">
 		<div class="text_funcionario">Ativar<input type="checkbox" name="chkAtivo" value="1" checked>Ativo
 		<?php
-		if($dadosMotorista->aparecer=='1'){
+		if($dadosMotorista->ativo=='1'){
 		 echo 'checked';
 		}
 		?>
@@ -214,31 +240,46 @@
 	</form>
 <!-- Editar da pagina de POSTOS RODOVIARIO -->
 <?php
-}if($postos=='postos'){
-require_once("../controller/postos_controller.php");
-require_once("../controller/postos_class");
+}if($pagina=='postos'){
 
-$postosController = new Postos();
-$dadosPostos->$postosController::Buscar($id);
+	require_once("../controllers/postos_controller.php");
+	require_once("../models/postos_class.php");
 
-$controllerEstadosPostos = new controllerEstadosPostos();
-$list=$controllerEstadosPostos::Listar();
+	$postos_controller = new controllerPostos();
+	$dadosPostos = $postos_controller::Buscar($id);
+
 ?>
+<script src="js/jquery.min.js"></script>
+<script>
+$("#foto").change(function(){
+	 if($(this).val()){ // só se o input não estiver vazio
+			var img = this.files[0]; // seleciona o arquivo do input
+			var f = new FileReader(); // cria o objeto FileReader
+			f.onload = function(e){ // ao carregar a imagem
+				 $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+			}
+			f.readAsDataURL(img); // lê o arquivo
+	 }
+});
+</script>
 	<div class="tltModal">
 	 Edição de Postos Rodoviarios
 	</div>
 	<form class="frmCadDuvida" method="post" action="router.php?controller=postos&modo=editar" enctype="multipart/form-data">
-	  <div class="cadastro_postos">
+
 	      <div class="text_postos">Nome do Posto Rodoviario</div>
 	      <input class="box_postos" type="text" name="txtnome" value="<?php echo $dadosPostos->nome?>">
 
 	      <div class="text_postos">Imagem</div>
-	      <label for="Foto">
-	          <img class="img_postos" src="<?php echo $dadosPostos->imagem?>" alt="imagem">
-	      </label>
-	      <div class="inpt_foto">
-	        <input id="Foto" type="file" name="imagem">
-	      </div>
+				<label for="foto">
+							<div  class="adicionar-foto" id="imagem">
+								<img id="id_sua_img" src="<?php echo $dadosPostos->imagem?>" alt="imagem" />
+							</div>
+						</label>
+						<!--Botão para selecionar a foto-->
+						<div class="input-foto">
+							<input id="foto"  type="file" name="imagem"/>
+						</div>
 
 	      <div class="text_postos">Texto</div>
 	      <input class="box_postos" type="text" name="txttexto" value="<?php echo $dadosPostos->texto?>">
@@ -249,15 +290,24 @@ $list=$controllerEstadosPostos::Listar();
 	      <div class="text_postos">Estados</div>
 	      <select class="select_onibus" name="estado">
 					<?php
-					$selectd = '';
-					foreach ($list):
-						if($list['id'] == $postosController->estados){
-							$selected = 'selected';
-						}
-						?>
-						<option <?php echo $selected?> value="<?php echo $list['id']?>"><?php echo $list['estado']?></option>
-						<?php $selected = ''?>
-					<?php endforeach ?>
+							require_once("../controllers/estados_postos_controller.php");
+							require_once("../models/estados_postos_class.php");
+
+							$controllerEstadosPostos = new controllerEstadosPostos();
+							$list=$controllerEstadosPostos::Listar();
+
+							$cont = 0;
+
+							while($cont < count($list)){
+
+							?>
+							<option value="<?php echo($list[$cont]->id)?>">
+									<?php echo($list[$cont]->estado)?></option>
+
+							<?php
+								$cont+=1;
+									}
+									?>
 				</select>
 	      <input class="salvar_postos" type="submit" name="btnsalvar" value="Alterar">
 	  </div>
@@ -277,29 +327,117 @@ $list=$controllerEstadosPostos::Listar();
 
 			<form class="frmCadDuvida" method="post" action="router.php?controller=tipo_destino&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
 				<div class="text_postos">Tipo de Destino</div>
-		    <input class="box_postos" type="text" name="txttipo" value="<?php echo $dadosDestino->destino?>">
+		    <input class="box_postos" type="text" name="txttipo" value="<?php echo $dadosDestino->tipo?>">
 		    <input class="salvar_postos" type="submit" name="btnsalvar" value="Alterar">
 			</form>
 <!-- Editar da pagina de ESTADOS DOS POSTOS RODOVIARIOS -->
 <?php
 }if($pagina=='estado_postos'){
-	require_once("../../controllers/estados_postos_controller.php");
-	require_once("../../models/estados_postos_class.php");
+	require_once("../controllers/estados_postos_controller.php");
+	require_once("../models/estados_postos_class.php");
 
-	$estados_controller = new controllerTipoDestino();
+	$estados_controller = new controllerEstadosPostos();
 	$dadosEstados = $estados_controller::Buscar($id);
 ?>
 		<div class="tltModal">
-			Edição de Estados dos Postos
+			Edição de Estados dos Postos Rodoviarios
 		</div>
 
 		<form class="frmCadDuvida" method="post" action="router.php?controller=estado_postos&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
 			<div class="text_postos">Nome do estado</div>
 	    <input class="box_postos" type="text" name="txtestado" value="<?php echo $dadosEstados->estado?>">
 	    <input class="salvar_postos" type="submit" name="btnsalvar" value="Alterar">
-	  </form>
+		</form>
+<!-- Editar da PARADAS -->
 <?php
-}
-?>
+}if($pagina=='parada'){
+			require_once("../controllers/parada_controller.php");
+			require_once("../models/parada_class.php");
+
+			$parada_controller = new controllerParada();
+			$dadosParada = $parada_controller::Buscar($id);
+		?>
+				<div class="tltModal">
+					Edição de Parada
+				</div>
+
+				<form class="frmCadDuvida" method="post" action="router.php?controller=parada&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
+					<div class="text_postos">Nome da Parada</div>
+			    <input class="box_postos" type="text" name="txtnome" value="<?php echo  $dadosParada->nome?>">
+			    <input class="salvar_postos" type="submit" name="btnsalvar" value="Alterar">
+				</form>
+ <?php
+ }if($pagina=='onibus'){
+					require_once("../controllers/onibus_controller.php");
+					require_once("../models/onibus_class.php");
+
+					$onibus_controller = new controllerOnibus();
+					$dadosOnibus = $onibus_controller::Buscar($id);
+			?>
+			<script src="js/jquery.min.js"></script>
+			<script>
+			$("#foto").change(function(){
+			   if($(this).val()){ // só se o input não estiver vazio
+			      var img = this.files[0]; // seleciona o arquivo do input
+			      var f = new FileReader(); // cria o objeto FileReader
+			      f.onload = function(e){ // ao carregar a imagem
+			         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+			      }
+			      f.readAsDataURL(img); // lê o arquivo
+			   }
+			});
+			</script>
+								<div class="tltModal">
+									Edição do Onibus
+								</div>
+
+								<form action="router.php?controller=onibus&modo=editar&id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
+								    <div class="cadastro_onibus">
+								      <div class="cont_onibus1">
+								        <div class="text_onibus">Placa</div>
+								        <input class="box_onibus" type="text" name="txtplaca" value="<?php echo $dadosOnibus->placa ?>">
+								        <div class="text_onibus">Numero de poltranas</div>
+								        <input class="box_onibus" type="text" name="txtpoltrona" value="<?php echo $dadosOnibus->numeros_poltronas ?>">
+								        <div class="text_onibus">KM rodado</div>
+								        <input class="box_onibus" type="text" name="txtkmrodado" value="<?php echo $dadosOnibus->km_rodado ?>">
+								        <div class="text_onibus">KM para manutemção</div>
+								        <input class="box_onibus" type="text" name="txtkmmanutencao" value="<?php echo $dadosOnibus->km_manutencao ?>">
+
+								        <div class="text_onibus">Imagem do onibus</div>
+												<label for="foto">
+															<div  class="adicionar-foto" id="imagem">
+																<img id="id_sua_img" src="<?php echo $dadosOnibus->imagem ?>" alt="foto" />
+															</div>
+														</label>
+														<!--Botão para selecionar a foto-->
+														<div class="input-foto">
+															<input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
+														</div>
+
+								      </div>
+								      <div class="cont_onibus2">
+
+								        <div class="text_onibus">Detalhes</div>
+								        <input class="box_onibus" type="text" name="txtdesc" value="<?php echo $dadosOnibus->descricao ?>">
+
+								        <div class="text_onibus">Classe</div>
+								        <select class="select_onibus" name="classe">
+								          <option value="">Executivo</option>
+								          <option value="">Teste</option>
+								        </select>
+
+								        <div class="text_onibus">Status de manutenção</div>
+								        <input class="box_onibus" type="text" value="<?php echo $dadosOnibus->status_manutencao ?>" name="txtstatus">
+
+								        <input class="salva_onibus" type="submit" name="btnsalvar" value="Salvar">
+								      </div>
+
+								    </div>
+								</form>
+
+
+ <?php
+ }
+		?>
 </body>
 </html>

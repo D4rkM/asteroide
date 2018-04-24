@@ -11,52 +11,82 @@ class controllerFrotas{
 
   public function Novo(){
     $frotas = new Frotas();
-    require_once('trata_imagem.php');
 
-    $salvarimagem = SalvarImagem($_FILES['imagem']);
-    //var_dump($_FILES['imagem']);
-    if($salvarimagem == "false"){
-      echo('Erro no uploade ');
-    }else{
-      $frotas->imagem=$salvarimagem;
+  require_once('trata_imagem.php');
+
+
+  // iniciado variaveis
+   $diretorio_completo=Null;
+   $MovUpload=false;
+   $imagem_file=Null;
+
+  //pegando a foto
+     if (!empty($_FILES['imagem']['name'])) {
+        $imagem_file = true;
+        $diretorio_completo=salvarFoto($_FILES['imagem'],'arquivo');
+        if ($diretorio_completo == "Erro") {
+              $MovUpload=false;
+        }else {
+          $MovUpload=true;
+        }
+      }else {
+        $imagem_file = false;
+      }
+
+      $frotas->imagem=$diretorio_completo;
       $frotas->nome=$_POST['txtnome'];
       $frotas::Insert($frotas);
-    }
-  //   if($_SERVER['REQUEST_METHOD']=='POST'){
-  //
-  //   $upload_dir = "arquivo/";
-  //
-  //     //Tratamnto de arquivo
-  //   $arq = basename($_FILES['imagem']['name']);
-  //
-  //   $caminho = $upload_dir.$arq;
-  //
-  //   if(strstr($arq,'.jpg') || strstr($arq,'.png') || strstr($arq,'.PNG') || strstr($arq,'.gif')){
-  //     if (move_uploaded_file($file['tmp_name'], $diretorio_completo)) {
-  //        return $diretorio_completo;
-  //   $motorista->imagem = $caminho;
-  //   $frotas->nome = $_POST['txtnome'];
-  //
-  //   $frotas::Insert($frotas);
-  // }else{
-  //               echo("<script>alert('Esse repositorio não é um arquivo de imagem!!')</script>");
-  //               require_once('index.php');
-  //           }
-  //
-  //     }
 
-  }
 
-  public function Editar($idAlterar){
+
+}
+
+  public function Editar(){
     $frotas = new Frotas();
+    // $nada ="false";
 
-    $frotas->id = $idAlterar;
-    $frotas->imagem = $_POST['imagem'];
-    $frotas->nome = $_POST['txtnome'];
+    require_once('trata_imagem.php');
 
+    $idFrotas=$_GET['id'];
+
+    // echo $idOnibus;
+
+    // iniciado variaveis
+     $diretorio_completo=Null;
+     $MovUpload=false;
+     $imagem_file=Null;
+     $foto="nada";
+
+    //pegando a foto
+       if (!empty($_FILES['imagem']['name'])) {
+          $imagem_file = true;
+          $diretorio_completo=salvarFoto($_FILES['imagem'],'arquivo');
+          if ($diretorio_completo == "Erro") {
+                $MovUpload=false;
+          }else {
+            $MovUpload=true;
+          }
+        }else {
+          $imagem_file = false;
+        }
+
+        if ($imagem_file == true && $MovUpload==true) {
+         $foto =$diretorio_completo;
+       }else {
+         $foto="nada";
+       }
+
+    // $onibus->imagem = $salvarimagem;
+    $frotas->id = $idFrotas;
+    $frotas->imagem=$diretorio_completo;
+    $frotas->nome=$_POST['txtnome'];
+    $frotas->imagem = $foto;
+
+    
     $frotas::Update($frotas);
-
   }
+
+
 
   public function Excluir(){
     $idFrotas = $_GET['id'];

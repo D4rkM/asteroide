@@ -15,19 +15,19 @@ $("#foto").change(function(){
    }
 });
 </script>
-<form class="frmCadFunc" method="post" action="router.php?controller=motorista&modo=novo">
+<form class="frmCadFunc" method="post" action="router.php?controller=motorista&modo=novo" enctype="multipart/form-data">
   <div class="cadastrar_motorista">
     <div class="cont_pessoais">
       <!--Container para colocar a imagem de perfil-->
-           <label for="foto">
-             <div  class="adicionar-foto" id="imagem">
-               <img id="id_sua_img" src="img/user2.png" alt="foto"/>
-             </div>
-           </label>
-           <!--Botão para selecionar a foto-->
-           <div class="input-foto">
-             <input id="foto" class="botao_foto_perfil" type="file" name="flefoto"/>
-           </div>
+      <label for="foto">
+        <div  class="adicionar_frota" id="imagem">
+          <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
+        </div>
+      </label>
+      <!--Botão para selecionar a foto-->
+      <div class="input-foto">
+        <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
+      </div>
       <div class="text_funcionario">Nome</div>
       <input class="box_funcionario" type="text" name="txtNome" placeholder="Ex.: Jubileu Afonseca" maxlength="35">
       <div class="text_funcionario">Email</div>

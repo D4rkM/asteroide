@@ -1,12 +1,25 @@
 
 <?php
+    // $id=$_GET('id');
 
-  // require_once('../../controllers/onibus_controller.php');
-  // require_once('../../models/onibus_class.php');
+   require_once('../../controllers/onibus_controller.php');
+   require_once('../../models/onibus_class.php');
 
 ?>
-
-<form action="router.php?controller=sobreEmpresa&modo=novo" method="post" enctype="multipart/form-data">
+<script src="js/jquery.min.js"></script>
+<script>
+$("#foto").change(function(){
+   if($(this).val()){ // só se o input não estiver vazio
+      var img = this.files[0]; // seleciona o arquivo do input
+      var f = new FileReader(); // cria o objeto FileReader
+      f.onload = function(e){ // ao carregar a imagem
+         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+      }
+      f.readAsDataURL(img); // lê o arquivo
+   }
+});
+</script>
+<form action="router.php?controller=onibus&modo=novo" method="post" enctype="multipart/form-data">
     <div class="cadastro_onibus">
       <div class="cont_onibus1">
         <div class="text_onibus">Placa</div>
@@ -19,18 +32,23 @@
         <input class="box_onibus" type="text" name="txtkmmanutencao" value="">
 
         <div class="text_onibus">Imagem do onibus</div>
-        <label for="Foto">
-            <img class="img_onibus" src="img/bus.jpg" alt="imagem">
-        </label>
-        <div class="inpt_foto">
-          <input id="Foto" type="file" name="imagem">
-        </div>
+        <label for="foto">
+              <div  class="adicionar-foto" id="imagem">
+                <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
+              </div>
+            </label>
+            <!--Botão para selecionar a foto-->
+            <div class="input-foto">
+              <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
+            </div>
+
+
 
       </div>
       <div class="cont_onibus2">
 
         <div class="text_onibus">Detalhes</div>
-        <input class="box_onibus" type="text" name="txtdetalhes">
+        <input class="box_onibus" type="text" name="txtdesc">
 
         <div class="text_onibus">Classe</div>
         <select class="select_onibus" name="classe">

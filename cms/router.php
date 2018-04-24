@@ -135,7 +135,7 @@
 
       case 'editar':
       $controllerFrotas = new controllerFrotas();
-      $controllerFrotas::Editar($_GET['id']);
+      $controllerFrotas::Editar();
       break;
 
       case 'excluir':
@@ -171,7 +171,7 @@
 
         case 'editar':
         $controllerEstadosPostos = new controllerEstadosPostos();
-        $controllerEstadosPostos::Editar();
+        $controllerEstadosPostos::Editar($_GET['id']);
         break;
 
         case 'excluir':
@@ -207,7 +207,7 @@
 
         case 'editar':
         $controllerPostos = new controllerPostos();
-        $controllerPostos::Editar($_GET['id']);
+        $controllerPostos::Editar();
         break;
 
         case 'excluir':
@@ -375,6 +375,119 @@
                 break;
           }
               break;
+              case 'interacao':
+
+                require_once('controllers/interacao_controller.php');
+                require_once('models/interacao_class.php');
+
+                switch ($modo) {
+                  case 'listar':
+                    $controllerInteracao = new controllerInteracao();
+                    $controllerInteracao::Novo();
+                    break;
+
+                  case 'excluir':
+                      //instanciando a classe da controller
+                      $controllerInteracao = new controllerInteracao();
+                      $controllerInteracao::Excluir();
+                    break;
+
+                    default:
+                    break;
+              }
+
+              break;
+              case 'parada':
+
+              require_once('controllers/parada_controller.php');
+              require_once('models/parada_class.php');
+
+                switch ($modo) {
+                  case 'novo':
+                  $controllerParada = new controllerParada();
+                  $controllerParada::Novo();
+                  break;
+
+                  case 'editar':
+                  $controllerParada = new controllerParada();
+                  $controllerParada::Editar($_GET['id']);
+                  break;
+
+                  case 'excluir':
+                  $controllerParada = new controllerParada();
+                  $controllerParada::Excluir();
+                  break;
+
+                  case 'buscar':
+                  $controllerParada = new controllerParada();
+                  $controllerParada::Buscar();
+                  break;
+
+                  case 'listar':
+                  $controllerParada = new controllerParada();
+                  $controllerParada::Listar();
+                  break;
+
+                  default:
+                  break;
+                }
+                break;
+
+                case 'cidade':
+
+              require_once('controllers/cidade_controller.php');
+              require_once('models/cidade_class.php');
+
+                switch ($modo) {
+                  case 'excluir':
+                  $controllerCidade = new controllerCidade();
+                  $controllerCidade::Excluir();
+                  break;
+
+                  case 'listar':
+                  $controllerCidade = new controllerCidade();
+                  $controllerCidade::Listar();
+                  break;
+
+                  default:
+                  break;
+                }
+                break;
+                  case 'onibus':
+
+                      require_once('controllers/onibus_controller.php');
+                      require_once('models/onibus_class.php');
+
+                switch ($modo) {
+                  case 'novo':
+                  $controllerOnibus = new controllerOnibus();
+                  $controllerOnibus::Novo();
+                  break;
+
+                  case 'editar':
+                  $controllerOnibus = new controllerOnibus();
+                  $controllerOnibus::Editar();
+                  break;
+
+                  case 'excluir':
+                  $controllerOnibus = new controllerOnibus();
+                  $controllerOnibus::Excluir();
+                  break;
+
+                  case 'buscar':
+                  $controllerOnibus = new controllerOnibus();
+                  $controllerOnibus::Buscar();
+                  break;
+
+                  case 'listar':
+                  $controllerOnibus = new controllerOnibus();
+                  $controllerOnibus::Listar();
+                  break;
+
+                  default:
+                  break;
+                }
+                break;
     }
 
  ?>
