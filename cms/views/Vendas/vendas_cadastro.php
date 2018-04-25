@@ -1,7 +1,7 @@
 
 <?php
-  // require_once("../../controllers/postos_rodoviarios_controller.php");
-  // require_once("../../models/postos_rodoviarios_class.php");
+  // require_once("../../controllers/vendas_controller.php");
+  // require_once("../../models/vendas_class.php");
 ?>
 <script src="js/jquery.min.js"></script>
 <script>
@@ -53,21 +53,63 @@ $("#foto").change(function(){
     </select>
     <div class="text_duvida">Onibus</div>
     <select class="select_postos_rodoviarios" name="">
-      <option value="">Itapevi</option>
-      <option value="">Cotia</option>
-      <option value="">Osasco</option>
+      <?php
+          require_once("../../controllers/onibus_controller.php");
+          require_once("../../models/onibus_class.php");
+
+          $controllerOnibus = new controllerOnibus;
+          $list=$controllerOnibus::Listar();
+
+          $cont = 0;
+          while($cont < count($list)){
+          ?>
+          <option value="<?php echo($list[$cont]->id)?>">
+              <?php echo($list[$cont]->nome)?></option>
+
+          <?php
+            $cont+=1;
+              }
+          ?>
     </select>
     <div class="text_duvida">Parada</div>
-    <select class="select_postos_rodoviarios" name="">
-      <option value="">Itapevi</option>
-      <option value="">Cotia</option>
-      <option value="">Osasco</option>
+    <select class="select_postos_rodoviarios" name="parada">
+      <?php
+          require_once("../../controllers/parada_controller.php");
+          require_once("../../models/parada_class.php");
+
+          $controllerParada = new controllerParada;
+          $list=$controllerParada::Listar();
+
+          $cont = 0;
+          while($cont < count($list)){
+          ?>
+          <option value="<?php echo($list[$cont]->id)?>">
+              <?php echo($list[$cont]->nome)?></option>
+
+          <?php
+            $cont+=1;
+              }
+          ?>
     </select>
     <div class="text_duvida">Motorista</div>
-    <select class="select_postos_rodoviarios" name="">
-      <option value="">Itapevi</option>
-      <option value="">Cotia</option>
-      <option value="">Osasco</option>
+    <select class="select_postos_rodoviarios" name="motorista">
+      <?php
+          require_once("../../controllers/motorista_controller.php");
+          require_once("../../models/motorista_class.php");
+
+          $controllerMotorista = new controllerMotorista;
+          $list=$controllerMotorista::Listar();
+
+          $cont = 0;
+          while($cont < count($list)){
+          ?>
+          <option value="<?php echo($list[$cont]->id)?>">
+              <?php echo($list[$cont]->nome)?></option>
+
+          <?php
+            $cont+=1;
+              }
+          ?>
     </select>
     <div class="text_duvida">Valor</div>
     <input class="box_duvida" type="text" name="txtDuvidaFreq">
