@@ -26,7 +26,7 @@ class controllerOnibus{
           $imagem_file = false;
         }
 
-
+    $onibus->classe = $_POST['classe'];
     $onibus->placa = $_POST['txtplaca'];
     $onibus->numeros_poltronas = $_POST['txtpoltrona'];
     $onibus->km_rodado = $_POST['txtkmrodado'];
@@ -47,7 +47,7 @@ class controllerOnibus{
 
     $idOnibus=$_GET['id'];
 
-    // echo $idOnibus;
+    echo $idOnibus;
 
     // iniciado variaveis
      $diretorio_completo=Null;
@@ -76,6 +76,7 @@ class controllerOnibus{
 
     // $onibus->imagem = $salvarimagem;
     $onibus->id = $idOnibus;
+    $onibus->classe = $_POST['classe'];
     $onibus->placa = $_POST['txtplaca'];
     $onibus->numeros_poltronas = $_POST['txtpoltrona'];
     $onibus->km_rodado = $_POST['txtkmrodado'];

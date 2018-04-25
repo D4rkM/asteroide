@@ -74,7 +74,39 @@
 
     ?>
 
-  
+    <?php
+    //
+    // require_once("../../controllers/estados_postos_controller.php");
+    // require_once("../../models/estados_postos_class.php");
+    //
+    //   $estados_postos = new controllerEstadosPostos();
+    //
+    //   $list = $estados_postos::Listar();
+    //
+    //   $cont = 0;
+    //
+    //   while($cont < count($list)){
+    //     ?>
+    <!-- //     <div class="container_lista_estado">
+    //       <div class="itens_mostrar_estado">
+    //         <?php //echo $list[$cont]->estado ?>
+    //       </div> -->
+    //
+    <!-- //       <div class="itens_mostrar_estado">
+    //         <a href="router.php?controller=estado_postos&modo=excluir&id=<?php //echo($list[$cont]->id) ?>">
+    //           <img src="img/icon-delete.png" alt="">
+    //         </a>
+    //
+    //         <a href="#" class="ver" onclick="Modal(<?php //echo($list[$cont]->id);?>)">
+    //           <img src="img/icon-edit.png" alt="">
+    //         </a>
+    //       </div>
+    //     </div> -->
+    //     <?php
+    //     $cont+=1;
+    //   }
+
+    ?>
 
   </div>
   <form class="frmEstadosPostos" action="router.php?controller=estado_postos&modo=novo" method="post">

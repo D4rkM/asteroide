@@ -13,8 +13,6 @@ class controllerFrotas{
     $frotas = new Frotas();
 
   require_once('trata_imagem.php');
-
-
   // iniciado variaveis
    $diretorio_completo=Null;
    $MovUpload=false;
@@ -82,7 +80,7 @@ class controllerFrotas{
     $frotas->nome=$_POST['txtnome'];
     $frotas->imagem = $foto;
 
-    
+
     $frotas::Update($frotas);
   }
 

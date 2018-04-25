@@ -21,13 +21,14 @@ class PostosRodoviarios{
   }
 
   public function Insert($postos_rodoviarios_dados){
-
-    $sql = "insert into posto_rodoviario set nome='$postos_rodoviarios_dados->nome',
+    $sql = "insert into postos_rodoviarios set nome='$postos_rodoviarios_dados->nome',
+                                                 imagem='$postos_rodoviarios_dados->imagem',
                                                  cep='$postos_rodoviarios_dados->cep',
                                                  logradouro='$postos_rodoviarios_dados->logradouro',
-                                                 numero='$postos_rodoviarios_dados->numero',
-                                                 bairro='$postos_rodoviarios_dados->bairro',
-                                                 id_cidade='$postos_rodoviarios_dados->cidade';";
+                                                 numero='$postos_rodoviarios_dados->numero'
+                                                 bairro='$postos_rodoviarios_dados->bairro'
+                                                 idCidade='$postos_rodoviarios_dados->cidade';";
+                                                 echo($sql);
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -48,7 +49,7 @@ class PostosRodoviarios{
   }
 
   public function Update($postos_rodoviarios_dados){
-    $sql = "update posto_rodoviario set nome='$postos_rodoviarios_dados->nome',
+    $sql = "update postos_rodoviarios set nome='$postos_rodoviarios_dados->nome',
                                                  imagem='$postos_rodoviarios_dados->imagem',
                                                  cep='$postos_rodoviarios_dados->cep',
                                                  logradouro='$postos_rodoviarios_dados->logradouro',
@@ -74,7 +75,7 @@ class PostosRodoviarios{
   }
 
   public function Delete($postos_rodoviarios_dados){
-    $sql = "delete from posto_rodoviario where id = $postos_rodoviarios_dados->id";
+    $sql = "delete from postos_rodoviarios where id = $postos_rodoviarios_dados->id";
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -94,7 +95,7 @@ class PostosRodoviarios{
   }
 
   public function Select(){
-    $sql = "select * from posto_rodoviario order by id desc";
+    $sql = "select * from postos_rodoviarios order by id desc";
 
     $conex = new Mysql_db();
 
@@ -128,7 +129,7 @@ class PostosRodoviarios{
   }
 
   public function SelectById($postos_rodoviarios_dados){
-    $sql = "select * from posto_rodoviario where id = $postos_rodoviarios_dados->id";
+    $sql = "select * from postos_rodoviarios where id = $postos_rodoviarios_dados->id";
 
     $conex = new Mysql_db();
 

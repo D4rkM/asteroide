@@ -12,26 +12,69 @@ session_start();
         public function Novo(){
           $home = new Home();
           require_once('trata_imagem.php');
+          // iniciado variaveis
+           $diretorio_completo=Null;
+           $MovUpload=false;
+           $imagem_file=Null;
 
-          $salvarimagem = SalvarImagem($_FILES['imagem']);
-          //var_dump($_FILES['imagem']);
-          if($salvarimagem == "false"){
-            echo('Erro no uploade ');
-          }else{
+          //pegando a foto
+             if (!empty($_FILES['imagem']['name'])) {
+                $imagem_file = true;
+                $diretorio_completo=salvarFoto($_FILES['imagem'],'arquivo');
+                if ($diretorio_completo == "Erro") {
+                      $MovUpload=false;
+                }else {
+                  $MovUpload=true;
+                }
+              }else {
+                $imagem_file = false;
+              }
+
+          $home->imagem=$diretorio_completo;
           $home->destino = $_POST['txtdestino'];
-          $home->imagem=$salvarimagem;
           $home->tipo = $_POST['tipo'];
 
           $home::Insert($home);
-        }
+
 }
         //Atualiza um contato existente
         public function Editar($idAlterar){
           $home = new Home();
+          require_once('trata_imagem.php');
+
+          $idFrotas=$_GET['id'];
+
+          // echo $idOnibus;
+
+          // iniciado variaveis
+           $diretorio_completo=Null;
+           $MovUpload=false;
+           $imagem_file=Null;
+           $foto="nada";
+
+          //pegando a foto
+             if (!empty($_FILES['imagem']['name'])) {
+                $imagem_file = true;
+                $diretorio_completo=salvarFoto($_FILES['imagem'],'arquivo');
+                if ($diretorio_completo == "Erro") {
+                      $MovUpload=false;
+                }else {
+                  $MovUpload=true;
+                }
+              }else {
+                $imagem_file = false;
+              }
+
+              if ($imagem_file == true && $MovUpload==true) {
+               $foto =$diretorio_completo;
+             }else {
+               $foto="nada";
+             }
 
           $home->id = $idAlterar;
           $home->destino = $_POST['txtdestino'];
-          $home->imagem = $_POST['imagem'];
+          $home->imagem=$diretorio_completo;
+          $home->imagem = $foto;
           $home->tipo = $_POST['tipo'];
 
 

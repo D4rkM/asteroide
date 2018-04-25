@@ -1,13 +1,13 @@
 <?php
-   require_once("../../controllers/parada_controller.php");
-   require_once("../../models/parada_class.php");
+   require_once("../../controllers/classe_onibus_controller.php");
+   require_once("../../models/classe_onibus_class.php");
 ?>
 
   <!-- Lista de Estados -->
   <div class="container_estados">
 <div class="list_estado">
     <div class="itens_estado">
-      Parada
+      Classe do Onibus
     </div>
     <div class="itens_estado">
       OPÇÕES
@@ -33,7 +33,7 @@
     		$.ajax({
     			type: "POST",
     			url: "views/modal.php",
-    			data: {id:idIten, pagina:'parada'},
+    			data: {id:idIten, pagina:'classe'},
     			success: function(dados){
     				$('.modal').html(dados);
     			}
@@ -41,13 +41,12 @@
     	}
     </script>
     <?php
+      require_once("../../controllers/classe_onibus_controller.php");
+      require_once("../../models/classe_onibus_class.php");
 
-    require_once("../../controllers/parada_controller.php");
-    require_once("../../models/parada_class.php");
+      $classe_onibus = new controllerClasseOnibus();
 
-      $parada = new controllerParada();
-
-      $list = $parada::Listar();
+      $list = $classe_onibus::Listar();
 
       $cont = 0;
 
@@ -55,11 +54,11 @@
         ?>
         <div class="container_lista_estado">
           <div class="itens_mostrar_estado">
-            <?php echo $list[$cont]->nome ?>
+            <?php echo $list[$cont]->classe ?>
           </div>
 
           <div class="itens_mostrar_estado">
-            <a href="router.php?controller=paradao&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
+            <a href="router.php?controller=classe_onibus&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
               <img src="img/icon-delete.png" alt="">
             </a>
 
@@ -69,17 +68,17 @@
           </div>
         </div>
         <?php
-        $cont+=1;
-      }
+         $cont+=1;
+       }
 
     ?>
 
   </div>
-  <form class="frmEstadosPostos" action="router.php?controller=parada&modo=novo" method="post">
+  <form class="frmEstadosPostos" action="router.php?controller=classe_onibus&modo=novo" method="post">
   <!-- Cadastro de Estados -->
   <div class="cadastro_estado">
-    <div class="text_postos">Nome da Parada</div>
-    <input class="box_postos" type="text" name="txtnome">
+    <div class="text_postos">Nome da Classe</div>
+    <input class="box_postos" type="text" name="txtclasse">
     <input class="salvar_postos" type="submit" name="btnsalvar" value="Salvar">
   </div>
 </form>

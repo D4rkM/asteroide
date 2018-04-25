@@ -56,32 +56,59 @@
 	$home_controller = new controllerHome();
 	$dadosHome = $home_controller::Buscar($id);
 ?>
+<script src="js/jquery.min.js"></script>
+<script>
+$("#foto").change(function(){
+   if($(this).val()){ // só se o input não estiver vazio
+      var img = this.files[0]; // seleciona o arquivo do input
+      var f = new FileReader(); // cria o objeto FileReader
+      f.onload = function(e){ // ao carregar a imagem
+         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+      }
+      f.readAsDataURL(img); // lê o arquivo
+   }
+});
+</script>
+<div class="tltModal">
+	Edição da Home
+</div>
 		<form class="frmCadDuvida" method="post" action="router.php?controller=home&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
 			<div class="text_home">Nome do destino</div>
 	    <input class="box_home" type="text" name="txtdestino" value="<?php echo $dadosHome->destino ?>">
 	    <div class="text_home">Imagem</div>
-	    <label for="Foto">
-	        <img class="img_home" src="img/bus.jpg" alt="imagem">
-	    </label>
-	    <div class="inpt_foto">
-	      <input id="Foto" type="file" name="imagem" value="<?php echo $dadosHome->imagem ?>">
-	    </div>
+			<label for="foto">
+        <div  class="adicionar_frota" id="imagem">
+          <img id="id_sua_img" src="<?php echo $dadosHome->imagem ?>" alt="foto"/>
+        </div>
+      </label>
+      <!--Botão para selecionar a foto-->
+      <div class="input-foto">
+        <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
+      </div>
 	    <div class="text_home">Tipo</div>
-	    <select class="select_home" name="tipo" valeu="">
+	    <select class="select_home" name="tipo" value="">
 				<?php
 	          require_once("../controllers/tipo_destino_controller.php");
 	          require_once("../models/tipo_destino_class.php");
 
 	          $controllerTipoDestino = new controllerTipoDestino;
-	          $list=$controllerTipoDestino::Listar();
-
+	          $list = $controllerTipoDestino::Listar();
+						// print_r($list);
 	          $cont = 0;
+						$selected = '';
 	          while($cont < count($list)){
+
+						if ($list[$cont]->id == $dadosHome->tipo)	{
+							// echo("<script>alert(".$list[$cont]->id.");</script>");
+
+							$selected = 'selected';
+						}
 	          ?>
-	          <option value="<?php echo($list[$cont]->id)?>">
+	          <option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
 	              <?php echo($list[$cont]->tipo)?></option>
 	          <?php
 	            $cont+=1;
+							$selected = '';
 	              }
 	              ?>
 	    </select>
@@ -96,6 +123,19 @@
 	$frotas_controller = new controllerFrotas();
 	$dadosFrotas = $frotas_controller::Buscar($id);
 	?>
+	<script src="js/jquery.min.js"></script>
+	<script>
+	$("#foto").change(function(){
+	   if($(this).val()){ // só se o input não estiver vazio
+	      var img = this.files[0]; // seleciona o arquivo do input
+	      var f = new FileReader(); // cria o objeto FileReader
+	      f.onload = function(e){ // ao carregar a imagem
+	         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+	      }
+	      f.readAsDataURL(img); // lê o arquivo
+	   }
+	});
+	</script>
 		<div class="tltModal">
 			Edição de Frotas
 		</div>
@@ -107,12 +147,11 @@
 			<label for="foto">
         <div  class="adicionar_frota" id="imagem">
           <img id="id_sua_img" src="<?php echo $dadosFrotas->imagem ?>" alt="foto"/>
-					<input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
         </div>
       </label>
       <!--Botão para selecionar a foto-->
       <div class="input-foto">
-
+        <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
       </div>
 			<input class="salvar_frota" type="submit" name="btnsalvar" value="Alterar">
 		</form>
@@ -173,7 +212,8 @@
 		 }
 		 ?>
     </div>
-		<input class="salvar_funcionario" type="submit" name="btnCadastrarFunc" value="Alterar">
+		<input class="salvar_funcionario" type="submit" name="btnCadastrarFunc" value="Alterar">,
+        </div>
   </form>
 <!-- Editar da pagina de MOTORISTA -->
 <?php
@@ -247,39 +287,22 @@
 
 	$postos_controller = new controllerPostos();
 	$dadosPostos = $postos_controller::Buscar($id);
-
 ?>
-<script src="js/jquery.min.js"></script>
-<script>
-$("#foto").change(function(){
-	 if($(this).val()){ // só se o input não estiver vazio
-			var img = this.files[0]; // seleciona o arquivo do input
-			var f = new FileReader(); // cria o objeto FileReader
-			f.onload = function(e){ // ao carregar a imagem
-				 $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
-			}
-			f.readAsDataURL(img); // lê o arquivo
-	 }
-});
-</script>
 	<div class="tltModal">
 	 Edição de Postos Rodoviarios
 	</div>
 	<form class="frmCadDuvida" method="post" action="router.php?controller=postos&modo=editar" enctype="multipart/form-data">
-
+	  <div class="cadastro_postos">
 	      <div class="text_postos">Nome do Posto Rodoviario</div>
 	      <input class="box_postos" type="text" name="txtnome" value="<?php echo $dadosPostos->nome?>">
 
 	      <div class="text_postos">Imagem</div>
-				<label for="foto">
-							<div  class="adicionar-foto" id="imagem">
-								<img id="id_sua_img" src="<?php echo $dadosPostos->imagem?>" alt="imagem" />
-							</div>
-						</label>
-						<!--Botão para selecionar a foto-->
-						<div class="input-foto">
-							<input id="foto"  type="file" name="imagem"/>
-						</div>
+	      <label for="Foto">
+	          <img class="img_postos" src="<?php echo $dadosPostos->imagem?>" alt="imagem">
+	      </label>
+	      <div class="inpt_foto">
+	        <input id="Foto" type="file" name="imagem">
+	      </div>
 
 	      <div class="text_postos">Texto</div>
 	      <input class="box_postos" type="text" name="txttexto" value="<?php echo $dadosPostos->texto?>">
@@ -434,10 +457,26 @@ $("#foto").change(function(){
 
 								    </div>
 								</form>
-
-
  <?php
- }
-		?>
+}if($pagina=='classe'){
+
+	require_once('../controllers/classe_onibus_controller.php');
+	require_once('../models/classe_onibus_class.php');
+
+	$classe_controller = new controllerClasseOnibus;
+	$dadosClasse = $classe_controller::Buscar($id);
+
+?>
+<div class="tltModal">
+	Edição da Classe dos Onibus
+</div>
+<form class="frmEstadosPostos" action="router.php?controller=classe_onibus&modo=editar&id=<?php echo $id; ?>" method="post">
+<!-- Cadastro de Classes de onibus -->
+	<div class="text_postos">Nome da Classe</div>
+	<input class="box_postos" type="text" name="txtclasse" value="<?php echo $dadosClasse->classe ?>">
+	<input class="salvar_postos" type="submit" name="btnsalvar" value="Salvar">
+	<?php
+  }
+	 ?>
 </body>
 </html>

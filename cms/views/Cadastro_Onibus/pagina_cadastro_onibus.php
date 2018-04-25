@@ -52,8 +52,25 @@ $("#foto").change(function(){
 
         <div class="text_onibus">Classe</div>
         <select class="select_onibus" name="classe">
-          <option value="">Executivo</option>
-          <option value="">Teste</option>
+          <?php
+              require_once("../../controllers/classe_onibus_controller.php");
+              require_once("../../models/classe_onibus_class.php");
+
+              $controllerClasseOnibus = new controllerClasseOnibus();
+              $list=$controllerClasseOnibus::Listar();
+
+              $cont = 0;
+
+              while($cont < count($list)){
+
+              ?>
+              <option value="<?php echo($list[$cont]->id)?>">
+                  <?php echo($list[$cont]->classe)?></option>
+
+              <?php
+                $cont+=1;
+                  }
+                  ?>
         </select>
 
         <div class="text_onibus">Status de manutenção</div>

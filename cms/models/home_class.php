@@ -43,12 +43,16 @@ class Home{
   }
 
   public function Update($home_dados){
+    if ($home_dados->imagem == "nada"){
 
     $sql = "update pghome set destino='$home_dados->destino',
-                                                 imagem='$home_dados->imagem',
-                                                 idTipo=$home_dados->tipo where id=$home_dados->id;";
-                                                 echo($sql);
-
+                              idTipo=$home_dados->tipo where id=$home_dados->id;";
+    }else{
+      $sql = "update pghome set destino='$home_dados->destino',
+                                imagem='$home_dados->imagem',
+                                idTipo=$home_dados->tipo where id=$home_dados->id;";
+    }
+    echo($sql);
     //Instancia a classe do banco
     $conex = new Mysql_db();
 

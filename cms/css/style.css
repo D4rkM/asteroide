@@ -1071,8 +1071,8 @@ label#imagem{
 
 /*lista*/
 .lista_onibus{
-  background-color:#000000 /*#084B8A*/;
-  width: 70%;
+  background-color:#084B8A;
+  width: 80%;
   height: 40px;
   margin: auto;
   margin-top: 10px;
@@ -1081,7 +1081,7 @@ label#imagem{
 }
 
 .item_onibus{
-  width: 24.6%;
+  width: 16.5%;
   height: 40px;
   float: left;
   color: #fff;
@@ -1089,17 +1089,16 @@ label#imagem{
   text-align: center;
   font-size: 18px;
   font-family: sans-serif;
-  background-color: #000000;
 }
 .container_lista{
-  width: 90%;
+  width: 80%;
   height: 50px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
 }
 .itens_mostrar{
-  width: 24%;
+  width: 16%;
   height: 50px;
   float: left;
   margin-left:4px;

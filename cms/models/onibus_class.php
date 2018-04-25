@@ -7,6 +7,7 @@
       public $status_manutencao;
       public $descricao;
       public $imagem;
+      public $classe;
       public $km_manutencao;
 
       public function __construct(){
@@ -21,6 +22,7 @@
                                       km_manutencao='$onibus_dados->km_manutencao',
                                       status_manutencao='$onibus_dados->status_manutencao',
                                       imagem='$onibus_dados->imagem',
+                                      id_classe='$onibus_dados->classe',
                                       descricao='$onibus_dados->descricao';";
 
      // echo($sql);
@@ -49,6 +51,7 @@
                                     km_rodado='$onibus_dados->km_rodado',
                                     km_manutencao='$onibus_dados->km_manutencao',
                                     status_manutencao='$onibus_dados->status_manutencao',
+                                    id_classe='$onibus_dados->classe',
                                     km_manutencao='$onibus_dados->km_manutencao',
                                     descricao='$onibus_dados->descricao' where id=$onibus_dados->id;";
 
@@ -62,6 +65,7 @@
                                     km_manutencao='$onibus_dados->km_manutencao',
                                     status_manutencao='$onibus_dados->status_manutencao',
                                     km_manutencao='$onibus_dados->km_manutencao',
+                                    id_classe='$onibus_dados->classe',
                                     imagem='$onibus_dados->imagem',
                                     descricao='$onibus_dados->descricao' where id=$onibus_dados->id;";
 
@@ -128,6 +132,7 @@
           $listOnibus[$cont]->status_manutencao = $rs['status_manutencao'];
           $listOnibus[$cont]->km_manutencao = $rs['km_manutencao'];
           $listOnibus[$cont]->km_rodado = $rs['km_rodado'];
+          $listOnibus[$cont]->classe = $rs['id_classe'];
           $listOnibus[$cont]->imagem = $rs['imagem'];
           $listOnibus[$cont]->descricao = $rs['descricao'];
 
@@ -162,6 +167,7 @@
           $onibus->km_manutencao = $rs['km_manutencao'];
           $onibus->km_rodado = $rs['km_rodado'];
           $onibus->descricao = $rs['descricao'];
+          $onibus->classe = $rs['id_classe'];
           $onibus->imagem = $rs['imagem'];
 
           $conex->Desconectar();

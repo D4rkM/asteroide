@@ -41,15 +41,14 @@ class EstadosPostos{
   }
 
   public function Update($estados_postos_dados){
-    $sql = "update pgestados_postos set estado='$estados_postos_dados->estado' where id=$estados_postos_dados->id;";
-    echo $sql;
+    $sql = "update pgestados_postos set estado='$estados_postos_dados->estado';";
 
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
     //Chama o metodo para conectar no BD,
-    //e guarda o retorno da conexao na variavel $PDO_conex  
+    //e guarda o retorno da conexao na variavel $PDO_conex
     $PDO_conex = $conex->Conectar();
 
     //Executa o script $sql no Banco de Dados

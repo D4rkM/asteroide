@@ -8,8 +8,7 @@
         Obs:Controller para realizar o CRUD de contatos que vai vir do contatos (RETIRAR OS DADOS DO FORMULÁRIO!!!!!)
     */
 class controllerTipoDestino{
-
-
+  
   public function Novo(){
     $tipo_destino = new TipoDestino();
 

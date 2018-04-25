@@ -9,26 +9,12 @@ class controllerPostos{
     $postos = new Postos();
     require_once('trata_imagem.php');
 
-
-    // iniciado variaveis
-     $diretorio_completo=Null;
-     $MovUpload=false;
-     $imagem_file=Null;
-
-    //pegando a foto
-       if (!empty($_FILES['imagem']['name'])) {
-          $imagem_file = true;
-          $diretorio_completo=salvarFoto($_FILES['imagem'],'arquivo');
-          if ($diretorio_completo == "Erro") {
-                $MovUpload=false;
-          }else {
-            $MovUpload=true;
-          }
-        }else {
-          $imagem_file = false;
-        }
-
-      $postos->imagem=$diretorio_completo;
+    $salvarimagem = SalvarImagem($_FILES['imagem']);
+    //var_dump($_FILES['imagem']);
+    if($salvarimagem == "false"){
+      echo('Erro no uploade ');
+    }else{
+      $postos->imagem=$salvarimagem;
       $postos->nome=$_POST['txtnome'];
       $postos->localizacao=$_POST['txtlocalizacao'];
       $postos->texto=$_POST['txttexto'];
@@ -36,51 +22,19 @@ class controllerPostos{
       $postos->estado=$_POST['estado'];
       $postos::Insert($postos);
     }
+  }
 
-
-  public function Editar(){
+  public function Editar($idPosto){
     $postos = new Postos();
-
-    require_once('trata_imagem.php');
-
-     $idPosto=$_GET['id'];
-    //  $idEstado=$_GET['id'];
-
-    // echo $idPosto;
-
-    // iniciado variaveis
-     $diretorio_completo=Null;
-     $MovUpload=false;
-     $imagem_file=Null;
-     $foto="nada";
-
-    //pegando a foto
-       if (!empty($_FILES['imagem']['name'])) {
-          $imagem_file = true;
-          $diretorio_completo=salvarFoto($_FILES['imagem'],'arquivo');
-          if ($diretorio_completo == "Erro") {
-                $MovUpload=false;
-          }else {
-            $MovUpload=true;
-          }
-        }else {
-          $imagem_file = false;
-        }
-
-        if ($imagem_file == true && $MovUpload==true) {
-         $foto =$diretorio_completo;
-       }else {
-         $foto="nada";
-       }
 
     $postos->id =$idPosto;
     $postos->nome=$_POST['txtnome'];
-    $postos->imagem=$foto;
+    $postos->imagem=$_POST['imagem'];
     $postos->localizacao=$_POST['txtlocalizacao'];
     $postos->texto=$_POST['txttexto'];
     $postos->estado=$_POST['estado'];
 
-    $postos::Update($postos);
+    $postos::Updadte($postos);
   }
 
   public function Excluir(){

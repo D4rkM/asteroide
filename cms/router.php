@@ -171,7 +171,7 @@
 
         case 'editar':
         $controllerEstadosPostos = new controllerEstadosPostos();
-        $controllerEstadosPostos::Editar($_GET['id']);
+        $controllerEstadosPostos::Editar();
         break;
 
         case 'excluir':
@@ -207,7 +207,7 @@
 
         case 'editar':
         $controllerPostos = new controllerPostos();
-        $controllerPostos::Editar();
+        $controllerPostos::Editar($_GET['id']);
         break;
 
         case 'excluir':
@@ -337,6 +337,41 @@
             break;
           }
           break;
+
+          case 'classe_onibus':
+
+          require_once('controllers/classe_onibus_controller.php');
+          require_once('models/classe_onibus_class.php');
+
+            switch ($modo) {
+              case 'novo':
+              $controllerClasseOnibus = new controllerClasseOnibus();
+              $controllerClasseOnibus::Novo();
+              break;
+
+              case 'editar':
+              $controllerClasseOnibus = new controllerClasseOnibus();
+              $controllerClasseOnibus::Editar($_GET['id']);
+              break;
+
+              case 'excluir':
+              $controllerClasseOnibus = new controllerClasseOnibus();
+              $controllerClasseOnibus::Excluir();
+              break;
+
+              case 'buscar':
+              $controllerClasseOnibus = new controllerClasseOnibus();
+              $controllerClasseOnibus::Buscar();
+              break;
+
+              case 'listar':
+              $controllerClasseOnibus = new controllerClasseOnibus();
+              $controllerClasseOnibus::Listar();
+              break;
+
+              default:
+              break;
+            }
 
         case 'motorista':
 

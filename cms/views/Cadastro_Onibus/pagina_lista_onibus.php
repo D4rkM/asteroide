@@ -2,11 +2,9 @@
   <div class="item_onibus">Placa</div>
   <div class="item_onibus">Numeros_poltronas</div>
   <div class="item_onibus">Km rodado</div>
-  <div class="item_onibus">KM para manutenção</div>
-  <div class="item_onibus">Detalhes</div>
   <div class="item_onibus">Imagem do onibus</div>
   <div class="item_onibus">Classe</div>
-  <div class="item_onibus">Status de manutenção</div>
+  <div class="item_onibus">Opções</div>
 </div>
 <script type="text/javascript"></script>
 <script>
@@ -45,12 +43,8 @@ $(document).ready(function() {
   <div class="itens_mostrar"><?php echo $list[$cont]->placa ?></div>
   <div class="itens_mostrar"><?php echo $list[$cont]->numeros_poltronas ?></div>
   <div class="itens_mostrar"><?php echo $list[$cont]->km_rodado ?></div>
-  <div class="itens_mostrar"><?php echo $list[$cont]->status_manutencao ?></div>
-  <div class="itens_mostrar"><?php echo $list[$cont]->km_manutencao ?></div>
-  <div class="itens_mostrar"><?php echo $list[$cont]->descricao ?></div>
-  <div class="itens_mostrar"><?php echo $list[$cont]->status_manutencao ?></div>
-  <div class="itens_mostrar"><?php echo $list[$cont]->imagem ?></div>
-  <div class="itens_mostrar"></div>
+  <div class="itens_mostrar"> <img src="<?php echo $list[$cont]->imagem ?>" alt="imagem"> </div>
+  <div class="itens_mostrar"><?php echo $list[$cont]->classe ?></div>
   <div class="itens_mostrar">
     <a href="router.php?controller=onibus&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
       <img src="img/icon-delete.png" alt="">
