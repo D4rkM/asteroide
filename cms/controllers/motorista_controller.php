@@ -20,13 +20,25 @@ session_start();
         public function Novo(){
           $motorista = new Motorista();
           require_once('trata_imagem.php');
+          // iniciado variaveis
+           $diretorio_completo=Null;
+           $MovUpload=false;
+           $imagem_file=Null;
 
-          $salvarimagem = salvarFoto($_FILES['imagem'], 'arquivo');
-          //var_dump($_FILES['imagem']);
-          if($salvarimagem == "false"){
-            echo('Erro no uploade ');
-          }else{
-          $motorista->imagem=$salvarimagem;
+          //pegando a foto
+             if (!empty($_FILES['imagem']['name'])) {
+                $imagem_file = true;
+                $diretorio_completo=salvarFoto($_FILES['imagem'],'arquivo');
+                if ($diretorio_completo == "Erro") {
+                      $MovUpload=false;
+                }else {
+                  $MovUpload=true;
+                }
+              }else {
+                $imagem_file = false;
+              }
+
+          $motorista->imagem=$diretorio_completo;
           $motorista->nome = $_POST['txtNome'];
           $motorista->email = $_POST['txtEmail'];
           $motorista->usuario = $_POST['txtUsuario'];
@@ -39,10 +51,9 @@ session_start();
           $motorista->cpf = $_POST['txtCPF'];
           $motorista->rg = $_POST['txtRG'];
           $motorista->cnh = $_POST['txtcnh'];
-          $motorista->ativo = $_POST['chkAtivo'];
+          $motorista->ativo = $_POST['ativo'];
 
           $motorista::Insert($motorista);
-        }
 
       }
 
@@ -50,7 +61,37 @@ session_start();
         public function Editar($idMotorista){
           $motorista = new Motorista();
 
+          require_once('trata_imagem.php');
+
+          // echo $idOnibus;
+
+          // iniciado variaveis
+           $diretorio_completo=Null;
+           $MovUpload=false;
+           $imagem_file=Null;
+           $foto="nada";
+
+          //pegando a foto
+             if (!empty($_FILES['imagem']['name'])) {
+                $imagem_file = true;
+                $diretorio_completo=salvarFoto($_FILES['imagem'],'arquivo');
+                if ($diretorio_completo == "Erro") {
+                      $MovUpload=false;
+                }else {
+                  $MovUpload=true;
+                }
+              }else {
+                $imagem_file = false;
+              }
+
+              if ($imagem_file == true && $MovUpload==true) {
+               $foto =$diretorio_completo;
+             }else {
+               $foto="nada";
+             }
           $motorista->id = $idMotorista;
+          $motorista->imagem=$diretorio_completo;
+          $motorista->imagem = $foto;
           $motorista->nome = $_POST['txtNome'];
           $motorista->email = $_POST['txtEmail'];
           $motorista->usuario = $_POST['txtUsuario'];
@@ -61,12 +102,11 @@ session_start();
           $motorista->cpf = $_POST['txtCPF'];
           $motorista->rg = $_POST['txtRG'];
           $motorista->cnh = $_POST['txtcnh'];
-          $motorista->imagem = $_POST['flefoto'];
           $motorista->ativar = $_POST['chkAtivo'];
-          if(isset($_POST['chkAtivo'])){
-            $funcionario->ativo = '1';
+          if(isset($_POST['ativo'])){
+            $motorista->ativo = '1';
           }else{
-            $funcionario->ativo = '0';
+            $motorista->ativo = '0';
           }
 
           $motorista::Update($motorista);

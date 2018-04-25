@@ -18,7 +18,6 @@ $("#foto").change(function(){
 <form class="frmCadFunc" method="post" action="router.php?controller=motorista&modo=novo" enctype="multipart/form-data">
   <div class="cadastrar_motorista">
     <div class="cont_pessoais">
-      <!--Container para colocar a imagem de perfil-->
       <label for="foto">
         <div  class="adicionar_frota" id="imagem">
           <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
@@ -55,7 +54,7 @@ $("#foto").change(function(){
       <input class="box_funcionario" type="text" name="txtRG" value="" maxlength="12">
       <div class="text_funcionario">CNH</div>
       <input class="box_funcionario" type="text"  name="txtcnh">
-      <div class="text_funcionario">Ativar<input type="checkbox" name="chkAtivo" value="1" checked>Ativo</div>
+      <div class="text_funcionario">Ativar<input type="checkbox" name="ativo" value="1" checked>Ativo</div>
       <input class="salvar_funcionario" type="submit" name="btnCadastrarFunc" value="Cadastrar">
     </div>
   </div>
