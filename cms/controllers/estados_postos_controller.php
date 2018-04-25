@@ -22,6 +22,7 @@ class controllerEstadosPostos{
   public function Editar($idAltera){
     $estados_postos = new EstadosPostos();
 
+    $estados_postos->id = $idAltera;
     $estados_postos->estado=$_POST['txtestado'];
 
     $estados_postos::Update($estados_postos);

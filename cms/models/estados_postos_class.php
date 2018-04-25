@@ -41,7 +41,7 @@ class EstadosPostos{
   }
 
   public function Update($estados_postos_dados){
-    $sql = "update pgestados_postos set estado='$estados_postos_dados->estado';";
+    $sql = "update pgestados_postos set estado='$estados_postos_dados->estado' where id=$estados_postos_dados->id;";
 
 
     //Instancia a classe do banco

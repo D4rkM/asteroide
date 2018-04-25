@@ -20,7 +20,6 @@ $("#foto").change(function(){
   <div class="cadastro_postos">
       <div class="text_postos">Nome do Posto Rodoviario</div>
       <input class="box_postos" type="text" name="txtnome">
-
       <div class="text_postos">Imagem</div>
       <label for="foto">
         <div  class="adicionar_frota" id="imagem">
@@ -31,7 +30,6 @@ $("#foto").change(function(){
       <div class="input-foto">
         <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
       </div>
-
       <div class="text_postos">Texto</div>
       <input class="box_postos" type="text" name="txttexto" value="">
       <div class="text_postos">Link de Localização</div>
@@ -40,25 +38,25 @@ $("#foto").change(function(){
       <input class="box_postos" type="text" name="txtlogradouro" value="">
       <div class="text_postos">Estados</div>
       <select class="select_onibus" name="estado">
-                  <?php
-                      require_once("../../controllers/estados_postos_controller.php");
-                      require_once("../../models/estados_postos_class.php");
+          <?php
+              require_once("../../controllers/estados_postos_controller.php");
+              require_once("../../models/estados_postos_class.php");
 
-                      $controllerEstadosPostos = new controllerEstadosPostos();
-                      $list=$controllerEstadosPostos::Listar();
+              $controllerEstadosPostos = new controllerEstadosPostos();
+              $list=$controllerEstadosPostos::Listar();
 
-                      $cont = 0;
+              $cont = 0;
 
-                      while($cont < count($list)){
+              while($cont < count($list)){
 
-                      ?>
-                      <option value="<?php echo($list[$cont]->id)?>">
-                          <?php echo($list[$cont]->estado)?></option>
+              ?>
+              <option value="<?php echo($list[$cont]->id)?>">
+                  <?php echo($list[$cont]->estado)?></option>
 
-                      <?php
-                        $cont+=1;
-                          }
-                          ?>
+              <?php
+                $cont+=1;
+                  }
+                  ?>
               </select>
       <input class="salvar_postos" type="submit" name="btnsalvar" value="Salvar">
   </div>

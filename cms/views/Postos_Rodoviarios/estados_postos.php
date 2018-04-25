@@ -2,21 +2,20 @@
    require_once("../../controllers/estados_postos_controller.php");
    require_once("../../models/estados_postos_class.php");
 ?>
-
   <!-- Lista de Estados -->
-  <div class="container_estados">
-<div class="list_estado">
+<div class="container_estados">
+  <div class="list_estado">
     <div class="itens_estado">
       Estado
     </div>
     <div class="itens_estado">
       OPÇÕES
     </div>
-</div>
+  </div>
 
-    <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script>
 
-    <script>
     $(document).ready(function() {
 
       $(".ver").click(function() {
@@ -26,8 +25,6 @@
     	//FadeIn
       });
     });
-
-
 
     	function Modal(idIten){
     		$.ajax({
@@ -39,76 +36,38 @@
     			}
     		});
     	}
-    </script>
-    <?php
+</script>
+<?php
+  require_once("../../controllers/estados_postos_controller.php");
+  require_once("../../models/estados_postos_class.php");
 
-      require_once("../../controllers/estados_postos_controller.php");
-      require_once("../../models/estados_postos_class.php");
+  $estados_postos = new controllerEstadosPostos();
+  $list = $estados_postos::Listar();
 
-      $estados_postos = new controllerEstadosPostos();
+  $cont = 0;
+  while($cont < count($list)){
+?>
+    <div class="container_lista_estado">
+      <div class="itens_mostrar_estado">
+        <?php echo $list[$cont]->estado ?>
+      </div>
 
-      $list = $estados_postos::Listar();
+      <div class="itens_mostrar_estado">
+        <a href="router.php?controller=estado_postos&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
+          <img src="img/icon-delete.png" alt="">
+        </a>
 
-      $cont = 0;
+        <a href="#" class="ver" onclick="Modal(<?php echo($list[$cont]->id);?>)">
+          <img src="img/icon-edit.png" alt="">
+        </a>
+      </div>
+    </div>
+<?php
+  $cont+=1;
+  }
+?>
+</div>
 
-      while($cont < count($list)){
-        ?>
-        <div class="container_lista_estado">
-          <div class="itens_mostrar_estado">
-            <?php echo $list[$cont]->estado ?>
-          </div>
-
-          <div class="itens_mostrar_estado">
-            <a href="router.php?controller=estado_postos&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
-              <img src="img/icon-delete.png" alt="">
-            </a>
-
-            <a href="#" class="ver" onclick="Modal(<?php echo($list[$cont]->id);?>)">
-              <img src="img/icon-edit.png" alt="">
-            </a>
-          </div>
-        </div>
-        <?php
-        $cont+=1;
-      }
-
-    ?>
-
-    <?php
-    //
-    // require_once("../../controllers/estados_postos_controller.php");
-    // require_once("../../models/estados_postos_class.php");
-    //
-    //   $estados_postos = new controllerEstadosPostos();
-    //
-    //   $list = $estados_postos::Listar();
-    //
-    //   $cont = 0;
-    //
-    //   while($cont < count($list)){
-    //     ?>
-    <!-- //     <div class="container_lista_estado">
-    //       <div class="itens_mostrar_estado">
-    //         <?php //echo $list[$cont]->estado ?>
-    //       </div> -->
-    //
-    <!-- //       <div class="itens_mostrar_estado">
-    //         <a href="router.php?controller=estado_postos&modo=excluir&id=<?php //echo($list[$cont]->id) ?>">
-    //           <img src="img/icon-delete.png" alt="">
-    //         </a>
-    //
-    //         <a href="#" class="ver" onclick="Modal(<?php //echo($list[$cont]->id);?>)">
-    //           <img src="img/icon-edit.png" alt="">
-    //         </a>
-    //       </div>
-    //     </div> -->
-    //     <?php
-    //     $cont+=1;
-    //   }
-
-    ?>
-
-  </div>
   <form class="frmEstadosPostos" action="router.php?controller=estado_postos&modo=novo" method="post">
   <!-- Cadastro de Estados -->
   <div class="cadastro_estado">

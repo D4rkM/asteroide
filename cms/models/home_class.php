@@ -22,7 +22,6 @@ class Home{
     $sql = "insert into pghome set destino='$home_dados->destino',
                                    imagem='$home_dados->imagem',
                                    idTipo='$home_dados->tipo';";
-    echo($sql);
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -52,7 +51,7 @@ class Home{
                                 imagem='$home_dados->imagem',
                                 idTipo=$home_dados->tipo where id=$home_dados->id;";
     }
-    echo($sql);
+    
     //Instancia a classe do banco
     $conex = new Mysql_db();
 

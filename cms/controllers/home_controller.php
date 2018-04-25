@@ -41,11 +41,6 @@ session_start();
         public function Editar($idAlterar){
           $home = new Home();
           require_once('trata_imagem.php');
-
-          $idFrotas=$_GET['id'];
-
-          // echo $idOnibus;
-
           // iniciado variaveis
            $diretorio_completo=Null;
            $MovUpload=false;

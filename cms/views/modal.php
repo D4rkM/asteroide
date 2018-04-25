@@ -281,29 +281,41 @@ $("#foto").change(function(){
 <!-- Editar da pagina de POSTOS RODOVIARIO -->
 <?php
 }if($pagina=='postos'){
-
 	require_once("../controllers/postos_controller.php");
 	require_once("../models/postos_class.php");
 
 	$postos_controller = new controllerPostos();
 	$dadosPostos = $postos_controller::Buscar($id);
 ?>
+<script src="js/jquery.min.js"></script>
+<script>
+$("#foto").change(function(){
+   if($(this).val()){ // só se o input não estiver vazio
+      var img = this.files[0]; // seleciona o arquivo do input
+      var f = new FileReader(); // cria o objeto FileReader
+      f.onload = function(e){ // ao carregar a imagem
+         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+      }
+      f.readAsDataURL(img); // lê o arquivo
+   }
+});
+</script>
 	<div class="tltModal">
 	 Edição de Postos Rodoviarios
 	</div>
-	<form class="frmCadDuvida" method="post" action="router.php?controller=postos&modo=editar" enctype="multipart/form-data">
-	  <div class="cadastro_postos">
+	<form class="frmCadDuvida" method="post" action="router.php?controller=postos&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
 	      <div class="text_postos">Nome do Posto Rodoviario</div>
 	      <input class="box_postos" type="text" name="txtnome" value="<?php echo $dadosPostos->nome?>">
-
 	      <div class="text_postos">Imagem</div>
-	      <label for="Foto">
-	          <img class="img_postos" src="<?php echo $dadosPostos->imagem?>" alt="imagem">
-	      </label>
-	      <div class="inpt_foto">
-	        <input id="Foto" type="file" name="imagem">
-	      </div>
-
+				<label for="foto">
+	        <div  class="adicionar_frota" id="imagem">
+	          <img id="id_sua_img" src="<?php echo $dadosPostos->imagem ?>" alt="foto"/>
+	        </div>
+        </label>
+      <!--Botão para selecionar a foto-->
+      <div class="input-foto">
+        <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
+      </div>
 	      <div class="text_postos">Texto</div>
 	      <input class="box_postos" type="text" name="txttexto" value="<?php echo $dadosPostos->texto?>">
 	      <div class="text_postos">Link de Localização</div>
@@ -317,23 +329,26 @@ $("#foto").change(function(){
 							require_once("../models/estados_postos_class.php");
 
 							$controllerEstadosPostos = new controllerEstadosPostos();
-							$list=$controllerEstadosPostos::Listar();
+							$list = $controllerEstadosPostos::Listar();
+							//echo("<script>alert(".$list[$cont]->id.");</script>");
 
 							$cont = 0;
-
+							$selected = '';
 							while($cont < count($list)){
+								if ($list[$cont]->id == $dadosPostos->estado)	{
 
-							?>
-							<option value="<?php echo($list[$cont]->id)?>">
-									<?php echo($list[$cont]->estado)?></option>
-
+								$selected = 'selected';
+								}
+						?>
+							<option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
+									   <?php echo($list[$cont]->estado)?></option>
 							<?php
-								$cont+=1;
+									$cont+=1;
+									$selected = '';
 									}
-									?>
+				      ?>
 				</select>
 	      <input class="salvar_postos" type="submit" name="btnsalvar" value="Alterar">
-	  </div>
 	</form>
 	<!-- Editar da pagina de TIPO DE DESTINO -->
 	<?php
@@ -366,7 +381,7 @@ $("#foto").change(function(){
 			Edição de Estados dos Postos Rodoviarios
 		</div>
 
-		<form class="frmCadDuvida" method="post" action="router.php?controller=estado_postos&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
+		<form method="post" action="router.php?controller=estado_postos&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
 			<div class="text_postos">Nome do estado</div>
 	    <input class="box_postos" type="text" name="txtestado" value="<?php echo $dadosEstados->estado?>">
 	    <input class="salvar_postos" type="submit" name="btnsalvar" value="Alterar">
@@ -384,7 +399,7 @@ $("#foto").change(function(){
 					Edição de Parada
 				</div>
 
-				<form class="frmCadDuvida" method="post" action="router.php?controller=parada&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
+				<form method="post" action="router.php?controller=parada&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
 					<div class="text_postos">Nome da Parada</div>
 			    <input class="box_postos" type="text" name="txtnome" value="<?php echo  $dadosParada->nome?>">
 			    <input class="salvar_postos" type="submit" name="btnsalvar" value="Alterar">

@@ -40,7 +40,6 @@ class TipoDestino{
 
   public function Update($tipo_destino_dados){
     $sql = "update tipo_destino set tipo='$tipo_destino_dados->tipo' where id=$tipo_destino_dados->id;";
-    echo($sql);
 
     //Instancia a classe do banco
     $conex = new Mysql_db();

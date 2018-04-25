@@ -152,6 +152,16 @@
                   }
                 });
               });
+          $("#caminho").click(function(){
+                    $.ajax({
+                      type:"POST",
+                      url:"views/Caminho/pagina_layout_caminho.php",
+                      data:{},
+                      success: function(dados){
+                        $("#main").html(dados);
+                      }
+                    });
+                  });
       });
     </script>
   </head>
@@ -189,6 +199,7 @@
                 <li id="motorista"><a href="#">Cadastro de Motorista</a></li>
                 <li id="usuarios"><a href="#">Usuarios</a></li>
                 <li id="parada"><a href="#">Parada</a></li>
+                <li id="caminho"><a href="#">Caminho</a></li>
               </ul>
           <li>
           <li class="itens"><a href="#">Marketing</a>
@@ -206,7 +217,7 @@
                   <li id="vendas"><a href="#">Pacotes de Viagem</a></li>
                 </ul>
             <li>
-              <li class="itens"><a href="#">Motorista</a>
+              <li class="itens"><a href="#">Mecanico</a>
                   <ul class="submenu">
                     <li><a href="#">Onibus em Manutenção</a></li>
                   </ul>

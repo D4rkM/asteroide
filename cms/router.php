@@ -171,7 +171,7 @@
 
         case 'editar':
         $controllerEstadosPostos = new controllerEstadosPostos();
-        $controllerEstadosPostos::Editar();
+        $controllerEstadosPostos::Editar($_GET['id']);
         break;
 
         case 'excluir':
