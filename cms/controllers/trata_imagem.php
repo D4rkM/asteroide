@@ -2,7 +2,7 @@
 function salvarFoto($file,$caminho){
   $erro="Erro";
     $diretorio_imagen=$caminho."/";//caminho
-    $nome_do_arquivo=strtolower(basename($objeto['name']));
+    $nome_do_arquivo= basename($file ['name']);
     //checando extensao
     if (strstr($nome_do_arquivo,'.jpg') || strstr($nome_do_arquivo,'.png') || strstr($nome_do_arquivo,'.jpeg')) {
         // criptografia

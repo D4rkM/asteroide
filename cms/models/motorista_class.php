@@ -65,7 +65,20 @@ echo($sql);
   }
 
   public function Update($motorista_dados){
-
+    if ($motorista_dados->imagem == "nada"){
+    $sql = "update motorista set  nome='$motorista_dados->nome',
+                                        email='$motorista_dados->email',
+                                        usuario='$motorista_dados->usuario',
+                                        senha='$motorista_dados->senha',
+                                        datanasc='$motorista_dados->data_nasc',
+                                        sexo='$motorista_dados->sexo',
+                                        telefone='$motorista_dados->telefone',
+                                        celular='$motorista_dados->celular',
+                                        cpf='$motorista_dados->cpf',
+                                        rg='$motorista_dados->rg',
+                                        cnh='$motorista_dados->cnh',
+                                        ativo='$motorista_dados->ativo' where id=$motorista_dados->id;";
+  }else{
     $sql = "update motorista set  nome='$motorista_dados->nome',
                                         email='$motorista_dados->email',
                                         usuario='$motorista_dados->usuario',
@@ -78,7 +91,8 @@ echo($sql);
                                         rg='$motorista_dados->rg',
                                         cnh='$motorista_dados->cnh',
                                         imagem='$motorista_dados->imagem',
-                                        ativo='$motorista_dados->ativo';";
+                                        ativo='$motorista_dados->ativo' where id=$motorista_dados->id;";
+  }
 
 
     //Instancia a classe do banco

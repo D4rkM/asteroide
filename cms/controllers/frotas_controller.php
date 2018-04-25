@@ -45,8 +45,6 @@ class controllerFrotas{
 
     require_once('trata_imagem.php');
 
-    $idFrotas=$_GET['id'];
-
     // echo $idOnibus;
 
     // iniciado variaveis
