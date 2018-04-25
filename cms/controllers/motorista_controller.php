@@ -18,31 +18,31 @@ session_start();
 
         //Insere novo contato
         public function Novo(){
-          // $motorista = new Motorista();
-          // require_once('trata_imagem.php');
-          // //
-          // // $salvarimagem = SalvarImagem($_FILES['imagem']);
-          // // //var_dump($_FILES['imagem']);
-          // // if($salvarimagem == "false"){
-          // //   echo('Erro no uploade ');
-          // // }else{
-          // //$motorista->imagem=$salvarimagem;
-          // $motorista->nome = $_POST['txtNome'];
-          // $motorista->email = $_POST['txtEmail'];
-          // $motorista->usuario = $_POST['txtUsuario'];
-          // $motorista->senha = $_POST['txtSenha'];
-          // $data = implode("-",array_reverse(explode("/",$_POST['txtDataNasc'])));
-          // $motorista->data_nasc = $data;
-          // $motorista->sexo = $_POST['rdoSexo'];
-          // $motorista->telefone = $_POST['txtTelefone'];
-          // $motorista->celular = $_POST['txtCelular'];
-          // $motorista->cpf = $_POST['txtCPF'];
-          // $motorista->rg = $_POST['txtRG'];
-          // $motorista->cnh = $_POST['txtcnh'];
-          // $motorista->ativo = $_POST['chkAtivo'];
-          //
-          // $motorista::Insert($motorista);
-        // }
+          $motorista = new Motorista();
+          require_once('trata_imagem.php');
+
+          $salvarimagem = salvarFoto($_FILES['imagem'], 'arquivo');
+          //var_dump($_FILES['imagem']);
+          if($salvarimagem == "false"){
+            echo('Erro no uploade ');
+          }else{
+          $motorista->imagem=$salvarimagem;
+          $motorista->nome = $_POST['txtNome'];
+          $motorista->email = $_POST['txtEmail'];
+          $motorista->usuario = $_POST['txtUsuario'];
+          $motorista->senha = $_POST['txtSenha'];
+          $data = implode("-",array_reverse(explode("/",$_POST['txtDataNasc'])));
+          $motorista->data_nasc = $data;
+          $motorista->sexo = $_POST['rdoSexo'];
+          $motorista->telefone = $_POST['txtTelefone'];
+          $motorista->celular = $_POST['txtCelular'];
+          $motorista->cpf = $_POST['txtCPF'];
+          $motorista->rg = $_POST['txtRG'];
+          $motorista->cnh = $_POST['txtcnh'];
+          $motorista->ativo = $_POST['chkAtivo'];
+
+          $motorista::Insert($motorista);
+        }
 
       }
 

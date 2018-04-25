@@ -8,6 +8,28 @@ const bodyParser = require('body-parser');
 const port = 3000;
 const mysql = require('mysql');
 const db = require('./models/db');
+// const dataConverter = require('data');
+
+function dataParaMysql(dataParaConverter){
+
+  var dia =(dataParaConverter.split("/")[0]);
+  var mes = (dataParaConverter.split("/")[1]);
+  var ano = (dataParaConverter.split("/")[2]);
+  var dataParaMysql = ano +"-"+ mes +"-"+ dia;
+  return dataParaMysql;
+}
+
+function dataParaSistema(dataParaConverter){
+
+  var dia =(dataParaConverter.split("-")[2]);
+  var mes = (dataParaConverter.split("-")[1]);
+  var ano = (dataParaConverter.split("-")[0]);
+  var dataParaSistema = dia +"/"+ mes +"/"+ ano;
+  return dataParaSistema;
+}
+
+//importando lib de criptografia
+var crypto = require('crypto');
 
 //Configurando o body parser para pegar POSTS mais tarde
 app.use(bodyParser.urlencoded({extended:true}));
@@ -39,7 +61,7 @@ router.delete('/v1/funcionarios/:id?', (req, res) =>{
 
 //Insere funcinário no banco de dados
 router.post('/v1/funcionarios', (req,res) => {
-  const id = parseInt(req.params.id);
+  // const id = parseInt(req.params.id);
   const nome = req.body.nome.substring(0,150);
   const email = req.body.email.substring(0, 45);
   const cpf = req.body.cpf.substring(0, 11);
@@ -49,7 +71,10 @@ router.post('/v1/funcionarios', (req,res) => {
   const rg = req.body.rg.substring(0, 45);
   const ativo = req.body.ativo.substring(0, 45);
   const login = req.body.login.substring(0, 45);
-  db.execSQLQuery(`INSERT INTO funcionario(nome, email, cpf, senha, datanasc, sexo, rg, ativo,login) VALUES('${nome}', '${email}','${cpf}', '${senha}', '${datanasc}','${sexo}','${rg}','${ativo}', '${login}')`, res);
+
+  const dataEnvio = dataConverter.dataParaMysql(datanasc);
+
+  db.execSQLQuery(`INSERT INTO funcionario(nome, email, cpf, senha, datanasc, sexo, rg, ativo,login) VALUES('${nome}', '${email}','${cpf}', '${senha}', '${dataEnvio}','${sexo}','${rg}','${ativo}', '${login}')`, res);
 });
 
 // Atualiza um funcionários
@@ -75,9 +100,9 @@ router.post('/api/v1/autenticar/cliente', (req, res) => {
   // const email = req.body.email.substring(0,45);
   const senha = req.body.senha.substring(0, 45);
   const login = req.body.login.substring(0, 45);
-  // var hash = crypto.createHash('sha256').update(senha).digest('base64');
+  const hash = crypto.createHash('sha256').update(senha).digest('base64');
 
-  db.execSQLQuery(`SELECT * FROM usuario WHERE login = '${login}' AND senha = '${senha}' limit 1`, res);
+  db.execSQLQuery(`SELECT * FROM usuario WHERE login = '${login}' AND senha = '${hash}' limit 1`, res);
 });
 
 //Insere cliente no banco de dados
@@ -90,10 +115,37 @@ router.post('/api/v1/cliente', (req,res) => {
   const sexo = req.body.sexo.substring(0, 45);
   const cpf = req.body.cpf.substring(0, 11);
   const rg = req.body.rg.substring(0, 45);
+  const telefone = req.body.telefone;
+  const celular = req.body.celular;
   const login = req.body.login.substring(0, 12);
+  const dataEnvio = dataParaMysql(datanasc);
+
+  const hash = crypto.createHash('sha256').update(senha).digest('base64');
   // const ativo = req.body.ativo.substring(0, 45);
   // const login = req.body.login.substring(0, 45);
-  db.execSQLQuery(`INSERT INTO usuario(nome, email, cpf, senha, datanasc, sexo, rg, login) VALUES('${nome}', '${email}','${cpf}', '${senha}', '${datanasc}','${sexo}','${rg}', '${login}')`, res);
+  db.execSQLQuery(`INSERT INTO usuario(nome, email, cpf, telefone, celular, senha, datanasc, sexo, rg, login) VALUES('${nome}', '${email}','${cpf}','${telefone}', '${celular}', '${hash}', '${dataEnvio}','${sexo}','${rg}', '${login}')`, res);
+});
+
+//Insere cliente no banco de dados
+router.put('/api/v1/cliente', (req,res) => {
+  const id = parseInt(req.params.id);
+  const nome = req.body.nome.substring(0,150);
+  const email = req.body.email.substring(0, 45);
+  const senha = req.body.senha.substring(0, 45);
+  const datanasc = req.body.datanasc.substring(0, 45);
+  const sexo = req.body.sexo.substring(0, 45);
+  const cpf = req.body.cpf.substring(0, 11);
+  const rg = req.body.rg.substring(0, 45);
+  const telefone = req.body.telefone;
+  const celular = req.body.celular;
+  const login = req.body.login.substring(0, 12);
+
+  const dataEnvio = dataParaMysql(datanasc);
+
+  const hash = crypto.createHash('sha256').update(senha).digest('base64');
+  // const ativo = req.body.ativo.substring(0, 45);
+  // const login = req.body.login.substring(0, 45);
+  db.execSQLQuery(`UPDATE usuario SET nome = '${nome}', email = '${email}', cpf = '${cpf}', telefone = '${telefone}', celular = '${celular}', senha = '${hash}', datanasc = '${dataEnvio}',  sexo = '${sexo}', rg = '${rg}', login '${login} WHERE id = ${id}'`, res);
 });
 
 // FIM API CLIENTE -------------------------------------------------------------
@@ -112,9 +164,10 @@ router.post('/api/v1/autenticar/motorista', (req, res) => {
 
 //  Sugestões de viagens da empresas
 router.get('/api/v1/sugestoes', (req,res) => {
-  db.execSQLQuery('SELECT * FROM posto_rodoviario', res);
+  db.execSQLQuery('SELECT * FROM viagem', res);
 });
 
+// Função para retornar o valor da requisição de endereco
 function jsonReturn(consulta, callback){
   request(consulta,(err,res,body) => {
     // console.log(body);
@@ -124,6 +177,7 @@ function jsonReturn(consulta, callback){
       console.log(err);
     }else{
       callback(body);
+	  console.log(body);
     }
   });
 }
@@ -147,8 +201,6 @@ router.get('/api/v1/busca_endereco/:cep?', (req,res) => {
   // res.json(dados);
 
 });
-
-
 
 
 // inicia o servidor
