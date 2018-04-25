@@ -1,5 +1,4 @@
 <div class="lista_duvida">
-  <div class="item_home">N de Indetificação</div>
   <div class="item_home">Latitule</div>
   <div class="item_home">Longitude</div>
   <div class="item_home">Opções</div>
@@ -29,32 +28,31 @@ $(document).ready(function() {
 	}
 </script>
 <?php
-  // require_once("../../controllers/home_controller.php");
-  // require_once("../../models/home_class.php");
-  //
-  // $controller_home = new controllerHome();
-  // $list = $controller_home::Listar();
-  //
-  // $cont = 0;
-  //
-  // while($cont < count($list)){
+  require_once('../../controllers/caminho_controller.php');
+  require_once('../../models/caminho_class.php');
+
+  $controller_caminho = new controllerCaminho();
+  $list = $controller_caminho::Listar();
+
+  $cont = 0;
+
+  while($cont < count($list)){
 ?>
 <div class="container_lista">
-  <div class="itens_mostrar_home"><?php //echo $list[$cont]->destino ?></div>
-  <div class="itens_mostrar_home"><?php //echo $list[$cont]->destino ?></div>
-  <div class="itens_mostrar_home"><?php //echo $list[$cont]->destino ?></div>
+  <div class="itens_mostrar_home"><?php echo $list[$cont]->latitude ?></div>
+  <div class="itens_mostrar_home"><?php echo $list[$cont]->longitude ?></div>
   <div class="itens_mostrar_home">
-    <a href="router.php?controller=caminho&modo=excluir&id=<?php //echo($list[$cont]->id) ?>">
+    <a href="router.php?controller=caminho&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
       <img src="img/icon-delete.png" alt="">
     </a>
 
-    <a href="#" class="ver" onclick="Modal(<?php //echo($list[$cont]->id);?>)">
+    <a href="#" class="ver" onclick="Modal(<?php echo($list[$cont]->id);?>)">
       <img src="img/icon-edit.png" alt="">
     </a>
   </div>
 </div>
 
 <?php
-  //   $cont+=1;
-  // }
+     $cont+=1;
+   }
 ?>

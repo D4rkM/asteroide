@@ -523,6 +523,41 @@
                   break;
                 }
                 break;
+                case 'caminho':
+
+                require_once('controllers/caminho_controller.php');
+                require_once('models/caminho_class.php');
+
+                  switch ($modo) {
+                    case 'novo':
+                    $controllerCaminho = new controllerCaminho();
+                    $controllerCaminho::Novo();
+                    break;
+
+                    case 'editar':
+                    $controllerCaminho = new controllerCaminho();
+                    $controllerCaminho::Editar($_GET['id']);
+                    break;
+
+                    case 'excluir':
+                    $controllerCaminho = new controllerCaminho();
+                    $controllerCaminho::Excluir();
+                    break;
+
+                    case 'buscar':
+                    $controllerCaminho = new controllerCaminho();
+                    $controllerCaminho::Buscar();
+                    break;
+
+                    case 'listar':
+                    $controllerCaminho = new controllerCaminho();
+                    $controllerCaminho::Listar();
+                    break;
+
+                    default:
+                    break;
+                  }
+                  break;
     }
 
  ?>

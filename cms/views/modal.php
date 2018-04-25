@@ -490,6 +490,28 @@ $("#foto").change(function(){
 	<div class="text_postos">Nome da Classe</div>
 	<input class="box_postos" type="text" name="txtclasse" value="<?php echo $dadosClasse->classe ?>">
 	<input class="salvar_postos" type="submit" name="btnsalvar" value="Salvar">
+ </form>
+ <?php
+}if($pagina=='caminho'){
+
+	require_once('../controllers/caminho_controller.php');
+	require_once('../models/caminho_class.php');
+
+	$caminho_controller = new controllerCaminho;
+	$dadosCaminho = $caminho_controller::Buscar($id);
+
+?>
+<div class="tltModal">
+	Edição de Caminho
+</div>
+<form class="frmEstadosPostos" action="router.php?controller=caminho&modo=editar&id=<?php echo $id; ?>" method="post">
+<!-- Cadastro de Classes de onibus -->
+<div class="text_home">Latitude</div>
+<input class="box_home" type="text" name="txtlatitude" value="<?php echo $dadosCaminho->latitude ?>">
+<div class="text_home">Longitude</div>
+<input class="box_home" type="text" name="txtlongitude" value="<?php echo $dadosCaminho->longitude ?>">
+<input class="salvar_home" type="submit" name="" value="Salvar">
+	</form>
 	<?php
   }
 	 ?>
