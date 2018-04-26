@@ -30,6 +30,8 @@ class PostosRodoviarios{
                                                  idCidade='$postos_rodoviarios_dados->cidade';";
                                                  echo($sql);
 
+
+
     //Instancia a classe do banco
     $conex = new Mysql_db();
 

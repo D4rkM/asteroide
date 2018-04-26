@@ -234,11 +234,17 @@
 
       require_once('controllers/postos_rodoviarios_controller.php');
       require_once('models/postos_rodoviarios_class.php');
+      require_once('controllers/endereco_controller.php');
+      require_once('models/endereco_class.php');
 
         switch ($modo) {
           case 'novo':
+          $controllerEndereco = new enderecoController();
+          $id = $endereco_controller::Novo();
+
           $controllerPostosRodoviarios = new controllerPostosRodoviarios();
           $controllerPostosRodoviarios::Novo();
+          $controllerPostosRodoviarios::Novo($id_endereco);
           break;
 
           case 'editar':
@@ -470,8 +476,8 @@
 
                 case 'cidade':
 
-              require_once('controllers/cidade_controller.php');
-              require_once('models/cidade_class.php');
+                  require_once('controllers/cidade_controller.php');
+                  require_once('models/cidade_class.php');
 
                 switch ($modo) {
                   case 'excluir':

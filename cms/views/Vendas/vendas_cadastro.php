@@ -64,7 +64,7 @@ $("#foto").change(function(){
           while($cont < count($list)){
           ?>
           <option value="<?php echo($list[$cont]->id)?>">
-              <?php echo($list[$cont]->nome)?></option>
+              <?php echo($list[$cont]->placa)?></option>
 
           <?php
             $cont+=1;

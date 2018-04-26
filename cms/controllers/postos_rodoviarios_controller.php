@@ -5,7 +5,7 @@
  */
 class controllerPostosRodoviarios{
 
-  public function Novo(){
+  public function Novo($idEnd){
     $postos_rodoviarios = new PostosRodoviarios();
 
     $postos_rodoviarios->nome=$_POST['nome'];

@@ -24,8 +24,8 @@ class Cidade{
 
   public function Select(){
 
-    $sql = "select * from cidade;";
-echo($sql);
+    $sql = "select * from cidade";
+// echo($sql);
     $conex = new Mysql_db();
 
     $PDO_conex = $conex->Conectar();
@@ -40,8 +40,8 @@ echo($sql);
       $listCidade[] = new Cidade();
 
       $listCidade[$cont]->id = $rs['id'];
-      $listCidade[$cont]->id_estado = $rs['id_estado'];
-      $listCidade[$cont]->nome = $rs['nom_cidade'];
+      // $listCidade[$cont]->id_estado = $rs['id_estado'];
+      $listCidade[$cont]->nom_cidade = $rs['nom_cidade'];
 
 
       $cont+=1;

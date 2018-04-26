@@ -17,7 +17,7 @@ $("#foto").change(function(){
 });
 </script>
 <form class="frmCadDuvida" method="post" action="router.php?controller=postos_rodoviarios&modo=novo">
-  <div class="cadastro_rodoviarios">
+  <div class="cadastro_duvida">
     <div class="text_duvida">Nome do posto</div>
     <input class="box_duvida" type="text" name="nome">
     <div class="text_duvida">Imagme do Posto</div>
@@ -39,25 +39,26 @@ $("#foto").change(function(){
     <div class="text_duvida">Bairro</div>
     <input class="box_duvida" type="text" name="bairro">
     <div class="text_duvida">Cidade</div>
-    <select class="select_postos_rodoviarios" name="cidade">
-      <?php
-    require_once("../../controller/cidade_controller.php");
-    require_once("../../controller/cidade_class.php");
+      <select class="select_postos_rodoviarios" name="cidade">
+        <?php
+            require_once("../../controllers/cidade_controller.php");
+            require_once("../../models/cidade_class.php");
 
-    $controllerCidade = new controllerCidade();
-    $list=$controllerCidade::Listar();
+            $controllerCidade = new controllerCidade();
+            $list=$controllerCidade::Listar();
 
-    $cont = 0;
+            $cont = 0;
 
-    while($cont < cont($list)){
-     ?>
+            while($cont < count($list)){
+             ?>
 
-     <option value="<?php echo $list[$cont]->id?>"><?php echo($list[$cont]->nome) ?></option>
-     <?php
-     $cont+=1;
-   }
-      ?>
-    </select>
+             <option value="<?php echo $list[$cont]->id?>">
+               <?php echo($list[$cont]->nom_cidade) ?></option>
+             <?php
+             $cont+=1;
+           }
+              ?>
+      </select>
     <input class="salvar_postos_rodoviarios" type="submit" name="btnCadastrar" value="Cadastrar">
   </div>
 </form>

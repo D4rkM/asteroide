@@ -8,17 +8,19 @@
     class controllerCidade{
         //Insere novo contato
         public function Excluir(){
-          $idCidade = $_GET['id'];
-          $cidade = new Cidade();
-          $cidade->id = $idCidade;
-          $cidade::Delete($cidade);
+          // $idCidade = $_GET['id'];
+          // $cidade = new Cidade();
+          // $cidade->id = $idCidade;
+          // $cidade::Delete($cidade);
         }
 
         //Lista todos os contatos existentes
         public function Listar(){
+
           $cidade = new Cidade();
+
           return $cidade::Select();
-          echo $cidade;
+          // echo $cidade;
         }
     }
 ?>
