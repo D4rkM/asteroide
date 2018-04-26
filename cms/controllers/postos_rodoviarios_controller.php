@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ *a
  */
 class controllerPostosRodoviarios{
 
@@ -36,7 +36,7 @@ class controllerPostosRodoviarios{
 
   public function Excluir(){
     $idPostoRodoviario = $_GET['id'];
-    $postos_rodoviarios = new Postos();
+    $postos_rodoviarios = new PostosRodoviarios();
     $postos_rodoviarios->id = $idPostoRodoviario;
     $postos_rodoviarios::Delete($postos_rodoviarios);
 

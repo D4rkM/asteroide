@@ -239,8 +239,8 @@
 
         switch ($modo) {
           case 'novo':
-          $controllerEndereco = new enderecoController();
-          $id = $endereco_controller::Novo();
+          $controllerEndereco = new controllerEndereco();
+          $id = $controllerEndereco::Novo();
 
           $controllerPostosRodoviarios = new controllerPostosRodoviarios();
           $controllerPostosRodoviarios::Novo();

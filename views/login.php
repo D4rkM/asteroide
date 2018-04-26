@@ -1,8 +1,8 @@
 <html>
     <head>
         <title>Modal Login</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/style_login.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style_login.css"/>
     </head>
         <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
      <script>
@@ -16,9 +16,9 @@
     <body>
       <div class="container-login center">
         <a href="#" class="fechar" style="align-self:flex-end;">
-  	    <img src="img/icon/cancel-exit.svg" alt="sair" title="sair">
+  	    <img src="<?php echo($links); ?>img/icon/cancel-exit.svg" alt="sair" title="sair">
          </a>
-         <form action="home.php" method="post" enctype="multipart/form-data">
+         <form action="<?php echo($links); ?>home.php" method="post" enctype="multipart/form-data">
            <div class="titulo-conteudo-padrao">
              <h2>LOGIN</h2>
            </div>
@@ -34,13 +34,13 @@
              <button class="btn" type="submit" name="btnlogar">Logar</button>
            </div>
            <div class="itens-center">
-             <img src="img/Facebook.png" alt="redes-sociais">
+             <img src="<?php echo($links); ?>img/Facebook.png" alt="redes-sociais">
            </div>
            <div class="itens-center">
-             <img src="img/Google.png" alt="redes-sociais">
+             <img src="<?php echo($links); ?>img/Google.png" alt="redes-sociais">
            </div>
            <div class="itens-center">
-             <img src="img/Twitter.png" alt="redes-sociais">
+             <img src="<?php echo($links); ?>img/Twitter.png" alt="redes-sociais">
            </div>
            <div class="text-center">
              Não tem conta ainda?

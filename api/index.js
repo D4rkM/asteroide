@@ -126,13 +126,15 @@ router.post('/api/v1/cliente', (req,res) => {
   db.execSQLQuery(`INSERT INTO usuario(nome, email, cpf, telefone, celular, senha, datanasc, sexo, rg, login) VALUES('${nome}', '${email}','${cpf}','${telefone}', '${celular}', '${hash}', '${dataEnvio}','${sexo}','${rg}', '${login}')`, res);
 });
 
-//Insere cliente no banco de dados
-router.put('/api/v1/cliente', (req,res) => {
-  const id = parseInt(req.params.id);
+//Atualiza cliente no banco de dados
+router.post('/api/v1/cliente/:id', (req,res) => {
+  let filter = '';
+  if(req.params.id) filter = ' WHERE id=' + parseInt(req.params.id);
+  console.log(req.params.id);
   const nome = req.body.nome.substring(0,150);
   const email = req.body.email.substring(0, 45);
   const senha = req.body.senha.substring(0, 45);
-  const datanasc = req.body.datanasc.substring(0, 45);
+  // const datanasc = req.body.datanasc.substring(0, 45);
   const sexo = req.body.sexo.substring(0, 45);
   const cpf = req.body.cpf.substring(0, 11);
   const rg = req.body.rg.substring(0, 45);
@@ -140,12 +142,25 @@ router.put('/api/v1/cliente', (req,res) => {
   const celular = req.body.celular;
   const login = req.body.login.substring(0, 12);
 
-  const dataEnvio = dataParaMysql(datanasc);
+  let hash = '';
+  // let dataEnvio = '';
 
-  const hash = crypto.createHash('sha256').update(senha).digest('base64');
-  // const ativo = req.body.ativo.substring(0, 45);
-  // const login = req.body.login.substring(0, 45);
-  db.execSQLQuery(`UPDATE usuario SET nome = '${nome}', email = '${email}', cpf = '${cpf}', telefone = '${telefone}', celular = '${celular}', senha = '${hash}', datanasc = '${dataEnvio}',  sexo = '${sexo}', rg = '${rg}', login '${login} WHERE id = ${id}'`, res);
+  // if(datanasc != ""){
+  //   dataEnvio = dataParaMysql(datanasc);
+  // }
+
+  if(senha != ""){
+    hash = crypto.createHash('sha256').update(senha).digest('base64');
+
+    db.execSQLQuery(`UPDATE usuario SET nome = '${nome}', email = '${email}', cpf = '${cpf}', telefone = '${telefone}', celular = '${celular}', senha = '${hash}',  sexo = '${sexo}', rg = '${rg}', login = '${login}'` + filter, res);
+  }else{
+    db.execSQLQuery(`UPDATE usuario SET nome = '${nome}', email = '${email}', cpf = '${cpf}', telefone = '${telefone}', celular = '${celular}',  sexo = '${sexo}', rg = '${rg}', login = '${login}'` + filter, res);
+  }
+
+
+
+
+  // db.execSQLQuery(`UPDATE usuario SET nome = '${nome}', email = '${email}', cpf = '${cpf}', telefone = '${telefone}', celular = '${celular}', senha = '${hash}', datanasc = '${dataEnvio}',  sexo = '${sexo}', rg = '${rg}', login '${login} WHERE id = ${id}'`, res);
 });
 
 // FIM API CLIENTE -------------------------------------------------------------
@@ -165,6 +180,17 @@ router.post('/api/v1/autenticar/motorista', (req, res) => {
 //  Sugestões de viagens da empresas
 router.get('/api/v1/sugestoes', (req,res) => {
   db.execSQLQuery('SELECT * FROM viagem', res);
+});
+
+
+router.post('/api/v1/feedback/:id', (req, res) => {
+
+  const idUsuario = req.params.id;
+  const sugestao = req.body.sugestao;
+  const reclamacao = req.body.reclamacao;
+  const elogio = req.body.elogio;
+
+  db.execSQLQuery(`INSERT INTO fale_conosco(id_usuario, sugestao, reclamacoes, elogios) VALUES('${idUsuario}','${sugestao}','${reclamacao}','${elogio}')`, res);
 });
 
 // Função para retornar o valor da requisição de endereco

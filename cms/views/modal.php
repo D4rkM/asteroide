@@ -280,7 +280,7 @@ $("#foto").change(function(){
 	</form>
 <!-- Editar da pagina de POSTOS RODOVIARIO -->
 <?php
-}if($pagina=='postos'){
+} if($pagina=='postos'){
 	require_once("../controllers/postos_controller.php");
 	require_once("../models/postos_class.php");
 
@@ -516,7 +516,7 @@ $("#foto").change(function(){
   }
 	 ?>
 	 <?php
- }if($pagina=='vendas'){
+ if($pagina=='vendas'){
 
 		require_once('../controllers/vendas_controller.php');
 		require_once('../models/vendas_class.php');
@@ -574,7 +574,7 @@ $("#foto").change(function(){
 					$cont = 0;
 					$selected = '';
 					while($cont < count($list)){
-						if ($list[$cont]->id == $dadosVendas->)	{
+						if ($list[$cont]->id == $dadosVendas->id)	{
 							$selected = 'selected';
 						}
 					?>

@@ -28,7 +28,7 @@
       //     codCidade = ".$endereco->codCidade;
 
       // Executa o Script no BD.
-              if($POD_conex->query($sql)){
+              if($PDO_conex->query($sql)){
 
                   echo("Endereço Salvo. <br> <br>");
 

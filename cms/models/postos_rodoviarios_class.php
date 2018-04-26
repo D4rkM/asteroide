@@ -21,7 +21,7 @@ class PostosRodoviarios{
   }
 
   public function Insert($postos_rodoviarios_dados){
-    $sql = "insert into postos_rodoviarios set nome='$postos_rodoviarios_dados->nome',
+    $sql = "insert into posto_rodoviario set nome='$postos_rodoviarios_dados->nome',
                                                  imagem='$postos_rodoviarios_dados->imagem',
                                                  cep='$postos_rodoviarios_dados->cep',
                                                  logradouro='$postos_rodoviarios_dados->logradouro',
@@ -51,7 +51,7 @@ class PostosRodoviarios{
   }
 
   public function Update($postos_rodoviarios_dados){
-    $sql = "update postos_rodoviarios set nome='$postos_rodoviarios_dados->nome',
+    $sql = "update posto_rodoviario set nome='$postos_rodoviarios_dados->nome',
                                                  imagem='$postos_rodoviarios_dados->imagem',
                                                  cep='$postos_rodoviarios_dados->cep',
                                                  logradouro='$postos_rodoviarios_dados->logradouro',
@@ -77,7 +77,7 @@ class PostosRodoviarios{
   }
 
   public function Delete($postos_rodoviarios_dados){
-    $sql = "delete from postos_rodoviarios where id = $postos_rodoviarios_dados->id";
+    $sql = "delete from posto_rodoviario where id = $postos_rodoviarios_dados->id";
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -97,7 +97,7 @@ class PostosRodoviarios{
   }
 
   public function Select(){
-    $sql = "select * from postos_rodoviarios order by id desc";
+    $sql = "select * from posto_rodoviario order by id desc";
 
     $conex = new Mysql_db();
 
@@ -108,18 +108,20 @@ class PostosRodoviarios{
 
     $cont = 0;
 
+    // echo($sql);
+
     while($rs=$select->fetch(PDO::FETCH_ASSOC)){
 
       $listPostosRodoviarios[] = new PostosRodoviarios();
 
       $listPostosRodoviarios[$cont]->id = $rs['id'];
       $listPostosRodoviarios[$cont]->nome = $rs['nome'];
-      $listPostosRodoviarios[$cont]->imagem = $rs['imagem'];
+      // $listPostosRodoviarios[$cont]->imagem = $rs['imagem'];
       $listPostosRodoviarios[$cont]->cep = $rs['cep'];
       $listPostosRodoviarios[$cont]->logradouro = $rs['logradouro'];
       $listPostosRodoviarios[$cont]->numero = $rs['numero'];
       $listPostosRodoviarios[$cont]->bairro = $rs['bairro'];
-      $listPostosRodoviarios[$cont]->cidade = $rs['cidade'];
+      // $listPostosRodoviarios[$cont]->cidade = $rs['cidade'];
 
       $cont+=1;
     }
@@ -131,7 +133,7 @@ class PostosRodoviarios{
   }
 
   public function SelectById($postos_rodoviarios_dados){
-    $sql = "select * from postos_rodoviarios where id = $postos_rodoviarios_dados->id";
+    $sql = "select * from posto_rodoviario where id = $postos_rodoviarios_dados->id";
 
     $conex = new Mysql_db();
 
