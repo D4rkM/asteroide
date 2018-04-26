@@ -49,7 +49,7 @@ $(document).ready(function() {
       <img src="img/icon-delete.png" alt="">
     </a>
 
-    <a href="#" class="ver" onclick="Modal(<?php echo($list[$cont]->id);">
+    <a href="#" class="ver" onclick="Modal(<?php echo($list[$cont]->id);?>)">
       <img src="img/icon-edit.png" alt="">
     </a>
   </div>

@@ -1,7 +1,7 @@
 
 
 
-<div class="area-total-login">
+<div class="are_login">
   <div class="logo-login">
     <img src="img/logo-cms.png" width="100px" height="100px" alt="">
   </div>

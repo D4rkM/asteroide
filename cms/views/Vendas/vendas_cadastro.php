@@ -1,7 +1,7 @@
 
 <?php
-  // require_once("../../controllers/vendas_controller.php");
-  // require_once("../../models/vendas_class.php");
+   require_once("../../controllers/vendas_controller.php");
+   require_once("../../models/vendas_class.php");
 ?>
 <script src="js/jquery.min.js"></script>
 <script>
@@ -40,17 +40,17 @@ $("#foto").change(function(){
   </div>
   <div class="cont_vendas2">
     <div class="text_duvida">Partida</div>
-    <select class="select_postos_rodoviarios" name="partida">
-      <option value="">Itapevi</option>
-      <option value="">Cotia</option>
-      <option value="">Osasco</option>
-    </select>
-    <div class="text_duvida">Chegada</div>
-    <select class="select_postos_rodoviarios" name="chegada">
-      <option value="">Itapevi</option>
-      <option value="">Cotia</option>
-      <option value="">Osasco</option>
-    </select>
+		<select class="select_postos_rodoviarios" name="partida">
+			<option value="1">Tiete - SP</option>
+			<option value="2">Novo Rio - RJ</option>
+			<option value="3">Curitiba - PA</option>
+		</select>
+		<div class="text_duvida">Chegada</div>
+		<select class="select_postos_rodoviarios" name="chegada">
+			<option value="1">Tiete - SP</option>
+			<option value="2">Novo Rio - RJ</option>
+			<option value="3">Curitiba - PA</option>
+		</select>
     <div class="text_duvida">Onibus</div>
     <select class="select_postos_rodoviarios" name="onibus">
       <?php

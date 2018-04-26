@@ -90,63 +90,71 @@
            <input type="text" name="txt_pesquisa" value="" placeholder="Pesquise um posto...">
            <img src="<?php echo($links); ?>img/icon/search.svg" alt="Pesquise">
          </div>
-         <?php
-           $a = 0;
-           $cidades = array('São paulo','Rio de Janeiro','Paraná','Rio grande do sul','asdf','asdf','asdf','asdf');
-           while($a < 8){
-          ?>
+
          <div class="caixas-inf">
+           <?php
+             require_once("../cms/controllers/estados_postos_controller.php");
+             require_once("../cms/models/estados_postos_class.php");
+
+             $estados_postos = new controllerEstadosPostos();
+             $list = $estados_postos::Listar();
+
+             $cont = 0;
+             while($cont < count($list)){
+           ?>
            <div class="inf-subtitulos">
              <div class="escrita-principal">
-              <h2 class="subtitulo" style="padding:0px; margin:0px; color:#1f405e;"><?php echo($cidades[$a]); ?></h2>
+              <h2 class="subtitulo" style="padding:0px; margin:0px; color:#1f405e;"><?php echo $list[$cont]->estado  ?></h2>
              </div>
              <div class="icon">
                <img src="<?php echo($links); ?>img/icon/down.svg" alt="Mostrar Mais" title="Mostrar mais">
              </div>
            </div>
+           <?php
+             $cont+=1;
+             }
+           ?>
+           <?php
+             require_once("../cms/controllers/postos_controller.php");
+             require_once("../cms/models/postos_class.php");
+
+             $controller_postos = new controllerPostos();
+             $list = $controller_postos::Listar();
+             $cont = 0;
+
+             while($cont < count($list)){
+           ?>
            <div class="inf-conteudo border-none">
              <div class="conteudo-legislacao">
+
                <div class="lista-posto">
                  <table class="table-postos" >
                    <thead>
                      <tr>
-                       <th>Município</th>
+                       <th>Nome</th>
                        <th>Endereço</th>
                        <th></th>
                        <th style="text-align:right;">Localização</th>
                      </tr>
                    </thead>
                    <tbody style="overflow:auto;">
-                     <?php
-                      $i = 0;
-                      while ($i <= 10) {
-                        # code...
-                      ?>
                     <tr>
-                      <td>Osasco</td>
-                      <td>Av-Tietê lalala</td>
+                      <td><?php echo $list[$cont]->nome ?></td>
+                      <td><?php echo $list[$cont]->estado ?></td>
                       <td></td>
-                      <td style="text-align:right;">Veja no Maps</td>
+                      <td style="text-align:right;"><?php echo $list[$cont]->localizacao ?></td>
                     </tr>
-                    <?php
-                    $i++;
-                  }
-                     ?>
                    </tbody>
                  </table>
-
                </div>
              </div>
            </div>
+           <?php
+               $cont+=1;
+             }
+           ?>
          </div>
-         <?php
-         $a++;
-        } ?>
        </div>
-
-
-
     <?php require_once('footer.php'); ?>
-
   </body>
 </html>
