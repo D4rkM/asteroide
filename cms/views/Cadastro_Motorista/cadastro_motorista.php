@@ -19,7 +19,7 @@ $("#foto").change(function(){
   <div class="cadastrar_motorista">
     <div class="cont_pessoais">
       <label for="foto">
-        <div  class="adicionar_frota" id="imagem">
+        <div  class="adicionar_imagem" id="imagem">
           <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
         </div>
       </label>
@@ -35,6 +35,9 @@ $("#foto").change(function(){
       <input class="box_funcionario" type="text" name="txtUsuario" placeholder="Ex.: jubileu" maxlength="10">
       <div class="text_funcionario">Senha</div>
       <input class="box_funcionario" type="password" name="txtSenha" placeholder="******" maxlength="10">
+      <div class="text_funcionario">Ativar<input type="checkbox" name="ativo" value="1" checked>Ativo</div>
+      </div>
+    <div class="cont_endereco">
       <div class="text_funcionario">Data de Nascimento</div>
       <input class="box_funcionario" id="dataNascimento" type="text"  name="txtDataNasc" placeholder="DD/MM/AAAA" maxlength="10">
       <div class="text_funcionario">Sexo</div>
@@ -42,8 +45,6 @@ $("#foto").change(function(){
         <input type="radio" name="rdoSexo" value="F">Feminino
         <input type="radio" name="rdoSexo" value="M">Masculino
       </div>
-    </div>
-    <div class="cont_endereco">
       <div class="text_funcionario">Telefone</div>
       <input class="box_funcionario" type="text" id='telefone' name="txtTelefone" value="" placeholder="DDD XXXX-XXXX" maxlength="13">
       <div class="text_funcionario">Celular</div>
@@ -54,7 +55,6 @@ $("#foto").change(function(){
       <input class="box_funcionario" type="text" name="txtRG" value="" maxlength="12">
       <div class="text_funcionario">CNH</div>
       <input class="box_funcionario" type="text"  name="txtcnh">
-      <div class="text_funcionario">Ativar<input type="checkbox" name="ativo" value="1" checked>Ativo</div>
       <input class="salvar_funcionario" type="submit" name="btnCadastrarFunc" value="Cadastrar">
     </div>
   </div>

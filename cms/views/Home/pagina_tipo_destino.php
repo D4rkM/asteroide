@@ -70,7 +70,7 @@
 
   <form class="frmEstadosPostos" action="router.php?controller=tipo_destino&modo=novo" method="post">
   <!-- Cadastro de Estados -->
-  <div class="cadastro_estado">
+  <div class="cadastro_destino">
     <div class="text_postos">Tipo de Destino</div>
     <input class="box_postos" type="text" name="txttipo">
     <input class="salvar_postos" type="submit" name="btnsalvar" value="Salvar">

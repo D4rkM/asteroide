@@ -39,7 +39,7 @@ class controllerFrotas{
 
 }
 
-  public function Editar(){
+  public function Editar($idFrotas){
     $frotas = new Frotas();
     // $nada ="false";
 

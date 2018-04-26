@@ -558,6 +558,40 @@
                     break;
                   }
                   break;
+                  case 'vendas':
+
+                  require_once('controllers/vendas_controller.php');
+                  require_once('models/vendas_class.php');
+
+                    switch ($modo) {
+                      case 'novo':
+                      $controllerVendas = new controllerVendas();
+                      $controllerVendas::Novo();
+                      break;
+
+                      case 'editar':
+                      $controllerVendas = new controllerVendas();
+                      $controllerVendas::Editar($_GET['id']);
+                      break;
+
+                      case 'excluir':
+                      $controllerVendas = new controllerVendas();
+                      $controllerVendas::Excluir();
+                      break;
+
+                      case 'buscar':
+                      $controllerVendas = new controllerVendas();
+                      $controllerVendas::Buscar();
+                      break;
+
+                      case 'listar':
+                      $controllerVendas = new controllerVendas();
+                      $controllerVendas::Listar();
+                      break;
+
+                      default:
+                      break;
+                    }
     }
 
  ?>

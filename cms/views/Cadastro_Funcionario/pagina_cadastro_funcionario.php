@@ -19,10 +19,8 @@ $("#foto").change(function(){
 <form class="frmCadFunc" method="post" action="router.php?controller=funcionario&modo=novo">
   <div class="cadastro_funcionario">
     <div class="cont_pessoais">
-      <div class="text_frotas">Imagem do Funcionario</div>
-      <!--Container para colocar a imagem de perfil-->
       <label for="foto">
-        <div  class="adicionar_frota" id="imagem">
+        <div  class="adicionar_imagem" id="imagem">
           <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
         </div>
       </label>

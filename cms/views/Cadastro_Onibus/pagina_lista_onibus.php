@@ -39,13 +39,13 @@ $(document).ready(function() {
 
   while($cont < count($list)){
 ?>
-<div class="container_lista">
-  <div class="itens_mostrar"><?php echo $list[$cont]->placa ?></div>
-  <div class="itens_mostrar"><?php echo $list[$cont]->numeros_poltronas ?></div>
-  <div class="itens_mostrar"><?php echo $list[$cont]->km_rodado ?></div>
-  <div class="itens_mostrar"> <img src="<?php echo $list[$cont]->imagem ?>" alt="imagem"> </div>
-  <div class="itens_mostrar"><?php echo $list[$cont]->classe ?></div>
-  <div class="itens_mostrar">
+<div class="container_lista_onibus">
+  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->placa ?></div>
+  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->numeros_poltronas ?></div>
+  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->km_rodado ?></div>
+  <div class="itens_mostrar_onibus"> <img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt="imagem"> </div>
+  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->classe ?></div>
+  <div class="itens_mostrar_onibus">
     <a href="router.php?controller=onibus&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
       <img src="img/icon-delete.png" alt="">
     </a>

@@ -1,8 +1,9 @@
-<div class="lista_duvida">
-  <div class="item_home">Usuario</div>
-  <div class="item_home">Localização</div>
-  <div class="item_home">Permição</div>
-  <div class="item_home">Opções</div>
+<div class="lista_interacao">
+  <div class="item_interacao">Usuario</div>
+  <div class="item_interacao">Localização</div>
+  <div class="item_interacao">Imagem</div>
+  <div class="item_interacao">Comentario</div>
+  <div class="item_interacao">Opções</div>
 </div>
 
 <script type="text/javascript"></script>
@@ -38,11 +39,12 @@ $(document).ready(function() {
 
   while($cont < count($list)){
 ?>
-<div class="container_lista">
-  <div class="itens_mostrar_home"><?php echo $list[$cont]->idUsuario ?></div>
-  <div class="itens_mostrar_home"><?php echo $list[$cont]->local ?></div>
-  <div class="itens_mostrar_home"><?php echo $list[$cont]->ativar ?></div>
-  <div class="itens_mostrar_home">
+<div class="container_lista_interacao">
+  <div class="itens_mostrar_interacao"><?php echo $list[$cont]->idUsuario ?></div>
+  <div class="itens_mostrar_interacao"><?php echo $list[$cont]->local ?></div>
+  <div class="itens_mostrar_interacao"><?php //echo $list[$cont]->ativar ?></div>
+  <div class="itens_mostrar_interacao"><?php //echo $list[$cont]->ativar ?></div>
+  <div class="itens_mostrar_interacao">
     <a href="router.php?controller=interacao&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
       <img src="img/icon-delete.png" alt="">
     </a>

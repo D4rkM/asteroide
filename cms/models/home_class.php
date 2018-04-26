@@ -51,7 +51,7 @@ class Home{
                                 imagem='$home_dados->imagem',
                                 idTipo=$home_dados->tipo where id=$home_dados->id;";
     }
-    
+
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -147,37 +147,6 @@ class Home{
     if(isset($home))
       return $home;
   }
-
-  public function SelectType(){
-
-    $sql = "select * from tipo_destino order by id desc";
-
-    $conex = new Mysql_db();
-
-    $PDO_conex = $conex->Conectar();
-
-    //executa select no bd e guarda o retorno na variavel $select
-    $select = $PDO_conex->query($sql);
-
-    $cont = 0;
-
-    while($rs=$select->fetch(PDO::FETCH_ASSOC)){
-
-      $listDestino[] = new Home();
-
-      $listDestino[$cont]->id = $rs['id'];
-      $listDestino[$cont]->tipo = $rs['tipo'];
-
-      $cont+=1;
-    }
-
-    $conex->Desconectar();
-
-    if(isset($listDestino))
-        return $listDestino;
-
-  }
-
 }
 
  ?>

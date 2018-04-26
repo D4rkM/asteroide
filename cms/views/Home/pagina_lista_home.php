@@ -1,4 +1,4 @@
-<div class="lista_duvida">
+<div class="lista_home">
   <div class="item_home">Destino</div>
   <div class="item_home">Imagem</div>
   <div class="item_home">Tipo</div>
@@ -39,7 +39,7 @@ $(document).ready(function() {
 
   while($cont < count($list)){
 ?>
-<div class="container_lista">
+<div class="container_lista_home">
   <div class="itens_mostrar_home"><?php echo $list[$cont]->destino ?></div>
   <div class="itens_mostrar_home"><img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt="imagem"></div>
   <div class="itens_mostrar_home"><?php echo $list[$cont]->tipo ?></div>

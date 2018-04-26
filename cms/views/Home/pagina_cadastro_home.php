@@ -21,7 +21,7 @@ $("#foto").change(function(){
     <input class="box_home" type="text" name="txtdestino" value="">
     <div class="text_home">Imagem</div>
     <label for="foto">
-      <div  class="adicionar_frota" id="imagem">
+      <div  class="adicionar_imagem" id="imagem">
         <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
       </div>
     </label>

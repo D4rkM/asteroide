@@ -497,7 +497,7 @@ $("#foto").change(function(){
 	require_once('../controllers/caminho_controller.php');
 	require_once('../models/caminho_class.php');
 
-	$caminho_controller = new controllerCaminho;
+	$caminho_controller = new controllerCaminho();
 	$dadosCaminho = $caminho_controller::Buscar($id);
 
 ?>
@@ -515,5 +515,124 @@ $("#foto").change(function(){
 	<?php
   }
 	 ?>
+	 <?php
+ }if($pagina=='vendas'){
+
+		require_once('../controllers/vendas_controller.php');
+		require_once('../models/vendas_class.php');
+
+		$vendas_controller = new controllerVendas();
+		$dadosVendas = $caminho_controller::Buscar($id);
+
+	?>
+	<div class="tltModal">
+		Edição de Pacote de Viagem
+	</div>
+	<form action="router.php?controller=vendas&modo=editar&id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
+		<div class="cont_vendas1">
+		<div class="text_duvida">Nome do Destino</div>
+		<input class="box_duvida" type="text" name="txtdestino" value="<?php echo $dadosVendas->destino?>">
+		<div class="text_duvida">Data</div>
+		<input class="box_duvida" type="text" name="txtdata" value="<?php echo $dadosVendas->data?>">
+		<div class="text_duvida">Horario</div>
+		<input class="box_duvida" type="text" name="txthoras" value="<?php echo $dadosVendas->hora?>">
+		<div class="text_duvida">Descriçaõ</div>
+		<input class="box_duvida" type="text" name="txtdescricao" value="<?php echo $dadosVendas->descricao?>">
+		<div class="text_duvida">Imagem</div>
+		<label for="foto">
+			<div  class="adicionar_imagem" id="imagem">
+				<img id="id_sua_img" src="<?php echo $dadosVendas->imagem?>" alt="foto"/>
+			</div>
+		</label>
+		<!--Botão para selecionar a foto-->
+		<div class="input-foto">
+			<input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
+		</div>
+	</div>
+	<div class="cont_vendas2">
+		<div class="text_duvida">Partida</div>
+		<select class="select_postos_rodoviarios" name="partida">
+			<option value="">Itapevi</option>
+			<option value="">Cotia</option>
+			<option value="">Osasco</option>
+		</select>
+		<div class="text_duvida">Chegada</div>
+		<select class="select_postos_rodoviarios" name="chegada">
+			<option value="">Itapevi</option>
+			<option value="">Cotia</option>
+			<option value="">Osasco</option>
+		</select>
+		<div class="text_duvida">Onibus</div>
+		<select class="select_postos_rodoviarios" name="onibus">
+			<?php
+					require_once("../controllers/onibus_controller.php");
+					require_once("../models/onibus_class.php");
+
+					$controllerOnibus = new controllerOnibus;
+					$list=$controllerOnibus::Listar();
+
+					$cont = 0;
+					$selected = '';
+					while($cont < count($list)){
+						if ($list[$cont]->id == $dadosVendas->)	{
+							$selected = 'selected';
+						}
+					?>
+					<option value="<?php echo($list[$cont]->id)?>">
+							<?php echo($list[$cont]->nome)?></option>
+
+					<?php
+						$cont+=1;
+							}
+					?>
+		</select>
+		<div class="text_duvida">Parada</div>
+		<select class="select_postos_rodoviarios" name="parada">
+			<?php
+					require_once("../../controllers/parada_controller.php");
+					require_once("../../models/parada_class.php");
+
+					$controllerParada = new controllerParada;
+					$list=$controllerParada::Listar();
+
+					$cont = 0;
+					while($cont < count($list)){
+					?>
+					<option value="<?php echo($list[$cont]->id)?>">
+							<?php echo($list[$cont]->nome)?></option>
+
+					<?php
+						$cont+=1;
+							}
+					?>
+		</select>
+		<div class="text_duvida">Motorista</div>
+		<select class="select_postos_rodoviarios" name="motorista">
+			<?php
+					require_once("../../controllers/motorista_controller.php");
+					require_once("../../models/motorista_class.php");
+
+					$controllerMotorista = new controllerMotorista;
+					$list=$controllerMotorista::Listar();
+
+					$cont = 0;
+					while($cont < count($list)){
+					?>
+					<option value="<?php echo($list[$cont]->id)?>">
+							<?php echo($list[$cont]->nome)?></option>
+
+					<?php
+						$cont+=1;
+							}
+					?>
+		</select>
+		<div class="text_duvida">Valor</div>
+		<input class="box_duvida" type="text" name="txtvalor">
+		<input class="salvar_postos_rodoviarios" type="submit" name="btnCadastrar" value="Cadastrar">
+	</div><input class="salvar_home" type="submit" name="" value="Salvar">
+		</form>
+		<?php
+	  }
+		 ?>
 </body>
 </html>

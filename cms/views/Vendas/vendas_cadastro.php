@@ -16,20 +16,20 @@ $("#foto").change(function(){
    }
 });
 </script>
-<form class="frmCadDuvida" method="post" action="router.php?controller=postos_rodoviarios&modo=novo">
-  <div class="cadastro_funcionario">
-    <div class="cont_pessoais">
+<form enctype="multipart/form-data" method="post" action="router.php?controller=vendas&modo=novo">
+  <div class="cadastro_vendas">
+    <div class="cont_vendas1">
     <div class="text_duvida">Nome do Destino</div>
-    <input class="box_duvida" type="text" name="txtDuvidaFreq">
+    <input class="box_duvida" type="text" name="txtdestino">
     <div class="text_duvida">Data</div>
-    <input class="box_duvida" type="text" name="txtDuvidaFreq">
+    <input class="box_duvida" type="text" name="txtdata">
     <div class="text_duvida">Horario</div>
-    <input class="box_duvida" type="text" name="txtDuvidaFreq">
+    <input class="box_duvida" type="text" name="txthoras">
     <div class="text_duvida">Descriçaõ</div>
-    <input class="box_duvida" type="text" name="txtDuvidaFreq">
+    <input class="box_duvida" type="text" name="txtdescricao">
     <div class="text_duvida">Imagem</div>
     <label for="foto">
-      <div  class="adicionar_frota" id="imagem">
+      <div  class="adicionar_imagem" id="imagem">
         <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
       </div>
     </label>
@@ -38,21 +38,21 @@ $("#foto").change(function(){
       <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
     </div>
   </div>
-  <div class="cont_endereco">
+  <div class="cont_vendas2">
     <div class="text_duvida">Partida</div>
-    <select class="select_postos_rodoviarios" name="">
+    <select class="select_postos_rodoviarios" name="partida">
       <option value="">Itapevi</option>
       <option value="">Cotia</option>
       <option value="">Osasco</option>
     </select>
     <div class="text_duvida">Chegada</div>
-    <select class="select_postos_rodoviarios" name="">
+    <select class="select_postos_rodoviarios" name="chegada">
       <option value="">Itapevi</option>
       <option value="">Cotia</option>
       <option value="">Osasco</option>
     </select>
     <div class="text_duvida">Onibus</div>
-    <select class="select_postos_rodoviarios" name="">
+    <select class="select_postos_rodoviarios" name="onibus">
       <?php
           require_once("../../controllers/onibus_controller.php");
           require_once("../../models/onibus_class.php");
@@ -112,7 +112,7 @@ $("#foto").change(function(){
           ?>
     </select>
     <div class="text_duvida">Valor</div>
-    <input class="box_duvida" type="text" name="txtDuvidaFreq">
+    <input class="box_duvida" type="text" name="txtvalor">
     <input class="salvar_postos_rodoviarios" type="submit" name="btnCadastrar" value="Cadastrar">
   </div>
   </div>

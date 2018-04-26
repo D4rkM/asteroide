@@ -1,8 +1,8 @@
-<div class="lista_duvida">
-  <div class="item_home">Nome</div>
-  <div class="item_home">Imagem</div>
-  <div class="item_home">Estado</div>
-  <div class="item_home">Opções</div>
+<div class="lista_postos">
+  <div class="item_postos">Nome</div>
+  <div class="item_postos">Imagem</div>
+  <div class="item_postos">Estado</div>
+  <div class="item_postos">Opções</div>
 </div>
 
 <script type="text/javascript"></script>
@@ -38,11 +38,11 @@ $(document).ready(function() {
 
   while($cont < count($list)){
 ?>
-<div class="container_lista">
-  <div class="itens_mostrar_home"><?php echo $list[$cont]->nome ?></div>
-  <div class="itens_mostrar_home"><img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt="imagem"></div>
-  <div class="itens_mostrar_home"><?php echo $list[$cont]->estado ?></div>
-  <div class="itens_mostrar_home">
+<div class="container_lista_postos">
+  <div class="itens_mostrar_postos"><?php echo $list[$cont]->nome ?></div>
+  <div class="itens_mostrar_postos"><img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt="imagem"></div>
+  <div class="itens_mostrar_postos"><?php echo $list[$cont]->estado ?></div>
+  <div class="itens_mostrar_postos">
     <a href="router.php?controller=postos&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
       <img src="img/icon-delete.png" alt="">
     </a>

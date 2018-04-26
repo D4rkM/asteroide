@@ -22,31 +22,25 @@ $("#foto").change(function(){
 <form action="router.php?controller=onibus&modo=novo" method="post" enctype="multipart/form-data">
     <div class="cadastro_onibus">
       <div class="cont_onibus1">
+        <label for="foto">
+          <div  class="adicionar_imagem" id="imagem">
+            <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
+          </div>
+        </label>
+        <!--Botão para selecionar a foto-->
+        <div class="input-foto">
+          <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
+        </div>
         <div class="text_onibus">Placa</div>
         <input class="box_onibus" type="text" name="txtplaca" value="">
         <div class="text_onibus">Numero de poltranas</div>
         <input class="box_onibus" type="text" name="txtpoltrona" value="">
+      </div>
+      <div class="cont_onibus2">
         <div class="text_onibus">KM rodado</div>
         <input class="box_onibus" type="text" name="txtkmrodado" value="">
         <div class="text_onibus">KM para manutemção</div>
         <input class="box_onibus" type="text" name="txtkmmanutencao" value="">
-
-        <div class="text_onibus">Imagem do onibus</div>
-        <label for="foto">
-              <div  class="adicionar-foto" id="imagem">
-                <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
-              </div>
-            </label>
-            <!--Botão para selecionar a foto-->
-            <div class="input-foto">
-              <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
-            </div>
-
-
-
-      </div>
-      <div class="cont_onibus2">
-
         <div class="text_onibus">Detalhes</div>
         <input class="box_onibus" type="text" name="txtdesc">
 

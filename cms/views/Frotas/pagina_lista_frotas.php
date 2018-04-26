@@ -1,7 +1,7 @@
-<div class="lista_empresa">
-  <div class="item_empresa">Nome</div>
-  <div class="item_empresa">Imagem</div>
-  <div class="item_empresa">Opções</div>
+<div class="lista_frotas">
+  <div class="item_frotas">Nome</div>
+  <div class="item_frotas">Imagem</div>
+  <div class="item_frotas">Opções</div>
 </div>
 
 <script type="text/javascript"></script>
@@ -37,10 +37,10 @@ $(document).ready(function() {
 
   while($cont < count($list)){
 ?>
-<div class="container_lista_empresa">
-  <div class="itens_mostrar_empresa"><?php echo $list[$cont]->nome ?></div>
-  <div class="itens_mostrar_empresa"> <img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt="imagem"> </div>
-  <div class="itens_mostrar_empresa">
+<div class="container_lista_frotas">
+  <div class="itens_mostrar_frotas"><?php echo $list[$cont]->nome ?></div>
+  <div class="itens_mostrar_frotas"> <img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt="imagem"> </div>
+  <div class="itens_mostrar_frotas">
     <a href="router.php?controller=frotas&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
       <img src="img/icon-delete.png" alt="">
     </a>

@@ -1,7 +1,7 @@
-<div class="lista_duvida">
+<div class="lista_motorista">
   <div class="item_motorista">Nome</div>
   <div class="item_motorista">Email</div>
-  <div class="item_motorista">Data de Nascimento</div>
+  <div class="item_motorista">Data de Nasc.</div>
   <div class="item_motorista">Ativo</div>
   <div class="item_motorista">Opções</div>
 </div>
@@ -35,7 +35,7 @@ $(document).ready(function() {
 
   while($cont < count($list)){
 ?>
-<div class="container_lista">
+<div class="container_lista_motorista">
   <div class="itens_mostrar_motorista"><?php echo $list[$cont]->nome ?></div>
   <div class="itens_mostrar_motorista"><?php echo $list[$cont]->email ?></div>
   <div class="itens_mostrar_motorista"><?php echo $list[$cont]->data_nasc ?></div>

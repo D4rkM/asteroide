@@ -1,8 +1,8 @@
 <div class="lista_duvida">
-  <div class="item_home">Pergunta</div>
-  <div class="item_home">Resposta</div>
-  <div class="item_home">Ativo</div>
-  <div class="item_home">Opções</div>
+  <div class="item_duvida">Pergunta</div>
+  <div class="item_duvida">Resposta</div>
+  <div class="item_duvida">Ativo</div>
+  <div class="item_duvida">Opções</div>
 </div>
 
 <script type="text/javascript"></script>
@@ -38,11 +38,11 @@ $(document).ready(function() {
 
   while($cont < count($list)){
 ?>
-<div class="container_lista">
-  <div class="itens_mostrar_home"><?php echo $list[$cont]->pergunta ?></div>
-  <div class="itens_mostrar_home"><?php echo $list[$cont]->resposta ?></div>
-  <div class="itens_mostrar_home"><?php echo $list[$cont]->aparecer ?></div>
-  <div class="itens_mostrar_home">
+<div class="container_lista_duvidas">
+  <div class="itens_mostrar_duvidas"><?php echo $list[$cont]->pergunta ?></div>
+  <div class="itens_mostrar_duvidas"><?php echo $list[$cont]->resposta ?></div>
+  <div class="itens_mostrar_duvidas"><?php echo $list[$cont]->aparecer ?></div>
+  <div class="itens_mostrar_duvidas">
     <a href="router.php?controller=duvida&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
       <img src="img/icon-delete.png" alt="">
     </a>

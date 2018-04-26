@@ -18,11 +18,12 @@ $("#foto").change(function(){
 </script>
 <form class="frmCadDuvida" method="post" enctype="multipart/form-data" action="router.php?controller=postos&modo=novo" enctype="multipart/form-data">
   <div class="cadastro_postos">
+    <div class="cont_postos1">
       <div class="text_postos">Nome do Posto Rodoviario</div>
       <input class="box_postos" type="text" name="txtnome">
       <div class="text_postos">Imagem</div>
       <label for="foto">
-        <div  class="adicionar_frota" id="imagem">
+        <div  class="adicionar_imagem" id="imagem">
           <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
         </div>
       </label>
@@ -30,34 +31,38 @@ $("#foto").change(function(){
       <div class="input-foto">
         <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
       </div>
-      <div class="text_postos">Texto</div>
-      <input class="box_postos" type="text" name="txttexto" value="">
-      <div class="text_postos">Link de Localização</div>
-      <input class="box_postos" type="text" name="txtlocalizacao" value="">
-      <div class="text_postos">Logradouro</div>
-      <input class="box_postos" type="text" name="txtlogradouro" value="">
-      <div class="text_postos">Estados</div>
-      <select class="select_onibus" name="estado">
-          <?php
-              require_once("../../controllers/estados_postos_controller.php");
-              require_once("../../models/estados_postos_class.php");
+    </div>
+      <div class="cont_postos2">
+        <div class="text_postos">Texto</div>
+        <input class="box_postos" type="text" name="txttexto" value="">
+        <div class="text_postos">Link de Localização</div>
+        <input class="box_postos" type="text" name="txtlocalizacao" value="">
+        <div class="text_postos">Logradouro</div>
+        <input class="box_postos" type="text" name="txtlogradouro" value="">
+        <div class="text_postos">Estados</div>
+        <select class="select_postos" name="estado">
+            <?php
+                require_once("../../controllers/estados_postos_controller.php");
+                require_once("../../models/estados_postos_class.php");
 
-              $controllerEstadosPostos = new controllerEstadosPostos();
-              $list=$controllerEstadosPostos::Listar();
+                $controllerEstadosPostos = new controllerEstadosPostos();
+                $list=$controllerEstadosPostos::Listar();
 
-              $cont = 0;
+                $cont = 0;
 
-              while($cont < count($list)){
+                while($cont < count($list)){
 
-              ?>
-              <option value="<?php echo($list[$cont]->id)?>">
-                  <?php echo($list[$cont]->estado)?></option>
+                ?>
+                <option value="<?php echo($list[$cont]->id)?>">
+                    <?php echo($list[$cont]->estado)?></option>
 
-              <?php
-                $cont+=1;
-                  }
-                  ?>
-              </select>
-      <input class="salvar_postos" type="submit" name="btnsalvar" value="Salvar">
-  </div>
+                <?php
+                  $cont+=1;
+                    }
+                    ?>
+                </select>
+        <input class="salvar_postos" type="submit" name="btnsalvar" value="Salvar">
+
+      </div>
+    </div>
 </form>

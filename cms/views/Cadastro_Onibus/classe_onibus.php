@@ -76,7 +76,7 @@
   </div>
   <form class="frmEstadosPostos" action="router.php?controller=classe_onibus&modo=novo" method="post">
   <!-- Cadastro de Estados -->
-  <div class="cadastro_estado">
+  <div class="cadastro_classe">
     <div class="text_postos">Nome da Classe</div>
     <input class="box_postos" type="text" name="txtclasse">
     <input class="salvar_postos" type="submit" name="btnsalvar" value="Salvar">
