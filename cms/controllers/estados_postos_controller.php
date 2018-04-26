@@ -1,7 +1,4 @@
 <?php
-session_start();
-
-
     /*
         Autor:Bruna
         Data de Modificação:12/04/2018
