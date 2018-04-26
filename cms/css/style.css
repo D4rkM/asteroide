@@ -966,8 +966,8 @@ nav{
 }
 /* Cadastro de Postos Rodoviarios */
 .cadastro_rodoviarios{
-  width: 550px;
-  height: 65vh;
+  width: 50%;
+  height: 700px;
   background-color: #fff;
   margin: auto;
   margin-top: 20px;
@@ -1168,4 +1168,68 @@ label#imagem{
 .conteudo{
   width: 100%;
   height: 82.8vh;
+}
+/* Login */
+/*Conteudo de login*/
+.are_login{
+  width: 630px;
+  height: 350px;
+  background-color: #ededed;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 200px;
+  padding-top: 20px;
+  border-radius: 10px 10px 10px 10px;
+}
+.logo-login{
+  width: 100px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.titulo-login-cms{
+  width: 170px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: "opensansbold";
+}
+.itens-login-container{
+  width: 400px;
+  height: 180px;
+  margin: auto;
+  padding-top: 20px;
+  padding-left: 100px;
+}
+.usuario-senha-txt{
+  width: 60px;
+  height: 15px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-family: "opensansbold";
+}
+.area-txt{
+  width: 300px;
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.area-txt input{
+  width: 300px;
+}
+.btnLogin{
+  width: 60px;
+  height: 25px;
+  margin-left: 260px;
+  margin-top: 20px;
+}
+.areaMensagem{
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-family: "opensansbold";
+  color: #960707;
 }

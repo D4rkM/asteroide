@@ -12,6 +12,6 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
   </head>
   <body>
-    <?php require_once('cms/login_cms_view.php') ?>
+    <?php require_once('Login/login_cms_view.php') ?>
   </body>
 </html>

@@ -512,9 +512,6 @@ $("#foto").change(function(){
 <input class="box_home" type="text" name="txtlongitude" value="<?php echo $dadosCaminho->longitude ?>">
 <input class="salvar_home" type="submit" name="" value="Salvar">
 	</form>
-	<?php
-  }
-	 ?>
 	 <?php
  }if($pagina=='vendas'){
 
@@ -522,9 +519,22 @@ $("#foto").change(function(){
 		require_once('../models/vendas_class.php');
 
 		$vendas_controller = new controllerVendas();
-		$dadosVendas = $caminho_controller::Buscar($id);
+		$dadosVendas = $vendas_controller::Buscar($id);
 
 	?>
+	<script src="js/jquery.min.js"></script>
+	<script>
+	$("#foto").change(function(){
+	   if($(this).val()){ // só se o input não estiver vazio
+	      var img = this.files[0]; // seleciona o arquivo do input
+	      var f = new FileReader(); // cria o objeto FileReader
+	      f.onload = function(e){ // ao carregar a imagem
+	         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+	      }
+	      f.readAsDataURL(img); // lê o arquivo
+	   }
+	});
+	</script>
 	<div class="tltModal">
 		Edição de Pacote de Viagem
 	</div>
@@ -552,15 +562,15 @@ $("#foto").change(function(){
 	<div class="cont_vendas2">
 		<div class="text_duvida">Partida</div>
 		<select class="select_postos_rodoviarios" name="partida">
-			<option value="">Itapevi</option>
-			<option value="">Cotia</option>
-			<option value="">Osasco</option>
+			<option value="1">Tiete - SP</option>
+			<option value="2">Novo Rio - RJ</option>
+			<option value="3">Curitiba - PA</option>
 		</select>
 		<div class="text_duvida">Chegada</div>
 		<select class="select_postos_rodoviarios" name="chegada">
-			<option value="">Itapevi</option>
-			<option value="">Cotia</option>
-			<option value="">Osasco</option>
+			<option value="1">Tiete - SP</option>
+			<option value="2">Novo Rio - RJ</option>
+			<option value="3">Curitiba - PA</option>
 		</select>
 		<div class="text_duvida">Onibus</div>
 		<select class="select_postos_rodoviarios" name="onibus">
@@ -568,68 +578,84 @@ $("#foto").change(function(){
 					require_once("../controllers/onibus_controller.php");
 					require_once("../models/onibus_class.php");
 
-					$controllerOnibus = new controllerOnibus;
-					$list=$controllerOnibus::Listar();
-
+					$controllerOnibus = new controllerOnibus();
+					$list = $controllerOnibus::Listar();
+					// print_r($list);
 					$cont = 0;
 					$selected = '';
 					while($cont < count($list)){
-						if ($list[$cont]->id == $dadosVendas->)	{
-							$selected = 'selected';
-						}
-					?>
-					<option value="<?php echo($list[$cont]->id)?>">
-							<?php echo($list[$cont]->nome)?></option>
 
+					if ($list[$cont]->id == $dadosVendas->onibus)	{
+							 echo("<script>alert(".$list[$cont]->id.");</script>");
+						$selected = 'selected';
+					}
+					?>
+					<option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
+							<?php echo($list[$cont]->placa)?></option>
 					<?php
 						$cont+=1;
+						$selected = '';
 							}
-					?>
+							?>
 		</select>
 		<div class="text_duvida">Parada</div>
 		<select class="select_postos_rodoviarios" name="parada">
 			<?php
-					require_once("../../controllers/parada_controller.php");
-					require_once("../../models/parada_class.php");
+					require_once("../controllers/parada_controller.php");
+					require_once("../models/parada_class.php");
 
-					$controllerParada = new controllerParada;
-					$list=$controllerParada::Listar();
-
+					$controllerParada = new controllerParada();
+					$list = $controllerParada::Listar();
+					// print_r($list);
 					$cont = 0;
+					$selected = '';
 					while($cont < count($list)){
-					?>
-					<option value="<?php echo($list[$cont]->id)?>">
-							<?php echo($list[$cont]->nome)?></option>
 
+					if ($list[$cont]->id == $dadosVendas->parada)	{
+						// echo("<script>alert(".$list[$cont]->id.");</script>");
+
+						$selected = 'selected';
+					}
+					?>
+					<option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
+							<?php echo($list[$cont]->nome)?></option>
 					<?php
 						$cont+=1;
+						$selected = '';
 							}
-					?>
+							?>
 		</select>
 		<div class="text_duvida">Motorista</div>
 		<select class="select_postos_rodoviarios" name="motorista">
 			<?php
-					require_once("../../controllers/motorista_controller.php");
-					require_once("../../models/motorista_class.php");
+					require_once("../controllers/motorista_controller.php");
+					require_once("../models/motorista_class.php");
 
-					$controllerMotorista = new controllerMotorista;
-					$list=$controllerMotorista::Listar();
-
+					$controllerMotorista = new controllerMotorista();
+					$list = $controllerMotorista::Listar();
+					// print_r($list);
 					$cont = 0;
+					$selected = '';
 					while($cont < count($list)){
-					?>
-					<option value="<?php echo($list[$cont]->id)?>">
-							<?php echo($list[$cont]->nome)?></option>
 
+					if ($list[$cont]->id == $dadosVendas->motorista)	{
+						// echo("<script>alert(".$list[$cont]->id.");</script>");
+
+						$selected = 'selected';
+					}
+					?>
+					<option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
+							<?php echo($list[$cont]->nome)?></option>
 					<?php
 						$cont+=1;
+						$selected = '';
 							}
-					?>
+							?>
 		</select>
 		<div class="text_duvida">Valor</div>
-		<input class="box_duvida" type="text" name="txtvalor">
+		<input class="box_duvida" type="text" name="txtvalor" value="<?php echo $dadosVendas->valor ?>">
 		<input class="salvar_postos_rodoviarios" type="submit" name="btnCadastrar" value="Cadastrar">
-	</div><input class="salvar_home" type="submit" name="" value="Salvar">
+	</div><input class="salvar_home" type="submit" name="" value="Alterar">
 		</form>
 		<?php
 	  }

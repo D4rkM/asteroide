@@ -17,12 +17,12 @@ $("#foto").change(function(){
 });
 </script>
 <form class="frmCadDuvida" method="post" action="router.php?controller=postos_rodoviarios&modo=novo">
-  <div class="cadastro_duvida">
+  <div class="cadastro_rodoviarios">
     <div class="text_duvida">Nome do posto</div>
     <input class="box_duvida" type="text" name="nome">
     <div class="text_duvida">Imagme do Posto</div>
     <label for="foto">
-      <div  class="adicionar_frota" id="imagem">
+      <div  class="adicionar_imagem" id="imagem">
         <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
       </div>
     </label>

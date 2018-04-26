@@ -31,12 +31,13 @@ class Vendas{
                                    hora='$vendas_dados->hora',
                                    descricao='$vendas_dados->descricao',
                                    imagem='$vendas_dados->imagem',
-                                   id_partida='$vendas_dados->partida',
-                                   id_chegada='$vendas_dados->chegada',
+                                   partida='$vendas_dados->partida',
+                                   chegada='$vendas_dados->chegada',
                                    id_onibus='$vendas_dados->onibus',
                                    id_parada='$vendas_dados->parada',
                                    id_motorista='$vendas_dados->motorista',
                                    valor='$vendas_dados->valor';";
+                                   echo($sql);
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -59,30 +60,30 @@ class Vendas{
   public function Update($vendas_dados){
     if ($vendas_dados->imagem == "nada"){
 
-      $sql = "insert into viagem set destino='$vendas_dados->destino',
+      $sql = "update viagem set destino='$vendas_dados->destino',
                                      data='$vendas_dados->data',
                                      hora='$vendas_dados->hora',
                                      descricao='$vendas_dados->descricao',
-                                     id_partida='$vendas_dados->partida',
-                                     id_chegada='$vendas_dados->chegada',
+                                     partida='$vendas_dados->partida',
+                                     chegada='$vendas_dados->chegada',
                                      id_onibus='$vendas_dados->onibus',
                                      id_parada='$vendas_dados->parada',
                                      id_motorista='$vendas_dados->motorista',
                                      valor='$vendas_dados->valor' where id=$vendas_dados->id;";
     }else{
-      $sql = "insert into viagem set destino='$vendas_dados->destino',
+      $sql = "update viagem set destino='$vendas_dados->destino',
                                      data='$vendas_dados->data',
                                      hora='$vendas_dados->hora',
                                      descricao='$vendas_dados->descricao',
                                      imagem='$vendas_dados->imagem',
-                                     id_partida='$vendas_dados->partida',
-                                     id_chegada='$vendas_dados->chegada',
+                                     partida='$vendas_dados->partida',
+                                     chegada='$vendas_dados->chegada',
                                      id_onibus='$vendas_dados->onibus',
                                      id_parada='$vendas_dados->parada',
                                      id_motorista='$vendas_dados->motorista',
                                      valor='$vendas_dados->valor' where id=$vendas_dados->id;";
     }
-
+    echo ($sql);
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -135,7 +136,7 @@ class Vendas{
 
     while($rs=$select->fetch(PDO::FETCH_ASSOC)){
 
-      $listViagem[] = new Viagem();
+      $listViagem[] = new Vendas();
 
       $listViagem[$cont]->id = $rs['id'];
       $listViagem[$cont]->destino = $rs['destino'];
@@ -143,8 +144,8 @@ class Vendas{
       $listViagem[$cont]->hora = $rs['hora'];
       $listViagem[$cont]->descricao = $rs['descricao'];
       $listViagem[$cont]->imagem = $rs['imagem'];
-      $listViagem[$cont]->partida = $rs['id_partida'];
-      $listViagem[$cont]->chegada = $rs['id_chegada'];
+      $listViagem[$cont]->partida = $rs['partida'];
+      $listViagem[$cont]->chegada = $rs['chegada'];
       $listViagem[$cont]->onibus = $rs['id_onibus'];
       $listViagem[$cont]->parada = $rs['id_parada'];
       $listViagem[$cont]->motorista = $rs['id_motorista'];
@@ -172,7 +173,7 @@ class Vendas{
 
     if($rs=$select->fetch(PDO::FETCH_ASSOC)){
 
-      $viagem = new Viagem();
+      $viagem = new Vendas();
 
       $viagem->id = $rs['id'];
       $viagem->destino = $rs['destino'];
@@ -180,8 +181,8 @@ class Vendas{
       $viagem->hora = $rs['hora'];
       $viagem->descricao = $rs['descricao'];
       $viagem->imagem = $rs['imagem'];
-      $viagem->partida = $rs['id_partida'];
-      $viagem->chegada = $rs['id_chegada'];
+      $viagem->partida = $rs['partida'];
+      $viagem->chegada = $rs['chegada'];
       $viagem->onibus = $rs['id_onibus'];
       $viagem->parada = $rs['id_parada'];
       $viagem->motorista = $rs['id_motorista'];
