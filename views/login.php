@@ -16,15 +16,15 @@
     <body>
       <div class="container-login center">
         <a href="#" class="fechar" style="align-self:flex-end;">
-  	    <img src="<?php echo($links); ?>img/icon/cancel-exit.svg" alt="sair" title="sair">
+  	    <img src="<?php //echo($links); ?>img/icon/cancel-exit.svg" alt="sair" title="sair">
          </a>
-         <form action="<?php echo($links); ?>home.php" method="post" enctype="multipart/form-data">
+         <form action="router.php?controller=login&modo=logar" method="post" enctype="multipart/form-data">
            <div class="titulo-conteudo-padrao">
              <h2>LOGIN</h2>
            </div>
            <div class="caixa-dados medium ">
-             <label for="login" class="">Email:</label>
-             <input class="login" type="text" name="txtlogin" value="">
+             <label for="login" class="">Usuário:</label>
+             <input class="login" type="text" name="txtusuario" value="">
            </div>
            <div class="caixa-dados medium">
              <label for="senhaLogin">Senha:</label>
@@ -34,19 +34,17 @@
              <button class="btn" type="submit" name="btnlogar">Logar</button>
            </div>
            <div class="itens-center">
-             <img src="<?php echo($links); ?>img/Facebook.png" alt="redes-sociais">
+             <img src="<?php //echo($links); ?>img/Facebook.png" alt="redes-sociais">
            </div>
            <div class="itens-center">
-             <img src="<?php echo($links); ?>img/Google.png" alt="redes-sociais">
+             <img src="<?php //echo($links); ?>img/Google.png" alt="redes-sociais">
            </div>
            <div class="itens-center">
-             <img src="<?php echo($links); ?>img/Twitter.png" alt="redes-sociais">
+             <img src="<?php //echo($links); ?>img/Twitter.png" alt="redes-sociais">
            </div>
            <div class="text-center">
              Não tem conta ainda?
-             <a href="#">
-               <strong style="color:#162E44;">Cadastre-se</strong>
-             </a>
+             <a href="./views/cadastro_usuario.php"><strong style="color:#162E44;">Cadastre-se</strong></a>
            </div>
 
          </form>

@@ -4,7 +4,14 @@
   Detalhes: Está pagina tem como objetivo fazer o cadastro de usuarios
   Obs: Página principal contém menu e rodapé para inserir as outras páginas
   -->
+  <?php
 
+    include('../../links.php');
+
+    $links = alterarLinks(false);
+    $paths = alterarCaminhos(false);
+
+   ?>
 <!-- Conteúdo da página -->
 <div class="conteudo-cadastro">
   <!--Container responsael por segurar o titulo da pagima -->
