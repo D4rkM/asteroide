@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="../../css/style.css">
 <!--
   Autor: BRUNA
   Data de modificação: 25/03/2018
@@ -17,7 +17,7 @@
 
      <div class="menu_lateral">
        <ul>
-         <li>Editar Perfil</li>
+        <a href="views/Usuario/editar_perfil.php"><li>Editar Perfil</li></a>  
          <li>Interação</li>
          <li>Historico de Compra</li>
          <li>Acompanhamento da viagem</li>
