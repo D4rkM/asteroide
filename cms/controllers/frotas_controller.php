@@ -35,8 +35,6 @@ class controllerFrotas{
       $frotas->nome=$_POST['txtnome'];
       $frotas::Insert($frotas);
 
-
-
 }
 
   public function Editar($idFrotas){

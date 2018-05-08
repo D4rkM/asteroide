@@ -50,9 +50,24 @@
 
     </div>
     <!--  -->
-    <div class="login-menu">
-       <a class="login" href="#" onclick="Login();"> <h5 class="btn"> <b>Acesso</b> </h5> </a>
-    </div>
+    <?php
+      //if($usuario_login == 1){
+    ?>
+      <!-- <div class="usuario_logado">
+
+      </div> -->
+    <?php
+      //}else {
+    ?>
+        <div class="login-menu">
+          <img class="img_user" src="img/bruna.jpg" alt="user">
+          <div class="">Bruna Sousa</div>
+           <!-- <a class="login" href="#" onclick="Login();"> <h5 class="btn"> <b>Acesso</b> </h5> </a> -->
+        </div>
+    <?php
+      //}
+    ?>
+
   </div>
 </nav>
 <!-- Aplica um espaçamento para o conteudo não invadir o menu superior -->

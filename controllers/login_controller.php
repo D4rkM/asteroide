@@ -6,15 +6,15 @@ class controllerLogin{
 
     $login = new Login();
 
-    $login->login = $_POST['txtUsuario'];
-    $login->senha = $_POST['txtSenha'];
-    $login = $login::Login_Usuario($login);
+    $login->email = $_POST['txtemail'];
+    $login->senha = $_POST['txtsenha'];
+    $login::Logar($login);
 
     if($dadoslogin!=false)
     {
-      $_SESSION['emailUser'] = $dadoslogin->email;
-      $_SESSION['idUser'] = $dadoslogin->id;
-      $_SESSION['statusUser'] = $dadoslogin->ativo;
+      $_SESSION['email'] = $dadoslogin->email;
+      $_SESSION['id'] = $dadoslogin->id;
+      $_SESSION['status'] = $dadoslogin->ativo;
 
     }else{
       $_SESSION['erro'] = "Usuario ou senha incorretos, caso o erro percista entre em contato com o ADM";

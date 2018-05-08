@@ -23,8 +23,8 @@
              <h2>LOGIN</h2>
            </div>
            <div class="caixa-dados medium ">
-             <label for="login" class="">Usuário:</label>
-             <input class="login" type="text" name="txtusuario" value="">
+             <label for="login" class="">Email:</label>
+             <input class="login" type="text" name="txtemail" value="">
            </div>
            <div class="caixa-dados medium">
              <label for="senhaLogin">Senha:</label>

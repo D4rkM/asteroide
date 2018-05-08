@@ -1,12 +1,21 @@
 <?php
 class Login{
-  public function Login($login_dados){
+
+  public $id;
+  public $nome;
+  public $email;
+  public $ativo;
+
+  public function __construct(){
+    require_once('db_class.php');
+  }
+
+  public function Logar($login_dados){
 
     $mensagem = null;
 
-    $sql = "usuario('$funcionario_dados->login', '$funcionario_dados->senha', @mensagem, @ativo, @id, @nome);";
-
-      echo('teste');
+    $sql = "CALL login_usuario('$usuario_dados->email', '$usuario_dados->senha', @mensagem, @ativo, @id, @nome);";
+    $sqlResultado = "Select @mensagem, @ativo, @id, @nome";
 
     $conex = new Mysql_db();
 
@@ -17,19 +26,19 @@ class Login{
     $select = $PDO_conex->query($sqlResultado);
 
     if($rs=$select->fetch(PDO::FETCH_ASSOC)){
-      $funcionario = new Funcionario();
+      $usuario = new Login();
 
       $mensagem = $rs['@mensagem'];
-      $funcionario->ativo = $rs['@ativo'];
-      $funcionario->id = $rs['@id'];
-      $funcionario->nome = $rs['@nome'];
+      $usuario->ativo = $rs['@ativo'];
+      $usuario->id = $rs['@id'];
+      $usuario->nome = $rs['@nome'];
 
       $conex->Desconectar();
     }
 
     if($mensagem == 1){
-      if($funcionario->ativo == 1){
-        return $funcionario;
+      if($usuario->ativo == 1){
+        return $usuario;
       }else{
         ?>
           <script type="text/javascript">
@@ -39,7 +48,6 @@ class Login{
       }
 
     }else{
-
 
       echo("<script> alert('Usuário ou senha incorreto, tente novamente.'); </script>");
       return false;
