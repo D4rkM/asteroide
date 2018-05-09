@@ -33,6 +33,9 @@ body{
   margin-left: auto;
   margin-right: auto;
   height: auto;
+
+  margin: 0px;
+  padding: 0px;
 }
 /* Padroniza  a input */
 input{
@@ -1511,15 +1514,16 @@ margin: 1.6em 0;
 /* Pagina do Usuario */
 .conteuno_pagina_usuario{
   width: 100%;
-  min-height: 800px;
+  min-height: 100%;
   height: auto;
-  padding-top: 30px;
-  background-color: #C0C0C0;
+
+  padding: 0px;
+  margin: 0px;
 }
 /*Container que segura o conteudo*/
 .pagina_usuario_container{
   width: 100%;
-  min-height: 1100px;
+  min-height: 91.6%;
   height: auto;
   margin: auto;
 }
@@ -1534,14 +1538,14 @@ margin: 1.6em 0;
 }
 
 .menu_lateral{
-  width: 15%;
-  height: 1100px;
+  width: 13%;
+  height: 500px;
   float: left;
 }
 
 .menu_lateral ul{
   width: 100%;
-  height: 1100px;
+  height: 500px;
   margin: 0px;
   padding: 0px;
 }
@@ -1549,7 +1553,7 @@ margin: 1.6em 0;
 .menu_lateral ul li{
   width: 100%;
   height: 30px;
-  background-color: #4d9b61;
+  background-color: #162E44;
   margin-top: 5px;
   padding-top: 15px;
   border-radius: 10px;
@@ -1566,9 +1570,9 @@ margin: 1.6em 0;
 }
 .conteudo_usuario{
   width: 85%;
-  min-height: 1100px;
+  min-height: 500px;
   height: auto;
-  background-color: #B0E0E6;
+  background-color: #088A68;
   float: left;
 }
 
@@ -1754,7 +1758,6 @@ box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
   width: 100%;
   min-height: 1100px;
   height: auto;
-  padding-top: 50px;
   /* background-color: #C0C0C0; */
 }
 /*Container que segura o conteudo*/
@@ -2585,99 +2588,5 @@ border-radius: 10px;
   /* text-align: center; */
 }
 /* ------------------------------------------------------------------------- */
-/* Pagina do usuario */
-.conteuno_pagina_usuario{
-  width: 100%;
-  min-height: 1100px;
-  height: auto;
-  padding-top: 30px;
-  background-color: #C0C0C0;
-}
-/*Container que segura o conteudo*/
-.pagina_usuario_container{
-  width: 100%;
-  min-height: 1100px;
-  height: auto;
-  margin: auto;
-}
-/*Container que segura o titulo da pagina*/
-.title_pagina_usuario{
-  width: 99.9%;
-  height: 80px;
-  background-color: #fff;
-  text-align: center;
-  color: #000;
-  padding-top: 5px;
-}
-
-.menu_lateral{
-  width: 15%;
-  height: 1100px;
-  float: left;
-}
-
-.menu_lateral ul{
-  width: 100%;
-  height: 1100px;
-  margin: 0px;
-  padding: 0px;
-}
-
-.menu_lateral ul li{
-  width: 100%;
-  height: 30px;
-  background-color: #4d9b61;
-  margin-top: 5px;
-  padding-top: 15px;
-  border-radius: 10px;
-
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 15px;
-}
-
-.menu_lateral ul li:hover{
-    -webkit-transform: scale(2);
-        -ms-transform: scale(2);
-        transform: scale(0.8);
-}
-.conteudo_usuario{
-  width: 85%;
-  min-height: 1100px;
-  height: auto;
-  background-color: #B0E0E6;
-  float: left;
-}
-
-.container_informacoes{
-  width: 40%;
-  height: 280px;
-  background-color: #fff;
-  margin-left: 6%;
-  margin-top: 3%;
-  border-radius: 10px;
-  padding-top: 20px;
-  float: left;
-  /* box shadow */
-  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
-}
-
-.image_user{
-  margin-left: 20px;
-  float: left;
-}
-
-.informacoes_dados{
-  margin-left: 50px;
-  margin-top: 10px;
-  float: left;
-  font-size: 16px;
-  font-family: sans-serif;
-}
-.outras_informacoes{
-  width: 90%;
-  margin: auto;
-  margin-top: 140px;
-}
 
 /* Mobile */

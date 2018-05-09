@@ -6,7 +6,7 @@ Controller: controllerUsuario
 Obs:Controller para realizar o CRUD de Usuario que vai vim do faleconosco
 */
 class controllerUsuario {
-    
+
     public function dateEmMysql($dateSql){
         $ano= substr($dateSql, 6);
         $mes= substr($dateSql, 3,-5);
@@ -15,7 +15,7 @@ class controllerUsuario {
       }
 
   public function Novo(){
-      
+
     $usuario = new Usuario();
 
     if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -52,12 +52,8 @@ class controllerUsuario {
               echo("<script>alert('Esse repositorio não é um arquivo de imagem!!')</script>");
               require_once('index.php');
           }
-
     }
-
-
   }
-
 }
 
  ?>

@@ -1,3 +1,11 @@
+<?php
+
+  include('../links.php');
+
+  $links = alterarLinks(false);
+  $paths = alterarCaminhos(false);
+
+ ?>
 <html>
     <head>
         <title>Modal Login</title>
@@ -44,9 +52,8 @@
            </div>
            <div class="text-center">
              Não tem conta ainda?
-             <a href="./views/cadastro_usuario.php"><strong style="color:#162E44;">Cadastre-se</strong></a>
+             <a href="views/Usuario/cadastro_usuario.php"><strong style="color:#162E44;">Cadastre-se</strong></a>
            </div>
-
          </form>
       </div>
     </body>

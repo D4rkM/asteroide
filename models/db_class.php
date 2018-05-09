@@ -1,14 +1,10 @@
 <?php
-
     /*
         Autor:Bruna
         Data de Modificação:27/03/2018
         Class:Banco de dados
         Obs:Essa Classe é a conexao com o banco de dados
     */
-
-
-
     class Mysql_db{
         private $server;
         private $user;

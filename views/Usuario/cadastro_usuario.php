@@ -12,6 +12,22 @@
     $paths = alterarCaminhos(false);
 
    ?>
+
+<link rel="stylesheet" href="../../css/style.css">
+<?php require_once('../nav.php'); ?>
+<script src="js/jquery.min.js"></script>
+<script>
+$("#foto").change(function(){
+   if($(this).val()){ // só se o input não estiver vazio
+      var img = this.files[0]; // seleciona o arquivo do input
+      var f = new FileReader(); // cria o objeto FileReader
+      f.onload = function(e){ // ao carregar a imagem
+         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+      }
+      f.readAsDataURL(img); // lê o arquivo
+   }
+});
+</script>
 <!-- Conteúdo da página -->
 <div class="conteudo-cadastro">
   <!--Container responsael por segurar o titulo da pagima -->
@@ -29,15 +45,14 @@
             <div class="subtitulo text-center">
               <h3>Foto de Perfil</h3>
             </div>
-            <!--Container para colocar a imagem de perfil-->
             <label for="foto">
-              <div  class="adicionar-foto" id="imagem">
-                <img id="id_sua_img" src="img/camera.png" alt="foto"/>
+              <div  class="adicionar_imagem" id="imagem">
+                <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
               </div>
             </label>
             <!--Botão para selecionar a foto-->
             <div class="input-foto">
-              <input id="foto" class="botao_foto_perfil" type="file" name="flefoto"/>
+              <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
             </div>
           </div>
           <!-- Inicia a entrada de dados principais do usuario -->
@@ -171,18 +186,7 @@
     </div>
   </div>
 </div>
-<script src="js/jquery.min.js"></script>
 <script>
-$("#foto").change(function(){
-   if($(this).val()){ // só se o input não estiver vazio
-      var img = this.files[0]; // seleciona o arquivo do input
-      var f = new FileReader(); // cria o objeto FileReader
-      f.onload = function(e){ // ao carregar a imagem
-         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
-      }
-      f.readAsDataURL(img); // lê o arquivo
-   }
-});
 $('#cep').focusout(function(){
     var cep = $('#cep');
     $.ajax({

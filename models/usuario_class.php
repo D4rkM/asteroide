@@ -47,7 +47,7 @@ class Usuario{
                                            logradouro='$usuario_dados->logradouro',
                                            numero='$usuario_dados->numero',
                                            complemento='$usuario_dados->complemento';";
-      echo($sql_usuario);
+      echo($sql_usuario);die;
     //Instancia a classe do banco
    $conex = new Mysql_db();
 

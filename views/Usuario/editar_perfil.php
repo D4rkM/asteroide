@@ -4,7 +4,7 @@
   Detalhes: Está pagina tem como objetivo fazer o cadastro de usuarios
   Obs: Página principal contém menu e rodapé para inserir as outras páginas
   -->
-
+<link rel="stylesheet" href="../../css/style.css">
 <!-- Conteúdo da página -->
 <div class="conteudo_cadastro">
   <div class="title_duvidas">

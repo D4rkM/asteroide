@@ -1,3 +1,11 @@
+<?php
+
+  include('../../links.php');
+
+  $links = alterarLinks(false);
+  $paths = alterarCaminhos(false);
+
+ ?>
 <link rel="stylesheet" href="../../css/style.css">
 <!--
   Autor: BRUNA
@@ -8,19 +16,16 @@
 
 <!-- Conteúdo da página -->
 <div class="conteuno_pagina_usuario">
+  <?php require_once('../nav.php'); ?>
   <!--Container que segura todas as informações da pagina -->
-  <div class="pagina_usuario_container">
-    <!--Container responsael por segurar o titulo da pagima -->
-     <div class="title_pagina_usuario">
-      <h1>Pagina do Usuario</h1>
-     </div>
+   <div class="pagina_usuario_container">
 
-     <div class="menu_lateral">
+       <div class="menu_lateral">
        <ul>
-        <a href="views/Usuario/editar_perfil.php"><li>Editar Perfil</li></a>  
-         <li>Interação</li>
-         <li>Historico de Compra</li>
-         <li>Acompanhamento da viagem</li>
+        <a href="<?php echo($paths); ?>editar_perfil.php"><li>Editar Perfil</li></a>
+        <a href="<?php echo($paths); ?>interacao_usuario.php"><li>Interação</li></a>
+        <a href="<?php echo($paths); ?>historico_viagem.php"><li>Historico de Compra</li></a>
+        <a href="<?php echo($paths); ?>acompanhamento_viagem.php"><li>Acompanhamento da viagem</li></a>
        </ul>
      </div>
 

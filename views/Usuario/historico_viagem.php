@@ -4,7 +4,7 @@
   Detalhes: Está pagina tem como objetivo listar as viagens do usuario
   Obs: Página principal contém menu e rodapé para inserir as outras páginas
   -->
-
+<link rel="stylesheet" href="../../css/style.css">
 <!-- Conteúdo da página -->
 <div class="conteudo_historico">
   <!--Container que segura todas as informações da pagina -->
