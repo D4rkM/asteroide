@@ -310,6 +310,45 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* Pagina Home */
+.filtro_busca{
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  position: absolute;
+  position: fixed;
+  margin-left: 50px;
+  margin-top: 100px;
+  border-radius: 15px;
+}
+
+.txt_filtro{
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 20px;
+  margin-top: 5px;
+  color: #458665;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+.txt_filtro2{
+margin-left: 10px;
+font-size: 14px;
+}
+.box_filtro{
+  width: 90%;
+  margin-top: 2px;
+  margin-left: 10px;
+}
+.btn_buscar{
+    width: 50%;
+    height: 30px;
+    margin-top: 60px;
+    margin-left: 25%;
+    border-radius: 15px;
+    background-color: #458665;
+    color: #fff;
+}
+
 /* area de video */
 .video-principal{
   display: flex;
@@ -2309,8 +2348,80 @@ border-radius: 10px;
 }
 
 
-/**************************/
+/*******Horarios dos Onibus*******/
+/*Div que seguro toda pagina*/
+.conteudo_horarios{
+  height: auto;
+  width: 100%;
+  /* background-color: #000000; */
+  margin: 0px;
+  padding: 0px;
+}
 
+/*Container que segura todas as caixas*/
+.container_horarios{
+  width: 70%;
+  height:1000px;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.container_horarios2{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: #458665;
+}
+
+.nome_passagem{
+
+}
+.tempo_compra{
+  width: 70%;
+  height: 50px;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.momentos{
+  width: 30%;
+  height: 100%;
+  background-color: #fff;
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
+.momentos_horario{
+  width: 30%;
+  height: 100%;
+  background-color: blue;
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+.lista_horarios{
+  width: 90%;
+  height: 60%;
+  background-color: blue;
+  margin-left: 5%;
+}
+
+.tabela_horarios{
+  width: 100%;
+  height: 10%;
+  background-color: #fff;
+  border: solid 1px #000;
+}
+
+.linha_horarios{
+border: solid 1px #000;
+}
+
+.coluna_horarios{
+border: solid 1px #000;
+}
 /**************************/
 
 /*Div que seguro toda pagina*/

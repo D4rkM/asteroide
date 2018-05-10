@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../../css/style.css">
 <div class="conteudo_identificacao">
   <div class="identificacao_container">
     <div class="filtro_origem">
