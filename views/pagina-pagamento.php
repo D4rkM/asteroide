@@ -131,7 +131,9 @@
                  <option value="">3x</option>
                </select>
              </div>
-             <div class="Continua"><a href="../pagina-pagamento.php" onclick="Finalizar()">Finalizar</a></div>
+            <div class="finalizar">
+              <a href="../pagina-pagamento.php" onclick="Finalizar()">
+                Finalizar</a></div>
            </div>
          </div>
        </div>

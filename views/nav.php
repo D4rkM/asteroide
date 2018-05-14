@@ -60,9 +60,9 @@
       //}else {
     ?>
         <div class="login-menu">
-          <!-- <a href="<?php //echo($paths); ?>Usuario/pagina_usuario.php"><img class="img_user" src="img/bruna.jpg" alt="user"></a>
-          <a href="<?php //echo($paths); ?>Usuario/pagina_usuario.php"><div class="">Bruna Sousa</div></a> -->
-           <a class="login" href="#" onclick="Login();"> <h5 class="btn"> <b>Acesso</b> </h5> </a>
+          <a href="<?php //echo($paths); ?>Usuario/pagina_usuario.php"><img class="img_user" src="img/bruna.jpg" alt="user"></a>
+          <a href="<?php //echo($paths); ?>Usuario/pagina_usuario.php"><div class="">Bruna Sousa</div></a>
+           <!-- <a class="login" href="#" onclick="Login();"> <h5 class="btn"> <b>Acesso</b> </h5> </a> -->
         </div>
     <?php
       //}

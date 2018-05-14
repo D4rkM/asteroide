@@ -2434,12 +2434,13 @@ border-radius: 10px;
 border-bottom: solid 1px #458665;
 }
 /* Parte do onibus */
-.container_onibus{
+#container_onibus{
   width: 90%;
   height: 350px;
   background-color: white;
   margin: auto;
   border: solid 1px #000;
+  display: none;
 }
 
 .legenda{
@@ -2473,7 +2474,7 @@ border-bottom: solid 1px #458665;
   margin-top: 5px;
 }
 
-#poltronas{
+.poltronas{
   width: 50px;
   height: 100%;
   background-color: green;
@@ -2582,12 +2583,16 @@ border-bottom: solid 1px #458665;
 }
 .box_pague{
   margin-left: 40px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .combo_pague{
   width: 30%;
   margin-left: 10%;
   margin-top: 10px;
+}
+
+.finalizar{
+ margin-left: 90%;
 }
 /* ------------------------------------------------------------------------- */
 

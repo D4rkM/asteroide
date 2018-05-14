@@ -15,17 +15,6 @@
           $controllerUsuario::Novo();
           break;
       }
-
-    case 'login':
-      require_once('controllers/login_controller.php');
-      require_once('models/login_class.php');
-
-      switch ($modo) {
-        case 'logar':
-          $controllerLogin = new controllerLogin();
-          $controllerLogin::Logar();
-        break;
-      }
   }
 
  ?>
