@@ -15,6 +15,17 @@
           $controllerUsuario::Novo();
           break;
       }
+
+      case 'filtro':
+        require_once('controllers/filtro_controller.php');
+        require_once('models/filtro_class.php');
+        switch ($modo) {
+
+          case 'buscar':
+            $controllerFiltro = new controllerFiltro();
+            $controllerFiltro::Buscar();
+            break;
+        }
   }
 
  ?>

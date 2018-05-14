@@ -54,19 +54,34 @@
     //       selecionado.css('background', 'green');
     //   }
     // }
-
+    // var abrir = 0;
+    // $(document).on('click', '.onibus', function(){
+    //
+    // var bus = document.getElementById("container_onibus");
+    // // var bg = $(this).css('background-color');
+    // // console.log(bg);
+    //
+    // if(abrir == 0) {
+    //   bus.css('display', 'display');
+    //   abrir = 1;
+    //   // Senão, troca pra amarelo
+    // } else if(abrir == 1) {
+    //   bus.css('display', 'none');
+    //   abrir = 0;
+    // }
+    // });
     function Onibus(){
-      var abrir_poltronas = document.getElementById("container_onibus");
-      if(abrir_poltronas.style.display = "none") {
-      //       selecionado.css('background', 'yellow');
-      //
-      //   // Senão, troca pra amarelo
-      //   } else {
-      //       selecionado.css('background', 'green');
-      //   }
-      abrir_poltronas.style.display = "block";
-    }
+    var bus = document.getElementById("container_onibus");
 
+    // Se estiver amarelo, troca pra verde
+    if(bus.style.display === "none") {
+        bus.style.display = "block";
+
+    // Senão, troca pra amarelo
+    } else {
+        bus.style.display = "none";
+    }
+}
 </script>
     <script>
       // Modal Login
@@ -135,24 +150,29 @@
                  <td class="coluna_horarios">Preço</td>
                  <td class="coluna_horarios"></td>
                </tr>
+               <?php
+                 // require_once("../controllers/filtro_controller.php");
+                 // require_once("../models/filtro_class.php");
+                 //
+                 // $controller_filtro = new controller_filtro();
+                 // $list = $controller_filtro::Listar();
+                 // $cont = 0;
+                 //
+                 // while($cont < count($list)){
+               ?>
                <tr class="linha_horarios">
                  <td class="coluna_horarios">Asteroide</td>
-                 <td class="coluna_horarios">8:00/15:40</td>
-                 <td class="coluna_horarios">Sao Paulo, SP - Tiete/Angra dos Reis, RJ</td>
-                 <td class="coluna_horarios">7:40</td>
-                 <td class="coluna_horarios">Executivo</td>
-                 <td class="coluna_horarios">R$ 110,00</td>
-                 <td class="coluna_horarios"><a href="#" onclick="Onibus()">Selecionar</td></a>
+                 <td class="coluna_horarios"><?php //echo $list[$cont]->ida?>/<?php //echo $list[$cont]->volta?></td>
+                 <td class="coluna_horarios"><?php //echo $list[$cont]->origem?>/<?php //echo $list[$cont]->destino?></td>
+                 <td class="coluna_horarios"><?php //echo $list[$cont]->duracao?></td>
+                 <td class="coluna_horarios"><?php //echo $list[$cont]->classe?></td>
+                 <td class="coluna_horarios"><?php //echo $list[$cont]->preco?></td>
+                 <td class="coluna_horarios"><a href="#" onclick="Onibus()" style="display: 'none';">Selecionar</td></a>
                </tr>
-               <tr class="linha_horarios">
-                 <td class="coluna_horarios">Asteroide</td>
-                 <td class="coluna_horarios">9:00/16:40</td>
-                 <td class="coluna_horarios">Sao Paulo, SP - Tiete/Angra dos Reis, RJ</td>
-                 <td class="coluna_horarios">7:40</td>
-                 <td class="coluna_horarios">Executivo</td>
-                 <td class="coluna_horarios">R$ 110,00</td>
-                 <td class="coluna_horarios"><button class="" type="submit" name="btn_confirma">Selecionar</button></td>
-               </tr>
+               <?php
+                 //   $cont+=1;
+                 // }
+               ?>
              </table>
              <div id="container_onibus">
                <div class="legenda">
@@ -162,16 +182,16 @@
                </div>
                <div class="onibus">
                  <div class="fileira">
-                   <a href="#" ><div class ="poltronas" style="background: green;" val=1>1</div></a>
-                   <a href="#" ><div class ="poltronas" style="background: green;" val=1>2</div></a>
-                   <a href="#" ><div class ="poltronas" style="background: green;" val=1>3</div></a>
-                   <a href="#" ><div class ="poltronas" style="background: green;" val=1>4</div></a>
-                   <a href="#" ><div class ="poltronas" style="background: green;" val=1>5</div></a>
-                   <a href="#" ><div class ="poltronas" style="background: green;" val=1>6</div></a>
-                   <a href="#" ><div class ="poltronas" style="background: green;" val=1>7</div></a>
-                   <a href="#" ><div class ="poltronas" style="background: green;" val=1>8</div></a>
-                   <a href="#" ><div class ="poltronas" style="background: green;" val=1>9</div></a>
-                   <a href="#" ><div class ="poltronas" style="background: green;" val=1>10</div></a>
+                   <a href="#" ><div class ="poltronas" val=1>1</div></a>
+                   <a href="#" ><div class ="poltronas" val=1>2</div></a>
+                   <a href="#" ><div class ="poltronas" val=1>3</div></a>
+                   <a href="#" ><div class ="poltronas" val=1>4</div></a>
+                   <a href="#" ><div class ="poltronas" val=1>5</div></a>
+                   <a href="#" ><div class ="poltronas" val=1>6</div></a>
+                   <a href="#" ><div class ="poltronas" val=1>7</div></a>
+                   <a href="#" ><div class ="poltronas" val=1>8</div></a>
+                   <a href="#" ><div class ="poltronas" val=1>9</div></a>
+                   <a href="#" ><div class ="poltronas" val=1>10</div></a>
                  </div>
                  <div class="fileira">
                    <div class ="poltronas">11</div>
