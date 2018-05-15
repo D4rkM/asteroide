@@ -9,25 +9,13 @@
     include('../../links.php');
 
     $links = alterarLinks(false);
-    $paths = alterarCaminhos(false);
+    $paths = alterarCaminhos(true);
 
    ?>
 
 <link rel="stylesheet" href="../../css/style.css">
-<?php require_once('../nav.php'); ?>
-<script src="js/jquery.min.js"></script>
-<script>
-$("#foto").change(function(){
-   if($(this).val()){ // só se o input não estiver vazio
-      var img = this.files[0]; // seleciona o arquivo do input
-      var f = new FileReader(); // cria o objeto FileReader
-      f.onload = function(e){ // ao carregar a imagem
-         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
-      }
-      f.readAsDataURL(img); // lê o arquivo
-   }
-});
-</script>
+<?php require_once('nav.php'); ?>
+
 <!-- Conteúdo da página -->
 <div class="conteudo-cadastro">
   <!--Container responsael por segurar o titulo da pagima -->
@@ -47,7 +35,7 @@ $("#foto").change(function(){
             </div>
             <label for="foto">
               <div  class="adicionar_imagem" id="imagem">
-                <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
+                <img id="id_sua_img" src="../../img/client.png" alt="foto"/>
               </div>
             </label>
             <!--Botão para selecionar a foto-->
@@ -186,6 +174,19 @@ $("#foto").change(function(){
     </div>
   </div>
 </div>
+<script src="../../js/jquery.min.js"></script>
+<script>
+$("#foto").change(function(){
+   if($(this).val()){ // só se o input não estiver vazio
+      var img = this.files[0]; // seleciona o arquivo do input
+      var f = new FileReader(); // cria o objeto FileReader
+      f.onload = function(e){ // ao carregar a imagem
+         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+      }
+      f.readAsDataURL(img); // lê o arquivo
+   }
+});
+</script>
 <script>
 $('#cep').focusout(function(){
     var cep = $('#cep');

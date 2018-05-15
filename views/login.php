@@ -2,8 +2,8 @@
 
   include('../links.php');
 
-  $links = alterarLinks(false);
-  $paths = alterarCaminhos(false);
+  $links = alterarLinks(true);
+  $paths = alterarCaminhos(true);
 
  ?>
 <html>
@@ -52,7 +52,7 @@
            </div>
            <div class="text-center">
              Não tem conta ainda?
-             <a href="views/Usuario/cadastro_usuario.php"><strong style="color:#162E44;">Cadastre-se</strong></a>
+             <a href="<?php echo($paths); ?>Usuario/cadastro_usuario.php"><strong style="color:#162E44;">Cadastre-se</strong></a>
            </div>
          </form>
       </div>
