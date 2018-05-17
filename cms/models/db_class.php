@@ -20,7 +20,7 @@
             $this->server = "localhost";
             $this->user = "root";
             $this->password = "bcd127";
-            $this->dataBaseName = "db_asteroide";
+            $this->dataBaseName = "db_voudeasteroide";
         }
 
         public function Conectar(){
@@ -30,8 +30,8 @@
 
                 return $conexao;
             }catch(PDOException $Error){
-                echo("Erro ao conectar no BD.<br>
-                    Linha do Erro:".$Error->getLine()."<br>
+                echo("Erro ao conectar no BD.)
+                    Linha do Erro:".$Error->getLine()."
                     Mensagem do Erro:".$Error->getMessage());
             }
 

@@ -54,6 +54,34 @@ class controllerUsuario {
           }
     }
   }
+
+  public function Logar(){
+
+    $usuario = new Usuario();
+
+    $usuario->login = $_POST['txtemail'];
+    $usuario->senha = $_POST['txtsenha'];
+    $dadosUsuario = $usuario::Login($usuario);
+
+    if($dadosUsuario!=false)
+    {
+      $_SESSION['nomeUser'] = $dadosUsuario->nome;
+      $_SESSION['idUser'] = $dadosUsuario->id;
+
+
+    }else{
+      $_SESSION['erro'] = "Usuario ou senha incorretos, caso o erro percista entre em contato com o ADM";
+    }
+
+    //FOCO NESSA PARTE DO CÓDIGO
+
+    //require_once("controllers/usuario_controller.php");
+    //header('location:views/sobre_empresa.php');
+
+  }
+
+
+
 }
 
  ?>

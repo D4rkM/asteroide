@@ -5,7 +5,6 @@
   Data de Modificação:17/04/2018
   Class:Funcionario
   Obs:Essa Classe é uma replica dos campos de dados com ações do CRUD
-
 */
 
 class Motorista{

@@ -26,6 +26,7 @@ class Usuario{
   public $complemento;
   public $cidade;
   public $estado;
+  public $login;
 
   public function __construct(){
     require_once('db_class.php');
@@ -65,5 +66,48 @@ class Usuario{
     //Fecha a conexão com o Banco de Dados
       $conex->Desconectar();
   }
+
+  public function Login($usuario_dados){
+
+    $mensagem = null;
+
+    $sqlCall = "CALL sp_login_cliente('$usuario_dados->login', '$usuario_dados->senha', @mensagem, @id, @nome);";
+    $sqlResultado = "Select @mensagem, @id, @nome";
+
+    //var_dump($usuario_dados);
+
+    $conex = new Mysql_db();
+
+    $PDO_conex = $conex->Conectar();
+
+    $PDO_conex->query($sqlCall);
+
+    $select = $PDO_conex->query($sqlResultado);
+
+    if($rs=$select->fetch(PDO::FETCH_ASSOC)){
+
+
+      $usuario = new Usuario();
+
+      $mensagem = $rs['@mensagem'];
+    
+      $usuario->id = $rs['@id'];
+      $usuario->nome = $rs['@nome'];
+
+      $conex->Desconectar();
+    }
+
+    if($mensagem == 1){
+        return $usuario;
+
+    }else{
+
+
+      echo("<script> alert('Usuário ou senha incorreto, tente novamente.'); </script>");
+      return false;
+    }
+
+  }
+
 }
  ?>

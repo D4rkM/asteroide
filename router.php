@@ -14,12 +14,21 @@
           $controllerUsuario = new controllerUsuario();
           $controllerUsuario::Novo();
           break;
+
+        case 'login':
+            $controllerUsuario = new controllerUsuario();
+            $controllerUsuario::Logar();
+            //echo ("okkkkkkkkkkk");
+            require_once('index.php');
+            break;
       }
 
       case 'filtro':
         require_once('controllers/filtro_controller.php');
         require_once('models/filtro_class.php');
         switch ($modo) {
+
+
 
           case 'buscar':
             $controllerFiltro = new controllerFiltro();

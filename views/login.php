@@ -26,7 +26,7 @@
         <a href="#" class="fechar" style="align-self:flex-end;">
   	    <img src="<?php //echo($links); ?>img/icon/cancel-exit.svg" alt="sair" title="sair">
          </a>
-         <form action="views/Usuario/pagina_usuario.php" method="post" enctype="multipart/form-data">
+         <form action="<?php echo ($paths); ?>router.php?controller=usuario&modo=login" method="post" enctype="multipart/form-data">
            <div class="titulo-conteudo-padrao">
              <h2>LOGIN</h2>
            </div>
