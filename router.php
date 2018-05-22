@@ -50,6 +50,16 @@
             break;
       }
       break;
+      case 'faleconosco':
+        require_once('controllers/faleconosco_controller.php');
+        require_once('models/faleconosco_class.php');
+        switch ($modo) {
+          case 'novo':
+            $controllerFaleconosco = new controllerFaleconosco();
+            $controllerFaleconosco::Novo();
+            break;
+        }
+        break;
   }
 
  ?>

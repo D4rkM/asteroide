@@ -87,8 +87,9 @@
            FALE CONOSCO
          </div>
        </div>
-
+       <form class="" action="../router.php?controller=faleconosco&modo=novo" method="post">
        <div class="container-contato">
+
          <div class="contato-box">
            <div class="titulo-conteudo-padrao">
              <h2>RECLAMAÇÕES</h2>
@@ -98,12 +99,14 @@
            </div>
            <div class="feedback-cliente">
              <div class="escrita">
-               <textarea name="name" rows="8"></textarea>
+               <textarea name="txtreclamacao" rows="5" placeholder="Reclame aqui ..."></textarea>
+               <input type="email" name="txtemail" value="" placeholder="Email">
              </div>
            </div>
            <div class="btn_enviar">
-             <button class="btn" type="button" name="btn_enviar"> Enviar </button>
+             <button class="btn" type="submit" name="btn_enviar"> Enviar </button>
            </div>
+
          </div>
          <div class="contato-box">
            <div class="titulo-conteudo-padrao">
@@ -114,11 +117,12 @@
            </div>
            <div class="feedback-cliente">
              <div class="escrita">
-               <textarea name="name" rows="8"></textarea>
+               <textarea name="txtsugestao" rows="5" placeholder="De sua sugestão aqui ..."></textarea>
+               <input type="email" name="txtemail" value="" placeholder="Email">
              </div>
            </div>
            <div class="btn_enviar">
-             <button class="btn" type="button" name="btn_enviar"> Enviar </button>
+             <button class="btn" type="submit" name="btn_enviar"> Enviar </button>
            </div>
          </div>
          <div class="contato-box">
@@ -130,14 +134,17 @@
            </div>
            <div class="feedback-cliente">
              <div class="escrita">
-               <textarea name="name" rows="8"></textarea>
+               <textarea name="txtelogio" rows="5" placeholder="De seu elogio aqui ..."></textarea>
+               <input type="email" name="txtemail" value="" placeholder="Email">
              </div>
            </div>
            <div class="btn_enviar">
-             <button class="btn" type="button" name="btn_enviar"> Enviar </button>
+             <button class="btn" type="submit" name="btn_enviar"> Enviar </button>
            </div>
          </div>
+
        </div>
+       </form>
        <div style="padding:50px;">
          <div class="cont-forma-de-contato">
            <div class="forma-de-contato">

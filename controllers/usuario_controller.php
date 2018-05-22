@@ -37,6 +37,7 @@ class controllerUsuario {
               $usuario->imagem=$diretorio_completo;
               $usuario->nome = $_POST['txtnome'];
               $usuario->email = $_POST['txtemail'];
+              $usuario->usuario = $_POST['txtusuario'];
               $usuario->senha = $_POST['txtsenha'];
               $data = implode("-",array_reverse(explode("/",$_POST['txtdatanasc'])));
               $usuario->datanasc = $data;

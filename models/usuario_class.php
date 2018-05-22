@@ -13,6 +13,7 @@ class Usuario{
   public $foto;
   public $nome;
   public $email;
+  public $usuario;
   public $senha;
   public $datanasc;
   public $sexo;
@@ -31,6 +32,7 @@ class Usuario{
     $sql_usuario ="insert into cliente set imagem_usuario='$usuario_dados->imagem',
                                            nome='$usuario_dados->nome',
                                            email='$usuario_dados->email',
+                                           login='$usuario_dados->usuario',
                                            senha='$usuario_dados->senha',
                                            datanasc='$usuario_dados->datanasc',
                                            sexo='$usuario_dados->sexo',
@@ -62,6 +64,7 @@ class Usuario{
     if ($usuario_dados->imagem == "nada"){
     $sql_usuario = "update cliente set nome='$usuario_dados->nome',
                               email='$usuario_dados->email',
+                              login='$usuario_dados->usuario',
                               senha='$usuario_dados->senha',
                               datanasc='$usuario_dados->datanasc',
                               sexo='$usuario_dados->sexo',
@@ -75,6 +78,7 @@ class Usuario{
       $sql_usuario = "update cliente set imagem_usuario='$usuario_dados->imagem',
                                              nome='$usuario_dados->nome',
                                              email='$usuario_dados->email',
+                                             login='$usuario_dados->usuario',
                                              senha='$usuario_dados->senha',
                                              datanasc='$usuario_dados->datanasc',
                                              sexo='$usuario_dados->sexo',
@@ -117,6 +121,7 @@ class Usuario{
       $usuario->imagem = $rs['imagem_usuario'];
       $usuario->nome = $rs['nome'];
       $usuario->email = $rs['email'];
+      $usuario->usuario = $rs['login'];
       $usuario->senha = $rs['senha'];
       $usuario->datanasc = $rs['datanasc'];
       $usuario->sexo = $rs['sexo'];
