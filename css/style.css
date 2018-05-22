@@ -320,6 +320,45 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* Pagina Home */
+.filtro_busca{
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  position: absolute;
+  position: fixed;
+  margin-left: 50px;
+  margin-top: 100px;
+  border-radius: 15px;
+}
+
+.txt_filtro{
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 20px;
+  margin-top: 5px;
+  color: #458665;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+.txt_filtro2{
+margin-left: 10px;
+font-size: 14px;
+}
+.box_filtro{
+  width: 90%;
+  margin-top: 2px;
+  margin-left: 10px;
+}
+.btn_buscar{
+    width: 50%;
+    height: 30px;
+    margin-top: 60px;
+    margin-left: 25%;
+    border-radius: 15px;
+    background-color: #458665;
+    color: #fff;
+}
+
 /* area de video */
 
 .filtro_busca{
@@ -2358,6 +2397,16 @@ label#imagem{
   margin: auto;
   background-color: #458665;
 }
+.momentos_identificacao{
+  width: 30%;
+  height: 100%;
+  background-color: blue;
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+  border-radius: 15px;
+  line-height: 50px;
+  border: solid 1px #fff;
 
 .tempo_compra{
   width: 70%;
