@@ -52,17 +52,6 @@
                 }
               });
             });
-            //pagina de postos rodoviarios
-      $("#postos").click(function(){
-                $.ajax({
-                  type:"POST",
-                  url:"views/Postos_Rodoviarios/pagina_layout_postos.php",
-                  data:{},
-                  success: function(dados){
-                    $("#main").html(dados);
-                  }
-                });
-              });
               //pagina de sobre a empresa
        $("#sobre").click(function(){
                   $.ajax({
@@ -109,10 +98,10 @@
                         });
                       });
                       //cadastro de vendas de passagen
-      $("#vendas").click(function(){
+      $("#pacote_viagem").click(function(){
                           $.ajax({
                             type:"POST",
-                            url:"views/Vendas/vendas_layout.php",
+                            url:"views/Pacote_Viagem/pacote_viagem_layout.php",
                             data:{},
                             success: function(dados){
                               $("#main").html(dados);
@@ -162,6 +151,16 @@
                       }
                     });
                   });
+          $("#viagem").click(function(){
+              $.ajax({
+              type:"POST",
+              url:"views/Viagem/viagem_layout.php",
+              data:{},
+              success: function(dados){
+                $("#main").html(dados);
+            }
+          });
+        });
       });
     </script>
   </head>
@@ -207,14 +206,14 @@
                 <li id="sobre"><a href="#" >Sobre a Empresa</a></li>
                 <li id="duvidas"><a href="#">Duvidas Frequentes</a></li>
                 <li id="interacao"><a href="#">Interação</a></li>
-                <li id="postos"><a href="#">Postos Rodoviarios</a></li>
                 <li id="frotas"><a href="#">Frotas</a></li>
                 <li id="home"><a href="#">Home</a></li>
               </ul>
           <li>
             <li class="itens"><a href="#">Vendas</a>
                 <ul class="submenu">
-                  <li id="vendas"><a href="#">Pacotes de Viagem</a></li>
+                  <li id="pacote_viagem"><a href="#">Pacotes de Viagens</a></li>
+                  <li id="viagem"><a href="#">Viagens</a></li>
                 </ul>
             <li>
               <li class="itens"><a href="#">Mecanico</a>

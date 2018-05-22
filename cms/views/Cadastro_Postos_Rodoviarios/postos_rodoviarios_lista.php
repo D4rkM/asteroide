@@ -38,11 +38,11 @@ $(document).ready(function() {
 
   while($cont < count($list)){
 ?>
-<div class="container_lista">
-  <div class="itens_mostrar"><?php echo $list[$cont]->nome ?></div>
-  <div class="itens_mostrar"><?php echo $list[$cont]->imagem ?></div>
-  <div class="itens_mostrar"><?php echo $list[$cont]->cep ?></div>
-  <div class="itens_mostrar">
+<div class="container_lista_duvidas">
+  <div class="itens_mostrar_duvidas"><?php echo $list[$cont]->nome ?></div>
+  <div class="itens_mostrar_duvidas"><img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt=""> </div>
+  <div class="itens_mostrar_duvidas"><?php //echo $list[$cont]->cep ?></div>
+  <div class="itens_mostrar_duvidas">
     <a href="router.php?controller=postos_rodoviarios&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
       <img src="img/icon-delete.png" alt="">
     </a>

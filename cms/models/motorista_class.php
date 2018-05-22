@@ -12,7 +12,6 @@ class Motorista{
   public $id;
   public $nome;
   public $email;
-  public $usuraio;
   public $senha;
   public $data_nasc;
   public $sexo;
@@ -32,9 +31,8 @@ class Motorista{
 
     $sql = "insert into motorista set nome='$motorista_dados->nome',
                                         email='$motorista_dados->email',
-                                        usuario='$motorista_dados->usuario',
                                         senha='$motorista_dados->senha',
-                                        datanasc='$motorista_dados->data_nasc',
+                                        data_nasc='$motorista_dados->data_nasc',
                                         sexo='$motorista_dados->sexo',
                                         telefone='$motorista_dados->telefone',
                                         celular='$motorista_dados->celular',
@@ -68,9 +66,8 @@ echo($sql);
     if ($motorista_dados->imagem == "nada"){
     $sql = "update motorista set  nome='$motorista_dados->nome',
                                         email='$motorista_dados->email',
-                                        usuario='$motorista_dados->usuario',
                                         senha='$motorista_dados->senha',
-                                        datanasc='$motorista_dados->data_nasc',
+                                        data_nasc='$motorista_dados->data_nasc',
                                         sexo='$motorista_dados->sexo',
                                         telefone='$motorista_dados->telefone',
                                         celular='$motorista_dados->celular',
@@ -81,9 +78,8 @@ echo($sql);
   }else{
     $sql = "update motorista set  nome='$motorista_dados->nome',
                                         email='$motorista_dados->email',
-                                        usuario='$motorista_dados->usuario',
                                         senha='$motorista_dados->senha',
-                                        datanasc='$motorista_dados->data_nasc',
+                                        data_nasc='$motorista_dados->data_nasc',
                                         sexo='$motorista_dados->sexo',
                                         telefone='$motorista_dados->telefone',
                                         celular='$motorista_dados->celular',
@@ -151,11 +147,12 @@ echo($sql);
 
       $listMotorista[$cont]->id = $rs['id'];
       $listMotorista[$cont]->nome = $rs['nome'];
+      $listMotorista[$cont]->imagem = $rs['imagem'];
       $listMotorista[$cont]->email = $rs['email'];
       $listMotorista[$cont]->telefone = $rs['telefone'];
       $listMotorista[$cont]->celular = $rs['celular'];
       $listMotorista[$cont]->cpf = $rs['cpf'];
-      $listMotorista[$cont]->data_nasc = $rs['datanasc'];
+      $listMotorista[$cont]->data_nasc = $rs['data_nasc'];
       $listMotorista[$cont]->ativo = $rs['ativo'];
 
       $cont+=1;
@@ -184,9 +181,8 @@ echo($sql);
 
       $motorista->nome = $rs['nome'];
       $motorista->email = $rs['email'];
-      $motorista->usuario = $rs['usuario'];
       $motorista->senha = $rs['senha'];
-      $motorista->data_nasc = $rs['datanasc'];
+      $motorista->data_nasc = $rs['data_nasc'];
       $motorista->sexo = $rs['sexo'];
       $motorista->telefone = $rs['telefone'];
       $motorista->celular = $rs['celular'];

@@ -18,11 +18,11 @@
       Obs: Página principal contém menu e rodapé para inserir as outras páginas
     -->
     <title>Home - Bem vindo</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style_login.css">
-    <link rel="stylesheet" href="css/style_detalhes.css">
-    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
+    <script src="<?php echo($links); ?>js/jquery.min.js"></script>
     <script>
       // Modal Login
       $(document).ready(function() {
@@ -82,7 +82,7 @@
     </div>
        <?php require_once('nav.php'); ?>
        <div class="container-conteudo">
-         <div class="imagem-de-fundo" style='background-image: url("img/inf_legislacao.jpg");'>
+         <div class="imagem-de-fundo" style='background-image: url("../img/inf_legislacao.jpg");'>
            <div class="titulo-sobre-imagem">
              INFORMAÇÕES SOBRE SERVIÇO
            </div>
@@ -97,7 +97,7 @@
 
            <?php
              $a = 0;
-             while($a < 13){
+             while($a < 5){
             ?>
            <div class="caixas-inf">
              <div class="inf-subtitulos">
@@ -105,7 +105,7 @@
                  ATENDIMENTO PREFERENCIAL
                </div>
                <div class="icon">
-                 <img src="img\icon\down.svg" alt="Mostrar Mais" title="Mostrar mais">
+                 <img src="../img\icon\down.svg" alt="Mostrar Mais" title="Mostrar mais">
                </div>
              </div>
              <div class="inf-conteudo">

@@ -16,7 +16,7 @@ $("#foto").change(function(){
    }
 });
 </script>
-<form class="frmCadDuvida" method="post" action="router.php?controller=postos_rodoviarios&modo=novo">
+<form class="frmCadDuvida" method="post" action="router.php?controller=postos_rodoviarios&modo=novo" enctype="multipart/form-data">
   <div class="cadastro_rodoviarios">
     <div class="text_duvida">Nome do posto</div>
     <input class="box_duvida" type="text" name="nome">
@@ -36,6 +36,8 @@ $("#foto").change(function(){
     <input class="box_duvida" type="text" name="logradouro">
     <div class="text_duvida">Numero</div>
     <input class="box_duvida" type="text" name="numero">
+    <div class="text_duvida">Complemento</div>
+    <input class="box_duvida" type="text" name="complemento">
     <div class="text_duvida">Bairro</div>
     <input class="box_duvida" type="text" name="bairro">
     <div class="text_duvida">Cidade</div>
@@ -46,14 +48,13 @@ $("#foto").change(function(){
 
             $controllerCidade = new controllerCidade();
             $list=$controllerCidade::Listar();
-
             $cont = 0;
 
             while($cont < count($list)){
              ?>
 
              <option value="<?php echo $list[$cont]->id?>">
-               <?php echo($list[$cont]->nom_cidade) ?></option>
+               <?php echo($list[$cont]->nome_cidade) ?></option>
              <?php
              $cont+=1;
            }

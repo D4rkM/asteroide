@@ -2,8 +2,8 @@
 
   include('../links.php');
 
-  $links = alterarLinks(true);
-  $paths = alterarCaminhos(true);
+  $links = alterarLinks(false);
+  $paths = alterarCaminhos(false);
 
  ?>
 <html>
@@ -26,7 +26,7 @@
         <a href="#" class="fechar" style="align-self:flex-end;">
   	    <img src="<?php //echo($links); ?>img/icon/cancel-exit.svg" alt="sair" title="sair">
          </a>
-         <form action="views/Usuario/pagina_usuario.php" method="post" enctype="multipart/form-data">
+         <form action="<?php echo ($paths); ?>router.php?controller=usuario&modo=login" method="post" enctype="multipart/form-data">
            <div class="titulo-conteudo-padrao">
              <h2>LOGIN</h2>
            </div>
@@ -52,7 +52,7 @@
            </div>
            <div class="text-center">
              Não tem conta ainda?
-             <a href="<?php echo($paths); ?>Usuario/cadastro_usuario.php"><strong style="color:#162E44;">Cadastre-se</strong></a>
+             <a href="views/Usuario/cadastro_usuario.php"><strong style="color:#162E44;">Cadastre-se</strong></a>
            </div>
          </form>
       </div>

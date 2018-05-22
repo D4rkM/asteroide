@@ -103,29 +103,47 @@
 
              <div class="perguntas">
                  <ul>
-                     <a id='1' href="#" style='color:#4d9b61; font-weight:bold;'><li> <h3>Como comprar passagem</h3> </li></a>
-                     <a id="b" href="#" style='color:#4d9b61; font-weight:bold;'><li> <h3>Como chegar em uma rodoviária?</h3> </li></a>
-                     <a id="c" href="#" style='color:#4d9b61; font-weight:bold;'><li> <h3>Onde acompanho a minha viagem?</h3> </li></a>
+                   <?php
+                     require_once("../cms/controllers/duvidas_controller.php");
+                     require_once("../cms/models/duvidas_class.php");
 
+                     $controller_duvidas = new controllerDuvidas();
+                     $list = $controller_duvidas::Listar();
+
+                     $cont = 0;
+
+                     while($cont < count($list)){
+                   ?>
+                     <a id='1' href="#" style='color:#4d9b61; font-weight:bold;'><li> <h3><?php echo $list[$cont]->pergunta ?></h3> </li></a>
+                     <?php
+                         $cont+=1;
+                       }
+                     ?>
                  </ul>
              </div>
              <div class="respostas">
                  <div id="legenda">
                   <p>Sua resposta aparece aqui...</p>
                  </div>
+                 <?php
+                   require_once("../cms/controllers/duvidas_controller.php");
+                   require_once("../cms/models/duvidas_class.php");
+
+                   $controller_duvidas = new controllerDuvidas();
+                   $list = $controller_duvidas::Listar();
+
+                   $cont = 0;
+
+                   while($cont < count($list)){
+                 ?>
                   <div id="div_email" >
-                    <p style='color:#162E44;'>Para comprar passagem você deve se direcionar a pagina <a href="#"> <strong>Compra de passagem</strong> </a> ou
-                    pode comprar em lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. um dos nossos guiches nos terminais rodoviarios de todo o brasil, <a href="#">confira!</a></p>
-
+                    <p style='color:#162E44;'><?php echo $list[$cont]->resposta ?></p>
                   </div>
+                  <?php
+                      $cont+=1;
+                    }
+                  ?>
 
-                  <div id="div_email2">
-                       Para comprar pasagem você deve ....
-                  </div>
-
-                  <div id="div_email3">
-                       Para comprar pasagem você deve ....
-                  </div>
              </div>
              <script>
                //pergunta 1

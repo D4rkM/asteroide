@@ -19,8 +19,8 @@ $("#foto").change(function(){
   <div class="cadastrar_motorista">
     <div class="cont_pessoais">
       <label for="foto">
-        <div  class="adicionar_imagem" id="imagem">
-          <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
+        <div  class="adicionar_imagem2" id="imagem2">
+          <img id="id_sua_img2" src="img/bus.jpg" alt="foto"/>
         </div>
       </label>
       <!--Botão para selecionar a foto-->
@@ -31,9 +31,7 @@ $("#foto").change(function(){
       <input class="box_funcionario" type="text" name="txtNome" placeholder="Ex.: Jubileu Afonseca" maxlength="35">
       <div class="text_funcionario">Email</div>
       <input class="box_funcionario" type="text" name="txtEmail" placeholder="Ex.: jubileu@hotmail.com" maxlength="40">
-      <div class="text_funcionario">Usuario</div>
-      <input class="box_funcionario" type="text" name="txtUsuario" placeholder="Ex.: jubileu" maxlength="10">
-      <div class="text_funcionario">Senha</div>
+    <div class="text_funcionario">Senha</div>
       <input class="box_funcionario" type="password" name="txtSenha" placeholder="******" maxlength="10">
       <div class="text_funcionario">Ativar<input type="checkbox" name="ativo" value="1" checked>Ativo</div>
       </div>

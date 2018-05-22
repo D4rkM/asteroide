@@ -1,5 +1,4 @@
 <?php
-session_start();
 /*
 Autor:bruna
 Data de Modificação:14/04/2018
@@ -43,9 +42,6 @@ class controllerFrotas{
 
     require_once('trata_imagem.php');
 
-    // echo $idOnibus;
-
-    // iniciado variaveis
      $diretorio_completo=Null;
      $MovUpload=false;
      $imagem_file=Null;
@@ -93,7 +89,7 @@ class controllerFrotas{
 
   public function Buscar($id){
     $frotas = new Frotas();
-    $frotas ->id = $id;
+    $frotas->id = $id;
 
     return $dadosFrotas= $frotas::SelectById($frotas);
   }

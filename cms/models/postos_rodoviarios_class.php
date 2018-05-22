@@ -10,11 +10,7 @@ class PostosRodoviarios{
   public $id;
   public $nome;
   public $imagem;
-  public $cep;
-  public $logradouro;
-  public $numero;
-  public $bairro;
-  public $cidade;
+  public $id_endereco;
 
   public function __construct(){
     require_once('db_class.php');
@@ -23,12 +19,8 @@ class PostosRodoviarios{
   public function Insert($postos_rodoviarios_dados){
     $sql = "insert into posto_rodoviario set nome='$postos_rodoviarios_dados->nome',
                                                  imagem='$postos_rodoviarios_dados->imagem',
-                                                 cep='$postos_rodoviarios_dados->cep',
-                                                 logradouro='$postos_rodoviarios_dados->logradouro',
-                                                 numero='$postos_rodoviarios_dados->numero'
-                                                 bairro='$postos_rodoviarios_dados->bairro'
-                                                 idCidade='$postos_rodoviarios_dados->cidade';";
-                                                 echo($sql);
+                                                 id_endereco='$postos_rodoviarios_dados->id_endereco';";
+                                                 // echo($sql);die;
 
 
 
@@ -78,7 +70,7 @@ class PostosRodoviarios{
 
   public function Delete($postos_rodoviarios_dados){
     $sql = "delete from posto_rodoviario where id = $postos_rodoviarios_dados->id";
-
+// echo($sql);
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -116,11 +108,7 @@ class PostosRodoviarios{
 
       $listPostosRodoviarios[$cont]->id = $rs['id'];
       $listPostosRodoviarios[$cont]->nome = $rs['nome'];
-      // $listPostosRodoviarios[$cont]->imagem = $rs['imagem'];
-      $listPostosRodoviarios[$cont]->cep = $rs['cep'];
-      $listPostosRodoviarios[$cont]->logradouro = $rs['logradouro'];
-      $listPostosRodoviarios[$cont]->numero = $rs['numero'];
-      $listPostosRodoviarios[$cont]->bairro = $rs['bairro'];
+      $listPostosRodoviarios[$cont]->imagem = $rs['imagem'];
       // $listPostosRodoviarios[$cont]->cidade = $rs['cidade'];
 
       $cont+=1;
@@ -148,11 +136,6 @@ class PostosRodoviarios{
       $postos_rodoviarios->id = $rs['id'];
       $postos_rodoviarios->nome = $rs['noma'];
       $postos_rodoviarios->imagem = $rs['imagem'];
-      $postos_rodoviarios->cep = $rs['cep'];
-      $postos_rodoviarios->logradouro = $rs['logradouro'];
-      $postos_rodoviarios->numero = $rs['numero'];
-      $postos_rodoviarios->bairro = $rs['bairro'];
-      $postos_rodoviarios->cidade = $rs['idCidade'];
 
       $conex->Desconectar();
 

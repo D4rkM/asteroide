@@ -10,9 +10,11 @@
       $endereco->numero=$_POST['numero'];
       $endereco->bairro=$_POST['bairro'];
       $endereco->complemento=$_POST['complemento'];
-      $endereco->id_cidade= 1;
+      $endereco->id_cidade=$_POST['cidade'];
 
-      return $endereco::Insert($endereco);
+      $endereco::Insert($endereco);
+      $id_endereco = $endereco::Insert($endereco);
+      return $id_endereco;
     }
 
     public function Buscar($id){

@@ -4,7 +4,7 @@
 
   $links = alterarLinks(false);
   $paths = alterarCaminhos(false);
-
+  
  ?>
 <!DOCTYPE html>
 <html lang="br">

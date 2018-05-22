@@ -1,5 +1,4 @@
 <?php
-session_start();
     /*
         Autor:William
         Data de Modificação:22/03/2018
@@ -17,7 +16,7 @@ session_start();
           $duvidas->pergunta = $_POST['txtDuvidaFreq'];
           $duvidas->resposta = $_POST['txtAreaRespotaDuvidaFreq'];
           $duvidas->aparecer = $_POST['chkDuvidaFrequente'];
-          
+
           $duvidas::Insert($duvidas);
 
         }

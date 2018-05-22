@@ -4,70 +4,112 @@
   Detalhes: Está pagina tem como objetivo listar as viagens do usuario
   Obs: Página principal contém menu e rodapé para inserir as outras páginas
   -->
+  <?php
+
+    include('../../links.php');
+
+    $links = alterarLinks(false);
+    $paths = alterarCaminhos(true);
+
+   ?>
+  <?php require_once('nav.php'); ?>
 <link rel="stylesheet" href="../../css/style.css">
+
 <!-- Conteúdo da página -->
-<div class="conteudo_interacao">
+<div class="conteudo_interacao1">
   <!--Container que segura todas as informações da pagina -->
-  <div class="interacao_container">
+  <div class="interacao_container1">
     <!--Container responsael por segurar o titulo da pagima -->
-     <div class="title_interacao">
-      <h1>Interação</h1>
-     </div>
+    <div class="titulo-conteudo-padrao">
+      <h2>Interações</h2>
+    </div>
+     <div class="menu_lateral2">
+     <ul>
+      <a href="editar_perfil.php"><li>Editar Perfil</li></a>
+      <a href="interacao_usuario.php"><li>Interação</li></a>
+      <a href="historico_viagem.php"><li>Historico de Compra</li></a>
+      <a href="acompanhamento_viagem.php"><li>Acompanhamento da viagem</li></a>
+     </ul>
+   </div>
      <!--Segura todos os itens do cadastro-->
       <div class="interacao">
         <h2>Gostou da viagem? Compatilhe com seus amigos como foi a experiencia de viajar com a Viação Asteroide</h2>
         <div class="postar_viagem">
-          <form action="interacao_usuario.php" method="post" enctype="multipart/form-data">
-            <textarea class="box_interacao" name="txtinteracao" rows="8" cols="80" placeholder="EX:Minha viagem para Minas Gerais foi muito legal..."></textarea>
-            <img src="img/camera.png" alt="camera">
-            <img src="img/local2.png" alt="local">
+          <form action="../../router.php?controller=interacao&modo=novo" method="post" enctype="multipart/form-data">
+            <textarea class="box_interacao" name="txtinteracao" placeholder="EX:Minha viagem para Minas Gerais foi muito legal..."></textarea>
+            <!-- <img class="img_interacao2" src="../../img/praia-rio.jpg" alt="camera"> -->
+
+            <label for="foto">
+              <div  class="adicionar_imagem2" id="imagem2">
+                <img id="id_sua_img2" src="../../img/praia-rio.jpg" alt="foto"/>
+              </div>
+            </label>
+            <!--Botão para selecionar a foto-->
+            <div class="input-foto">
+              <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
+            </div>
+
+            <img src="../../img/local2.png" alt="local">
+            <input type="text" name="txtlocal" value="" placeholder="Local">
+            <button class="btn2"type="submit" name="button">Postar</button>
           </form>
         </div>
         <h2>Minhas Postagens</h2>
-        <div class="minhas_viagens">
-          <div class="container_user">
-              <!--Imagem-->
-              <img class="img_interacao" src="img/user2.png" alt="user">
-              <!--Nome-->
-              <div class="name_user">Bruna Sousa</div>
-              <!--Localização-->
-              <div class="local"><img src="img/local.png" alt="local">Angra dos Reis - RJ</div>
-          </div>
-          <!--Conatiner responsavel por segurar o texto do usuario-->
-          <div class="text_interacao">simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou.</div>
-          <!--Fota da viagem-->
-          <img class="img_viagem" src="img/angra.jpg" alt="angra dos reis">
-        </div>
+          <?php
+          // $a = 0;
+          // while($a < 2){
+          require_once("../../controllers/interacao_controller.php");
+          require_once("../../models/interacao_class.php");
 
-        <div class="minhas_viagens">
-          <div class="container_user">
-              <!--Imagem-->
-              <img class="img_interacao" src="img/user2.png" alt="user">
-              <!--Nome-->
-              <div class="name_user">Bruna Sousa</div>
-              <!--Localização-->
-              <div class="local"><img src="img/local.png" alt="local">Angra dos Reis - RJ</div>
-          </div>
-          <!--Conatiner responsavel por segurar o texto do usuario-->
-          <div class="text_interacao">simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou.</div>
-          <!--Fota da viagem-->
-          <img class="img_viagem" src="img/angra.jpg" alt="angra dos reis">
-        </div>
+          $controller_interacao = new controllerInteracao();
+          $list = $controller_interacao::Lista();
+          $cont = 0;
 
-        <div class="minhas_viagens">
-          <div class="container_user">
-              <!--Imagem-->
-              <img class="img_interacao" src="img/user2.png" alt="user">
-              <!--Nome-->
-              <div class="name_user">Bruna Sousa</div>
-              <!--Localização-->
-              <div class="local"><img src="img/local.png" alt="local">Angra dos Reis - RJ</div>
+          while($cont < count($list)){
+           ?>
+          <div class="cardbox">
+            <div class="cardbox-title">
+              <div class="foto-user">
+                <img src="<?php echo($links); ?>../<?php echo $list[$cont]->imagem_usuario ?>" alt="user">
+                <h3>
+                  <?php echo $list[$cont]->nome_usuario ?>
+                </h3>
+              </div>
+              <div class="cardbox-local">
+                <img src="<?php echo($links); ?>../img/icon/location.svg" alt="local">
+                <?php echo $list[$cont]->local ?>
+              </div>
+            </div>
+            <div class="cardbox-content">
+              <div class="cardbox-text">
+                <p><?php echo $list[$cont]->comentario ?></p>
+                </div>
+              <div class="cardbox-img">
+                <img class="" src="<?php echo($links); ?>../<?php echo $list[$cont]->imagem ?>" alt="angra">
+              </div>
+            </div>
           </div>
-          <!--Conatiner responsavel por segurar o texto do usuario-->
-          <div class="text_interacao">simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou.</div>
-          <!--Fota da viagem-->
-          <img class="img_viagem" src="img/angra.jpg" alt="angra dos reis">
-        </div>
+        <?php
+        // $a++;
+        $cont+=1;
+      }
+
+       ?>
+
       </div>
   </div>
 </div>
+<?php require_once('footer.php'); ?>
+<script src="../../js/jquery.min.js"></script>
+<script>
+$("#foto").change(function(){
+   if($(this).val()){ // só se o input não estiver vazio
+      var img = this.files[0]; // seleciona o arquivo do input
+      var f = new FileReader(); // cria o objeto FileReader
+      f.onload = function(e){ // ao carregar a imagem
+         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+      }
+      f.readAsDataURL(img); // lê o arquivo
+   }
+});
+</script>

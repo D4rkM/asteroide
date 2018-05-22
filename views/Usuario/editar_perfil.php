@@ -1,176 +1,197 @@
 <!--
   Autor: BRUNA
-  Data de modificação: 28/03/2018
+  Data de modificação: 25/03/2018
   Detalhes: Está pagina tem como objetivo fazer o cadastro de usuarios
   Obs: Página principal contém menu e rodapé para inserir as outras páginas
   -->
+  <?php
+
+    include('../../links.php');
+
+    $links = alterarLinks(false);
+    $paths = alterarCaminhos(true);
+
+   ?>
+
 <link rel="stylesheet" href="../../css/style.css">
+<?php require_once('nav.php'); ?>
+
 <!-- Conteúdo da página -->
-<div class="conteudo_cadastro">
-  <div class="title_duvidas">
-    <h2 style="color:#3f635f;">EDITAR PERFIL</h2>
+<div class="conteudo-cadastro2">
+  <!--Container responsael por segurar o titulo da pagima -->
+  <div class="titulo-conteudo-padrao">
+    <h2>Editar Perfil</h2>
   </div>
+  <div class="menu_lateral2">
+  <ul>
+   <a href="editar_perfil.php"><li>Editar Perfil</li></a>
+   <a href="interacao_usuario.php"><li>Interação</li></a>
+   <a href="historico_viagem.php"><li>Historico de Compra</li></a>
+   <a href="acompanhamento_viagem.php"><li>Acompanhamento da viagem</li></a>
+  </ul>
+</div>
   <!--Container que segura todas as informações da pagina -->
-  <div class="cadastro_container">
-    <!--Container responsael por segurar o titulo da pagima -->
+  <div class="cadastro-container2">
      <!--Segura todos os itens do cadastro-->
-      <div class="cadastro">
-          <!--Form dos itens do cadastro-->
-          <form action="router.php?controller=usuario&modo=novo" method="post">
-              <!--texto da imagem de inserir foto de perfil-->
-              <div class="text">Foto de Perfil</div>
-              <!--Container para colocar a imagem de perfil-->
-              <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-              <div id="imagem" class="">
-                <img id="id_sua_img" src="" alt="teste"/>
+    <div class="cadastro">
+      <?php
+      	require_once("../../controllers/usuario_controller.php");
+      	require_once("../../models/usuario_class.php");
+
+      	$usuario_controller = new controllerUsuario();
+      	$dadosUsuario = $usuario_controller::Buscar($id);
+      	?>
+        <!--Form dos itens do cadastro-->
+        <form action="../../router.php?controller=usuario&modo=editar&id=54" enctype="multipart/form-data" method="post">
+          <div class="campo-foto">
+            <!--texto da imagem de inserir foto de perfil-->
+            <div class="subtitulo text-center">
+              <h3>Foto de Perfil</h3>
+            </div>
+            <label for="foto">
+              <div  class="adicionar_imagem" id="imagem">
+                <img id="id_sua_img" src="../../<?php echo $dadosUsuario->imagem ?>" alt="foto"/>
               </div>
-              <div class="">
-                <!--Botão para selecionar a foto-->
-                <input id="teste" class="botao_foto_perfil" type="file" name="flefoto"/>
+            </label>
+            <!--Botão para selecionar a foto-->
+            <div class="input-foto">
+              <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
+            </div>
+          </div>
+          <!-- Inicia a entrada de dados principais do usuario -->
+          <div class="dados-principais-cad">
+            <div class="caixa-dados large">
+              <label for="nome">Nome completo</label>
+              <input id="nome" class="" type="text" name="txtnome" value="<?php echo $dadosUsuario->nome ?>">
+            </div>
+            <div class="caixa-dados large">
+              <label for="email" class="">E-mail</label>
+              <input id="email" class="" type="text" name="txtemail" value="<?php echo $dadosUsuario->email ?>">
+            </div>
+            <div class="caixa-dados large">
+              <label for="senha" class="">Senha</label>
+              <input id="senha" class="" type="password" name="txtsenha" value="<?php echo $dadosUsuario->senha ?>">
+            </div>
+          </div>
+          <!--Titulo dos dados pessoais-->
+          <div class="subtitulo text-center">
+            <h3>Dados Pessoais</h3>
+          </div>
+          <!-- O usuário insere os dados complementares no seu cadastro-->
+          <div class="dados-complementares-cad">
 
+            <div class="dados-pessoais">
+              <div class="dados-esquerda">
+                <div class="caixa-dados large">
+                  <label for="dataNascimento">Data de Nascimento</label>
+                  <input id="dataNascimento" type="date" name="txtdatanasc" maxlength="10" value="<?php echo $dadosUsuario->datanasc ?>">
+                </div>
+                <div class="caixa-dados">
+                  <label for="sexo">Sexo</label>
+                  <div id="sexo" class="radio-group">
+                    <input type="radio" name="rdosexo" value="M" <?php if($dadosUsuario->sexo == 'M') echo"checked"?>>Masculino
+                    <input type="radio" name="rdosexo" value="F" <?php if($dadosUsuario->sexo == 'F')echo"checked"?>>Feminino
+                  </div>
+                </div>
+                <div class="caixa-dados large">
+                  <label for="telefone">Telefone</label>
+                  <input id="telefone" type="text" name="txttelefone" maxlength="14" value="<?php echo $dadosUsuario->telefone ?>">
+                </div>
+                <div class="caixa-dados large">
+                  <label for="celular">Celular</label>
+                  <input id="celular" type="text" name="txtcelular" maxlength="15" value="<?php echo $dadosUsuario->celular ?>">
+                </div>
+                <div class="caixa-dados large">
+                  <label for="rg">RG</label>
+                  <input id="rg" name="txtrg" type="text" maxlength="12" value="<?php echo $dadosUsuario->rg ?>">
+                </div>
+                <div class="caixa-dados large">
+                  <label for="cpf">CPF</label>
+                  <input id="cpf" name="txtcpf" type="text" maxlength="14" value="<?php echo $dadosUsuario->cpf ?>" >
+                </div>
+                <!-- <div class="caixa-dados small">
+                  <label for="cep">CEP</label>
+                  <input id="cep" type="text" name="txtcep" maxlength="9">
+                </div>
+                <div class="caixa-dados">
+                  <label for="estado">Estado</label>
+                  <select id="estado" class="box_text2" name="txtestado">
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AP">Amapá</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="BA">Bahia</option>
+                      <option value="CE">Ceará</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espírito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="TO">Tocantins</option>
+                  </select> -->
+                </div>
               </div>
-              <!--titulo das caixas de textos (class="text_left")-->
-              <div class="text_left" style="color:#1f405e;">Nome completo</div>
-              <!--Caixas de textos (class="box_text")-->
-              <input class="box_text" type="text" name="txtnome">
-                <!--titulo da caixa de texto (class="text_left")-->
-              <label for="email">E-mail</label>
-              <!--Caixas de textos (class="box_text")-->
-              <input id="email"class="box_text" type="text" name="txtemail">
-                <!--titulo da caixa de texto (class="text_left")-->
-              <div class="text_left">Senha</div>
-              <!--Caixas de textos (class="box_text")-->
-              <input class="box_text" type="password" name="txtsenha">
-              <br>
-              <br>
-              <!--Titulo dos dados pessoais-->
-              <div class="text">Dados Pessoais</div>
-              <br>
-              <br>
-              <!--Tabela que segura todos os itens dos dados pessoais do usuario-->
-              <table class="tabela_cadastro">
-                  <!--Primeira linha - Titulo das caixas de texto Data de Nascimento e Sexo-->
-                  <tr>
-                      <!--Colunas titulos das caixas de texto (class="colunas_cadastro_nome")-->
-                      <td class="colunas_cadastro_nome">
-                          <!--titulo das caixas de textos (class="text_box")-->
-                          <div class="text_box">Data de Nascimento</div>
-                      </td>
-                      <!--Colunas titulos das caixas de texto (class="colunas_cadastro_nome")-->
-                      <td class="colunas_cadastro_nome">
-                          <!--titulo das caixas de textos (class="text_box")-->
-                          <div class="text_box">Sexo</div>
-                      </td>
-                  </tr>
-                  <!--Primeira linha - Titulo das caixas de texto Data de Nascimento e Sexo-->
-                  <tr>
-                      <!--Colunas caixas de textos (class="colunas_cadastro_caixa")-->
-                      <td class="colunas_cadastro_caixa">
-                          <!--Caixas de textos (class="box_text2")-->
-                          <input id="dataNascimento" type="number" name="txtdatanasc" maxlength="10">
-                      </td>
-                      <!--Colunas caixas de textos (class="colunas_cadastro_caixa")-->
-                      <td class="colunas_cadastro_caixa">
-                          <input type="radio" name="rdosexo" value="M" >Masculino
-                        <input type="radio" name="rdosexo" value="F" checked>Feminino
-                      </td>
-                  </tr>
-                 <tr>
-                      <td class="colunas_cadastro_nome">
-                           <div class="text_box">Telefone</div>
-                     </td>
-                      <td class="colunas_cadastro_nome">
-                           <div class="text_box">Celular</div>
-                     </td>
-                  </tr>
-                  <tr>
-                      <td class="colunas_cadastro_caixa">
-                          <input id="telefone" type="text" name="txttelefone" maxlength="14">
-                      </td>
-                      <td class="colunas_cadastro_caixa">
-                          <input id="celular" type="text" name="txtcelular" maxlength="15" >
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="colunas_cadastro_nome">
-                           <div class="text_box">CPF</div>
-                      </td>
-                      <td class="colunas_cadastro_nome">
-                           <div class="text_box">RG</div>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="colunas_cadastro_caixa">
-                          <input id="cpf" name="txtcpf" type="text" maxlength="14">
-                      </td>
-                      <td class="colunas_cadastro_caixa">
-                          <input id="rg" name="txtrg" type="text" maxlength="12">
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="colunas_cadastro_nome" colspan="2">
-                           <div class="text_box">CEP </div>
+              <div class="dados-direita">
 
-                           <div  class="logradouro_texto">Logradouro </div>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="colunas_cadastro_caixa" colspan="2">
-                      <input id="cep" type="text" name="txtcep" maxlength="9">
+                <!-- <div class="caixa-dados">
+                  <label for="logradouro">Logradouro</label>
+                  <input id="logradouro" type="text" name="txtlogradouro">
+                </div>
+                <div class="caixa-dados">
+                  <label for="cidade">Cidade</label>
+                  <select id="cidade" name="txtcidade">
+                     <option value="">Osasco</option>
+                     <option value="">São Paulo</option>
+                     <option value="">Barueri</option>
+                     <option value="">Itapevi</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
+            <div class="dados-endereco">
+              <div class="caixa-dados small">
+                <label for="numero">Numero</label>
+                <input id="numero" class="" type="number" name="txtnumero">
+              </div>
+              <div class="caixa-dados small">
+                <label>Bairro</label>
+                <input class="" type="text" name="txtbairro">
+              </div>
+              <div class="caixa-dados small">
+                <label for="complemento">Complemento</label>
+                <input id="complemento" class="" type="text" name="txtcomplemento">
+              </div> -->
+            </div>
 
-                      <input class="logradouro" type="text" name="txtlogradouro">
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="colunas_cadastro_nome" colspan="2">
-                          <div class="text_box">Numero</div>
-                          <div class="bairro_texto">Bairro</div>
-                          <div class="text_box">Complemento</div>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="colunas_cadastro_caixa" colspan="2">
-                          <input class="numero" type="number" name="txtnumero">
-                          <input class="bairro" type="text" name="txtbairro">
-                          <input class="complemento" type="text" name="txtcomplemento">
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="colunas_cadastro_nome">
-                           <div class="text_box">Estado</div>
-                      </td>
-                      <td class="colunas_cadastro_nome">
-                           <div class="text_box">Cidade</div>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="colunas_cadastro_caixa">
-                        <select class="box_text2" name="txtestado">
-                          <option value="itemcidade">São Paulo</option>
-                          <option value="itemcidade">Rio de janeiro</option>
-                          <option value="itemcidade">Espirito Santo</option>
-                        </select>
-                      </td>
-                      <td class="colunas_cadastro_caixa">
-                        <select class="box_text2" name="txtcidade">
-                          <option value="itemcidade">Osasco</option>
-                          <option value="itemcidade">São Paulo</option>
-                          <option value="itemcidade">Barueri</option>
-                          <option value="itemcidade">Itapevi</option>
-                        </select>
-                      </td>
-                  </tr>
-              </table>
-              <br>
-              <br>
-              <input class="btnsalvar" type="submit" name="btnatualizar" value="Atualizar">
-          </form>
-      </div>
+            <div class="campo-salvar">
+              <input class="btn" type="submit" name="btncadastrar" value="Alterar">
+            </div>
+
+          </div>
+        </form>
+    </div>
   </div>
 </div>
+<?php require_once('footer.php'); ?>
+<script src="../../js/jquery.min.js"></script>
 <script>
-$("#teste").change(function(){
+$("#foto").change(function(){
    if($(this).val()){ // só se o input não estiver vazio
       var img = this.files[0]; // seleciona o arquivo do input
       var f = new FileReader(); // cria o objeto FileReader
@@ -181,7 +202,21 @@ $("#teste").change(function(){
    }
 });
 </script>
-<script type="text/javascript">
+<script>
+$('#cep').focusout(function(){
+    var cep = $('#cep');
+    $.ajax({
+    type:'post',
+    datatype:'jsonp',
+    url:'http://www.viacep.com.br/ws/'+cep.val()+'/json/',
+    success: function(dados){
+      console.log(url);
+      // console.log(dados);
+    }
+  });
+});
+</script>
+<script>
 function mascara(o,f){
             v_obj=o
             v_fun=f

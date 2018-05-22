@@ -1,16 +1,25 @@
+<?php
+
+  include('../links.php');
+
+  $links = alterarLinks(true);
+  $paths = alterarCaminhos(true);
+
+ ?>
 <html>
     <head>
       <title>Modal Detalhes</title>
-        <link rel="stylesheet" type="text/css" href="css/style_detalhes.css"/>
-        <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
+      <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style_detalhes.css"/>
     </head>
+      <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
     <script>
-        $(document).ready(function() {
-          $(".fechar").click(function() {
-            $(".modalContainerDetalhes").slideToggle(1000);
-          });
+      $(document).ready(function() {
+        $(".fechar").click(function() {
+          $(".modalContainerDetalhes").fadeOut(500);
         });
-	</script>
+      });
+    </script>
     <body>
         <a href="#" class="fechar">
             <img src="img/excluir.png" alt="excluir">

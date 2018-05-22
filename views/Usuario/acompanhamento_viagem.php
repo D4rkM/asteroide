@@ -4,17 +4,30 @@
   Detalhes: Está pagina tem como objetivo listar as viagens do usuario
   Obs: Página principal contém menu e rodapé para inserir as outras páginas
   -->
+  <?php
+  include('../../links.php');
+
+  $links = alterarLinks(false);
+  $paths = alterarCaminhos(false);
+
+ ?>
 <link rel="stylesheet" href="../../css/style.css">
+<?php require_once('nav.php'); ?>
 <!-- Conteúdo da página -->
-<div class="duvidas-container">
-  <!--Container responsael por segurar o titulo da pagima -->
-  <div class="titulo-conteudo-padrao">
-    <h2>ACOMPANHE SUA VIAGEM</h2>
-  </div>
+<div class="titulo-conteudo-padrao">
+  <h2>Acompanhamento da Viagem</h2>
+</div>
+<div class="conteudo_acompanhamento">
+  <div class="menu_lateral2">
+  <ul>
+   <a href="editar_perfil.php"><li>Editar Perfil</li></a>
+   <a href="interacao_usuario.php"><li>Interação</li></a>
+   <a href="historico_viagem.php"><li>Historico de Compra</li></a>
+   <a href="acompanhamento_viagem.php"><li>Acompanhamento da viagem</li></a>
+  </ul>
+</div>
   <!--Container que segura todas as informações da pagina -->
   <div class="acompanhamento_container">
-     <!--Segura todos os itens do cadastro-->
-      <div class="acompanhamento">
         <div class="info_viagem">
           <ul>
             <center><li><strong>Informações da Viagem</strong></li></center>
@@ -37,17 +50,17 @@
           <strong>Proximas Paradas:</strong>
         </div>
         <div class="parada">
-          <img src="img/local3.png" alt="local">Paraty - RJ
+          <img src="../../img/local3.png" alt="local">Paraty - RJ
         </div>
         <div class="parada">
-          <img src="img/local3.png" alt="local">Angra dos Reis - RJ
+          <img src="../../img/local3.png" alt="local">Angra dos Reis - RJ
         </div>
         <div class="parada">
-          <img src="img/icon.png" alt="local">Itaguai - RJ
+          <img src="../../img/icon.png" alt="local">Itaguai - RJ
         </div>
         <div class="parada">
-          <img src="img/local3.png" alt="local">Duque de Caxias - RJ
+          <img src="../../img/local3.png" alt="local">Duque de Caxias - RJ
         </div>
-      </div>
   </div>
 </div>
+<?php require_once('footer.php'); ?>

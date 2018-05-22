@@ -278,78 +278,6 @@ $("#foto").change(function(){
 		<input class="salvar_funcionario" type="submit" name="btnCadastrarFunc" value="Alterar">
   </div>
 	</form>
-<!-- Editar da pagina de POSTOS RODOVIARIO -->
-<?php
-} if($pagina=='postos'){
-	require_once("../controllers/postos_controller.php");
-	require_once("../models/postos_class.php");
-
-	$postos_controller = new controllerPostos();
-	$dadosPostos = $postos_controller::Buscar($id);
-?>
-<script src="js/jquery.min.js"></script>
-<script>
-$("#foto").change(function(){
-   if($(this).val()){ // só se o input não estiver vazio
-      var img = this.files[0]; // seleciona o arquivo do input
-      var f = new FileReader(); // cria o objeto FileReader
-      f.onload = function(e){ // ao carregar a imagem
-         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
-      }
-      f.readAsDataURL(img); // lê o arquivo
-   }
-});
-</script>
-	<div class="tltModal">
-	 Edição de Postos Rodoviarios
-	</div>
-	<form class="frmCadDuvida" method="post" action="router.php?controller=postos&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
-	      <div class="text_postos">Nome do Posto Rodoviario</div>
-	      <input class="box_postos" type="text" name="txtnome" value="<?php echo $dadosPostos->nome?>">
-	      <div class="text_postos">Imagem</div>
-				<label for="foto">
-	        <div  class="adicionar_frota" id="imagem">
-	          <img id="id_sua_img" src="<?php echo $dadosPostos->imagem ?>" alt="foto"/>
-	        </div>
-        </label>
-      <!--Botão para selecionar a foto-->
-      <div class="input-foto">
-        <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
-      </div>
-	      <div class="text_postos">Texto</div>
-	      <input class="box_postos" type="text" name="txttexto" value="<?php echo $dadosPostos->texto?>">
-	      <div class="text_postos">Link de Localização</div>
-	      <input class="box_postos" type="text" name="txtlocalizacao" value="<?php echo $dadosPostos->localizacao?>">
-	      <div class="text_postos">Logradouro</div>
-	      <input class="box_postos" type="text" name="txtlogradouro" value="<?php echo $dadosPostos->logradouro?>">
-	      <div class="text_postos">Estados</div>
-	      <select class="select_onibus" name="estado">
-					<?php
-							require_once("../controllers/estados_postos_controller.php");
-							require_once("../models/estados_postos_class.php");
-
-							$controllerEstadosPostos = new controllerEstadosPostos();
-							$list = $controllerEstadosPostos::Listar();
-							//echo("<script>alert(".$list[$cont]->id.");</script>");
-
-							$cont = 0;
-							$selected = '';
-							while($cont < count($list)){
-								if ($list[$cont]->id == $dadosPostos->estado)	{
-
-								$selected = 'selected';
-								}
-						?>
-							<option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
-									   <?php echo($list[$cont]->estado)?></option>
-							<?php
-									$cont+=1;
-									$selected = '';
-									}
-				      ?>
-				</select>
-	      <input class="salvar_postos" type="submit" name="btnsalvar" value="Alterar">
-	</form>
 	<!-- Editar da pagina de TIPO DE DESTINO -->
 	<?php
 }if($pagina=='tipo_destino'){
@@ -368,24 +296,6 @@ $("#foto").change(function(){
 		    <input class="box_postos" type="text" name="txttipo" value="<?php echo $dadosDestino->tipo?>">
 		    <input class="salvar_postos" type="submit" name="btnsalvar" value="Alterar">
 			</form>
-<!-- Editar da pagina de ESTADOS DOS POSTOS RODOVIARIOS -->
-<?php
-}if($pagina=='estado_postos'){
-	require_once("../controllers/estados_postos_controller.php");
-	require_once("../models/estados_postos_class.php");
-
-	$estados_controller = new controllerEstadosPostos();
-	$dadosEstados = $estados_controller::Buscar($id);
-?>
-		<div class="tltModal">
-			Edição de Estados dos Postos Rodoviarios
-		</div>
-
-		<form method="post" action="router.php?controller=estado_postos&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
-			<div class="text_postos">Nome do estado</div>
-	    <input class="box_postos" type="text" name="txtestado" value="<?php echo $dadosEstados->estado?>">
-	    <input class="salvar_postos" type="submit" name="btnsalvar" value="Alterar">
-		</form>
 <!-- Editar da PARADAS -->
 <?php
 }if($pagina=='parada'){
@@ -663,6 +573,65 @@ $("#foto").change(function(){
 		<input class="salvar_postos_rodoviarios" type="submit" name="btnCadastrar" value="Cadastrar">
 	</div><input class="salvar_home" type="submit" name="" value="Alterar">
 		</form>
+		<!-- Cadastro de Postos Rodoviarios -->
+		<?php
+	}if($pagina=='postos_rodoviarios'){
+
+	 	require_once('../controllers/postos_rodoviarios_controller.php');
+	 	require_once('../models/postos_rodoviarios_class.php');
+
+	 	$postos_rodoviarios_controller = new controllerCaminho();
+	 	$dadosCaminho = $postos_rodoviarios_controller::Buscar($id);
+
+	 ?>
+	 <div class="tltModal">
+	 	Edição de Postos Rodoviarios
+	 </div>
+	 <form class="frmCadDuvida" method="post" action="router.php?controller=postos_rodoviarios&modo=editar" enctype="multipart/form-data">
+	   <div class="cadastro_rodoviarios">
+	     <div class="text_duvida">Nome do posto</div>
+	     <input class="box_duvida" type="text" name="nome">
+	     <div class="text_duvida">Imagme do Posto</div>
+	     <label for="foto">
+	       <div  class="adicionar_imagem" id="imagem">
+	         <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
+	       </div>
+	     </label>
+	     <!--Botão para selecionar a foto-->
+	     <div class="input-foto">
+	       <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
+	     </div>
+	     <div class="text_duvida">Cep</div>
+	     <input class="box_duvida" type="text" name="cep">
+	     <div class="text_duvida">Logradouro</div>
+	     <input class="box_duvida" type="text" name="logradouro">
+	     <div class="text_duvida">Numero</div>
+	     <input class="box_duvida" type="text" name="numero">
+	     <div class="text_duvida">Complemento</div>
+	     <input class="box_duvida" type="text" name="complemento">
+	     <div class="text_duvida">Bairro</div>
+	     <input class="box_duvida" type="text" name="bairro">
+	     <div class="text_duvida">Cidade</div>
+	       <select class="select_postos_rodoviarios" name="cidade">
+	         <?php
+	             require_once("../../controllers/cidade_controller.php");
+	             require_once("../../models/cidade_class.php");
+
+	             $controllerCidade = new controllerCidade();
+	             $list=$controllerCidade::Listar();
+	             $cont = 0;
+
+	             while($cont < count($list)){
+	              ?>
+
+	              <option value="<?php echo $list[$cont]->id?>">
+	                <?php echo($list[$cont]->nome_cidade) ?></option>
+	              <?php
+	              $cont+=1;
+	            }
+	               ?>
+	       </select>
+	     <input class="salvar_postos_rodoviarios" type="submit" name="btnCadastrar" value="Cadastrar">
 		<?php
 	  }
 		 ?>
