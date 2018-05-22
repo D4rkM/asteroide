@@ -93,39 +93,49 @@
     <div class="conteudo_interacao">
       <div class="interacao_container">
         <?php
-        $a = 0;
-        while($a < 5){ ?>
+        // $a = 0;
+        // while($a < 5){
+          require_once("../controllers/interacao_controller.php");
+          require_once("../models/interacao_class.php");
+
+          $controller_interacao = new controllerInteracao();
+          $list = $controller_interacao::Lista();
+
+          // if($list->ativo == 1){
+          $cont = 0;
+          while($cont < count($list)){
+           ?>
         <div class="cardbox">
           <div class="cardbox-title">
             <div class="foto-user">
-              <img src="<?php echo($links); ?>img/client.png" alt="user">
+              <img src="<?php echo($links); ?><?php echo $list[$cont]->imagem_usuario ?>" alt="user">
               <h3>
-                Medusa
+                <?php echo $list[$cont]->nome_usuario ?>
               </h3>
             </div>
             <div class="cardbox-local">
               <img src="<?php echo($links); ?>img/icon/location.svg" alt="local">
-              Angra dos Reis
+              <?php echo $list[$cont]->local ?>
             </div>
           </div>
           <div class="cardbox-content">
             <div class="cardbox-text">
-              <h3 class="subtitulo">"AMEI A VIAGEM!!!!"</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. lorem Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p><?php echo $list[$cont]->comentario ?></p>
             </div>
             <div class="cardbox-img">
-              <img class="" src="<?php echo($links); ?>img/praia-rio.jpg" alt="angra">
+              <img class="" src="../<?php echo $list[$cont]->imagem ?>" alt="angra">
             </div>
           </div>
         </div>
       <?php
-      $a++;
-    } ?>
+    //   $a++;
+    // }
+    $cont += 1;
+  }
+  // }
+    ?>
       </div>
     </div>
-
-
     <?php require_once('footer.php'); ?>
-
   </body>
 </html>

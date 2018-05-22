@@ -14,18 +14,42 @@
           $controllerUsuario = new controllerUsuario();
           $controllerUsuario::Novo();
           break;
+
+        case 'editar':
+          $controllerUsuario = new controllerUsuario();
+          $controllerUsuario::Editar($_GET['id']);
+          break;
+
+        case 'buscar':
+          $controllerUsuario = new controllerUsuario();
+          $controllerUsuario::Buscar();
+          break;
+
+
+      case 'login':
+          $controllerUsuario = new controllerUsuario();
+          $controllerUsuario::Logar();
+          //echo ("okkkkkkkkkkk");
+          require_once('index.php');
+          break;
       }
+      break;
 
-    case 'login':
-      require_once('controllers/login_controller.php');
-      require_once('models/login_class.php');
-
+    case 'interacao':
+      require_once('controllers/interacao_controller.php');
+      require_once('models/interacao_class.php');
       switch ($modo) {
-        case 'logar':
-          $controllerLogin = new controllerLogin();
-          $controllerLogin::Logar();
-        break;
+        case 'novo':
+          $controllerInteracao = new controllerInteracao();
+          $controllerInteracao::Novo();
+          break;
+
+        case 'lista':
+            $controllerInteracao = new controllerInteracao();
+            $controllerInteracao::Lista();
+            break;
       }
+      break;
   }
 
  ?>

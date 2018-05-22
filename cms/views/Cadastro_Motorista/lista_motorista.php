@@ -1,5 +1,6 @@
 <div class="lista_motorista">
   <div class="item_motorista">Nome</div>
+  <div class="item_motorista">Imagem</div>
   <div class="item_motorista">Email</div>
   <div class="item_motorista">Data de Nasc.</div>
   <div class="item_motorista">Ativo</div>
@@ -37,6 +38,7 @@ $(document).ready(function() {
 ?>
 <div class="container_lista_motorista">
   <div class="itens_mostrar_motorista"><?php echo $list[$cont]->nome ?></div>
+  <div class="itens_mostrar_motorista"> <img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>"alt=""> </div>
   <div class="itens_mostrar_motorista"><?php echo $list[$cont]->email ?></div>
   <div class="itens_mostrar_motorista"><?php echo $list[$cont]->data_nasc ?></div>
   <div class="itens_mostrar_motorista"><?php echo $list[$cont]->ativo ?></div>

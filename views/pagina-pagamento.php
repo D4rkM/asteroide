@@ -23,6 +23,12 @@
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
     <script src="<?php echo($links); ?>js/jquery.min.js"></script>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        function Finalizar(){
+          alert('Compra finalizada com Sucesso!');
+        }
+    </script>
     <script>
       // Modal Login
       $(document).ready(function() {
@@ -68,148 +74,70 @@
     </div>
        <?php require_once('nav.php'); ?>
        <div class="conteudo_pagamento">
-         <div class="pagamento_container">
-           <div class="filtro_origem">
-             <div class="title_pagamento">
-               Filtro de Origem
-             </div>
-             <div class="origem">
-               <table class="tabela_filtro">
-                 <tr class="coluna_filtro">
-                   <td class="linha_texto">
-                     Origem:
-                   </td>
-                   <td class="linha_texto">
-                     Destino:
-                   </td>
-                   <tr class="coluna_filtro">
-                   <td class="linha_campo">
-                       <input class="txt_origem" type="text" name="txt_origem" value="">
-                   </td>
-                   <td class="linha_campo">
-                     <input class="txt_destino" type="text" name="txt_origem" value="">
-                   </td>
-                 </tr>
-               </tr>
-                 <tr class="coluna_filtro">
-                   <td class="linha_texto">
-                     Data de Ida:
-                   </td>
-                   <td class="linha_texto">
-                     Data de volta:
-                   </td>
-                   <tr class="coluna_filtro">
-                     <td class="linha_campo">
-                       <input class="txt_texto" type="date" name="txt_origem" value="">
-                     </td>
-                     <td class="linha_campo">
-                       <input class="txt_texto" type="date" name="txt_origem" value="">
-                     </td>
-                   </tr>
-                 </tr>
-               </table>
-               </table>
-               <div class="botao_confirma">
-                 <button class="btn_confirma" type="submit" name="btn_confirma">Buscar</button>
-               </div>
-             </div>
+       <div class="container_pagamento">
+         <div class="container_pagamento2">
+           <div class="nome_passagem">Passagem de Onibus de São Paulo - SP para Rio de Janeiro - RJ</div>
+
+           <div class="tempo_compra">
+             <div class="momentos">Horarios</div>
+             <div class="momentos">Identificação</div>
+             <div class="momentos_pagamento">Pagamento</div>
            </div>
-           <div class="estagio_pagamento">
-             <div class="fundo-estagio">
-               <div class="placa-estagio">
-                 <img src="<?php echo($links); ?>img/icon/ponto.png" alt="estado">
-               </div>
-               <div class="placa-estagio">
-                 <img src="<?php echo($links); ?>img/icon/ponto.png" alt="estado">
-               </div>
-               <div class="placa-estagio">
-                 <img src="<?php echo($links); ?>img/icon/ponto.png" alt="estado">
-               </div>
-               <div class="onibus-estagio">
-                 <img src="<?php echo($links); ?>img/icon/bus.png" alt="">
-               </div>
+
+           <div class="pague">
+             <div class="cont_pague">
+                 <div class="text_pague">Bandeiras</div>
+                <div class="bandeiras">
+                  <input type="radio" name="rdband" value="1">
+                  <img class="img_pague" src="../img/icon/elo-icon.png" alt="elo">
+                </div>
+                <div class="bandeiras">
+                  <input type="radio" name="rdband" value="2">
+                  <img class="img_pague" src="../img/icon/Visa-icon.png" alt="">
+                </div>
+                <div class="bandeiras">
+                  <input type="radio" name="rdband" value="3">
+                  <img class="img_pague" src="../img/icon/mastercard-icon.png" alt="">
+                </div>
+                <div class="bandeiras">
+                  <input type="radio" name="rdband" value="4">
+                  <img class="img_pague" src="../img/icon/americanexpress-icon.png" alt="">
+                </div>
              </div>
-           </div>
-           <div class="pagamento">
-             <div class="propriedades">
-               <div class="atributos">
-                 <div class="bandeiras">
-                   <div class="segura_div">
-                     <div class="tit_banderia">
-                       Bandeira
-                     </div>
-                     <div class="segura">
-                       <div class="quadradinho">
-
-                       </div>
-                       <div class="quadrados">
-
-                       </div>
-                     </div>
-                     <div class="segura">
-                       <div class="quadradinho">
-
-                       </div>
-                       <div class="quadrados">
-
-                       </div>
-                     </div>
-                     <div class="segura">
-                       <div class="quadradinho">
-
-                       </div>
-                       <div class="quadrados">
-
-                       </div>
-                     </div>
-                     <div class="segura">
-                       <div class="quadradinho">
-
-                       </div>
-                       <div class="quadrados">
-
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="dados">
-                   <div class="tit_dados">
-                     Dados do titular
-                   </div>
-                   <div class="nada">
-
-                   </div>
-                   <div class="seg_preenchimento">
-                     <div class="controla_input">
-                       <input type="text" name="Nome" value="">
-                     </div>
-                     <div class="controla_input">
-                       <input type="text" name="Nome" value="">
-                     </div>
-                     <div class="controla_input">
-                       <input type="text" name="Nome" value="">
-                     </div>
-                     <div class="controla_input">
-                       <input type="text" name="Nome" value="">
-                     </div>
-
-                     <!-- div que contenha uma seleção data visivel para o usuario -->
-
-                     <div class="controla_input">
-                       <input type="text" name="Nome" value="">
-                     </div>
-                   </div>
-                 </div>
-                 <div class="parcelamento">
-
-                 </div>
-               </div>
+             <div class="line_vertical"></div>
+             <div class="registro_pague">
+               <div class="text_pague">Dados do Titular</div>
+               <div class="box_pague"><input type="text" name="txtnome" value="" placeholder="Nome"></div>
+               <div class="box_pague"><input type="text" name="txtcpf" value="" placeholder="cpf"></div>
+               <div class="box_pague"><input type="text" name="txtcartao" value="" placeholder="Numero do cartao"></div>
+               <select class="combo_pague" name="mes_val">
+                 <option value="">Janeiro</option>
+                 <option value="">Fevereiro</option>
+                 <option value="">Março</option>
+               </select>
+               <select class="combo_pague" name="ano_val">
+                 <option value="">2018</option>
+                 <option value="">2019</option>
+                 <option value="">2020</option>
+               </select>
+               <div class="box_pague"><input type="text" name="txtcodigo" value="" placeholder="Codigo de segurança"></div>
              </div>
+             <div class="line_vertical"></div>
+             <div class="cont_pague">
+               <div class="text_pague">Parcelamento</div>
+               <select class="combo_pague" name="ano_val">
+                 <option value="">1x</option>
+                 <option value="">2x</option>
+                 <option value="">3x</option>
+               </select>
+             </div>
+            <div class="finalizar">
+              <a href="../pagina-pagamento.php" onclick="Finalizar()">
+                Finalizar</a></div>
            </div>
          </div>
        </div>
-
+       </div>
     <?php require_once('footer.php'); ?>
-
   </body>
 </html>

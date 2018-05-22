@@ -16,7 +16,7 @@
 
 <!-- Conteúdo da página -->
 <div class="conteuno_pagina_usuario">
-  <?php require_once('../nav.php'); ?>
+  <?php require_once('nav.php'); ?>
   <!--Container que segura todas as informações da pagina -->
    <div class="pagina_usuario_container">
 
@@ -32,7 +32,12 @@
      <div class="conteudo_usuario">
 
        <div class="container_informacoes">
-         <img class="image_user" src="img/user.png" alt="user">
+         <div class="foto-user">
+           <img src="<?php echo($links); ?>../img/client.png" alt="user">
+           <h3>
+             Medusa
+           </h3>
+         </div>
          <div class="informacoes_dados">
            <strong>Nome:</strong>Bruna Sousa de Almeida
          </div>
@@ -59,7 +64,12 @@
        </div>
 
        <div class="container_informacoes">
-         <img class="image_user" src="img/bus.png" alt="user">
+         <div class="foto-user">
+           <img src="<?php echo($links); ?>../img/client.png" alt="user">
+           <h3>
+             Medusa
+           </h3>
+         </div>
          <div class="informacoes_dados">
            <strong>Informações da ultima viagem</strong>
          </div>
@@ -87,4 +97,5 @@
 
      </div>
    </div>
+   <?php require_once('footer.php'); ?>
  </div>

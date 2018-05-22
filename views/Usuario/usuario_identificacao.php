@@ -1,107 +1,116 @@
-<div class="conteudo_identificacao">
-  <div class="identificacao_container">
-    <div class="filtro_origem">
-      <div class="title_pagamento">
-        Filtro de Origem
-      </div>
-      <div class="origem">
-        <table class="tabela_filtro">
-          <tr class="coluna_filtro">
-            <td class="linha_texto">
-              Origem:
-            </td>
-            <td class="linha_texto">
-              Destino:
-            </td>
-            <tr class="coluna_filtro">
-            <td class="linha_campo">
-                <input class="txt_texto" type="text" name="txt_origem" value="">
-            </td>
-            <td class="linha_campo">
-              <input class="txt_texto" type="text" name="txt_origem" value="">
-            </td>
-          </tr>
-        </tr>
-          <tr class="coluna_filtro">
-            <td class="linha_texto">
-              Data de Ida:
-            </td>
-            <td class="linha_texto">
-              Data de volta:
-            </td>
-            <tr class="coluna_filtro">
-              <td class="linha_campo">
-                <input class="txt_texto" type="text" name="txt_origem" value="">
-              </td>
-              <td class="linha_campo">
-                <input class="txt_texto" type="text" name="txt_origem" value="">
-              </td>
-            </tr>
-          </tr>
-        </table>
-        <div class="botao_confirma">
-          <input class="btn_confirma" type="submit" name="btn_confirma" value="Confirma"></button>
-        </div>
-        </div>
-      </div>
-      <div class="estagio_pagamento">
-        <div class="fundo-estagio">
-          <div class="placa-estagio">
-            <img src="img/icon/ponto.png" alt="estado">
-          </div>
-          <div class="placa-estagio">
-            <img src="img/icon/ponto.png" alt="estado">
-          </div>
-          <div class="placa-estagio">
-            <img src="img/icon/ponto.png" alt="estado">
-          </div>
-          <div class="onibus-estagio">
-            <img src="img/icon/bus.png" alt="">
-          </div>
-        </div>
-      </div>
-        <div class="titulo_texto">
-          Faça seu login ou cadastre-se para logar
-        </div>
-        <div class="pagamento">
-            <table class="tabela_usuario">
-              <tr class="coluna_usuario">
-                <td class="linha_campo">
-                  Usuario:
-                </td>
-              </tr>
-              <tr class="coluna_usuario">
-                <td class="linha_campo">
-                  <input class="txt_texto" type="text" name="txt_origem" value="">
-                </td>
-              </tr>
-              <tr class="coluna_usuario">
-                <td class="linha_campo">
-                  Senha:
-                </td>
-              </tr>
-              <tr class="coluna_usuario">
-                <td class="linha_campo">
-                  <input class="txt_texto" type="text" name="txt_origem" value="">
-                </td>
-              </tr>
-              <tr class="coluna_usuario">
-              <td class="linha_campo">
-                <input class="btn_entrar" type="submit" name="btn_entrar" value="entrar"></button>
-              </td>
-              </tr>
-            </table>
-            <table class="tabela_usuario">
-              <tr class="coluna_usuario">
-                <td class="linha_img"><img class="img_caixa" src="img/icon/facebook.png" alt="facebook"></td>
-                <td class="linha_img"><img class="img_caixa" src="img/icon/facebook.png" alt="facebook"></td>
-              </tr>
-              <tr class="coluna_usuario">
-                <td class="linha_campo">Facebook</td>
-                <td class="linha_campo">Google</td>
-              </tr>
-            </table>
-        </div>
+<?php
 
-  </div>
-</div>
+  include('../../links.php');
+
+  $links = alterarLinks(false);
+  $paths = alterarCaminhos(false);
+
+ ?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta name="author" content="Magno">
+    <!--
+      Data de modificação: 19/03/2018
+      Obs: Página principal contém menu e rodapé para inserir as outras páginas
+    -->
+    <title>Home - Bem vindo</title>
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/normalize.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/style.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/style_login.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/style_detalhes.css">
+    <script src="<?php echo($links); ?>js/jquery.min.js"></script>
+    <script>
+      // Modal Login
+      $(document).ready(function() {
+            $(".login").click(function() {
+              $(".modalContainerLogin").fadeIn(500);
+            });
+      });
+      //função para abrir a modal
+      function Login(){
+          $.ajax({
+              type: "POST",
+              url: "views/login.php",
+              success: function(dados){
+                  $('.modal-login').html(dados);
+               }
+              });
+          }
+      // -------------------------------------------------------------------------------------
+
+      // Modal de detalhes
+      $(document).ready(function() {
+            $(".detalhes").click(function() {
+              $(".modalContainerDetalhes").slideToggle(1000);
+            });
+      });
+
+      function Detalhes(){
+          $.ajax({
+              type: "POST",
+              url: "views/detalhes.php",
+              success: function(dados){
+                  $('.modal-detalhes').html(dados);
+               }
+              });
+          }
+      // --------------------------------------------------------------------------------------
+    </script>
+  </head>
+  <body>
+    <div class="modalContainerLogin">
+      <div class="modal-login">
+      </div>
+    </div>
+       <?php require_once('../nav.php'); ?>
+       <div class="conteudo_identificacao">
+       <div class="container_identificacao">
+         <div class="container_identificacao2">
+           <div class="nome_passagem">Passagem de Onibus de São Paulo - SP para Rio de Janeiro - RJ</div>
+
+           <div class="tempo_compra">
+             <div class="momentos">Horarios</div>
+             <div class="momentos_identificacao">Identificação</div>
+             <div class="momentos">Pagamento</div>
+           </div>
+
+           <div class="identifi_user">
+             <form class="" action="" method="post">
+               <div class="consulta_user">
+                 <div class="text_ident">Identifique - se para continuar sua compra!</div>
+                 <div class="text_ident2">Usuario:</div>
+                 <input class="box_ident" type="text" name="txtusuario" value=""> <br> <br>
+                 <div class="text_ident2">Senha:</div>
+                 <input class="box_ident" type="password" name="txtsenha" value=""><br> <br>
+                 <button class="btn_confirma" type="submit" name="button">Entrar</button>
+                 <div class="itens-center">
+                   <img src="<?php //echo($links); ?>../../img/Facebook.png" alt="redes-sociais">
+                 </div>
+                 <div class="itens-center">
+                   <img src="<?php //echo($links); ?>../../img/Google.png" alt="redes-sociais">
+                 </div>
+                 <div class="itens-center">
+                   <img src="<?php //echo($links); ?>../../img/Twitter.png" alt="redes-sociais">
+                 </div>
+                 <div class="text-center">
+                   Não tem conta ainda?
+                   <a href="views/Usuario/cadastro_usuario.php"><strong style="color:#162E44;">Cadastre-se</strong></a>
+                 </div>
+               </div>
+             <div class="Continua">
+               <a href="../pagina-pagamento.php">
+                Continuar
+               </a>
+             </div>
+             </form>
+           </div>
+         </div>
+       </div>
+       </div>
+    <?php require_once('../footer.php'); ?>
+  </body>
+</html>

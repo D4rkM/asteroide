@@ -54,7 +54,7 @@
               type: "POST",
               url: "views/detalhes.php",
               success: function(dados){
-                  $('.modal-detalhes').html(dados);
+                  $('.modal_detalhes').html(dados);
                }
               });
           }
@@ -66,6 +66,11 @@
       <div class="modal-login">
       </div>
     </div>
+
+           <div class="modalContainerDetalhes">
+               <div class="modal_detalhes">
+               </div>
+           </div>
        <?php require_once('nav.php'); ?>
 
        <!--
@@ -76,12 +81,7 @@
          Obs: Página principal contém menu e rodapé para inserir as outras páginas
          -->
 
-       <div class="modalContainerDetalhes">
-           <div class="modal_detalhes">
-           </div>
-       </div>
        <div class="imagem-de-fundo" style="background-image:url('<?php echo($links); ?>img/inf_legislacao.jpg');">
-
        </div>
            <!-- Conteúdo da página -->
            <div class="conteudo-ranking">

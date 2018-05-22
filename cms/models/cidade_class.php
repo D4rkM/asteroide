@@ -41,7 +41,7 @@ class Cidade{
 
       $listCidade[$cont]->id = $rs['id'];
       // $listCidade[$cont]->id_estado = $rs['id_estado'];
-      $listCidade[$cont]->nom_cidade = $rs['nom_cidade'];
+      $listCidade[$cont]->nome_cidade = $rs['cidade'];
 
 
       $cont+=1;

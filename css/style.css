@@ -110,6 +110,21 @@ label{
   text-transform: uppercase;
   transition: 1s;
 }
+.btn2{
+  /* font-family:"Nunito",sans-serif; */
+  cursor: pointer;
+  align-self: flex-end;
+  color: #FFFFFF;
+  background-color: #458665;
+  border:none;
+  outline: 0;
+  font-weight: bold;
+  padding:15px 30px;
+  border-radius:5px;
+  width: auto;
+  text-transform: uppercase;
+  transition: 1s;
+}
 /* Deixa o botão mais claro quando passa o mouse em cima */
 .btn:hover{
   background-color: #4d9b61;
@@ -182,9 +197,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* ------------------------------------------------------------------------- */
-
 /* Configurações do menu superior */
-
 /* Container do menu */
 .menu-container{
   display: flex;
@@ -243,7 +256,7 @@ body::-webkit-scrollbar-thumb {
   .submenu li{
     text-align: left;
     width:130px;
-  	height:85px;
+  	height:50px;
     padding: 20px 10px;
     /*background-color: green;*/
   }
@@ -254,7 +267,7 @@ body::-webkit-scrollbar-thumb {
 
 .itens-menu:hover>.submenu{
   /* width:130px; */
-	height:115px;
+	height:250px;
 	opacity:1;
 	overflow:visible;
 	/* transition:1s; */
@@ -295,10 +308,7 @@ body::-webkit-scrollbar-thumb {
   margin-right: 25px;
 }
 /* ------------------------------------------------------------------------- */
-
 /* Conteudo das páginas */
-
-
 /* Pagina Home */
 .conteudo{
   /* display: flex;
@@ -311,6 +321,45 @@ body::-webkit-scrollbar-thumb {
 
 /* Pagina Home */
 /* area de video */
+
+.filtro_busca{
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  position: absolute;
+  position: fixed;
+  margin-left: 50px;
+  margin-top: 100px;
+  border-radius: 15px;
+}
+
+.txt_filtro{
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 20px;
+  margin-top: 5px;
+  color: #458665;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+.txt_filtro2{
+margin-left: 10px;
+font-size: 14px;
+}
+.box_filtro{
+  width: 90%;
+  margin-top: 2px;
+  margin-left: 10px;
+}
+.btn_buscar{
+    width: 50%;
+    height: 30px;
+    margin-top: 60px;
+    margin-left: 25%;
+    border-radius: 15px;
+    background-color: #458665;
+    color: #fff;
+}
 .video-principal{
   display: flex;
   justify-content: center;
@@ -383,7 +432,7 @@ margin: 1.6em 0;
 }
 
 .polaroid {
-  width: 350px;
+  width: 330px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: 1s;
@@ -396,11 +445,11 @@ margin: 1.6em 0;
 
 .polaroid img {
   width: 100%;
-  height: 220px;
+  height: 290px;
 }
 .texto-polaroid {
     text-align: center;
-    padding: 10px 20px;
+    padding: 10px 10px;
 }
 
 .comentarios-pag-inicial{
@@ -444,9 +493,7 @@ margin: 1.6em 0;
   height: 100px;
   border-radius: 1000px;
 }
-
 /* Carrosel de conteudo */
-
 #content {
   display: flex;
   flex-direction: row;
@@ -485,7 +532,7 @@ margin: 1.6em 0;
 
 }
 
-/* **************************************** */
+/* ------------------------------------------------------------------------- */
 /* Conteudo da página de ranking */
 .conteudo-ranking{
   width: 100%;
@@ -560,7 +607,7 @@ margin: 1.6em 0;
   border-radius: 5px;
 }
 
-/* **************************************** */
+/* ------------------------------------------------------------------------- */
 /* Conteudo da página de ranking  modal*/
 .modal{
   width: 60%;
@@ -578,10 +625,6 @@ margin: 1.6em 0;
     position: fixed;
     display: none;
     z-index: 998;
-}
-
-.modal-space{
-
 }
 
 /* ------------------------------------------------------------------------- */
@@ -644,9 +687,7 @@ margin: 1.6em 0;
   font-family: sans-serif;
   font-size: 17px;
 }
-/* ------------------------------------------------------------------------- */
-
-
+/* ------------------------------------------------------------------------- *
 /* Conteudo da página de Trabalhe Conosco */
 
 .conteudo_trabalhe_conosco{
@@ -823,7 +864,6 @@ margin: 1.6em 0;
 }
 
 /* ------------------------------------------------------------------------- */
-
 /* conteudo da pagina de fale conosco */
 .conteudo_fale_conosco{
   width: 100%;
@@ -952,8 +992,8 @@ margin: 1.6em 0;
 
   font-size: 15px;
 }
-
-/* ------------------------------------------------------------------------- */
+/****************************************************/
+/* Pagina de legislação */
 .container-conteudo{
   width: 100%;
   min-height: 1000px;
@@ -982,8 +1022,6 @@ margin: 1.6em 0;
   height: 500px;
   border: solid black 1px;
 }
-
-
 .seg_informacoes{
   width: 1100px;
   height: 700px;
@@ -1216,7 +1254,6 @@ margin: 1.6em 0;
 }
 
 /* ------------------------------------------------------------------------- */
-
 /* Conteudo da página de postos rodoviarios*/
 .inf-postos-rodoviarios{
   width: 1000px;
@@ -1462,7 +1499,6 @@ margin: 1.6em 0;
     margin-bottom: 10px;
 }
 
-
 /*Conteiner que segura as quatros imagens*/
 .servicos-oferecidos{
     display: flex;
@@ -1510,13 +1546,11 @@ margin: 1.6em 0;
 }
 
 /* ------------------------------------------------------------------------- */
-
 /* Pagina do Usuario */
 .conteuno_pagina_usuario{
   width: 100%;
   min-height: 100%;
   height: auto;
-
   padding: 0px;
   margin: 0px;
 }
@@ -1542,7 +1576,18 @@ margin: 1.6em 0;
   height: 500px;
   float: left;
 }
-
+.menu_lateral2{
+  width: 13%;
+  height: 500px;
+  float: left;
+  margin-right: 70px;
+}
+.menu_lateral2 ul{
+  width: 100%;
+  height: 500px;
+  margin: 0px;
+  padding: 0px;
+}
 .menu_lateral ul{
   width: 100%;
   height: 500px;
@@ -1562,8 +1607,24 @@ margin: 1.6em 0;
   font-family: sans-serif;
   font-size: 15px;
 }
+.menu_lateral2 ul li{
+  width: 100%;
+  height: 30px;
+  background-color: #162E44;
+  margin-top: 5px;
+  padding-top: 15px;
+  border-radius: 10px;
 
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 15px;
+}
 .menu_lateral ul li:hover{
+    -webkit-transform: scale(2);
+        -ms-transform: scale(2);
+        transform: scale(0.8);
+}
+.menu_lateral2 ul li:hover{
     -webkit-transform: scale(2);
         -ms-transform: scale(2);
         transform: scale(0.8);
@@ -1572,13 +1633,12 @@ margin: 1.6em 0;
   width: 85%;
   min-height: 500px;
   height: auto;
-  background-color: #088A68;
   float: left;
 }
 
 .container_informacoes{
   width: 40%;
-  height: 280px;
+  height: 400px;
   background-color: #fff;
   margin-left: 6%;
   margin-top: 3%;
@@ -1683,23 +1743,19 @@ margin: 1.6em 0;
     border-radius: 10px;
 }
 /* ------------------------------------------------------------------------- */
-
 /* Pagina de historico */
 .conteudo_historico{
   width: 100%;
-  min-height: 1100px;
+  min-height: 700px;
   height: auto;
-  padding-top: 50px;
-  background-color: #C0C0C0;
 }
 /*Container que segura o conteudo*/
 .historico_container{
-  width: 85%;
-  min-height: 1100px;
+  width: 70%;
+  min-height: 500px;
   height: auto;
-  background-color: #458665;
   margin: auto;
-  border: solid 1px #000;
+  float: left;
 }
 /*Container que segura o titulo da pagina*/
 .title_historico{
@@ -1716,15 +1772,16 @@ margin: 1.6em 0;
 /*Segura todos os itens do historico*/
 .historico{
     width: 70%;
-    height: 950px;
+    height: 500px;
     background-color: #1f405e;
     margin: auto;
     border-radius: 10px;
+    float: left;
 }
 
 .conetudo_left{
   width: 50%;
-  min-height: 920px;
+  min-height: 500px;
   height: auto;
   float: left;
   padding-top: 30px;
@@ -1745,20 +1802,38 @@ box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
 
 .conetudo_rigth{
   width: 50%;
-  min-height: 920px;
+  min-height: 500px;
   height: auto;
   padding-top: 30px;
   float: left;
 }
 
 /* ------------------------------------------------------------------------- */
-
 /* Página de cadastro */
+.conteudo-cadastro2{
+  width: 100%;
+  min-height: 1200px;
+  height: auto;
+  /* background-color: #C0C0C0; */
+}
 .conteudo-cadastro{
   width: 100%;
   min-height: 1100px;
   height: auto;
   /* background-color: #C0C0C0; */
+}
+/*Container que segura o conteudo*/
+.cadastro-container2{
+  display: flex;
+  width: 1000px;
+  min-height: 950px;
+  height: auto;
+  flex-direction: row;
+  justify-content: center;
+  /* background-color: #fff; */
+  margin: auto;
+  float: left;
+  /* border-radius: 10px; */
 }
 /*Container que segura o conteudo*/
 .cadastro-container{
@@ -1788,30 +1863,30 @@ box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
 }
 
 /*Container para colocar a imagem de perfil*/
-#imagem{
+#imagem2{
   cursor: pointer;
-  width: 190px;
-  height: 200px;
+  width: 29%;
+  height: 250px;
+  float: left;
   /* margin: auto; */
 }
 
-label#imagem{
+label#imagem2{
   margin: 0px;
   align-self: center;
 }
 
-#id_sua_img{
+#id_sua_img2{
   width: 100%;
   height: 100%;
   box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
-  border-radius: 100px;
 }
 
 /* contem os campos para adicionar as fotos */
 .campo-foto{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
   width: auto;
   height: 300px;
@@ -1917,36 +1992,32 @@ label#imagem{
   flex-direction: row;
   justify-content: space-between;
 }
+
 /* ------------------------------------------------------------------------- */
 /* Pagina de interação do usuario*/
-.conteudo_interacao{
+.conteudo_interacao1{
   /* width: 100%; */
-  /* min-height: 1600px; */
+  min-height: 1930px;
   height: auto;
-  margin: 0px auto;
-  padding-top: 50px;
+  margin: 0px;
+  padding: 0px;
+
   /* background-color: #C0C0C0; */
 }
-
-/*Container que segura o titulo da pagina*/
-.title_interacao{
-  width: 99.9%;
-  height: 85px;
-  background-color: #fff;
-  border: solid 1px #fff;
-
-  text-align: center;
-  color: #000;
-  margin-bottom: 20px;
+.interacao_container1{
+  /* width: 70%; */
+  min-height: 1130px;
+  height: auto;
+  /* background-color: #458665; */
+  margin: auto;
 }
-
 .interacao{
-    width: 80%;
-    height: 1430px;
-    background-color: #1f405e;
+    width: 78%;
+    height: 1030px;
     margin: auto;
     border-radius: 10px;
     padding-top: 20px;
+    float: left;
 }
 
 .interacao h2{
@@ -1966,9 +2037,10 @@ border-radius: 10px;
 }
 
 .box_interacao{
-  width: 99.5%;
-  min-height: 260px;
+  width: 70%;
+  min-height: 250px;
   border-radius: 10px;
+  float: left;
 }
 
 .minhas_viagens{
@@ -1989,19 +2061,52 @@ border-radius: 10px;
     margin-bottom: 12px;
 }
 
-.img_interacao{
-    margin-left: 10px;
-    margin-top: 10px;
-    float: left;
+.img_interacao2{
+  width: 30%;
+  height: 250px;
+  float: left;
+}
+/* Padrão Imagens */
+#imagem{
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  margin: auto;
 }
 
+label#imagem{
+  margin: 0px;
+  align-self: center;
+}
+#id_sua_img{
+  width: 250px;
+  height: 200px;
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
+  margin: auto;
+}
+/* label#imagem img{
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  align-self: center;
+} */
+.adicionar_imagem{
+  display: flex;
+  align-self: center;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  float: left;
+}
+.input-foto{
+  display: none;
+}
 .name_user{
     margin-top: 35px;
     float: left;
     font-family: sans-serif;
     font-size: 17px;
 }
-
 .local{
     margin-top: 35px;
     margin-left: 50%;
@@ -2029,24 +2134,37 @@ border-radius: 10px;
     float: left;
     border-radius: 10px;
 }
+.btn{
+  /* font-family:"Nunito",sans-serif; */
+  cursor: pointer;
+  align-self: flex-end;
+  color: #FFFFFF;
+  background-color: #458665;
+  border:none;
+  outline: 0;
+  font-weight: bold;
+  padding:10px 30px;
+  border-radius:5px;
+  width: auto;
+  text-transform: uppercase;
+  transition: 1s;
+}
 /* ------------------------------------------------------------------------- */
-
 /* Pagina de acompanhamento da viagem */
 .conteudo_acompanhamento{
   width: 100%;
-  min-height: 1000px;
+  min-height: 800px;
   height: auto;
-  padding-top: 50px;
   /* background-color: #C0C0C0; */
 }
 /*Container que segura o conteudo*/
 .acompanhamento_container{
-  width: 85%;
-  min-height: 1000px;
+  width: 75%;
+  min-height: 780px;
   height: auto;
-  background-color: #458665;
   margin: auto;
-  border: solid 1px #000;
+  float: left;
+  padding-top: 10px;
 }
 /*Container que segura o titulo da pagina*/
 .title_acompanhamento{
@@ -2077,7 +2195,7 @@ border-radius: 10px;
   margin-left: 20px;
   box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .mapa_viagem{
@@ -2109,7 +2227,6 @@ border-radius: 10px;
   border-radius: 10px;
 }
 /* ------------------------------------------------------------------------- */
-
 /* pagina interacao */
 
 /*Div que seguro toda pagina*/
@@ -2127,7 +2244,7 @@ border-radius: 10px;
 /*Container que segura todas as caixas*/
 .interacao_container{
   /* width: 70%; */
-  min-height: 1200px;
+  min-height: 450px;
   height: auto;
   /* background-color: #458665; */
   margin: auto;
@@ -2147,12 +2264,14 @@ border-radius: 10px;
 
 /* caixa com o conteudo da postagem */
 .cardbox{
+  margin: auto;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 1200px;
-  height:500px;
-  margin-bottom: 30px;
+  width: 80%;
+  height:400px;
+  margin-bottom: 40px;
+
 }
 
 /*  */
@@ -2192,7 +2311,7 @@ border-radius: 10px;
   display: flex;
   flex-direction: row;
   /* justify-content: space-around; */
-  width: 1200px;
+  width: 95%;
   height: 420px;
 }
 
@@ -2207,7 +2326,7 @@ border-radius: 10px;
 .cardbox-img{
   /* margin-left: 50px; */
   width: 500px;
-  height: 418px;
+  height: 330px;
   /* overflow: hidden; */
 }
 
@@ -2216,257 +2335,499 @@ border-radius: 10px;
   height: 100%;
 }
 
-/********************************************************/
-
-/*Pagina de pagamento*/
-
-/**************Pagina identificacao usuario**************/
-
-/*Div que seguro toda pagina*/
-.conteudo_identificacao{
-  height: auto;
-  width: 100%;
-  background-color: #000000;
-  margin-top: 1%;
-}
-
-/*Container que segura todas as caixas*/
-.identificacao_container{
-  width: 70%;
-  min-height:1200px;
-  height: auto;
-  /* background-color: #456958; */
-  margin: auto;
-
-}
-.title_pagamento{
-  background-color: #456958;
-  text-align: center;
-}
-
-
-
-.estagio_pagamento{
-  height:300px;
-  width:85%;
-  background-color: #858589;
-  margin-left: 7%;
-}
-
-.titulo_texto{
-  background-color: #456958;
-  text-align: center;
-  height: auto;
-  font-size: 20px;
-
-}
-
-.tabela_usuario{
-  background-color: #000000;
-  width:50%;
-  height: 100px;
-  margin-left: 25%;
-}
-
-.coluna_usuario{
-  background-color: #ffffff;
-  width: auto ;
-}
-
-.linha_texto{
-  width: 50%;
-  height: 40px;
-}
-
-.linha_campo{
-  width: 50%;
-  height: 40px;
-}
-
-.linha_img{
-  width: 50%;
-  height: 60px;
-}
-
-.botao_entrar{
-  width: 20%;
-  height: 40px;
-  float: right;;
-  background-color:#000000;
-  margin-top: 2%;
-}
-
-.btn_entrar{
-  width: 30%;
-  height: 30px;
-  margin-left: 260px;
-}
-
-.img_caixa{
-  height: auto;
-  width: 40%;
-  margin-left: 25%;
-}
-
-
-/**************************/
-
-/**************************/
-
-/*Div que seguro toda pagina*/
+/*******************************************/
+/*******Pagina de Pagamento********/
 .conteudo_pagamento{
   height: auto;
   width: 100%;
   /* background-color: #000000; */
-  margin-top: 1%;
+  margin: 0px;
+  padding: 0px;
 }
 
 /*Container que segura todas as caixas*/
-.pagamento_container{
-  width: 70%;
-  min-height:1200px;
-  height: auto;
-  /* background-color: #458665; */
-  margin: 50px auto;
-
-}
-.title_pagamento{
-  /* background-color: #858589; */
-  text-align: center;
+.container_pagamento{
+  width: 75%;
+  height:700px;
+  margin: auto;
 }
 
-/**filtro de origem**/
-.filtro_origem{
-  height: 350px;
-  width: 90%;
-  background-color: #ffffff;
-  margin-left: 5%;
-}
-
-.estagio_pagamento{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height:180px;
-  width:  85%;
-  background-color: #858589;
-  margin-left: 7%;
-}
-
-.fundo-estagio{
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
+.container_pagamento2{
   width: 100%;
-  height: 180px;
-  background-color: white;
-  border-bottom: 1px dashed green;
+  height: 100%;
+  margin: auto;
+  background-color: #458665;
 }
 
-.placa-estagio{
-  width: 40px;
-  height: 80px;
+.tempo_compra{
+  width: 70%;
+  height: 50px;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.momentos_pagamento{
+  width: 30%;
+  height: 100%;
   background-color: blue;
-}
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+  border-radius: 15px;
+  line-height: 50px;
+  border: solid 1px #fff;
 
-.placa-estagio img{
-  width: 40px;
-  height: 80px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
 }
-
-.onibus-estagio{
-  display: flex;
-  align-items: flex-end;
-  position: absolute;
-  /* background-color: red; */
-  width: 50px;
-  height: 50px;
-  margin-left: -20%;
-  /* margin-left: 0px; */
-  /* margin-left: 20%; */
-}
-
-.onibus-estagio img{
-  width: 50px;
-  height: 50px;
-}
-
-.pagamento{
-  height: 500px;
-  width: 90%;
-  background-color: #456958;
-  margin-left: 5%;
-}
-
-.origem{
-  width: 90%;
-  height: 300px;
-  /* background-color: #000000; */
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-left: 5%;
+.line_vertical{
+  width: 2px;
+  height: 70%;
+  background-color: #458665;
   float: left;
 }
-
-.tabela_filtro{
-  /* background-color: #000000; */
-  width:90%;
-  height: 100px;
+.text_pague{
+  text-align: center;
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #458665;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.pague{
+  width: 90%;
+  height: 70%;
+  background-color: #fff;
   margin-left: 5%;
+  padding-top: 30px
 }
-
-.coluna_filtro{
-  /* background-color: #ffffff; */
-  width: auto ;
+.cont_pague{
+  width: 27%;
+  height: 90%;
+  float: left;
 }
-
-.linha_texto{
-  width: 50%;
+.registro_pague{
+  width: 45%;
+  height: 90%;
+  background-color: #fff;
+  float: left;
+}
+.bandeiras{
+  width: 70%;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.img_pague{
+  width: 40px;
   height: 40px;
 }
-
-.linha_campo{
-  width: 50%;
-  height: 40px;
-
+.box_pague{
+  margin-left: 40px;
+  margin-top: 15px;
+}
+.combo_pague{
+  width: 30%;
+  margin-left: 10%;
+  margin-top: 10px;
 }
 
-.txt_texto{
-  border-radius: 1px 1px 1px 1px;
+.finalizar{
+ margin-left: 90%;
+}
+/*******************************************************/
+/*Pagina identificacao usuario*/
+.conteudo_identificacao{
+  height: auto;
+  width: 100%;
+  /* background-color: #000000; */
+  margin: 0px;
+  padding: 0px;
 }
 
-.botao_confirma{
-  width: 20%;
-  height: 40px;
-  float: right;;
-  /* background-color:#000000; */
-  margin-top: 2%;
+/*Container que segura todas as caixas*/
+.container_identificacao{
+  width: 75%;
+  height:700px;
+  margin: auto;
+}
+
+.container_identificacao2{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: #458665;
+  padding-top: 20px;
+}
+
+.tempo_compra{
+  width: 70%;
+  height: 50px;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 40px;
+}
+.momentos_identificacao{
+  width: 30%;
+  height: 100%;
+  background-color: blue;
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+  border-radius: 15px;
+  line-height: 50px;
+  border: solid 1px #fff;
+
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.identifi_user{
+  width: 90%;
+  height: 70%;
+  background-color: #fff;
+  margin-left: 5%;
+  padding-top: 50px
+}
+.consulta_user{
+  width: 60%;
+  height: 400px;
+  margin: auto;
+  border-radius: 15px;
+  border: solid 1px #458665;
+  padding-top: 10px;
+}
+.text_ident{
+  text-align: center;
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #458665;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.text_ident2{
+  text-align: center;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #000;
+}
+.box_ident{
+  width: 60%;
+  margin-left: 20%;
 }
 
 .btn_confirma{
+  width: 30%;
+  margin-left: 35%;
+  margin-bottom: 12px;
+}
+/*******Horarios dos Onibus*******/
+/*Div que seguro toda pagina*/
+.conteudo_horarios{
+  height: auto;
+  width: 100%;
+  /* background-color: #000000; */
+  margin: 0px;
+  padding: 0px;
+}
+
+/*Container que segura todas as caixas*/
+.container_horarios{
+  width: 75%;
+  height:700px;
+  margin: auto;
+}
+
+.container_horarios2{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: #458665;
+  padding-top: 20px;
+}
+
+.nome_passagem{
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #000;
+  font-weight: bold;
+}
+.tempo_compra{
   width: 70%;
-  height: 30px;
+  height: 50px;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 40px;
 }
 
+.momentos{
+  width: 30%;
+  height: 100%;
+  background-color: #fff;
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+  border-radius: 15px;
+  line-height: 50px;
+  border: solid 1px blue;
 
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
 
-.tabela_pagamento{
-  background-color: #ffffff;
-  width:90%;
-  height: 100px;
+.momentos_horario{
+  width: 30%;
+  height: 100%;
+  background-color: blue;
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+  border-radius: 15px;
+  line-height: 50px;
+  border: solid 1px #fff;
+
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.lista_horarios{
+  width: 90%;
+  height: 75%;
+  background-color: #fff;
   margin-left: 5%;
+  padding-top: 10px;
 }
 
-.coluna_pagamento{
-
+.tabela_horarios{
+  width: 100%;
+  height: 10%;
+  background-color: #fff;
 }
 
-/************************/
+.linha_horarios{
+  border-bottom: solid 1px #458665;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+.coluna_horarios{
+border-bottom: solid 1px #458665;
+}
+/* Parte do onibus */
+#container_onibus{
+  width: 90%;
+  height: 350px;
+  background-color: white;
+  margin: auto;
+  border: solid 1px #000;
+  display: none;
+}
 
+.legenda{
+  width: 100%;
+  height: 16%;
+  background-color: #585858;
+}
 
+.onibus{
+  width: 100%;
+  height: 84%;
+  padding-top: 5px;
+}
+
+.leg_box{
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  float: left;
+  border-radius: 15px;
+}
+
+.leg_text{
+  margin-right: 100px;
+  float: left;
+}
+.fileira{
+  width: 80%;
+  height: 50px;
+  margin: auto;
+  margin-top: 5px;
+}
+
+.poltronas{
+  width: 50px;
+  height: 100%;
+  background-color: green;
+  float: left;
+  margin-right: 10px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.Continua{
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #458665;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 80%;
+}
+/*************************************************************/
+/*******Horarios dos Onibus*******/
+/*Div que seguro toda pagina*/
+.conteudo_horarios{
+  height: auto;
+  width: 100%;
+  /* background-color: #000000; */
+  margin: 0px;
+  padding: 0px;
+}
+
+/*Container que segura todas as caixas*/
+.container_horarios{
+  width: 75%;
+  height:700px;
+  margin: auto;
+}
+
+.container_horarios2{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: #458665;
+  padding-top: 20px;
+}
+
+.nome_passagem{
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #000;
+  font-weight: bold;
+}
+.tempo_compra{
+  width: 70%;
+  height: 50px;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.momentos{
+  width: 30%;
+  height: 100%;
+  background-color: #fff;
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+  border-radius: 15px;
+  line-height: 50px;
+  border: solid 1px blue;
+
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+.momentos_horario{
+  width: 30%;
+  height: 100%;
+  background-color: blue;
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+  border-radius: 15px;
+  line-height: 50px;
+  border: solid 1px #fff;
+
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.lista_horarios{
+  width: 90%;
+  height: 75%;
+  background-color: #fff;
+  margin-left: 5%;
+  padding-top: 10px;
+}
+
+.tabela_horarios{
+  width: 100%;
+  height: 10%;
+  background-color: #fff;
+}
+
+.linha_horarios{
+  border-bottom: solid 1px #458665;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+.coluna_horarios{
+border-bottom: solid 1px #458665;
+}
+/* Parte do onibus */
+#container_onibus{
+  width: 90%;
+  height: 350px;
+  background-color: white;
+  margin: auto;
+  border: solid 1px #000;
+  display: none;
+}
+
+.legenda{
+  width: 100%;
+  height: 16%;
+  background-color: #585858;
+}
+
+.onibus{
+  width: 100%;
+  height: 84%;
+  padding-top: 5px;
+}
+
+.leg_box{
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  float: left;
+  border-radius: 15px;
+}
+
+.leg_text{
+  margin-right: 100px;
+  float: left;
+}
+.fileira{
+  width: 80%;
+  height: 50px;
+  margin: auto;
+  margin-top: 5px;
+}
+
+.poltronas{
+  width: 50px;
+  height: 100%;
+  background-color: green;
+  float: left;
+  margin-right: 10px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.Continua{
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #458665;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 80%;
+}
 /* ------------------------------------------------------------------------- */
-
-
 /* Configurações do footer (rodapé) */
 
 /* Container principal do rodapé */
@@ -2525,21 +2886,10 @@ border-radius: 10px;
   justify-content: space-around;
 }
 
-/* Configura a div de pagamentos */
-.pagamento-info{
-
-}
-
 /* Define tamanho padrão para os icones de pagamento */
 .icones-pagamento img{
   width: 30px;
   height: 30px;
-}
-
-
-/*  */
-.itens-rodape{
-
 }
 
 /* Área para inserir icones de redes sociais */
@@ -2587,6 +2937,7 @@ border-radius: 10px;
 
   /* text-align: center; */
 }
+
 /* ------------------------------------------------------------------------- */
 
 /* Mobile */

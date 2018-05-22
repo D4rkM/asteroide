@@ -158,92 +158,20 @@
     }
       break;
 
-    case 'estado_postos':
-
-    require_once('controllers/estados_postos_controller.php');
-    require_once('models/estados_postos_class.php');
-
-      switch ($modo) {
-        case 'novo':
-        $controllerEstadosPostos = new controllerEstadosPostos();
-        $controllerEstadosPostos::Novo();
-        break;
-
-        case 'editar':
-        $controllerEstadosPostos = new controllerEstadosPostos();
-        $controllerEstadosPostos::Editar($_GET['id']);
-        break;
-
-        case 'excluir':
-        $controllerEstadosPostos = new controllerEstadosPostos();
-        $controllerEstadosPostos::Excluir();
-        break;
-
-        case 'buscar':
-        $controllerEstadosPostos = new controllerEstadosPostos();
-        $controllerEstadosPostos::Buscar();
-        break;
-
-        case 'listar':
-        $controllerEstadosPostos = new controllerEstadosPostos();
-        $controllerEstadosPostos::Listar();
-        break;
-
-        default:
-        break;
-      }
-      break;
-
-    case 'postos':
-
-    require_once('controllers/postos_controller.php');
-    require_once('models/postos_class.php');
-
-      switch ($modo) {
-        case 'novo':
-        $controllerPostos = new controllerPostos();
-        $controllerPostos::Novo();
-        break;
-
-        case 'editar':
-        $controllerPostos = new controllerPostos();
-        $controllerPostos::Editar($_GET['id']);
-        break;
-
-        case 'excluir':
-        $controllerPostos = new controllerPostos();
-        $controllerPostos::Excluir();
-        break;
-
-        case 'buscar':
-        $controllerPostos = new controllerPostos();
-        $controllerPostos::Buscar();
-        break;
-
-        case 'listar':
-        $controllerPostos = new controllerPostos();
-        $controllerPostos::Listar();
-        break;
-
-        default:
-        break;
-      }
-      break;
-
       case 'postos_rodoviarios':
 
       require_once('controllers/postos_rodoviarios_controller.php');
       require_once('models/postos_rodoviarios_class.php');
+
       require_once('controllers/endereco_controller.php');
       require_once('models/endereco_class.php');
 
         switch ($modo) {
           case 'novo':
           $controllerEndereco = new controllerEndereco();
-          $id = $controllerEndereco::Novo();
+          $id_endereco = $controllerEndereco::Novo();
 
           $controllerPostosRodoviarios = new controllerPostosRodoviarios();
-          $controllerPostosRodoviarios::Novo();
           $controllerPostosRodoviarios::Novo($id_endereco);
           break;
 
@@ -424,7 +352,7 @@
                 switch ($modo) {
                   case 'listar':
                     $controllerInteracao = new controllerInteracao();
-                    $controllerInteracao::Novo();
+                    $controllerInteracao::Lista();
                     break;
 
                   case 'excluir':
@@ -433,7 +361,16 @@
                       $controllerInteracao::Excluir();
                     break;
 
-                    default:
+                  case 'ativar':
+                      //instanciando a classe da controller
+                      $controllerInteracao = new controllerInteracao();
+                      $controllerInteracao::Ativar();
+                    break;
+
+                  case 'desativar':
+                      //instanciando a classe da controller
+                      $controllerInteracao = new controllerInteracao();
+                      $controllerInteracao::Desativar();
                     break;
               }
 
@@ -564,40 +501,75 @@
                     break;
                   }
                   break;
-                  case 'vendas':
+                  case 'pacote_viagem':
 
-                  require_once('controllers/vendas_controller.php');
-                  require_once('models/vendas_class.php');
+                  require_once('controllers/pacote_viagem_controller.php');
+                  require_once('models/pacote_viagem_class.php');
 
                     switch ($modo) {
                       case 'novo':
-                      $controllerVendas = new controllerVendas();
-                      $controllerVendas::Novo();
+                      $controllerPacoteViagem = new controllerPacoteViagem();
+                      $controllerPacoteViagem::Novo();
                       break;
 
                       case 'editar':
-                      $controllerVendas = new controllerVendas();
-                      $controllerVendas::Editar($_GET['id']);
+                      $controllerPacoteViagem = new controllerPacoteViagem();
+                      $controllerPacoteViagem::Editar($_GET['id']);
                       break;
 
                       case 'excluir':
-                      $controllerVendas = new controllerVendas();
-                      $controllerVendas::Excluir();
+                      $controllerPacoteViagem = new controllerPacoteViagem();
+                      $controllerPacoteViagem::Excluir();
                       break;
 
                       case 'buscar':
-                      $controllerVendas = new controllerVendas();
-                      $controllerVendas::Buscar();
+                      $controllerPacoteViagem = new controllerPacoteViagem();
+                      $controllerPacoteViagem::Buscar();
                       break;
 
                       case 'listar':
-                      $controllerVendas = new controllerVendas();
-                      $controllerVendas::Listar();
+                      $controllerPacoteViagem = new controllerPacoteViagem();
+                      $controllerPacoteViagem::Listar();
                       break;
 
                       default:
                       break;
                     }
+                    break;
+                    case 'viagem':
+
+                    require_once('controllers/viagem_controller.php');
+                    require_once('models/viagem_class.php');
+
+                      switch ($modo) {
+                        case 'novo':
+                        $controllerViagem = new controllerViagem();
+                        $controllerViagem::Novo();
+                        break;
+
+                        case 'editar':
+                        $controllerViagem = new controllerViagem();
+                        $controllerViagem::Editar($_GET['id']);
+                        break;
+
+                        case 'excluir':
+                        $controllerViagem = new controllerViagem();
+                        $controllerViagem::Excluir();
+                        break;
+
+                        case 'buscar':
+                        $controllerViagem = new controllerViagem();
+                        $controllerViagem::Buscar();
+                        break;
+
+                        case 'listar':
+                        $controllerViagem = new controllerViagem();
+                        $controllerViagem::Listar();
+                        break;
+
+                        default:
+                      }
+                        break;
     }
 
  ?>

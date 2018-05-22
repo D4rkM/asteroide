@@ -27,7 +27,7 @@
      <!--Segura todos os itens do cadastro-->
     <div class="cadastro">
         <!--Form dos itens do cadastro-->
-        <form action="router.php?controller=usuario&modo=novo" enctype="multipart/form-data" method="post">
+        <form action="../../router.php?controller=usuario&modo=novo" enctype="multipart/form-data" method="post">
           <div class="campo-foto">
             <!--texto da imagem de inserir foto de perfil-->
             <div class="subtitulo text-center">
@@ -67,19 +67,34 @@
 
             <div class="dados-pessoais">
               <div class="dados-esquerda">
-                <div class="caixa-dados small">
+                <div class="caixa-dados large">
                   <label for="dataNascimento">Data de Nascimento</label>
                   <input id="dataNascimento" type="date" name="txtdatanasc" maxlength="10">
                 </div>
-                <div class="caixa-dados small">
+                <div class="caixa-dados">
+                  <label for="sexo">Sexo</label>
+                  <div id="sexo" class="radio-group">
+                    <input type="radio" name="rdosexo" value="M">Masculino
+                    <input type="radio" name="rdosexo" value="F" checked>Feminino
+                  </div>
+                </div>
+                <div class="caixa-dados large">
                   <label for="telefone">Telefone</label>
                   <input id="telefone" type="text" name="txttelefone" maxlength="14">
                 </div>
-                <div class="caixa-dados small">
+                <div class="caixa-dados large">
+                  <label for="celular">Celular</label>
+                  <input id="celular" type="text" name="txtcelular" maxlength="15" >
+                </div>
+                <div class="caixa-dados large">
+                  <label for="rg">RG</label>
+                  <input id="rg" name="txtrg" type="text" maxlength="12">
+                </div>
+                <div class="caixa-dados large">
                   <label for="cpf">CPF</label>
                   <input id="cpf" name="txtcpf" type="text" maxlength="14">
                 </div>
-                <div class="caixa-dados small">
+                <!-- <div class="caixa-dados small">
                   <label for="cep">CEP</label>
                   <input id="cep" type="text" name="txtcep" maxlength="9">
                 </div>
@@ -113,26 +128,12 @@
                       <option value="SP">São Paulo</option>
                       <option value="SE">Sergipe</option>
                       <option value="TO">Tocantins</option>
-                  </select>
+                  </select> -->
                 </div>
               </div>
               <div class="dados-direita">
-                <div class="caixa-dados">
-                  <label for="sexo">Sexo</label>
-                  <div id="sexo" class="radio-group">
-                    <input type="radio" name="rdosexo" value="M">Masculino
-                    <input type="radio" name="rdosexo" value="F" checked>Feminino
-                  </div>
-                </div>
-                <div class="caixa-dados">
-                  <label for="celular">Celular</label>
-                  <input id="celular" type="text" name="txtcelular" maxlength="15" >
-                </div>
-                <div class="caixa-dados">
-                  <label for="rg">RG</label>
-                  <input id="rg" name="txtrg" type="text" maxlength="12">
-                </div>
-                <div class="caixa-dados">
+
+                <!-- <div class="caixa-dados">
                   <label for="logradouro">Logradouro</label>
                   <input id="logradouro" type="text" name="txtlogradouro">
                 </div>
@@ -160,7 +161,7 @@
               <div class="caixa-dados small">
                 <label for="complemento">Complemento</label>
                 <input id="complemento" class="" type="text" name="txtcomplemento">
-              </div>
+              </div> -->
             </div>
 
             <div class="campo-salvar">
@@ -168,12 +169,11 @@
             </div>
 
           </div>
-
-
         </form>
     </div>
   </div>
 </div>
+<?php require_once('footer.php'); ?>
 <script src="../../js/jquery.min.js"></script>
 <script>
 $("#foto").change(function(){

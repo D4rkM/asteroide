@@ -14,23 +14,24 @@
           <ul class="submenu">
             <li><a href="<?php echo($paths); ?>sobre_empresa.php">Sobre a Empresa</a></li>
             <li><a href="<?php echo($paths); ?>fale_conosco.php">Fale Conosco</a></li>
+            <li><a href="<?php echo($paths); ?>frotas.php">Nossas Frotas</a></li>
+            <li><a href="<?php echo($paths); ?>trabalhe_conosco.php">Trabalhe Conosco</a></li>
           </ul>
         </div>
         <div class="itens-menu">
           <h2>Blog</h2>
           <ul class="submenu">
             <li><a href="<?php echo($paths); ?>interacao.php">Interação</a></li>
-            <li>item</li>
+            <li><a href="<?php echo($paths); ?>duvidas_frequentes.php">Duvidas Frequentes</a></li>
+            <li><a href="<?php echo($paths); ?>legislacao.php">Legislação</a></li>
           </ul>
         </div>
-
 
       <div class="itens-menu">
         <div class="logo-menu">
           <a href="<?php echo($links); ?>index.php"><h1 style="margin:0px;"><img src="<?php echo($links); ?>img/logo.png" alt="Logo"></h1></a>
         </div>
       </div>
-
 
         <div class="itens-menu">
           <h2>Passagens</h2>
@@ -43,7 +44,7 @@
           <h2>Locais</h2>
           <ul class="submenu">
             <li><a href="<?php echo($paths); ?>postos_rodoviarios.php">Postos Rodoviários</a></li>
-            <li>Ranking</li>
+            <li><a href="<?php echo($paths); ?>ranking.php">Ranking</a></li>
           </ul>
         </div>
       </div>

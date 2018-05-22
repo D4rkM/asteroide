@@ -93,35 +93,31 @@
              </h3>
            </div>
 
-           <?php
-           $y = 0;
-            while ($y <= 3) {
-             # code...
-            ?>
            <div class="locais-viagem galeria">
-             <!-- Conteúdo da página -->
              <?php
-               $a =0;
-               while ($a <= 2 ) {
-                 # code...
+               require_once("../cms/controllers/frotas_controller.php");
+               require_once("../cms/models/frotas_class.php");
 
-               ?>
+               $controller_frotas = new controllerFrotas();
+               $list = $controller_frotas::Listar();
+
+               $cont = 0;
+
+               while($cont < count($list)){
+             ?>
              <div class="polaroid img-galery">
                  <!-- <div class="container_onibus_imagem"> -->
-                   <img class="" src="<?php echo($links); ?>img/busasteroide.jpg" alt="bus" title="frotas">
+                   <img class="" src="../cms/<?php echo $list[$cont]->imagem ?>" alt="bus" title="frotas">
                  <!-- </div> -->
                  <div class="texto-polaroid">
-                   <p>Viajar de ônibus não é mais</p>
+                   <p><?php echo $list[$cont]->nome ?></p>
                  </div>
              </div>
              <?php
-                 $a++;
+                 $cont+=1;
                }
              ?>
            </div>
-           <?php
-             $y++;
-           }?>
          <!-- </div> -->
        </div>
 
