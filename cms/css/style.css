@@ -1,4 +1,4 @@
-/*css
+﻿/*css
 Editores: Magno, Bruna, Bruno, Lucas, William
 Data da primeira modificação: 19/03/2018
 Data da ultima modificação: 14/04/2018
@@ -1335,4 +1335,60 @@ label#imagem2{
   text-align: center;
   font-family: "opensansbold";
   color: #960707;
+}
+
+/* Area da config de itinerario */
+body.dragging, body.dragging * {
+cursor: move !important;
+overflow-x:hidden;
+}
+
+ul li{
+  cursor: all-scroll;
+  list-style: none;
+  margin: 5px 0px;
+}
+
+.dragged {
+position: absolute;
+top: 0;
+opacity: 0.5;
+z-index: 2000;
+}
+
+ul.simple_with_animation li.placeholder {
+position: relative;
+/** More li styles **/
+}
+ul.simple_with_animation li.placeholder:before {
+position: absolute;
+/** Define arrowhead **/
+}
+
+.hold{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 800px;
+  background-color: grey;
+}
+
+
+.list{
+  width: 400px;
+  padding: 0px 20px;
+  background-color: #f3f3f3;
+  border: 1px solid black;
+}
+
+.list ul{
+  padding: 10px 5px;
+  min-height: 200px;
+  background-color: grey;
+}
+
+.list li{
+  background-color: #f3f3cc;
+  user-select: none;
 }

@@ -6,6 +6,8 @@
     <title>CMS Central</title>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/list.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
     //pagina de duvidas frequentes
