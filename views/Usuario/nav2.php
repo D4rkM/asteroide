@@ -1,7 +1,6 @@
 <?php
   session_start();
-
- ?>
+?>
 <!-- Menu Superior -->
 <nav>
   <div class="menu-container" id="men" style="background-color:#162E44;">
@@ -53,16 +52,24 @@
       </div>
 
     </div>
-    <?php
-    require_once('../../models/usuario_class.php');
 
-    if(isset($_SESSION['nome_usuario'])){
-    ?>
-     <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><img class="img_user" src="<?php echo($_SESSION['nome_imagem']); ?>" alt="user"></a>
-    <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><div class=""><?php echo($_SESSION['nome_usuario']); ?></div></a>
-    <?php
-  }
-     ?>
+        <div class="login-menu">
+          <?php
+          require_once('../../models/usuario_class.php');
+
+          if(isset($_SESSION['nome_usuario'])){
+          ?>
+           <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><img class="img_user" src="<?php echo($_SESSION['nome_imagem']); ?>" alt="user"></a>
+          <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><div class=""><?php echo($_SESSION['nome_usuario']); ?></div></a>
+          <?php
+        }else{
+           ?>
+           <a class="login" href="#" onclick="Login();"> <h5 class="btn"> <b>Acesso</b> </h5> </a>
+           <?php
+          }
+          ?>
+        </div>
+
   </div>
 </nav>
 <!-- Aplica um espaçamento para o conteudo não invadir o menu superior -->

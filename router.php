@@ -5,6 +5,18 @@
 
   switch($controller){
 
+    case 'viagens':
+      require_once('controllers/dados_viagem_controller.php');
+      require_once('models/dados_viagem_class.php');
+
+      switch($modo){
+        case 'buscar':
+          $controllerDadosViagem = new ControllerDadosViagem();
+          $controllerDadosViagem::buscar();
+          
+      }
+
+      break;
     case 'usuario':
       require_once('controllers/usuario_controller.php');
       require_once('models/usuario_class.php');
@@ -25,6 +37,10 @@
           $controllerUsuario::Buscar();
           break;
 
+        case 'listar':
+            $controllerUsuario = new controllerUsuario();
+            $controllerUsuario::Listar();
+            break;
 
       case 'login':
           $controllerUsuario = new controllerUsuario();
@@ -50,6 +66,28 @@
             break;
       }
       break;
+      case 'faleconosco':
+
+        require_once('controllers/faleconosco_controller.php');
+        require_once('models/faleconosco_class.php');
+
+        switch ($modo) {
+          case 'reclamacao':
+            $controllerReclamacao = new controllerReclamacao();
+            $controllerReclamacao::Novo();
+            break;
+
+          case 'sugestao':
+            $controllerSugestao = new controllerSugestao();
+            $controllerSugestao::Novo();
+            break;
+
+          case 'elogio':
+            $controllerElogio = new controllerElogio();
+            $controllerElogio::Novo();
+            break;
+        }
+        break;
   }
 
  ?>

@@ -15,6 +15,7 @@ class controllerViagem{
     $viagem->descricao = $_POST['descricao'];
     $viagem->km = $_POST['km'];
     $viagem->pacote_viagem = $_POST['pacote_viagem'];
+    $viagem->preco = $_POST['preco'];
 
     $viagem::Insert($viagem);
   }
@@ -29,6 +30,7 @@ class controllerViagem{
     $viagem->descricao = $_POST['descricao'];
     $viagem->km = $_POST['km'];
     $viagem->pacote_viagem = $_POST['pacote_viagem'];
+    $viagem->preco = $_POST['preco'];
 
     $viagem::Update($viagem);
   }

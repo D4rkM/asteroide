@@ -33,7 +33,7 @@
   <!--Container que segura todas as informações da pagina -->
   <div class="cadastro-container2">
      <!--Segura todos os itens do cadastro-->
-    <div class="cadastro">
+    <div class="cadastro2">
       <?php
       	require_once("../../controllers/usuario_controller.php");
       	require_once("../../models/usuario_class.php");

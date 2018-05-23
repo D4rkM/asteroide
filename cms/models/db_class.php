@@ -6,9 +6,6 @@
         Class:Banco de dados
         Obs:Essa Classe é a conexao com o banco de dados
     */
-
-
-
     class Mysql_db{
         private $server;
         private $user;

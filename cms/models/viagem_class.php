@@ -23,7 +23,8 @@ class Viagem{
                                    previsto_chegada='$viagem_dados->chegada',
                                    descricao_viagem='$viagem_dados->descricao',
                                    km='$viagem_dados->km',
-                                   idpacote_viagem='$viagem_dados->pacote_viagem';";
+                                   idpacote_viagem='$viagem_dados->pacote_viagem',
+                                   preco='$viagem_dados->preco';";
                                    // echo($sql);
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -49,7 +50,8 @@ class Viagem{
                               previsto_chegado='$viagem_dados->chegada'
                               descricao_viagem='$viagem_dados->descricao',
                               km='$viagem_dados->km',
-                              idpacote_viagem='$viagem_dados->pacote_viagem' where id=$viagem_dados->id;";
+                              idpacote_viagem='$viagem_dados->pacote_viagem',
+                              preco='$viagem_dados->preco' where id=$viagem_dados->id;";
 
     // echo ($sql);
     //Instancia a classe do banco
@@ -114,6 +116,7 @@ class Viagem{
       $listViagem[$cont]->km = $rs['km'];
       $listViagem[$cont]->pacote_viagem = $rs['idpacote_viagem'];
       $listViagem[$cont]->titulo = $rs['titulo'];
+      $listViagem[$cont]->preco=$rs['preco'];
 
       $cont+=1;
     }
@@ -144,6 +147,7 @@ class Viagem{
       $viagem->descricao = $rs['descricao_viagem'];
       $viagem->km = $rs['km'];
       $viagem->pacote_viagem = $rs['idpacote_viagem'];
+      $viagem->preco = $rs['preco'];
 
       $conex->Desconectar();
 

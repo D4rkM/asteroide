@@ -37,6 +37,7 @@ class controllerUsuario {
               $usuario->imagem=$diretorio_completo;
               $usuario->nome = $_POST['txtnome'];
               $usuario->email = $_POST['txtemail'];
+              $usuario->usuario = $_POST['txtusuario'];
               $usuario->senha = $_POST['txtsenha'];
               $data = implode("-",array_reverse(explode("/",$_POST['txtdatanasc'])));
               $usuario->datanasc = $data;
@@ -102,24 +103,24 @@ class controllerUsuario {
   }
 
   public function Logar(){
-
+  // session_start();
   $usuario = new Usuario();
 
   $usuario->login = $_POST['txtemail'];
   $usuario->senha = $_POST['txtsenha'];
-  $dadosUsuario = $usuario::Login($usuario);
+  // $dados_usuario = new Usuario();
+  $dados_usuario = $usuario::Login($usuario);
 
-  if($dadosUsuario!=false)
+  $_SESSION['nome_usuario'] = $dados_usuario->nome;
+
+  echo($_SESSION['nome_usuario']);
+  if($_SESSION['nome_usuario'])
   {
-    $_SESSION['nomeUser'] = $dadosUsuario->nome;
-    $_SESSION['idUser'] = $dadosUsuario->id;
-
-
+    header('location:views/Usuario/pagina_usuario.php');
   }else{
-    $_SESSION['erro'] = "Usuario ou senha incorretos, caso o erro percista entre em contato com o ADM";
+    echo('<script> alert("Usuario ou senha incorretos, tente novamente..."); </script>');
   }
 }
 
 }
-
  ?>
