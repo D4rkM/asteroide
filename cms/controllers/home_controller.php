@@ -103,6 +103,7 @@
         //Lista todos os contatos existentes
         public function Listar(){
 
+          require_once('trata_imagem.php');
           $home = new Home();
 
           return $home::Select();

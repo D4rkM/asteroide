@@ -1168,7 +1168,7 @@ nav{
 /*lista*/
 .lista_motorista{
   background-color: #084B8A;
-  width: 85%;
+  width: 90%;
   height: 40px;
   margin: auto;
   margin-top: 10px;
@@ -1177,7 +1177,7 @@ nav{
 }
 
 .item_motorista{
-  width: 16%;
+  width: 12%;
   height: 40px;
   float: left;
   color: #fff;
@@ -1187,7 +1187,7 @@ nav{
   font-family: sans-serif;
 }
 .container_lista_motorista{
-  width: 85%;
+  width: 90%;
   height: 40px;
   margin: auto;
   margin-top: 10px;
@@ -1195,10 +1195,9 @@ nav{
   border-top-right-radius: 15px;
 }
 .itens_mostrar_motorista{
-  width: 16%;
+  width: 12%;
   height: 50px;
   float: left;
-  margin-left:4px;
   font-size: 16px;
   font-family: "opensansbold";
   text-align: center;
