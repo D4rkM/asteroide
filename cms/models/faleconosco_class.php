@@ -32,6 +32,29 @@ class Reclamacao{
     //Fecha a conexão com o Banco de Dados
       $conex->Desconectar();
   }
+
+  public function Select(){
+    $sql = "select * from reclamacao order by id desc";
+
+    $conex = new Mysql_db();
+    $PDO_conex = $conex->Conectar();
+    $select = $PDO_conex->query($sql);
+    $cont = 0;
+
+    while($rs=$select->fetch(PDO::FETCH_ASSOC)){
+      $listReclamacao[] = new Reclamaca();
+
+      $listReclamacao[$cont]->id = $rs['id'];
+      $listReclamacao[$cont]->reclamacao = $rs['reclamacao'];
+      $listReclamacao[$cont]->email = $rs['email'];
+
+      $cont+=1;
+    }
+    $conex->Desconectar();
+    if(isset($listReclamacao)){
+      return $listReclamacao;
+    }
+  }
 }
 
 class Sugestao{
@@ -64,6 +87,29 @@ class Sugestao{
         echo("Erro ao inserir no BD");
       }
       $conex->Desconectar();
+  }
+
+  public function Select(){
+    $sql = "select * from sugestao order by id desc";
+
+    $conex = new Mysql_db();
+    $PDO_conex = $conex->Conectar();
+    $select = $PDO_conex->query($sql);
+    $cont = 0;
+
+    while($rs=$select->fetch(PDO::FETCH_ASSOC)){
+      $listSugestao[] = new Sugestao();
+
+      $listSugestao[$cont]->id = $rs['id'];
+      $listSugestao[$cont]->sugestao = $rs['sugestao'];
+      $listSugestao[$cont]->email = $rs['email'];
+
+      $cont+=1;
+    }
+    $conex->Desconectar();
+    if(isset($listSugestao)){
+      return $listSugestao;
+    }
   }
 }
 class Elogio{
@@ -98,6 +144,29 @@ class Elogio{
 
     //Fecha a conexão com o Banco de Dados
       $conex->Desconectar();
+  }
+
+  public function Select(){
+    $sql = "select * from elogio order by id desc";
+
+    $conex = new Mysql_db();
+    $PDO_conex = $conex->Conectar();
+    $select = $PDO_conex->query($sql);
+    $cont = 0;
+
+    while($rs=$select->fetch(PDO::FETCH_ASSOC)){
+      $listElogio[] = new Elogio();
+
+      $listElogio[$cont]->id = $rs['id'];
+      $listElogio[$cont]->elogio = $rs['elogio'];
+      $listElogio[$cont]->email = $rs['email'];
+
+      $cont+=1;
+    }
+    $conex->Desconectar();
+    if(isset($listElogio)){
+      return $listElogio;
+    }
   }
 }
  ?>

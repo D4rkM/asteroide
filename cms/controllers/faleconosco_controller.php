@@ -9,6 +9,11 @@ class controllerReclamacao {
 
     $reclamacao::Insert($reclamacao);
   }
+
+  public function Listar(){
+    $reclamacao = new Reclamacao();
+    return $reclamacao::Select();
+  }
 }
 
 class controllerSugestao{
@@ -20,6 +25,11 @@ class controllerSugestao{
 
     $sugestao::Insert($sugestao);
   }
+
+  public function Listar(){
+    $sugestao = new Sugestao();
+    return $sugestao::Select();
+  }
 }
 
 class controllerElogio{
@@ -30,6 +40,11 @@ class controllerElogio{
     $elogio->email = $_POST['txtemail3'];
 
     $elogio::Insert($elogio);
+  }
+
+  public function Listar(){
+    $elogio = new Elogio();
+    return $elogio::Select();
   }
 }
  ?>

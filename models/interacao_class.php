@@ -15,7 +15,7 @@
                                         nome_local='$interacao_dados->local',
                                         id_usuario = '54',
                                         ativar=1;";
-                                        echo ($sql);die;
+                                        echo ($sql);
       $conex = new Mysql_db();
       $PDO_conex = $conex->Conectar();
       if($PDO_conex->query($sql))

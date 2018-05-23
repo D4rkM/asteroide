@@ -163,6 +163,16 @@
             }
           });
         });
+        $("#faleconosco").click(function(){
+            $.ajax({
+            type:"POST",
+            url:"views/Faleconosco/layout_faleconosco.php",
+            data:{},
+            success: function(dados){
+              $("#main").html(dados);
+          }
+        });
+      });
       });
     </script>
   </head>
@@ -210,6 +220,7 @@
                 <li id="interacao"><a href="#">Interação</a></li>
                 <li id="frotas"><a href="#">Frotas</a></li>
                 <li id="home"><a href="#">Home</a></li>
+                <li id="faleconosco"><a href="#">Fale Conosco</a></li>
               </ul>
           <li>
             <li class="itens"><a href="#">Vendas</a>

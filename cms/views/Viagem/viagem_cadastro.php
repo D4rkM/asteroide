@@ -35,6 +35,8 @@
             }
             ?>
   </select>
+  <div class="txt_viagem">Preço</div>
+  <input class="box_viagem" type="text" name="preco" value="">
   <input class="salvar_viagem" type="submit" name="btnsalvar" value="Salvar">
   </div>
 </form>

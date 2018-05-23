@@ -158,7 +158,7 @@
     }
       break;
 
-      case 'postos_rodoviarios':
+    case 'postos_rodoviarios':
 
       require_once('controllers/postos_rodoviarios_controller.php');
       require_once('models/postos_rodoviarios_class.php');
@@ -200,7 +200,7 @@
         }
         break;
 
-      case 'home':
+    case 'home':
 
       require_once('controllers/home_controller.php');
       require_once('models/home_class.php');
@@ -236,8 +236,7 @@
         }
         break;
 
-        case 'tipo_destino':
-
+    case 'tipo_destino':
         require_once('controllers/tipo_destino_controller.php');
         require_once('models/tipo_destino_class.php');
 
@@ -272,7 +271,7 @@
           }
           break;
 
-          case 'classe_onibus':
+    case 'classe_onibus':
 
           require_once('controllers/classe_onibus_controller.php');
           require_once('models/classe_onibus_class.php');
@@ -307,7 +306,7 @@
               break;
             }
 
-        case 'motorista':
+    case 'motorista':
 
           require_once('controllers/motorista_controller.php');
           require_once('models/motorista_class.php');
@@ -344,7 +343,7 @@
                 break;
           }
               break;
-              case 'interacao':
+    case 'interacao':
 
                 require_once('controllers/interacao_controller.php');
                 require_once('models/interacao_class.php');
@@ -375,7 +374,7 @@
               }
 
               break;
-              case 'parada':
+    case 'parada':
 
               require_once('controllers/parada_controller.php');
               require_once('models/parada_class.php');
@@ -411,7 +410,7 @@
                 }
                 break;
 
-                case 'cidade':
+    case 'cidade':
 
                   require_once('controllers/cidade_controller.php');
                   require_once('models/cidade_class.php');
@@ -431,7 +430,7 @@
                   break;
                 }
                 break;
-                  case 'onibus':
+    case 'onibus':
 
                       require_once('controllers/onibus_controller.php');
                       require_once('models/onibus_class.php');
@@ -466,7 +465,7 @@
                   break;
                 }
                 break;
-                case 'caminho':
+    case 'caminho':
 
                 require_once('controllers/caminho_controller.php');
                 require_once('models/caminho_class.php');
@@ -501,7 +500,7 @@
                     break;
                   }
                   break;
-                  case 'pacote_viagem':
+    case 'pacote_viagem':
 
                   require_once('controllers/pacote_viagem_controller.php');
                   require_once('models/pacote_viagem_class.php');
@@ -536,7 +535,7 @@
                       break;
                     }
                     break;
-                    case 'viagem':
+    case 'viagem':
 
                     require_once('controllers/viagem_controller.php');
                     require_once('models/viagem_class.php');
@@ -570,6 +569,45 @@
                         default:
                       }
                         break;
-    }
+    case 'faleconosco':
 
+                        require_once('controllers/faleconosco_controller.php');
+                        require_once('models/faleconosco_class.php');
+
+                          switch ($modo) {
+                            case 'reclamacao':
+                            $controllerReclamacao = new controllerReclamacao();
+                            $controllerReclamacao::Listar();
+                            break;
+
+                            case 'sugestao':
+                            $controllerSugestao = new controllerSugestao();
+                            $controllerSugestao::Listar();
+                            break;
+
+                            case 'elogio':
+                            $controllerElogio = new controllerElogio();
+                            $controllerElogio::Listar();
+                            break;
+                          }
+                          break;
+
+    case 'usuario':
+      require_once('controllers/usuario_controller.php');
+      require_once('models/usuario_class.php');
+
+        switch ($modo) {
+          case 'listar':
+          $controllerUsuario = new controllerUsuario();
+          $controllerUsuario::Listar();
+          break;
+
+          case 'excluir':
+          $controllerUsuario = new controllerUsuario();
+          $controllerUsuario::Excluir();
+          break;
+
+        }
+  break;
+    }
  ?>

@@ -142,7 +142,7 @@ class Usuario{
       $mensagem = null;
 
       $sqlCall = "CALL sp_login_cliente('$usuario_dados->login', '$usuario_dados->senha', @mensagem, @id, @nome, @imagem_usuario);";
-      $sqlResultado = "Select @mensagem, @id, @nome, @imagem_usuario";
+      $sqlResultado = "SELECT @mensagem, @id, @nome, @imagem_usuario";
 
       //var_dump($usuario_dados);
 
@@ -156,18 +156,23 @@ class Usuario{
 
       if($rs=$select->fetch(PDO::FETCH_ASSOC)){
 
+      echo($rs['@nome']);
       $mensagem = $rs['@mensagem'];
+      echo($mensagem);
+      if($mensagem){
+        echo('foi');
+        // session_start();
+          $dados_usuario = new Usuario();
 
-      if($mensagem == true){
+          $dados_usuario->nome = $rs['@nome'];
+          $dados_usuario->id = $rs['@id'];
+          $dados_usuario->foto = $rs['@imagem_usuario'];
 
-        session_start();
-
-        $_SESSION['nome_usuario']= $rs['@nome'];
-        $_SESSION['id_usuario'] = $rs['@id'];
-        $_SESSION['imagem_usuario'] = $rs['@imagem_usuario'];
+          return $dados_usuario;
 
       }else{
-        echo("<script> alert('Usuário ou senha incorreto, tente novamente.'); </script>");
+        echo('falho');
+          echo("<script> alert('Usuário ou senha incorreto, tente novamente.'); </script>");
       }
 
         $conex->Desconectar();

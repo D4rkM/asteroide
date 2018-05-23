@@ -87,10 +87,10 @@
            FALE CONOSCO
          </div>
        </div>
-       <form class="" action="../router.php?controller=faleconosco&modo=novo" method="post">
        <div class="container-contato">
 
          <div class="contato-box">
+           <form class="" action="../router.php?controller=faleconosco&modo=reclamacao" method="post">
            <div class="titulo-conteudo-padrao">
              <h2>RECLAMAÇÕES</h2>
            </div>
@@ -100,15 +100,17 @@
            <div class="feedback-cliente">
              <div class="escrita">
                <textarea name="txtreclamacao" rows="5" placeholder="Reclame aqui ..."></textarea>
-               <input type="email" name="txtemail" value="" placeholder="Email">
+               <input type="email" name="txtemail1" value="" placeholder="Email">
              </div>
            </div>
            <div class="btn_enviar">
              <button class="btn" type="submit" name="btn_enviar"> Enviar </button>
            </div>
-
+           </form>
          </div>
+
          <div class="contato-box">
+         <form class="" action="../router.php?controller=faleconosco&modo=sugestao" method="post">
            <div class="titulo-conteudo-padrao">
              <h2>SUGESTÕES</h2>
            </div>
@@ -118,14 +120,17 @@
            <div class="feedback-cliente">
              <div class="escrita">
                <textarea name="txtsugestao" rows="5" placeholder="De sua sugestão aqui ..."></textarea>
-               <input type="email" name="txtemail" value="" placeholder="Email">
+               <input type="email" name="txtemail2" value="" placeholder="Email">
              </div>
            </div>
            <div class="btn_enviar">
              <button class="btn" type="submit" name="btn_enviar"> Enviar </button>
            </div>
+         </form>
          </div>
+
          <div class="contato-box">
+         <form class="" action="../router.php?controller=faleconosco&modo=elogio" method="post">
            <div class="titulo-conteudo-padrao">
              <h2>ELOGIOS</h2>
            </div>
@@ -135,16 +140,16 @@
            <div class="feedback-cliente">
              <div class="escrita">
                <textarea name="txtelogio" rows="5" placeholder="De seu elogio aqui ..."></textarea>
-               <input type="email" name="txtemail" value="" placeholder="Email">
+               <input type="email" name="txtemail3" value="" placeholder="Email">
              </div>
            </div>
            <div class="btn_enviar">
              <button class="btn" type="submit" name="btn_enviar"> Enviar </button>
            </div>
+         </form>
          </div>
 
        </div>
-       </form>
        <div style="padding:50px;">
          <div class="cont-forma-de-contato">
            <div class="forma-de-contato">
@@ -185,6 +190,8 @@
        </div>
 
     <?php require_once('footer.php'); ?>
-
+<?php if(isset($_GET['mensagem'])):?>
+  <script type="text/javascript">alert("Sua mensagem foi enviada com sucesso!")</script>
+<?php endif;?>
   </body>
 </html>
