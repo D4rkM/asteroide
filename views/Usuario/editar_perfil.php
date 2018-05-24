@@ -5,7 +5,6 @@
   Obs: Página principal contém menu e rodapé para inserir as outras páginas
   -->
   <?php
-
     include('../../links.php');
 
     $links = alterarLinks(false);
@@ -39,10 +38,11 @@
       	require_once("../../models/usuario_class.php");
 
       	$usuario_controller = new controllerUsuario();
-      	$dadosUsuario = $usuario_controller::Buscar($id);
+      	$dadosUsuario = $usuario_controller::Buscar($_SESSION['id_usuario']);
+
       	?>
         <!--Form dos itens do cadastro-->
-        <form action="../../router.php?controller=usuario&modo=editar&id=54" enctype="multipart/form-data" method="post">
+        <form action="../../router.php?controller=usuario&modo=editar&id=<?php echo $id ?>" enctype="multipart/form-data" method="post">
           <div class="campo-foto">
             <!--texto da imagem de inserir foto de perfil-->
             <div class="subtitulo text-center">

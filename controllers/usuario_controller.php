@@ -99,6 +99,7 @@ class controllerUsuario {
   public function Buscar($id){
     $usuario = new Usuario();
     $usuario->id = $id;
+    // var_dump($id);die;
     return $dados_usuario = $usuario::SelectById($usuario);
   }
 
@@ -112,9 +113,9 @@ class controllerUsuario {
 
   if($dadosUsuario!=false)
   {
-    $_SESSION['nomeUser'] = $dadosUsuario->nome;
-    $_SESSION['idUser'] = $dadosUsuario->id;
-
+    $_SESSION['nome_usuario'] = $dadosUsuario->nome;
+    $_SESSION['id_usuario'] = $dadosUsuario->id;
+  
 
   }else{
     $_SESSION['erro'] = "Usuario ou senha incorretos, caso o erro percista entre em contato com o ADM";

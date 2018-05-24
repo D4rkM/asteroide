@@ -105,7 +105,8 @@ class Usuario{
     $conex->Desconectar();
   }
   public function SelectById($usuario_dados){
-    $sql = "select * from cliente where id = 54";
+    $sql = "select * from cliente where id = $usuario_dados->id";
+    echo($sql);die;
 
     $conex = new Mysql_db();
 
@@ -117,7 +118,7 @@ class Usuario{
 
       $usuario = new Usuario();
 
-      $usuario->id = $rs['id'];
+      $usuario->id = $rs[$_SESSION['id_usuario']];
       $usuario->imagem = $rs['imagem_usuario'];
       $usuario->nome = $rs['nome'];
       $usuario->email = $rs['email'];

@@ -13,7 +13,7 @@
         case 'buscar':
           $controllerDadosViagem = new ControllerDadosViagem();
           $controllerDadosViagem::buscar();
-          
+
       }
 
       break;
