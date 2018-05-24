@@ -31,7 +31,7 @@ class sobreEmpresa{
                                         icon1='$sobre_empresa_dados->icon1',
                                         detalhes1='$sobre_empresa_dados->detalhes1';";
 
-//echo ($sql);
+echo ($sql);
 //require_once('index.php');
 
     //Instancia a classe do banco
