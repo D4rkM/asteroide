@@ -16,7 +16,9 @@
       Obs: Página principal contém menu e rodapé para inserir as outras páginas
     -->
     <title>Home - Bem vindo</title>
-    <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_login.css">
     <link rel="stylesheet" href="css/style_detalhes.css">

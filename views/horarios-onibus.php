@@ -19,6 +19,8 @@
     -->
     <title>Home - Bem vindo</title>
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/footer.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/viagens.css">
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style.css">
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style_login.css">
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style_detalhes.css">
@@ -261,6 +263,6 @@
          </div>
        </div>
        </div>
-    <?php// require_once('footer.php'); ?>
+    <?php require_once('footer.php'); ?>
   </body>
 </html>
