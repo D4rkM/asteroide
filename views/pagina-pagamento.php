@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="<?php echo($links); ?>css/style.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/pagina_pagamento.css">
     <script src="<?php echo($links); ?>js/jquery.min.js"></script>
     <script src="../js/jquery-3.3.1.js"></script>
     <script>
@@ -85,6 +86,10 @@
            </div>
 
            <div class="pague">
+<<<<<<< HEAD
+=======
+
+>>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
              <div class="cont_pague">
                  <div class="text_pague">Bandeiras</div>
                 <div class="bandeiras">
@@ -138,6 +143,10 @@
          </div>
        </div>
        </div>
+<<<<<<< HEAD
     <?php require_once('footer.php'); ?>
+=======
+    <?php //require_once('footer.php'); ?>
+>>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
   </body>
 </html>

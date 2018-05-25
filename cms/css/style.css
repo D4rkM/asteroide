@@ -1,4 +1,4 @@
-/*css
+﻿/*css
 Editores: Magno, Bruna, Bruno, Lucas, William
 Data da primeira modificação: 19/03/2018
 Data da ultima modificação: 14/04/2018
@@ -1168,7 +1168,7 @@ nav{
 /*lista*/
 .lista_motorista{
   background-color: #084B8A;
-  width: 85%;
+  width: 90%;
   height: 40px;
   margin: auto;
   margin-top: 10px;
@@ -1177,7 +1177,7 @@ nav{
 }
 
 .item_motorista{
-  width: 16%;
+  width: 12%;
   height: 40px;
   float: left;
   color: #fff;
@@ -1187,7 +1187,7 @@ nav{
   font-family: sans-serif;
 }
 .container_lista_motorista{
-  width: 85%;
+  width: 90%;
   height: 40px;
   margin: auto;
   margin-top: 10px;
@@ -1195,10 +1195,9 @@ nav{
   border-top-right-radius: 15px;
 }
 .itens_mostrar_motorista{
-  width: 16%;
+  width: 12%;
   height: 50px;
   float: left;
-  margin-left:4px;
   font-size: 16px;
   font-family: "opensansbold";
   text-align: center;
@@ -1336,6 +1335,7 @@ label#imagem2{
   font-family: "opensansbold";
   color: #960707;
 }
+
 /* Area da config de itinerario */
 body.dragging, body.dragging * {
 cursor: move !important;
@@ -1390,4 +1390,47 @@ position: absolute;
 .list li{
   background-color: #f3f3cc;
   user-select: none;
+}
+/*Lista de Fale Conosco*/
+.lista_faleconosco{
+  background-color: #084B8A;
+  width: 60%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.item_faleconosco{
+  width: 33%;
+  height: 40px;
+  float: left;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.container_lista_faleconosco{
+  width: 60%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.itens_mostrar_faleconosco{
+  width: 32%;
+  height: 40px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
 }

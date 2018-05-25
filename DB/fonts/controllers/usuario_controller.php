@@ -99,51 +99,27 @@ class controllerUsuario {
   public function Buscar($id){
     $usuario = new Usuario();
     $usuario->id = $id;
-<<<<<<< HEAD
-    return $dados_usuario = $usuario::SelectById($usuario);
-=======
-    // var_dump($id);die;
     return $dados_usuario = $usuario::SelectById($usuario);
   }
 
   public function Logar(){
-
+  // session_start();
   $usuario = new Usuario();
 
   $usuario->login = $_POST['txtemail'];
   $usuario->senha = $_POST['txtsenha'];
-  $dadosUsuario = $usuario::Login($usuario);
+  // $dados_usuario = new Usuario();
+  $dados_usuario = $usuario::Login($usuario);
 
-  if($dadosUsuario!=false)
+  $_SESSION['nome_usuario'] = $dados_usuario->nome;
+
+  echo($_SESSION['nome_usuario']);
+  if($_SESSION['nome_usuario'])
   {
-    $_SESSION['nome_usuario'] = $dadosUsuario->nome;
-    $_SESSION['id_usuario'] = $dadosUsuario->id;
-  
-
+    header('location:views/Usuario/pagina_usuario.php');
   }else{
-    $_SESSION['erro'] = "Usuario ou senha incorretos, caso o erro percista entre em contato com o ADM";
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+    echo('<script> alert("Usuario ou senha incorretos, tente novamente..."); </script>');
   }
-
-  public function Logar(){
-
-  $usuario = new Usuario();
-
-  $usuario->login = $_POST['txtemail'];
-  $usuario->senha = $_POST['txtsenha'];
-  $dadosUsuario = $usuario::Login($usuario);
-
-  if($dadosUsuario!=false)
-  {
-    $_SESSION['nomeUser'] = $dadosUsuario->nome;
-    $_SESSION['idUser'] = $dadosUsuario->id;
-
-
-  }else{
-    $_SESSION['erro'] = "Usuario ou senha incorretos, caso o erro percista entre em contato com o ADM";
-  }
-}
-
 }
 
 }

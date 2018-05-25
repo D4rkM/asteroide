@@ -14,7 +14,7 @@
    ?>
 
 <link rel="stylesheet" href="../../css/style.css">
-<?php require_once('nav.php'); ?>
+<?php require_once('nav2.php'); ?>
 
 <!-- Conteúdo da página -->
 <div class="conteudo-cadastro">
@@ -34,7 +34,7 @@
               <h3>Foto de Perfil</h3>
             </div>
             <label for="foto">
-              <div  class="adicionar_imagem" id="imagem">
+              <div  class="imagem_usuario" id="imagem">
                 <img id="id_sua_img" src="../../img/client.png" alt="foto"/>
               </div>
             </label>
@@ -52,6 +52,10 @@
             <div class="caixa-dados large">
               <label for="email" class="">E-mail</label>
               <input id="email" class="" type="text" name="txtemail">
+            </div>
+            <div class="caixa-dados large">
+              <label for="senha" class="">Usuario</label>
+              <input id="senha" class="" type="txt" name="txtusuario">
             </div>
             <div class="caixa-dados large">
               <label for="senha" class="">Senha</label>

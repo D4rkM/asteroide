@@ -1,6 +1,11 @@
 <div class="lista_viagem">
+<<<<<<< HEAD
   <div class="item_viagem">Data Saida</div>
   <div class="item_viagem">Data Chegada</div>
+=======
+  <div class="item_viagem">Saida</div>
+  <div class="item_viagem">Chegada</div>
+>>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
   <div class="item_viagem">Descricão</div>
   <div class="item_viagem">Pacote Viagem</div>
   <div class="item_viagem">Opções</div>
@@ -33,9 +38,12 @@ $(document).ready(function() {
   require_once("../../controllers/viagem_controller.php");
   require_once("../../models/viagem_class.php");
 
+<<<<<<< HEAD
   require_once("../../controllers/pacote_viagem_controller.php");
   require_once("../../models/pacote_viagem_class.php");
 
+=======
+>>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
   $controllerViagem = new controllerViagem();
   $list = $controllerViagem::Listar();
   $cont = 0;
@@ -46,11 +54,15 @@ $(document).ready(function() {
   <div class="itens_mostrar_viagem"><?php echo $list[$cont]->saida ?></div>
   <div class="itens_mostrar_viagem"><?php echo $list[$cont]->chegada ?></div>
   <div class="itens_mostrar_viagem"><?php echo $list[$cont]->descricao ?></div>
+<<<<<<< HEAD
   <div class="itens_mostrar_viagem"><?php
     $controllerPacoteViagem = new controllerPacoteViagem();
     $pacote_viagem = $controllerPacoteViagem::buscar($list[$cont]->pacote_viagem);
     echo($pacote_viagem->origem. " X " . $pacote_viagem->destino);
    ?></div>
+=======
+  <div class="itens_mostrar_viagem"><?php echo $list[$cont]->titulo ?></div>
+>>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
   <div class="itens_mostrar_viagem">
     <a href="router.php?controller=viagem&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
       <img src="img/icon-delete.png" alt="">

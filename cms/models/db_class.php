@@ -6,9 +6,6 @@
         Class:Banco de dados
         Obs:Essa Classe é a conexao com o banco de dados
     */
-
-
-
     class Mysql_db{
         private $server;
         private $user;
@@ -30,8 +27,8 @@
 
                 return $conexao;
             }catch(PDOException $Error){
-                echo("Erro ao conectar no BD.<br>
-                    Linha do Erro:".$Error->getLine()."<br>
+                echo("Erro ao conectar no BD.)
+                    Linha do Erro:".$Error->getLine()."
                     Mensagem do Erro:".$Error->getMessage());
             }
 

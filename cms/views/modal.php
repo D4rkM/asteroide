@@ -423,7 +423,7 @@ $("#foto").change(function(){
 <input class="salvar_home" type="submit" name="" value="Salvar">
 	</form>
 	 <?php
- if($pagina=='vendas'){
+    }if($pagina=='vendas'){
 
 		require_once('../controllers/vendas_controller.php');
 		require_once('../models/vendas_class.php');
@@ -571,6 +571,7 @@ $("#foto").change(function(){
 		<div class="text_duvida">Valor</div>
 		<input class="box_duvida" type="text" name="txtvalor" value="<?php echo $dadosVendas->valor ?>">
 		<input class="salvar_postos_rodoviarios" type="submit" name="btnCadastrar" value="Cadastrar">
+<<<<<<< HEAD
 	</div><input class="salvar_home" type="submit" name="" value="Alterar">
 		</form>
 		<!-- Cadastro de Postos Rodoviarios -->
@@ -632,6 +633,11 @@ $("#foto").change(function(){
 	               ?>
 	       </select>
 	     <input class="salvar_postos_rodoviarios" type="submit" name="btnCadastrar" value="Cadastrar">
+=======
+        <input class="salvar_home" type="submit" name="" value="Alterar">
+	   </div>
+</form>
+>>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
 		<?php
 	  }
 		 ?>

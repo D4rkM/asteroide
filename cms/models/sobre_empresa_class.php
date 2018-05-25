@@ -1,12 +1,12 @@
 <?php
 
 /*
-  Autor:William
-  Data de Modificação:22/03/2018
-  Class:Funcionario
-  Obs:Essa Classe é uma replica dos campos de dados com ações do CRUD
-
+    Autor:Lucas
+    Data de Modificação:23/05/2018
+    Controller:Sobre Empresa
+    Obs:Controller para realizar o CRUD de titulos, textos e imagens na página de Sobre Empresa.
 */
+
 class sobreEmpresa{
   public $id;
   public $titulo1;
@@ -31,8 +31,9 @@ class sobreEmpresa{
                                         icon1='$sobre_empresa_dados->icon1',
                                         detalhes1='$sobre_empresa_dados->detalhes1';";
 
-echo($sql);
-die;
+echo ($sql);
+//require_once('index.php');
+
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -52,11 +53,15 @@ die;
 
   }
 
-  public function Update($duvida_dados){
+  public function Update($sobre_empresa_dados){
 
-    $sql = "update pgduvidas_frequentes set pergunta='$duvida_dados->pergunta',
-                                   resposta='$duvida_dados->resposta',
-                                   aparecer=$duvida_dados->aparecer where id=$duvida_dados->id;";
+    $sql = "update pgsobre_nos set titulo1='$sobre_empresa_dados->titulo1',
+                                   texto1='$sobre_empresa_dados->texto1',
+                                   titulo2='$sobre_empresa_dados->titulo2',
+                                   texto2='$sobre_empresa_dados->texto2',
+                                   imagem='$sobre_empresa_dados->imagem',
+                                   icon1='$sobre_empresa_dados->icon1',
+                                   detalhes1='$sobre_empresa_dados->detalhes1';";
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -76,7 +81,7 @@ die;
   }
 
   public function Delete($duvida_dados){
-    $sql = "delete from pgduvidas_frequentes where id = $duvida_dados->id";
+    $sql = "delete from pgsobre_nos where id = $sobre_empresa_dados->id";
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -97,7 +102,7 @@ die;
 
   public function Select(){
 
-    $sql = "select * from pgduvidas_frequentes order by id desc";
+    $sql = "select * from pgsobre_nos order by id desc";
 
     $conex = new Mysql_db();
 
@@ -110,26 +115,29 @@ die;
 
     while($rs=$select->fetch(PDO::FETCH_ASSOC)){
 
-      $listDuvidas[] = new Duvidas();
+      $listSobrenos[] = new sobreEmpresa();
 
-      $listDuvidas[$cont]->id = $rs['id'];
-      $listDuvidas[$cont]->pergunta = $rs['pergunta'];
-      $listDuvidas[$cont]->resposta = $rs['resposta'];
-      $listDuvidas[$cont]->aparecer = $rs['aparecer'];
-
+      $listSobrenos[$cont]->id = $rs['id'];
+      $listSobrenos[$cont]->titulo1 = $rs['titulo1'];
+      $listSobrenos[$cont]->texto1 = $rs['texto1'];
+      $listSobrenos[$cont]->titulo2 = $rs['titulo2'];
+      $listSobrenos[$cont]->texto2 = $rs['texto2'];
+      $listSobrenos[$cont]->imagem = $rs['imagem'];
+      $listSobrenos[$cont]->icon1 = $rs['icon1'];
+      $listSobrenos[$cont]->detalhes1 = $rs['detalhes1'];
       $cont+=1;
     }
 
     $conex->Desconectar();
 
-    if(isset($listDuvidas))
-        return $listDuvidas;
+    if(isset($listSobrenos))
+        return $listSobrenos;
 
   }
 
-  public function SelectById($duvida_dados){
+  public function SelectById($sobre_empresa){
 
-    $sql = "select * from pgduvidas_frequentes where id = $duvida_dados->id";
+    $sql = "select * from pgsobre_nos where id = $sobre_empresa_dados->id";
 
     $conex = new Mysql_db();
 
@@ -139,19 +147,23 @@ die;
 
     if($rs=$select->fetch(PDO::FETCH_ASSOC)){
 
-      $duvida = new Duvidas();
+      $sobre_empresa = new sobreEmpresa();
 
-      $duvida->id = $rs['id'];
-      $duvida->pergunta = $rs['pergunta'];
-      $duvida->resposta = $rs['resposta'];
-      $duvida->aparecer = $rs['aparecer'];
+      $listSobrenos[$cont]->id = $rs['id'];
+      $listSobrenos[$cont]->titulo1 = $rs['titulo1'];
+      $listSobrenos[$cont]->texto1 = $rs['texto1'];
+      $listSobrenos[$cont]->titulo2 = $rs['titulo2'];
+      $listSobrenos[$cont]->texto2 = $rs['texto2'];
+      $listSobrenos[$cont]->titulo2 = $rs['imagem'];
+      $listSobrenos[$cont]->titulo2 = $rs['icon1'];
+      $listSobrenos[$cont]->titulo2 = $rs['detalhes1'];
 
       $conex->Desconectar();
 
 
     }
-    if(isset($duvida))
-      return $duvida;
+    if(isset($sobre_empresa))
+      return $sobre_empresa;
   }
 
 

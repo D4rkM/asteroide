@@ -81,6 +81,7 @@
        <?php require_once('nav.php'); ?>
 
        <div class="container">
+<<<<<<< HEAD
          <!-- Filtro de busca de destino -->
          <div class="filtro_busca">
            <div class="txt_filtro">Filtro</div>
@@ -96,6 +97,9 @@
              <button class="btn_buscar" type="submit" name="btn_confirma">Buscar</button>
            </form>
          </div>
+=======
+         <?php require_once('filtro.php');  ?>
+>>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
          <!-- <div class="conteudo-video"> -->
            <div class="video-principal">
              <video muted autoplay loop>
