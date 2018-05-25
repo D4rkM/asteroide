@@ -15,6 +15,7 @@
     public $endereco_chegada;
     public $img;
     public $preco;
+    public $poltronas;
 
     public function __construct(){
       require_once('db_class.php');
@@ -52,7 +53,8 @@
         $listaViagem[$cont]->img = $rs['img'];
         $listaViagem[$cont]->classe = $rs['classe'];
         $listaViagem[$cont]->preco = $rs['preco'];
-        
+        $listaViagem[$cont]->poltronas = $rs['poltronas'];
+
         $cont+=1;
       }
       return $listaViagem;

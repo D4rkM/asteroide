@@ -38,7 +38,7 @@ $(document).ready(function() {
   while($cont < count($list)){
 ?>
 <div class="container_lista_pacote_viagem">
-  <div class="itens_mostrar_pacote_viagem"><?php echo $list[$cont]->titulo ?></div>
+  <div class="itens_mostrar_pacote_viagem"><?php echo $list[$cont]->origem.' X '.$list[$cont]->destino ?></div>
   <div class="itens_mostrar_pacote_viagem"><?php echo $list[$cont]->descricao ?></div>
   <div class="itens_mostrar_pacote_viagem">
     <a href="router.php?controller=pacote_viagem&modo=excluir&id=<?php echo($list[$cont]->id) ?>">

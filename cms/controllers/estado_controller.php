@@ -9,21 +9,6 @@
 
     class controllerEstado{
 
-        //Insere novo contato
-        public function Novo(){
-
-        }
-
-        //Atualiza um contato existente
-        public function Editar($idFuncionario){
-
-        }
-
-        //Apaga um contato existente
-        public function Excluir(){
-
-
-        }
 
         //Busca um registro existente
         public function Buscar($id){

@@ -73,6 +73,15 @@
     //   abrir = 0;
     // }
     // });
+
+    /**Função que pega a quantidade de poltronas do onibus na viagem clicada
+    *
+    */
+    $(document).on('click', '*[data-polt]', () =>{
+      var element = $(this).data(polt);
+      console.log(element);
+    });
+
     function Onibus(){
     var bus = document.getElementById("container_onibus");
 
@@ -182,17 +191,19 @@
                  <td class="coluna_horarios"><?php echo $list[$cont]->hora_saida;?></td>
                  <td class="coluna_horarios"><?php echo $list[$cont]->classe;?></td>
                  <td class="coluna_horarios"><?php echo $list[$cont]->preco;?></td>
-                 <td class="coluna_horarios"><a href="#" onclick="Onibus()" style="display: 'none';">Selecionar</td></a>
+                 <td class="coluna_horarios"><a href="#" onclick="Onibus()" data-polt='<?php echo $list[$cont]->poltronas; ?>' style="display: 'none';">Selecionar</td></a>
                </tr>
                <?php
                       $cont+=1;
                     }
                  }else{
-                   echo 'Não foram encontradas viagens';
+                   // header('location:../index.php');
                    // echo('<script>alert("ERRO!!")</script>');
                  }
                ?>
              </table>
+
+
              <div id="container_onibus">
                <div class="legenda">
                  <div class="leg_box" style="background-color:green;"></div><div class="leg_text">Disponivel</div>
