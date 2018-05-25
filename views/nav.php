@@ -1,10 +1,10 @@
 <?php
     session_start();
-    
+
  ?>
 <!-- Menu Superior -->
 <nav>
-  <div class="menu-container" id="men" style="background-color:#162E44;">
+  <div class="menu-container" id="men">
     <div class="login-menu">
 
     </div>
@@ -69,8 +69,13 @@
 
           if(isset($_SESSION['nome_usuario'])){
           ?>
+          <div class="user_log">
            <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><img class="img_user" src="<?php echo($_SESSION['nome_imagem']); ?>" alt="user"></a>
           <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><div class=""><?php echo($_SESSION['nome_usuario']); ?></div></a>
+            <ul class="submenu">
+              <li>sair</li>
+            </ul>
+          </div>
           <?php
         }else{
            ?>

@@ -201,7 +201,9 @@ body::-webkit-scrollbar-thumb {
 /* Container do menu */
 .menu-container{
   display: flex;
-  background-color: #FFF;
+  /* background-color: #FFF; */
+  background-color:#162E44;
+  /* background-color:black; */
   flex-direction: row;
   position: fixed;
   justify-content: space-between;
@@ -251,12 +253,16 @@ body::-webkit-scrollbar-thumb {
     background-color: #4d9b61;
   	/* transition:1s; */
     margin-top: 34px;
-  }
+}
+
+.submenu a{
+  color: #fff;
+}
 
   .submenu li{
     text-align: left;
     width:130px;
-  	height:50px;
+  	height:auto;
     padding: 20px 10px;
     /*background-color: green;*/
   }
@@ -267,7 +273,7 @@ body::-webkit-scrollbar-thumb {
 
 .itens-menu:hover>.submenu{
   /* width:130px; */
-	height:250px;
+	height:auto;
 	opacity:1;
 	overflow:visible;
 	/* transition:1s; */
@@ -307,6 +313,22 @@ body::-webkit-scrollbar-thumb {
   height: 50px;
   margin-right: 25px;
 }
+
+.user_log{
+  /* width: 100%; */
+  /* height: 100%; */
+}
+
+.user_log:hover>.submenu{
+  /* width:130px; */
+  margin-top: 60px;
+	height:auto;
+	opacity:1;
+	overflow:visible;
+	/* transition:1s; */
+  box-shadow: 11px 5px 5px /*rgb(102, 132, 29)*/rgba(0,0,0,0.5);
+}
+
 /* ------------------------------------------------------------------------- */
 /* Conteudo das páginas */
 /* Pagina Home */
