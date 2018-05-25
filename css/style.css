@@ -1155,6 +1155,7 @@ body::-webkit-scrollbar-thumb {
   min-height: 500px;
   height: auto;
   margin: auto;
+  flex-wrap: wrap;
   /* background-color: #458665; */
   /* border: solid 1px #000; */
 }
@@ -1305,7 +1306,9 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-around;
     margin:20px 0px;
     width: 80%;
-    height: 350px;
+    min-height: 350px;
+    height: auto;
+    flex-wrap: wrap;
     /* background-color: #458665; */
     /* background-color: #f3f3f3; */
 }
@@ -2292,8 +2295,6 @@ label#imagem{
   margin-left: 35%;
   margin-bottom: 12px;
 }
-
-
 
 /* ------------------------------------------------------------------------- */
 

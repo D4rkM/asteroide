@@ -9,12 +9,8 @@
 */
 class PacoteViagem{
   public $id;
-<<<<<<< HEAD:cms/models/pacote_viagem_class.php
   public $origem;
   public $destino;
-=======
-  public $titulo;
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394:cms/models/pacote_viagem_class.php
   public $descricao;
 
   public function __construct(){
@@ -91,9 +87,6 @@ class PacoteViagem{
 
 <<<<<<< HEAD:cms/models/pacote_viagem_class.php
     $sql = "SELECT * FROM pacote_viagem ORDER BY id DESC";
-=======
-    $sql = "select * from pacote_viagem order by id desc";
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394:cms/models/pacote_viagem_class.php
 
     $conex = new Mysql_db();
 
@@ -109,12 +102,8 @@ class PacoteViagem{
       $listPacoteViagem[] = new PacoteViagem();
 
       $listPacoteViagem[$cont]->id = $rs['id'];
-<<<<<<< HEAD:cms/models/pacote_viagem_class.php
       $listPacoteViagem[$cont]->origem = $rs['origem'];
       $listPacoteViagem[$cont]->destino = $rs['destino'];
-=======
-      $listPacoteViagem[$cont]->titulo = $rs['titulo'];
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394:cms/models/pacote_viagem_class.php
       $listPacoteViagem[$cont]->descricao = $rs['descricao'];
 
       $cont+=1;
@@ -128,11 +117,7 @@ class PacoteViagem{
 
   public function SelectById($pacote_viagem_dados){
 
-<<<<<<< HEAD:cms/models/pacote_viagem_class.php
     $sql = "SELECT * FROM pacote_viagem WHERE id = $pacote_viagem_dados->id";
-=======
-    $sql = "select * from pacote_viagem where id = $pacote_viagem_dados->id";
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394:cms/models/pacote_viagem_class.php
 
     $conex = new Mysql_db();
 
@@ -145,12 +130,8 @@ class PacoteViagem{
       $pacote_viagem = new PacoteViagem();
 
       $pacote_viagem->id = $rs['id'];
-<<<<<<< HEAD:cms/models/pacote_viagem_class.php
       $pacote_viagem->origem = $rs['origem'];
       $pacote_viagem->destino = $rs['destino'];
-=======
-      $pacote_viagem->titulo = $rs['titulo'];
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394:cms/models/pacote_viagem_class.php
       $pacote_viagem->descricao = $rs['descricao'];
 
       $conex->Desconectar();

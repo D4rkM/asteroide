@@ -21,16 +21,11 @@ class Viagem{
 
     $sql = "insert into viagem set previsto_saida='$viagem_dados->saida',
                                    previsto_chegada='$viagem_dados->chegada',
-<<<<<<< HEAD
-                                   descricao='$viagem_dados->descricao',
-                                   km='$viagem_dados->km',
-                                   idpacote_viagem='$viagem_dados->pacote_viagem';";
-=======
                                    descricao_viagem='$viagem_dados->descricao',
                                    km='$viagem_dados->km',
                                    idpacote_viagem='$viagem_dados->pacote_viagem',
                                    preco='$viagem_dados->preco';";
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+
                                    // echo($sql);
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -43,10 +38,9 @@ class Viagem{
     if($PDO_conex->query($sql))
         header('location:index.php');
     else
-<<<<<<< HEAD
+
         echo($sql);
-=======
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+
         echo("Erro ao inserir no BD");
 
     //Fecha a conexão com o Banco de Dados
@@ -60,12 +54,9 @@ class Viagem{
                               previsto_chegado='$viagem_dados->chegada'
                               descricao_viagem='$viagem_dados->descricao',
                               km='$viagem_dados->km',
-<<<<<<< HEAD
-                              idpacote_viagem='$viagem_dados->pacote_viagem' where id=$viagem_dados->id;";
-=======
                               idpacote_viagem='$viagem_dados->pacote_viagem',
                               preco='$viagem_dados->preco' where id=$viagem_dados->id;";
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+
 
     // echo ($sql);
     //Instancia a classe do banco
@@ -126,18 +117,14 @@ class Viagem{
       $listViagem[$cont]->id = $rs['id'];
       $listViagem[$cont]->saida = $rs['previsto_saida'];
       $listViagem[$cont]->chegada = $rs['previsto_chegada'];
-<<<<<<< HEAD
+
       $listViagem[$cont]->descricao = $rs['descricao'];
       $listViagem[$cont]->km = $rs['km'];
       $listViagem[$cont]->pacote_viagem = $rs['idpacote_viagem'];
-      $listViagem[$cont]->origemr = $rs['origem'];
-=======
-      $listViagem[$cont]->descricao = $rs['descricao_viagem'];
-      $listViagem[$cont]->km = $rs['km'];
-      $listViagem[$cont]->pacote_viagem = $rs['idpacote_viagem'];
-      $listViagem[$cont]->titulo = $rs['titulo'];
+      $listViagem[$cont]->origem = $rs['origem'];
+      $listViagem[$cont]->destino = $rs['destino'];
       $listViagem[$cont]->preco=$rs['preco'];
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+
 
       $cont+=1;
     }
@@ -168,10 +155,8 @@ class Viagem{
       $viagem->descricao = $rs['descricao_viagem'];
       $viagem->km = $rs['km'];
       $viagem->pacote_viagem = $rs['idpacote_viagem'];
-<<<<<<< HEAD
-=======
       $viagem->preco = $rs['preco'];
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+
 
       $conex->Desconectar();
 

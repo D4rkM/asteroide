@@ -146,11 +146,7 @@ echo($sql);
 
       $listMotorista[$cont]->id = $rs['id'];
       $listMotorista[$cont]->nome = $rs['nome'];
-<<<<<<< HEAD
       $listMotorista[$cont]->imagem = $rs['imagem'];
-=======
-      // $listMotorista[$cont]->imagem = $rs['imagem'];
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
       $listMotorista[$cont]->email = $rs['email'];
       $listMotorista[$cont]->telefone = $rs['telefone'];
       $listMotorista[$cont]->celular = $rs['celular'];
