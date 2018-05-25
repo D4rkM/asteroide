@@ -4,6 +4,7 @@
 
     public $id;
     public $origem;
+    public $classe;
     public $destino;
     public $data_saida;
     public $data_chegada;
@@ -12,7 +13,6 @@
     public $km;
     public $endereco_saida;
     public $endereco_chegada;
-    public $classe;
     public $img;
     public $preco;
 
@@ -24,7 +24,8 @@
 
       $sql = "SELECT * FROM view_lista_todas_as_viagens
               WHERE origem LIKE '%$pesquisa->origem%'
-              AND destino LIKE '%$pesquisa->destino%';";
+              AND destino LIKE '%$pesquisa->destino%'
+              AND data_saida LIKE '%$pesquisa->data_saida%';";
 
       $conex = new Mysql_db();
 
@@ -35,9 +36,9 @@
 
       $cont = 0;
 
+      $listaViagem[] = new DadosViagem();
       while($rs=$select->fetch(PDO::FETCH_ASSOC)){
 
-        $listaViagem[] = new DadosViagem();
 
         $listaViagem[$cont]->origem = $rs['origem'];
         $listaViagem[$cont]->destino = $rs['destino'];
@@ -49,8 +50,9 @@
         $listaViagem[$cont]->endereco_chegada = $rs['endereco_chegada'];
         $listaViagem[$cont]->km = $rs['km'];
         $listaViagem[$cont]->img = $rs['img'];
+        $listaViagem[$cont]->classe = $rs['classe'];
         $listaViagem[$cont]->preco = $rs['preco'];
-
+        
         $cont+=1;
       }
       return $listaViagem;

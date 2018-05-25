@@ -11,20 +11,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="Magno">
     <!--
       Data de modificação: 19/03/2018
       Obs: Página principal contém menu e rodapé para inserir as outras páginas
     -->
     <title>Home - Bem vindo</title>
-    <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
-    <link rel="stylesheet" href="<?php echo($links); ?>css/style.css">
-    <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
-    <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
-    <link rel="stylesheet" href="<?php echo($links); ?>css/pagina_pagamento.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style_login.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style_detalhes.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/pagina_pagamento.css">
     <script src="<?php echo($links); ?>js/jquery.min.js"></script>
-    <script src="../js/jquery-3.3.1.js"></script>
+    <script src="<?php echo($links); ?>js/jquery-3.3.1.js"></script>
     <script>
       var color = 0;
     $(document).on('click', '.poltronas', function(){
@@ -122,13 +122,6 @@
       // --------------------------------------------------------------------------------------
     </script>
   </head>
-
-  <?php
-    require_once('../models/dados_viagem_class.php');
-    require_once('../controllers/dados_viagem_controller.php');
-    $controller_viagens =new ControllerDadosViagem();
-    $list = $controller_viagens::buscar();
-   ?>
   <body>
     <div class="modalContainerLogin">
       <div class="modal-login">
@@ -138,22 +131,24 @@
        <div class="conteudo_horarios">
        <div class="container_horarios">
          <div class="container_horarios2">
-           <div class="nome_passagem">Passagem de Onibus de São Paulo - SP para Rio de Janeiro - RJ</div>
+           <div class="nome_passagem">Passagem de Onibus de <?php echo $_POST['txtorigem']; ?> -  para <?php echo $_POST['txtdestino']; ?></div>
 
            <div class="tempo_compra">
              <div class="momentos_horario">Horarios</div>
              <div class="momentos">Identificação</div>
              <div class="momentos">Pagamento</div>
+             <div class="normalizar">
+
+             </div>
            </div>
 
            <div class="lista_horarios">
              <form class="" action="Usuario/usuario_identificacao.php" method="post">
              <table class="tabela_horarios">
                <tr class="linha_horarios">
-                 <td class="coluna_horarios">Compania</td>
                  <td class="coluna_horarios">Saida/Chegada</td>
                  <td class="coluna_horarios">Embarque/Desembarque</td>
-                 <td class="coluna_horarios">Duração</td>
+                 <td class="coluna_horarios">Hora de saída</td>
                  <td class="coluna_horarios">Classe</td>
                  <td class="coluna_horarios">Preço</td>
                  <td class="coluna_horarios"></td>
@@ -161,25 +156,39 @@
                <?php
                  // require_once("../controllers/filtro_controller.php");
                  // require_once("../models/filtro_class.php");
-                 //
+                 // //
                  // $controller_filtro = new controller_filtro();
                  // $list = $controller_filtro::Listar();
-                 // $cont = 0;
-                 //
-                 // while($cont < count($list)){
+
+
+                 require_once('../models/dados_viagem_class.php');
+                 require_once('../controllers/dados_viagem_controller.php');
+
+                 $controller_viagens = new ControllerDadosViagem();
+
+                 $list = $controller_viagens::buscar();
+                 // echo(sizeof($list));
+                 $cont = 0;
+                 if($list[0]->origem != ''){
+
+
+                   while($cont < count($list)){
                ?>
                <tr class="linha_horarios">
-                 <td class="coluna_horarios">Asteroide</td>
-                 <td class="coluna_horarios"><?php echo $list[$cont]->ida?>/<?php //echo $list[$cont]->volta?></td>
-                 <td class="coluna_horarios"><?php //echo $list[$cont]->origem?>/<?php //echo $list[$cont]->destino?></td>
-                 <td class="coluna_horarios"><?php //echo $list[$cont]->duracao?></td>
-                 <td class="coluna_horarios"><?php //echo $list[$cont]->classe?></td>
-                 <td class="coluna_horarios"><?php //echo $list[$cont]->preco?></td>
+                 <td class="coluna_horarios"><?php echo $list[$cont]->origem;?>/<?php echo $list[$cont]->destino;?></td>
+                 <td class="coluna_horarios"><?php echo $list[$cont]->data_saida;?>/<?php echo $list[$cont]->data_chegada;?></td>
+                 <td class="coluna_horarios"><?php echo $list[$cont]->hora_saida;?></td>
+                 <td class="coluna_horarios"><?php echo $list[$cont]->classe;?></td>
+                 <td class="coluna_horarios"><?php echo $list[$cont]->preco;?></td>
                  <td class="coluna_horarios"><a href="#" onclick="Onibus()" style="display: 'none';">Selecionar</td></a>
                </tr>
                <?php
-                 //   $cont+=1;
-                 // }
+                      $cont+=1;
+                    }
+                 }else{
+                   echo 'Não foram encontradas viagens';
+                   // echo('<script>alert("ERRO!!")</script>');
+                 }
                ?>
              </table>
              <div id="container_onibus">
@@ -190,6 +199,7 @@
                </div>
                <div class="onibus">
                  <div class="fileira">
+
                    <a href="#" ><div class ="poltronas" val=1>1</div></a>
                    <a href="#" ><div class ="poltronas" val=1>2</div></a>
                    <a href="#" ><div class ="poltronas" val=1>3</div></a>
@@ -251,6 +261,6 @@
          </div>
        </div>
        </div>
-    <?php require_once('footer.php'); ?>
+    <?php// require_once('footer.php'); ?>
   </body>
 </html>

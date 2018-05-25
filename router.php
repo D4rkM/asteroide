@@ -11,9 +11,29 @@
 
       switch($modo){
         case 'buscar':
+          session_start();
+          $controllerDadosViagem = new ControllerDadosViagem();
+
+          $_SESSION['origem'] = $_POST['txtorigem'];
+          $_SESSION['destino'] = $_POST['txtdestino'];
+          $_SESSION['data_saida'] = $controllerDadosViagem::dateEmMysql($_POST['txtida']);
+
+          $controllerDadosViagem::buscar();
+
+          header('location:views/horarios-onibus.php');
+          break;
+
+        case 'buscar_denovo':
+          session_start();
+          $_SESSION['origem'] = $_POST['txtorigem'];
+          $_SESSION['destino'] = $_POST['txtdestino'];
+          $_SESSION['data_saida'] = $_POST['txtida'];
+
           $controllerDadosViagem = new ControllerDadosViagem();
           $controllerDadosViagem::buscar();
-          header('location:views/horarios-onibus.php');
+
+          header('location:horarios-onibus.php');
+          break;
       }
 
       break;
