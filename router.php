@@ -13,7 +13,7 @@
         case 'buscar':
           $controllerDadosViagem = new ControllerDadosViagem();
           $controllerDadosViagem::buscar();
-
+          header('location:views/horarios-onibus.php');
       }
 
       break;
@@ -37,33 +37,15 @@
           $controllerUsuario::Buscar();
           break;
 
-<<<<<<< HEAD
-
-      case 'login':
-          $controllerUsuario = new controllerUsuario();
-          $controllerUsuario::Logar();
-          //echo ("okkkkkkkkkkk");
-          require_once('index.php');
-          break;
-      }
-      break;
-
-=======
-        case 'listar':
+        case 'login':
             $controllerUsuario = new controllerUsuario();
-            $controllerUsuario::Listar();
+            $controllerUsuario::Logar();
+            //echo ("okkkkkkkkkkk");
+            require_once('index.php');
             break;
-
-      case 'login':
-          $controllerUsuario = new controllerUsuario();
-          $controllerUsuario::Logar();
-          //echo ("okkkkkkkkkkk");
-          require_once('index.php');
-          break;
       }
       break;
 
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
     case 'interacao':
       require_once('controllers/interacao_controller.php');
       require_once('models/interacao_class.php');
@@ -79,8 +61,7 @@
             break;
       }
       break;
-<<<<<<< HEAD
-=======
+
       case 'faleconosco':
 
         require_once('controllers/faleconosco_controller.php');
@@ -103,7 +84,7 @@
             break;
         }
         break;
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+
   }
 
  ?>

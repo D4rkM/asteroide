@@ -29,7 +29,7 @@ class Usuario{
 
   public static function Insert ($usuario_dados){
 
-    $sql_usuario ="insert into cliente set imagem_usuario='$usuario_dados->imagem',
+    $sql_usuario ="insert into cliente set imagem_usuario='$usuario_dados->foto',
                                            nome='$usuario_dados->nome',
                                            email='$usuario_dados->email',
                                            login='$usuario_dados->usuario',
@@ -61,13 +61,10 @@ class Usuario{
   }
   public function Update($usuario_dados){
 
-    if ($usuario_dados->imagem == "nada"){
+    if ($usuario_dados->foto == "nada"){
     $sql_usuario = "update cliente set nome='$usuario_dados->nome',
                               email='$usuario_dados->email',
-<<<<<<< HEAD
-=======
                               login='$usuario_dados->usuario',
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
                               senha='$usuario_dados->senha',
                               datanasc='$usuario_dados->datanasc',
                               sexo='$usuario_dados->sexo',
@@ -78,13 +75,10 @@ class Usuario{
                               where id=$usuario_dados->id;";
 
     }else{
-      $sql_usuario = "update cliente set imagem_usuario='$usuario_dados->imagem',
+      $sql_usuario = "update cliente set imagem_usuario='$usuario_dados->foto',
                                              nome='$usuario_dados->nome',
                                              email='$usuario_dados->email',
-<<<<<<< HEAD
-=======
                                              login='$usuario_dados->usuario',
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
                                              senha='$usuario_dados->senha',
                                              datanasc='$usuario_dados->datanasc',
                                              sexo='$usuario_dados->sexo',
@@ -111,12 +105,9 @@ class Usuario{
     $conex->Desconectar();
   }
   public function SelectById($usuario_dados){
-<<<<<<< HEAD
-    $sql = "select * from cliente where id = 54";
-=======
+
     $sql = "select * from cliente where id = $usuario_dados->id";
-    echo($sql);die;
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+    // echo($sql);die;
 
     $conex = new Mysql_db();
 
@@ -128,18 +119,14 @@ class Usuario{
 
       $usuario = new Usuario();
 
-<<<<<<< HEAD
       $usuario->id = $rs['id'];
-      $usuario->imagem = $rs['imagem_usuario'];
+      $usuario->foto = $rs['imagem_usuario'];
       $usuario->nome = $rs['nome'];
       $usuario->email = $rs['email'];
-=======
-      $usuario->id = $rs[$_SESSION['id_usuario']];
-      $usuario->imagem = $rs['imagem_usuario'];
+      // $usuario->id = $rs[$_SESSION['id_usuario']];
       $usuario->nome = $rs['nome'];
       $usuario->email = $rs['email'];
       $usuario->usuario = $rs['login'];
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
       $usuario->senha = $rs['senha'];
       $usuario->datanasc = $rs['datanasc'];
       $usuario->sexo = $rs['sexo'];
@@ -162,36 +149,6 @@ class Usuario{
       $sqlCall = "CALL sp_login_cliente('$usuario_dados->login', '$usuario_dados->senha', @mensagem, @id, @nome, @imagem_usuario);";
       $sqlResultado = "Select @mensagem, @id, @nome, @imagem_usuario";
 
-      //var_dump($usuario_dados);
-<<<<<<< HEAD
-
-      $conex = new Mysql_db();
-
-      $PDO_conex = $conex->Conectar();
-
-      $PDO_conex->query($sqlCall);
-
-      $select = $PDO_conex->query($sqlResultado);
-
-      if($rs=$select->fetch(PDO::FETCH_ASSOC)){
-
-
-        $mensagem = $rs['@mensagem'];
-        session_start();
-
-        $_SESSION['login']= nome['@nome'];
-
-        $usuario->id = $rs['@id'];
-        $usuario->nome = $rs['@nome'];
-        $usuario->imagem = $rs['@imagem_usuario'];
-
-        $conex->Desconectar();
-      }
-
-        echo("<script> alert('Usuário ou senha incorreto, tente novamente.'); </script>");
-        return false;
-
-=======
       $conex = new Mysql_db();
       $PDO_conex = $conex->Conectar();
       $PDO_conex->query($sqlCall);
@@ -201,7 +158,7 @@ class Usuario{
       $mensagem = $rs['@mensagem'];
       if($mensagem == true){
 
-        session_start();
+        // session_start();
 
         $_SESSION['nome_usuario']= $rs['@nome'];
         $_SESSION['id_usuario'] = $rs['@id'];
@@ -212,7 +169,7 @@ class Usuario{
       }
         $conex->Desconectar();
       }
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+
     }
 }
  ?>

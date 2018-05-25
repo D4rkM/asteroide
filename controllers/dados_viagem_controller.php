@@ -8,7 +8,7 @@
       $origem = $_POST['txtorigem'];
       $destino = $_POST['txtdestino'];
       // echo('foi');
-      if($origem){
+      // if($origem){
 
         $dadosViagens = new DadosViagem();
 
@@ -16,12 +16,13 @@
         $dadosViagens->destino = $destino;
 
         $listaViagens = $dadosViagens::buscarViagens($dadosViagens);
-        header('location:views/horarios-onibus.php');
-      }else{
-        echo('<script>alert("insira os dados");</script>');
-        header('location:views/horarios-onibus.php');
-        
-      }
+        return $listaViagens;
+        // header('location:views/horarios-onibus.php');
+      // }else{
+        // echo('<script>alert("insira os dados");</script>');
+        // header('location:views/horarios-onibus.php');
+
+      // }
 
       // header('location:../views/pagina-pagamento.php');
     }

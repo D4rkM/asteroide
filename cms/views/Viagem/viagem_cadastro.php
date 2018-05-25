@@ -28,22 +28,21 @@
 
         ?>
         <option value="<?php echo($list[$cont]->id)?>">
-<<<<<<< HEAD
-            <?php echo($list[$cont]->origem. ' X ' .$list[$cont]->destino)?></option>
-=======
-            <?php echo($list[$cont]->titulo)?></option>
 
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+            <?php echo($list[$cont]->origem. ' X ' .$list[$cont]->destino)?></option>
+
+
+
         <?php
           $cont+=1;
             }
             ?>
   </select>
-<<<<<<< HEAD
-=======
+
+
   <div class="txt_viagem">Preço</div>
   <input class="box_viagem" type="text" name="preco" value="">
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+
   <input class="salvar_viagem" type="submit" name="btnsalvar" value="Salvar">
   </div>
 </form>

@@ -5,10 +5,7 @@
   Obs: Página principal contém menu e rodapé para inserir as outras páginas
   -->
   <?php
-<<<<<<< HEAD
 
-=======
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
     include('../../links.php');
 
     $links = alterarLinks(false);
@@ -36,28 +33,23 @@
   <!--Container que segura todas as informações da pagina -->
   <div class="cadastro-container2">
      <!--Segura todos os itens do cadastro-->
-<<<<<<< HEAD
+
     <div class="cadastro">
-=======
+
     <div class="cadastro2">
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+
       <?php
       	require_once("../../controllers/usuario_controller.php");
       	require_once("../../models/usuario_class.php");
 
       	$usuario_controller = new controllerUsuario();
-<<<<<<< HEAD
-      	$dadosUsuario = $usuario_controller::Buscar($id);
-      	?>
-        <!--Form dos itens do cadastro-->
-        <form action="../../router.php?controller=usuario&modo=editar&id=54" enctype="multipart/form-data" method="post">
-=======
-      	$dadosUsuario = $usuario_controller::Buscar($_SESSION['id_usuario']);
 
+      	// $dadosUsuario = $usuario_controller::Buscar($id);
+        $dadosUsuario = $usuario_controller::Buscar($_SESSION['id_usuario']);
       	?>
+
         <!--Form dos itens do cadastro-->
-        <form action="../../router.php?controller=usuario&modo=editar&id=<?php echo $id ?>" enctype="multipart/form-data" method="post">
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+        <form action="../../router.php?controller=usuario&modo=editar&id=<?php echo $_SESSION['id_usuario'] ?>" enctype="multipart/form-data" method="post">
           <div class="campo-foto">
             <!--texto da imagem de inserir foto de perfil-->
             <div class="subtitulo text-center">

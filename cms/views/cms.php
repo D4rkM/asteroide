@@ -163,19 +163,18 @@
             }
           });
         });
-<<<<<<< HEAD
-=======
+
         $("#faleconosco").click(function(){
-            $.ajax({
-            type:"POST",
-            url:"views/Faleconosco/layout_faleconosco.php",
-            data:{},
-            success: function(dados){
-              $("#main").html(dados);
-          }
+              $.ajax({
+              type:"POST",
+              url:"views/Faleconosco/layout_faleconosco.php",
+              data:{},
+              success: function(dados){
+                $("#main").html(dados);
+            }
+          });
         });
-      });
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+
       });
     </script>
   </head>

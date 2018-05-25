@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="<?php echo($links); ?>css/style.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/pagina_pagamento.css">
     <script src="<?php echo($links); ?>js/jquery.min.js"></script>
     <script src="../js/jquery-3.3.1.js"></script>
     <script>
@@ -121,6 +122,13 @@
       // --------------------------------------------------------------------------------------
     </script>
   </head>
+
+  <?php
+    require_once('../models/dados_viagem_class.php');
+    require_once('../controllers/dados_viagem_controller.php');
+    $controller_viagens =new ControllerDadosViagem();
+    $list = $controller_viagens::buscar();
+   ?>
   <body>
     <div class="modalContainerLogin">
       <div class="modal-login">
@@ -162,7 +170,7 @@
                ?>
                <tr class="linha_horarios">
                  <td class="coluna_horarios">Asteroide</td>
-                 <td class="coluna_horarios"><?php //echo $list[$cont]->ida?>/<?php //echo $list[$cont]->volta?></td>
+                 <td class="coluna_horarios"><?php echo $list[$cont]->ida?>/<?php //echo $list[$cont]->volta?></td>
                  <td class="coluna_horarios"><?php //echo $list[$cont]->origem?>/<?php //echo $list[$cont]->destino?></td>
                  <td class="coluna_horarios"><?php //echo $list[$cont]->duracao?></td>
                  <td class="coluna_horarios"><?php //echo $list[$cont]->classe?></td>
