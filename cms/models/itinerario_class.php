@@ -11,11 +11,10 @@
 
     public static function Insert($itinerario){
       $sql = "INSERT into itinerario
-      SET comentario='$itinerario->comentario',
-          imagem='$itinerario->imagem',
-          nome_local='$itinerario->local',
-          id_usuario = '',
-          ativar=1;";
+      SET id='$itinerario->id',
+          id_parada='$itinerario->id_parada',
+          ordem='$itinerario->ordem',
+          id_pacote_viagem = '$itinerario->id_pacote_viagem'";
           // echo ($sql);die;
       $conex = new Mysql_db();
       $PDO_conex = $conex->Conectar();
@@ -27,9 +26,10 @@
       }
     }
 
-    public function Select(){
-      // $sql = "select * from interacao as i, cliente as c where i.id_usuario=c.id;";
-      $sql = "select * from interacao order by id;";
+    public function SelectById($pacote_id){
+      // $sql = "select * from interacao
+      //as i, cliente as c where i.id_usuario=c.id;";
+      $sql = "SELECT * FROM itinerario WHERE id_pacote_viagem = '$pacote_id' order by id;";
 
       $conex = new Mysql_db();
 

@@ -10,6 +10,8 @@
 class Parada{
   public $id;
   public $nome;
+  public $id_endereco;
+  public $tipo_parada_id;
 
   public function __construct(){
     require_once('db_class.php');
@@ -77,7 +79,7 @@ class Parada{
     $conex->Desconectar();
   }
   public function Select(){
-    $sql = "select * from parada order by id desc";
+    $sql = "SELECT * FROM parada ORDER BY id DESC";
 
     $conex = new Mysql_db();
 
