@@ -85,7 +85,6 @@ class PacoteViagem{
 
   public function Select(){
 
-<<<<<<< HEAD:cms/models/pacote_viagem_class.php
     $sql = "SELECT * FROM pacote_viagem ORDER BY id DESC";
 
     $conex = new Mysql_db();
