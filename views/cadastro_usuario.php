@@ -6,15 +6,15 @@
   -->
   <?php
 
-    include('../../links.php');
+    include('../links.php');
 
     $links = alterarLinks(false);
     $paths = alterarCaminhos(true);
 
    ?>
 
-<link rel="stylesheet" href="../../css/style.css">
-<?php require_once('nav2.php'); ?>
+<link rel="stylesheet" href="../css/style.css">
+<?php require_once('nav.php'); ?>
 
 <!-- Conteúdo da página -->
 <div class="conteudo-cadastro">
@@ -27,7 +27,7 @@
      <!--Segura todos os itens do cadastro-->
     <div class="cadastro">
         <!--Form dos itens do cadastro-->
-        <form action="../../router.php?controller=usuario&modo=novo" enctype="multipart/form-data" method="post">
+        <form action="../router.php?controller=usuario&modo=novo" enctype="multipart/form-data" method="post">
           <div class="campo-foto">
             <!--texto da imagem de inserir foto de perfil-->
             <div class="subtitulo text-center">

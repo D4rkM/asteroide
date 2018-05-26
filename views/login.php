@@ -52,7 +52,7 @@
            </div>
            <div class="text-center">
              Não tem conta ainda?
-             <a href="views/Usuario/cadastro_usuario.php"><strong style="color:#162E44;">Cadastre-se</strong></a>
+             <a href="views/cadastro_usuario.php"><strong style="color:#162E44;">Cadastre-se</strong></a>
            </div>
          </form>
       </div>

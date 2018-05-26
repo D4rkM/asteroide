@@ -25,10 +25,10 @@
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style_login.css">
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style_detalhes.css">
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/pagina_pagamento.css">
-    <script src="<?php echo($links); ?>js/jquery.min.js"></script>
+    <!-- <script src="<?php //echo($links); ?>js/jquery.min.js"></script> -->
     <script src="<?php echo($links); ?>js/jquery-3.3.1.js"></script>
     <script>
-      var color = 0;
+    var color = 0;
     $(document).on('click', '.poltronas', function(){
 
       var selecionado = $(this);
@@ -36,44 +36,18 @@
       // console.log(bg);
 
       if(color == 0) {
+        // selecionado.dataset.active =1;
         selecionado.css('background', 'yellow');
-        selecionado.prop('checked', true);
+        selecionado.attr('checked', true );
+
         color = 1;
         // Senão, troca pra amarelo
       } else if(color == 1) {
         selecionado.css('background', 'green');
+        selecionado.attr('checked', false);
         color = 0;
       }
     });
-
-    // function Selecionar(){
-    //   var selecionado = document.getElementsByClassName('poltronas');
-    //
-    //   // Se estiver amarelo, troca pra verde
-    //   if(selecionado.css('background', 'green')) {
-    //       selecionado.css('background', 'yellow');
-    //
-    //   // Senão, troca pra amarelo
-    //   } else {
-    //       selecionado.css('background', 'green');
-    //   }
-    // }
-    // var abrir = 0;
-    // $(document).on('click', '.onibus', function(){
-    //
-    // var bus = document.getElementById("container_onibus");
-    // // var bg = $(this).css('background-color');
-    // // console.log(bg);
-    //
-    // if(abrir == 0) {
-    //   bus.css('display', 'display');
-    //   abrir = 1;
-    //   // Senão, troca pra amarelo
-    // } else if(abrir == 1) {
-    //   bus.css('display', 'none');
-    //   abrir = 0;
-    // }
-    // });
 
     /**Função que pega a quantidade de poltronas do onibus na viagem clicada
     *
@@ -88,26 +62,20 @@
       // navigator.geolocation.getCurrentPosition(function(pos){
       //   console.log(pos);
       // });
-      // console.log();
-      // setTimeout(function () {
-      //   $.ajax({
-      //     url:'',
-      //     type:'POST',
-      //     data:{'id_viagem':viagem_id},
-      //     success: function(polt){
-      //       var poltrona = polt;
-      //       console.log(poltrona.length);
-      //       console.log(poltrona);
-      //     },
-      //     error: function(err){
-      //       alert('Não foi possível carregar as poltronas:\n'+err);
-      //     }
-      // });
-      // }, 100);
-      $('#container_onibus').load('onibus_layout.php');
 
+      $.ajax({
+        url:'onibus_layout.php',
+        type:'POST',
+        data:{id_viagem: viagem_id, 'poltronas': poltronas},
+        success: function(dados){
+          $('#container_onibus').html(dados);
+          if($('.poltronas').disabled){
+            $('.poltronas').css('background', 'black');
+          }
+        }
+      });
     // Abre a aba de poltronas pela passagem
-    if(bus.style.display == "none") {
+    if(bus.style.display == "none" ) {
       // console.log(poltronas);
         bus.style.display = "flex";
 
@@ -160,7 +128,9 @@
       <div class="modal-login">
       </div>
     </div>
-       <?php require_once('nav.php'); ?>
+       <?php
+          require_once('nav.php');
+       ?>
        <div class="conteudo_horarios">
        <div class="container_horarios">
          <div class="container_horarios2">
@@ -176,7 +146,7 @@
            </div>
 
            <div class="lista_horarios">
-             <form class="" action="Usuario/usuario_identificacao.php" method="post">
+
              <table class="tabela_horarios">
                <tr class="linha_horarios">
                  <td class="coluna_horarios">Saida/Chegada</td>
@@ -187,12 +157,6 @@
                  <td class="coluna_horarios"></td>
                </tr>
                <?php
-                 // require_once("../controllers/filtro_controller.php");
-                 // require_once("../models/filtro_class.php");
-                 // //
-                 // $controller_filtro = new controller_filtro();
-                 // $list = $controller_filtro::Listar();
-
 
                  require_once('../models/dados_viagem_class.php');
                  require_once('../controllers/dados_viagem_controller.php');
@@ -224,17 +188,7 @@
                  }
                ?>
              </table>
-
-
-             <div id="container_onibus" style="display: none;">
-
-             </div>
-            <div class="Continua">
-              <a href="Usuario/usuario_identificacao.php">
-               Continuar
-              </a>
-            </div>
-             </form>
+             <div id="container_onibus" style="display: none;"></div>
            </div>
          </div>
        </div>
