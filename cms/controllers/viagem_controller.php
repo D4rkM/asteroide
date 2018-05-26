@@ -10,8 +10,10 @@ class controllerViagem{
   public function Novo(){
     $viagem = new Viagem();
 
-    $viagem->saida = $_POST['saida'];
-    $viagem->chegada = $_POST['chegada'];
+    $viagem->data_saida = $_POST['data_saida'];
+    $viagem->data_chegada = $_POST['data_chegada'];
+    $viagem->hora_saida = $_POST['hora_saida'];
+    $viagem->hora_chegada = $_POST['hora_chegada'];
     $viagem->descricao = $_POST['descricao'];
     $viagem->km = $_POST['km'];
     $viagem->pacote_viagem = $_POST['pacote_viagem'];
@@ -25,12 +27,15 @@ class controllerViagem{
     $viagem = new Viagem();
 
     $viagem->id = $idViagem;
-    $viagem->saida = $_POST['saida'];
-    $viagem->chegada = $_POST['chegada'];
+    $viagem->data_saida = $_POST['data_saida'];
+    $viagem->data_chegada = $_POST['data_chegada'];
+    $viagem->hora_saida = $_POST['hora_saida'];
+    $viagem->hora_chegada = $_POST['hora_chegada'];
     $viagem->descricao = $_POST['descricao'];
     $viagem->km = $_POST['km'];
     $viagem->pacote_viagem = $_POST['pacote_viagem'];
     $viagem->preco = $_POST['preco'];
+
 
     $viagem::Update($viagem);
   }

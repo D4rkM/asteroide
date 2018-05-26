@@ -503,6 +503,60 @@ $("#foto").change(function(){
       <input class="box_postos" type="text" name="descricao" value="<?php echo $dadosPacoteViagem->descricao; ?>">
       <input class="salvar_postos_rodoviarios" type="submit" name="btnCadastrar" value="Alterar">
 </form>
+<?php
+	}if($pagina=='viagem'){
+
+	require_once('../controllers/viagem_controller.php');
+	require_once('../models/viagem_class.php');
+
+	$controllerViagem = new controllerViagem();
+	$dadosViagem = $controllerViagem::Buscar($id);
+?>
+<form enctype="multipart/form-data" method="post" action="router.php?controller=viagem&modo=editar&id=<?php echo $id?>">
+  <div class="txt_viagem">Data Saida</div>
+  <input class="box_viagem" type="text" name="data_saida" value="<?php echo $dadosViagem->data_saida ?>">
+  <div class="txt_viagem">Horario Saida</div>
+  <input class="box_viagem" type="text" name="hora_saida" value="<?php echo $dadosViagem->hora_saida ?>">
+  <div class="txt_viagem">Data Chegada</div>
+  <input class="box_viagem" type="text" name="data_chegada" value="<?php echo $dadosViagem->data_chegada ?>">
+  <div class="txt_viagem">Horario Chegada</div>
+  <input class="box_viagem" type="text" name="hora_chegada" value="<?php echo $dadosViagem->hora_chegada ?>">
+  <div class="txt_viagem">Descricao</div>
+  <input class="box_viagem" type="text" name="descricao" value="<?php echo $dadosViagem->descricao ?>">
+  <div class="txt_viagem">KM</div>
+  <input class="box_viagem" type="text" name="km" value="<?php echo $dadosViagem->km ?>">
+  <div class="txt_viagem">Pacote de Viagem</div>
+  <select class="select_viagem" name="pacote_viagem">
+    <?php
+        require_once("../controllers/pacote_viagem_controller.php");
+        require_once("../models/pacote_viagem_class.php");
+
+        $controllerPacoteViagem = new controllerPacoteViagem;
+        $list=$controllerPacoteViagem::Listar();
+				// echo("<script>alert(".$list[$cont]->pacote_viagem.");</script>");
+        $cont = 0;
+				$selected = '';
+        while($cont < count($list)){
+					if($list[$cont]->id == $dadosViagem->pacote_viagem){
+						$selected = 'selected';
+
+					}
+
+        ?>
+        <option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
+
+            <?php echo($list[$cont]->origem. ' X ' .$list[$cont]->destino)?></option>
+
+        <?php
+          $cont+=1;
+					$selected = '';
+            }
+            ?>
+  </select>
+  <div class="txt_viagem">Preço</div>
+  <input class="box_viagem" type="text" name="preco" value="<?php echo $dadosViagem->preco ?>">
+  <input class="salvar_viagem" type="submit" name="btnsalvar" value="Salvar">
+	</form>
 		<?php
 	  }
 		 ?>
