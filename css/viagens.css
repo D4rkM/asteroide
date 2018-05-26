@@ -87,7 +87,7 @@ border-bottom: solid 1px #458665;
 /* Parte do onibus */
 #container_onibus{
   /* display:flex; */
-  flex-direction: column-reverse;
+  flex-direction: column;
   width: 90%;
   height: 350px;
   background-color: white;
@@ -97,47 +97,85 @@ border-bottom: solid 1px #458665;
 }
 
 .legenda{
-  width: 100%;
-  height: 16%;
+  display: flex;
+  flex-direction: row;
+  /* width: 100%; */
+  /* height: 16%; */
   background-color: #585858;
-}
-
-.onibus{
-  width: 100%;
-  height: 84%;
-  padding-top: 5px;
 }
 
 .leg_box{
   width: 50px;
   height: 50px;
-  background-color: #fff;
-  float: left;
+  /* background-color: #fff; */
+  /* float: left; */
   border-radius: 15px;
 }
 
 .leg_text{
   margin-right: 100px;
-  float: left;
+  /* float: left; */
 }
+
+.leg_hold{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+  width:30%;
+  height: auto;
+
+}
+
+.onibus{
+  /* background-color: black; */
+  display:flex;
+  /* flex-direction: column-reverse; */
+  justify-content: space-around;
+  width: 100%;
+  height: 90%;
+  padding-top: 5px;
+  overflow-x: auto;
+}
+
 .fileira{
-  width: 80%;
-  height: 50px;
-  margin: auto;
-  margin-top: 5px;
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* background-color: blue; */
+  /* min-width: 100%; */
+  width: inherit;
+  /* right:0; */
+  height: 90%;
+  /* margin: auto; */
+  /* margin-top: 5px; */
+}
+
+.fileira_corredor{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  width: 50px;
+  height: 110px;
+  margin-left: 10px;
+  /* margin-top: 30px; */
+  /* background-color: black; */
 }
 
 .poltronas{
   width: 50px;
-  height: 100%;
+  height: 50px;
   background-color: green;
   /* float: left; */
+  /* margin:2px 2px; */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   border-radius: 15px;
   text-align: center;
+  cursor: pointer;
   user-select: none;
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */

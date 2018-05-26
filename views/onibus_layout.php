@@ -1,21 +1,58 @@
 <?php
 
-  // echo('asdf');
+  $idViagem =$_POST['id_viagem'];
+  $TotalPoltronas = $_POST['poltronas'];
 
+  require_once('../models/registro_passagem_class.php');
+  require_once('../controllers/registro_passagem_controller.php');
 
-  ?>
+  $ocupadas = new RegistroPassagemController();
+  $ocupadas = $ocupadas::buscarPoltronas($idViagem);
+  // echo(sizeof($ocupadas));
+
+ ?>
 <form class="" action="index.html" method="post">
   <!-- <input type="checkbox" name="" value=""> -->
+  <div class="legenda">
+    <div class="leg_hold">
+      <div class="leg_box" style="background-color:green;"></div><div class="leg_text">Disponivel</div>
+    </div>
+    <div class="leg_hold">
+      <div class="leg_box" style="background-color:yellow;"></div><div class="leg_text">Selecionado</div>
+    </div>
+    <div class="leg_hold">
+      <div class="leg_box" style="background-color:grey;"></div><div class="leg_text">Ocupado</div>
+    </div>
+  </div>
 
-   <div class="legenda">
-     <div class="leg_box" style="background-color:green;"></div><div class="leg_text">Disponivel</div>
-     <div class="leg_box" style="background-color:yellow;"></div><div class="leg_text">Selecionado</div>
-     <div class="leg_box" style="background-color:grey;"></div><div class="leg_text">Ocupado</div>
-   </div>
    <div class="onibus">
      <div class="fileira">
-       <label for="polt" class="poltronas">1</label>
-       <input class="polt" type="checkbox" name="cbx1" value="" style="display:none; opacity:0;">
+       <?php
+        $a = 0;
+        while($a < $TotalPoltronas){
+
+          $a++;
+          ?>
+          <div class="fileira_corredor">
+
+            <label for="polt" class="poltronas" data-active='0'><?php echo $a; ?></label>
+            <input class="polt" type="checkbox" name="cbx1" value="<?php echo $a; ?>" style="display:none; opacity:0;">
+          <?php
+          $a ++;
+
+          ?>
+            <label for="polt" class="poltronas" data-active='0'><?php echo $a; ?></label>
+            <input class="polt" type="checkbox" name="cbx1" value="" style="display:none; opacity:0;">
+          </div>
+          <?php
+        }
+        ?>
+
+      </div>
+      <!-- <div class="fileira"> -->
+
+      <!-- </div> -->
+
        <!-- <div class ="poltronas" val=1>2</div> -->
        <!-- <div class ="poltronas" val=1>3</div>
        <div class ="poltronas" val=1>4</div>
@@ -63,6 +100,5 @@
        <div class ="poltronas">38</div>
        <div class ="poltronas">39</div>
        <div class ="poltronas">40</div>
-     --></div>
-   </div>
+  --> </div>
 </form>
