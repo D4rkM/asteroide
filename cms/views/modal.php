@@ -422,158 +422,6 @@ $("#foto").change(function(){
 <input class="box_home" type="text" name="txtlongitude" value="<?php echo $dadosCaminho->longitude ?>">
 <input class="salvar_home" type="submit" name="" value="Salvar">
 	</form>
-	 <?php
-    }if($pagina=='vendas'){
-
-		require_once('../controllers/vendas_controller.php');
-		require_once('../models/vendas_class.php');
-
-		$vendas_controller = new controllerVendas();
-		$dadosVendas = $vendas_controller::Buscar($id);
-
-	?>
-	<script src="js/jquery.min.js"></script>
-	<script>
-	$("#foto").change(function(){
-	   if($(this).val()){ // só se o input não estiver vazio
-	      var img = this.files[0]; // seleciona o arquivo do input
-	      var f = new FileReader(); // cria o objeto FileReader
-	      f.onload = function(e){ // ao carregar a imagem
-	         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
-	      }
-	      f.readAsDataURL(img); // lê o arquivo
-	   }
-	});
-	</script>
-	<div class="tltModal">
-		Edição de Pacote de Viagem
-	</div>
-	<form action="router.php?controller=vendas&modo=editar&id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
-		<div class="cont_vendas1">
-		<div class="text_duvida">Nome do Destino</div>
-		<input class="box_duvida" type="text" name="txtdestino" value="<?php echo $dadosVendas->destino?>">
-		<div class="text_duvida">Data</div>
-		<input class="box_duvida" type="text" name="txtdata" value="<?php echo $dadosVendas->data?>">
-		<div class="text_duvida">Horario</div>
-		<input class="box_duvida" type="text" name="txthoras" value="<?php echo $dadosVendas->hora?>">
-		<div class="text_duvida">Descriçaõ</div>
-		<input class="box_duvida" type="text" name="txtdescricao" value="<?php echo $dadosVendas->descricao?>">
-		<div class="text_duvida">Imagem</div>
-		<label for="foto">
-			<div  class="adicionar_imagem" id="imagem">
-				<img id="id_sua_img" src="<?php echo $dadosVendas->imagem?>" alt="foto"/>
-			</div>
-		</label>
-		<!--Botão para selecionar a foto-->
-		<div class="input-foto">
-			<input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
-		</div>
-	</div>
-	<div class="cont_vendas2">
-		<div class="text_duvida">Partida</div>
-		<select class="select_postos_rodoviarios" name="partida">
-			<option value="1">Tiete - SP</option>
-			<option value="2">Novo Rio - RJ</option>
-			<option value="3">Curitiba - PA</option>
-		</select>
-		<div class="text_duvida">Chegada</div>
-		<select class="select_postos_rodoviarios" name="chegada">
-			<option value="1">Tiete - SP</option>
-			<option value="2">Novo Rio - RJ</option>
-			<option value="3">Curitiba - PA</option>
-		</select>
-		<div class="text_duvida">Onibus</div>
-		<select class="select_postos_rodoviarios" name="onibus">
-			<?php
-					require_once("../controllers/onibus_controller.php");
-					require_once("../models/onibus_class.php");
-
-					$controllerOnibus = new controllerOnibus();
-					$list = $controllerOnibus::Listar();
-					// print_r($list);
-					$cont = 0;
-					$selected = '';
-					while($cont < count($list)){
-						if ($list[$cont]->id == $dadosVendas->id)	{
-							$selected = 'selected';
-						}
-					?>
-					<option value="<?php echo($list[$cont]->id)?>">
-							<?php echo($list[$cont]->nome)?></option>
-
-					if ($list[$cont]->id == $dadosVendas->onibus)	{
-							 echo("<script>alert(".$list[$cont]->id.");</script>");
-						$selected = 'selected';
-					}
-					?>
-					<option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
-							<?php echo($list[$cont]->placa)?></option>
-					<?php
-						$cont+=1;
-						$selected = '';
-							}
-							?>
-		</select>
-		<div class="text_duvida">Parada</div>
-		<select class="select_postos_rodoviarios" name="parada">
-			<?php
-					require_once("../controllers/parada_controller.php");
-					require_once("../models/parada_class.php");
-
-					$controllerParada = new controllerParada();
-					$list = $controllerParada::Listar();
-					// print_r($list);
-					$cont = 0;
-					$selected = '';
-					while($cont < count($list)){
-
-					if ($list[$cont]->id == $dadosVendas->parada)	{
-						// echo("<script>alert(".$list[$cont]->id.");</script>");
-
-						$selected = 'selected';
-					}
-					?>
-					<option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
-							<?php echo($list[$cont]->nome)?></option>
-					<?php
-						$cont+=1;
-						$selected = '';
-							}
-							?>
-		</select>
-		<div class="text_duvida">Motorista</div>
-		<select class="select_postos_rodoviarios" name="motorista">
-			<?php
-					require_once("../controllers/motorista_controller.php");
-					require_once("../models/motorista_class.php");
-
-					$controllerMotorista = new controllerMotorista();
-					$list = $controllerMotorista::Listar();
-					// print_r($list);
-					$cont = 0;
-					$selected = '';
-					while($cont < count($list)){
-
-					if ($list[$cont]->id == $dadosVendas->motorista)	{
-						// echo("<script>alert(".$list[$cont]->id.");</script>");
-
-						$selected = 'selected';
-					}
-					?>
-					<option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
-							<?php echo($list[$cont]->nome)?></option>
-					<?php
-						$cont+=1;
-						$selected = '';
-							}
-							?>
-		</select>
-		<div class="text_duvida">Valor</div>
-		<input class="box_duvida" type="text" name="txtvalor" value="<?php echo $dadosVendas->valor ?>">
-		<input class="salvar_postos_rodoviarios" type="submit" name="btnCadastrar" value="Cadastrar">
-
-	</div><input class="salvar_home" type="submit" name="" value="Alterar">
-		</form>
 		<!-- Cadastro de Postos Rodoviarios -->
 		<?php
 	}if($pagina=='postos_rodoviarios'){
@@ -636,7 +484,25 @@ $("#foto").change(function(){
         <input class="salvar_home" type="submit" name="" value="Alterar">
 	   </div>
 </form>
+<?php
+	}if($pagina=='pacote_viagem'){
 
+	require_once('../controllers/pacote_viagem_controller.php');
+	require_once('../models/pacote_viagem_class.php');
+
+	$controllerPacoteViagem = new controllerPacoteViagem();
+	$dadosPacoteViagem = $controllerPacoteViagem::Buscar($id);
+
+?>
+<form enctype="multipart/form-data" method="post" action="router.php?controller=pacote_viagem&modo=editar&id=<?php echo $id ?>">
+      <div class="text_duvida">Origem</div>
+      <input class="box_postos" type="text" name="origem" value="<?php echo $dadosPacoteViagem->origem; ?>">
+      <div class="text_duvida">Destino</div>
+      <input class="box_postos" type="text" name="destino" value="<?php echo $dadosPacoteViagem->destino; ?>">
+      <div class="text_duvida">Descricao</div>
+      <input class="box_postos" type="text" name="descricao" value="<?php echo $dadosPacoteViagem->descricao; ?>">
+      <input class="salvar_postos_rodoviarios" type="submit" name="btnCadastrar" value="Alterar">
+</form>
 		<?php
 	  }
 		 ?>
