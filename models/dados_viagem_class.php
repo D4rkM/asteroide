@@ -29,7 +29,7 @@
               AND data_saida LIKE '%$pesquisa->data_saida%';";
 
       $conex = new Mysql_db();
-
+      
       $PDO_conex = $conex->Conectar();
 
       //executa select no bd e guarda o retorno na variavel $select
@@ -40,7 +40,7 @@
       $listaViagem[] = new DadosViagem();
       while($rs=$select->fetch(PDO::FETCH_ASSOC)){
 
-
+        $listaViagem[$cont]->id = $rs['id'];
         $listaViagem[$cont]->origem = $rs['origem'];
         $listaViagem[$cont]->destino = $rs['destino'];
         $listaViagem[$cont]->data_saida = $rs['data_saida'];

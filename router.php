@@ -105,6 +105,29 @@
         }
         break;
 
+        case 'registro_passagem':
+          require_once('controllers/registro_passagem_controller.php');
+          require_once('models/registro_passagem_class.php');
+
+          switch($modo){
+            case 'buscar':
+              $id = $_POST['id_viagem'];
+              $registro_poltronas = new RegistroPassagemController();
+              $registro_poltronas = $registro_poltronas::buscarPoltronas($id);
+              $cont = 0;
+              // echo(sizeof($registro_poltronas));
+              while($cont < sizeof($registro_poltronas)){
+                echo($registro_poltronas[$cont]->num_poltrona);
+                $cont += 1;
+              }
+              // $var = json_encode($registro_poltronas[1]->num_poltrona);
+              // echo($registro_poltronas);
+              // echo $var;
+              break;
+          }
+        break;
+
+
   }
 
  ?>

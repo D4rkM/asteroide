@@ -37,6 +37,7 @@
 
       if(color == 0) {
         selecionado.css('background', 'yellow');
+        selecionado.attr('checked');
         color = 1;
         // Senão, troca pra amarelo
       } else if(color == 1) {
@@ -77,19 +78,40 @@
     /**Função que pega a quantidade de poltronas do onibus na viagem clicada
     *
     */
-    $(document).on('click', '*[data-polt]', () =>{
-      var element = $(this).data(polt);
-      console.log(element);
-    });
+    // $(document).on('click', ".select", () =>{
+    //   var element = document.getElementsByClassName('.select');
+    //   console.log(element.dataset.polt);
+    // });
 
-    function Onibus(){
-    var bus = document.getElementById("container_onibus");
+    function Onibus(poltronas,viagem_id){
+      var bus = document.getElementById("container_onibus");
+      // navigator.geolocation.getCurrentPosition(function(pos){
+      //   console.log(pos);
+      // });
+      // console.log();
+      // setTimeout(function () {
+      //   $.ajax({
+      //     url:'',
+      //     type:'POST',
+      //     data:{'id_viagem':viagem_id},
+      //     success: function(polt){
+      //       var poltrona = polt;
+      //       console.log(poltrona.length);
+      //       console.log(poltrona);
+      //     },
+      //     error: function(err){
+      //       alert('Não foi possível carregar as poltronas:\n'+err);
+      //     }
+      // });
+      // }, 100);
+      $('#container_onibus').load('onibus_layout.php');
 
-    // Se estiver amarelo, troca pra verde
-    if(bus.style.display === "none") {
-        bus.style.display = "block";
+    // Abre a aba de poltronas pela passagem
+    if(bus.style.display == "none") {
+      // console.log(poltronas);
+        bus.style.display = "flex";
 
-    // Senão, troca pra amarelo
+    // Senão fecha a aba de poltronas
     } else {
         bus.style.display = "none";
     }
@@ -191,7 +213,7 @@
                  <td class="coluna_horarios"><?php echo $list[$cont]->hora_saida;?></td>
                  <td class="coluna_horarios"><?php echo $list[$cont]->classe;?></td>
                  <td class="coluna_horarios"><?php echo $list[$cont]->preco;?></td>
-                 <td class="coluna_horarios"><a href="#" onclick="Onibus()" data-polt='<?php echo $list[$cont]->poltronas; ?>' style="display: 'none';">Selecionar</td></a>
+                 <td class="coluna_horarios"><a href="#" class="select"  onClick="Onibus(<?php echo $list[$cont]->poltronas.','.$list[$cont]->id ?>);">Selecionar</td></a>
                </tr>
                <?php
                       $cont+=1;
@@ -204,65 +226,8 @@
              </table>
 
 
-             <div id="container_onibus">
-               <div class="legenda">
-                 <div class="leg_box" style="background-color:green;"></div><div class="leg_text">Disponivel</div>
-                 <div class="leg_box" style="background-color:yellow;"></div><div class="leg_text">Selecionado</div>
-                 <div class="leg_box" style=""></div><div class="leg_text">Ocupado</div>
-               </div>
-               <div class="onibus">
-                 <div class="fileira">
+             <div id="container_onibus" style="display: none;">
 
-                   <a href="#" ><div class ="poltronas" val=1>1</div></a>
-                   <a href="#" ><div class ="poltronas" val=1>2</div></a>
-                   <a href="#" ><div class ="poltronas" val=1>3</div></a>
-                   <a href="#" ><div class ="poltronas" val=1>4</div></a>
-                   <a href="#" ><div class ="poltronas" val=1>5</div></a>
-                   <a href="#" ><div class ="poltronas" val=1>6</div></a>
-                   <a href="#" ><div class ="poltronas" val=1>7</div></a>
-                   <a href="#" ><div class ="poltronas" val=1>8</div></a>
-                   <a href="#" ><div class ="poltronas" val=1>9</div></a>
-                   <a href="#" ><div class ="poltronas" val=1>10</div></a>
-                 </div>
-                 <div class="fileira">
-                   <div class ="poltronas">11</div>
-                   <div class ="poltronas">12</div>
-                   <div class ="poltronas">13</div>
-                   <div class ="poltronas">14</div>
-                   <div class ="poltronas">15</div>
-                   <div class ="poltronas">16</div>
-                   <div class ="poltronas">17</div>
-                   <div class ="poltronas">18</div>
-                   <div class ="poltronas">19</div>
-                   <div class ="poltronas">20</div>
-                 </div>
-                 <br>
-                 <br>
-                 <div class="fileira">
-                   <div class ="poltronas">21</div>
-                   <div class ="poltronas">22</div>
-                   <div class ="poltronas">23</div>
-                   <div class ="poltronas">24</div>
-                   <div class ="poltronas">25</div>
-                   <div class ="poltronas">26</div>
-                   <div class ="poltronas">27</div>
-                   <div class ="poltronas">28</div>
-                   <div class ="poltronas">29</div>
-                   <div class ="poltronas">30</div>
-                 </div>
-                 <div class="fileira">
-                   <div class ="poltronas">31</div>
-                   <div class ="poltronas">32</div>
-                   <div class ="poltronas">33</div>
-                   <div class ="poltronas">34</div>
-                   <div class ="poltronas">35</div>
-                   <div class ="poltronas">36</div>
-                   <div class ="poltronas">37</div>
-                   <div class ="poltronas">38</div>
-                   <div class ="poltronas">39</div>
-                   <div class ="poltronas">40</div>
-                 </div>
-               </div>
              </div>
             <div class="Continua">
               <a href="Usuario/usuario_identificacao.php">
