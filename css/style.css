@@ -65,7 +65,7 @@ input.btn:hover{
 }
 /* Padroniza a estilização de inputs ao receber foco */
 input:focus, select:focus {
-    box-shadow: 5 5;
+    /* box-shadow: 5 5; */
     border-bottom:  none;
     outline: 0;
     border-bottom: 2px solid #384e59;
@@ -82,7 +82,7 @@ textarea{
 }
 
 textarea:focus{
-  box-shadow: 5 5;
+  /* box-shadow: 5px 5px; */
   border-bottom:  none;
   outline: 0;
   border: 2px solid #384e59;

@@ -50,7 +50,9 @@
 .momentos_horario{
   width: 30%;
   height: 100%;
-  background-color: blue;
+  /* background-color: blue; */
+  background-color: #1F405E;
+  color: white;
   float: left;
   margin-right: 1%;
   margin-left: 1%;
@@ -68,12 +70,13 @@
   background-color: #fff;
   margin-left: 5%;
   padding-top: 10px;
+  overflow: auto;
 }
 
 .tabela_horarios{
   width: 100%;
   height: 10%;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 .linha_horarios{
@@ -130,7 +133,7 @@ border-bottom: solid 1px #458665;
 .onibus{
   /* background-color: black; */
   display:flex;
-  /* flex-direction: column-reverse; */
+  flex-direction: column-reverse;
   justify-content: space-around;
   width: 100%;
   height: 90%;
@@ -145,11 +148,16 @@ border-bottom: solid 1px #458665;
   justify-content: space-between;
   /* background-color: blue; */
   /* min-width: 100%; */
-  width: inherit;
+  width: 550px;
   /* right:0; */
-  height: 90%;
+  height: 88%;
   /* margin: auto; */
   /* margin-top: 5px; */
+}
+
+#_comprar{
+  width: 100%;
+  height: 100%;
 }
 
 .fileira_corredor{
@@ -160,7 +168,7 @@ border-bottom: solid 1px #458665;
   height: 110px;
   margin-left: 10px;
   /* margin-top: 30px; */
-  /* background-color: black; */
+  /* background-color: red; */
 }
 
 .poltronas{
@@ -193,4 +201,5 @@ border-bottom: solid 1px #458665;
   margin-top: 20px;
   margin-left: 80%;
 }
+
 /*************************************************************/
