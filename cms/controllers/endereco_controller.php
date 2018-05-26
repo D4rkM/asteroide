@@ -23,6 +23,11 @@
       return $dadosEndereco = $endereco::SelectById($endereco);
     }
 
+    public function Listar(){
+      $endereco = new Endereco();
+      return $endereco::Select();
+    }
+
   }
 
 

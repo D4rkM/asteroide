@@ -305,15 +305,67 @@ $("#foto").change(function(){
 			$parada_controller = new controllerParada();
 			$dadosParada = $parada_controller::Buscar($id);
 		?>
+		<link rel="stylesheet" href="css/parada.css">
 				<div class="tltModal">
 					Edição de Parada
 				</div>
 
-				<form method="post" action="router.php?controller=parada&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
-					<div class="text_postos">Nome da Parada</div>
-			    <input class="box_postos" type="text" name="txtnome" value="<?php echo  $dadosParada->nome?>">
-			    <input class="salvar_postos" type="submit" name="btnsalvar" value="Alterar">
+				<form class="" action="router.php?controller=parada&modo=editar&id=<?php echo $id?>" method="post" >
+				    <div class="text_parada">Tipo de Parada</div>
+				    <select class="select_parada" name="tipo_parada_id">
+				      <?php
+				          require_once("../controllers/tipo_parada_controller.php");
+				          require_once("../models/tipo_parada_class.php");
+
+				          $controllerTipoParada = new controllerTipoParada;
+				          $list=$controllerTipoParada::Listar();
+
+				          $cont = 0;
+									$selected = '';
+				          while($cont < count($list)){
+										if ($list[$cont]->id == $dadosParada->tipo_parada_id)	{
+										// echo("<script>alert(".$list[$cont]->id.");</script>");
+										$selected = 'selected';
+									}
+				          ?>
+				          <option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
+				              <?php echo($list[$cont]->tipo_parada)?></option>
+
+				          <?php
+				            $cont+=1;
+										$selected = '';
+				              }
+				              ?>
+				    </select>
+				    <div class="text_home">Endereço</div>
+				    <select class="select_home" name="endereco_id">
+				      <?php
+				          require_once("../controllers/endereco_controller.php");
+				          require_once("../models/endereco_class.php");
+
+				          $controllerEndereco = new controllerEndereco();
+				          $list=$controllerEndereco::Listar();
+
+				          $cont = 0;
+									$selected = '';
+				          while($cont < count($list)){
+										if ($list[$cont]->id == $dadosParada->endereco_id)	{
+										// echo("<script>alert(".$list[$cont]->id.");</script>");
+										$selected = 'selected';
+									}
+				          ?>
+				          <option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
+				              <?php echo($list[$cont]->rua)?></option>
+
+				          <?php
+				            $cont+=1;
+										$selected = '';
+				              }
+				              ?>
+				    </select>
+				    <input class="salvar_parada" type="submit" name="" value="Alterar">
 				</form>
+
  <?php
  }if($pagina=='onibus'){
 					require_once("../controllers/onibus_controller.php");
@@ -557,6 +609,22 @@ $("#foto").change(function(){
   <input class="box_viagem" type="text" name="preco" value="<?php echo $dadosViagem->preco ?>">
   <input class="salvar_viagem" type="submit" name="btnsalvar" value="Salvar">
 	</form>
+	<?php
+		}if($pagina=='tipo_parada'){
+
+		require_once('../controllers/tipo_parada_controller.php');
+		require_once('../models/tipo_parada_class.php');
+
+		$controllerTipoParada = new controllerTipoParada();
+		$dadosTipoParada = $controllerTipoParada::Buscar($id);
+	?>
+	<form class="frmEstadosPostos" action="router.php?controller=tipo_parada&modo=editar&id=<?php echo $id?>" method="post">
+
+    <div class="text_postos">Tipo de Parada</div>
+    <input class="box_postos" type="text" name="tipo_parada" value="<?php echo $dadosTipoParada->tipo_parada?>">
+    <input class="salvar_postos" type="submit" name="btnsalvar" value="Alterar">
+
+</form>
 		<?php
 	  }
 		 ?>

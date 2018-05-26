@@ -22,16 +22,6 @@
         }
       });
     });
-    $("#stop").click(function(){
-      $.ajax({
-        type:"POST",
-        url:"views/Pacote_Viagem/pacote_viagem_parada.php",
-        data:{},
-        success: function(dados){
-          $("#conteudo").html(dados);
-        }
-      });
-    });
   });
 
 </script>

@@ -4,7 +4,7 @@
     $("#list").click(function(){
       $.ajax({
         type:"POST",
-        url:"views/Parada/list_parada.php",
+        url:"views/Itinerario/list_itinerario.php",
         data:{},
         success: function(dados){
           $("#conteudo").html(dados);
@@ -14,17 +14,7 @@
     $("#add").click(function(){
       $.ajax({
         type:"POST",
-        url:"views/Parada/parada_cadastro.php",
-        data:{},
-        success: function(dados){
-          $("#conteudo").html(dados);
-        }
-      });
-    });
-    $("#tipo").click(function(){
-      $.ajax({
-        type:"POST",
-        url:"views/Parada/tipo_parada.php",
+        url:"views/Itinerario/cadastro_itinerario.php",
         data:{},
         success: function(dados){
           $("#conteudo").html(dados);
@@ -38,8 +28,7 @@
 <div class="abas">
   <div class="labels" id="list">Lista</div>
   <div class="labels" id="add">Cadastrar</div>
-  <div class="labels" id="tipo">Tipo Parada</div>
-  <div class="title_page">Parada</div>
+  <div class="title_page">Itinerario</div>
 </div>
 <div id="conteudo">
 

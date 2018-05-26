@@ -6,7 +6,6 @@
   switch($controller){
 
     case 'funcionario':
-
       require_once('controllers/funcionario_controller.php');
       require_once('models/funcionario_class.php');
 
@@ -60,124 +59,120 @@
           $controllerDuvida::Excluir();
           break;
 
-          case 'editar':
-            //instanciando a classe da controller
-            $controllerDuvida = new controllerDuvidas();
-            $controllerDuvida::Editar($_GET['id']);
+        case 'editar':
+          //instanciando a classe da controller
+          $controllerDuvida = new controllerDuvidas();
+          $controllerDuvida::Editar($_GET['id']);
+        break;
+
+        case 'novo':
+          $controllerDuvida = new controllerDuvidas();
+          $controllerDuvida::Novo();
           break;
 
-          case 'novo':
-            $controllerDuvida = new controllerDuvidas();
-            $controllerDuvida::Novo();
-            break;
-
-          case 'buscar':
-            $controllerFuncionario = new controllerFuncionario();
-            $controllerFuncionario::Buscar();
-            break;
-
-          case 'buscarEstados':
-            $controllerFuncionario = new controllerFuncionario();
-            $controllerFuncionario::Listar();
-            break;
-
-            default:
-            break;
-      }
+        case 'buscar':
+          $controllerFuncionario = new controllerFuncionario();
+          $controllerFuncionario::Buscar();
           break;
+
+        case 'buscarEstados':
+          $controllerFuncionario = new controllerFuncionario();
+          $controllerFuncionario::Listar();
+          break;
+
+          default:
+          break;
+    }
+        break;
 
     case 'sobreEmpresa':
-
-      require_once('controllers/sobre_empresa_controller.php');
       require_once('models/sobre_empresa_class.php');
+      require_once('controllers/sobre_empresa_controller.php');
 
       switch ($modo) {
         case 'novo':
-        $controllerSobreEmpresa = new controllerSobreEmpresa();
-        $controllerSobreEmpresa::Novo();
+          $controllerSobreEmpresa = new controllerSobreEmpresa();
+          $controllerSobreEmpresa::Novo();
         break;
 
         case 'editar':
-        $controllerSobreEmpresa = new controllerSobreEmpresa();
-        $controllerSobreEmpresa::Editar($_GET['id']);
+          $controllerSobreEmpresa = new controllerSobreEmpresa();
+          $controllerSobreEmpresa::Editar($_GET['id']);
         break;
 
         case 'excluir':
-        $controllerSobreEmpresa = new controllerSobreEmpresa();
-        $controllerSobreEmpresa::Excluir();
+          $controllerSobreEmpresa = new controllerSobreEmpresa();
+          $controllerSobreEmpresa::Excluir();
         break;
 
         case 'buscar':
-        $controllerSobreEmpresa = new controllerSobreEmpresa();
-        $controllerSobreEmpresa::Buscar();
+          $controllerSobreEmpresa = new controllerSobreEmpresa();
+          $controllerSobreEmpresa::Buscar();
         break;
 
         case 'listar':
-        $controllerSobreEmpresa = new controllerSobreEmpresa();
-        $controllerSobreEmpresa::Listar();
+          $controllerSobreEmpresa = new controllerSobreEmpresa();
+          $controllerSobreEmpresa::Listar();
         break;
 
-        default:
-        break;
-      }
-      break;
-
-    case 'frotas':
-
-    require_once('controllers/frotas_controller.php');
-    require_once('models/frotas_class.php');
-
-    switch ($modo) {
-      case 'novo':
-      $controllerFrotas = new controllerFrotas();
-      $controllerFrotas::Novo();
-      break;
-
-      case 'editar':
-      $controllerFrotas = new controllerFrotas();
-      $controllerFrotas::Editar();
-      break;
-
-      case 'excluir':
-      $controllerFrotas = new controllerFrotas();
-      $controllerFrotas::Excluir();
-      break;
-
-      case 'buscar':
-      $controllerFrotas = new controllerFrotas();
-      $controllerFrotas::Buscar();
-      break;
-
-      case 'listar':
-      $controllerFrotas = new controllerFrotas();
-      $controllerFrotas::Listar();
-      break;
-
-      default:
       break;
     }
+    break;
+
+    case 'frotas':
+      require_once('controllers/frotas_controller.php');
+      require_once('models/frotas_class.php');
+
+      switch ($modo) {
+        case 'novo':
+          $controllerFrotas = new controllerFrotas();
+          $controllerFrotas::Novo();
+        break;
+
+        case 'editar':
+          $controllerFrotas = new controllerFrotas();
+          $controllerFrotas::Editar();
+        break;
+
+        case 'excluir':
+          $controllerFrotas = new controllerFrotas();
+          $controllerFrotas::Excluir();
+        break;
+
+        case 'buscar':
+          $controllerFrotas = new controllerFrotas();
+          $controllerFrotas::Buscar();
+        break;
+
+        case 'listar':
+          $controllerFrotas = new controllerFrotas();
+          $controllerFrotas::Listar();
+        break;
+
       break;
+  }
+    break;
 
 // <<<<<<< HEAD
-      // case 'postos_rodoviarios':
+    // case 'postos_rodoviarios':
 // =======
     case 'postos_rodoviarios':
 // >>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
 
-      require_once('controllers/postos_rodoviarios_controller.php');
-      require_once('models/postos_rodoviarios_class.php');
+    require_once('controllers/postos_rodoviarios_controller.php');
+    require_once('models/postos_rodoviarios_class.php');
 
-      require_once('controllers/endereco_controller.php');
-      require_once('models/endereco_class.php');
+    require_once('controllers/endereco_controller.php');
+    require_once('models/endereco_class.php');
 
-        switch ($modo) {
-          case 'novo':
-          $controllerEndereco = new controllerEndereco();
-          $id_endereco = $controllerEndereco::Novo();
+      switch ($modo) {
+        case 'novo':
+        $controllerEndereco = new controllerEndereco();
+        $id_endereco = $controllerEndereco::Novo();
 
-          $controllerPostosRodoviarios = new controllerPostosRodoviarios();
-          $controllerPostosRodoviarios::Novo($id_endereco);
-          break;
+        $controllerPostosRodoviarios = new controllerPostosRodoviarios();
+        $controllerPostosRodoviarios::Novo($id_endereco);
+        break;
 
           case 'editar':
           $controllerPostosRodoviarios = new controllerPostosRodoviarios();
@@ -413,7 +408,40 @@
                   break;
                 }
                 break;
+      case 'tipo_parada':
+        require_once('controllers/tipo_parada_controller.php');
+        require_once('models/tipo_parada_class.php');
 
+          switch ($modo) {
+            case 'novo':
+            $controllerTipoParada = new controllerTipoParada();
+            $controllerTipoParada::Novo();
+            break;
+
+            case 'editar':
+            $controllerTipoParada = new controllerTipoParada();
+            $controllerTipoParada::Editar($_GET['id']);
+            break;
+
+            case 'excluir':
+            $controllerTipoParada = new controllerTipoParada();
+            $controllerTipoParada::Excluir();
+            break;
+
+            case 'buscar':
+            $controllerTipoParada = new controllerTipoParada();
+            $controllerTipoParada::Buscar();
+            break;
+
+            case 'listar':
+            $controllerTipoParada = new controllerTipoParada();
+            $controllerTipoParada::Listar();
+            break;
+
+            default:
+            break;
+          }
+          break;
     case 'cidade':
 
                   require_once('controllers/cidade_controller.php');
@@ -625,5 +653,17 @@
 
         }
   break;
+  case 'endereco':
+    require_once('controllers/endereco_controller.php');
+    require_once('models/endereco_class.php');
+
+      switch ($modo) {
+        case 'listar':
+        $controllerEndereco = new controllerEndereco();
+        $controllerEndereco::Listar();
+        break;
+
+      }
+break;
     }
  ?>

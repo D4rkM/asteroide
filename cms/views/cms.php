@@ -174,7 +174,16 @@
             }
           });
         });
-
+        $("#itinerario").click(function(){
+              $.ajax({
+              type:"POST",
+              url:"views/Itinerario/itinerario_layout.php",
+              data:{},
+              success: function(dados){
+                $("#main").html(dados);
+            }
+          });
+        });
       });
     </script>
   </head>
@@ -206,12 +215,10 @@
               <ul class="submenu">
                 <li><a href="#">Relatorios</a></li>
                 <li><a href="#">Graficos</a></li>
-                <li id="onibus"><a href="#">Cadastro de Onibus</a></li>
                 <li id="postos_rodoviarios"><a href="#">Cadastro de Postos Rodoviarios</a></li>
                 <li id="funcionario"><a href="#">Cadastro de funcionarios</a></li>
                 <li id="motorista"><a href="#">Cadastro de Motorista</a></li>
                 <li id="usuarios"><a href="#">Usuarios</a></li>
-                <li id="parada"><a href="#">Parada</a></li>
                 <li id="caminho"><a href="#">Caminho</a></li>
               </ul>
           <li>
@@ -229,6 +236,9 @@
                 <ul class="submenu">
                   <li id="pacote_viagem"><a href="#">Pacotes de Viagens</a></li>
                   <li id="viagem"><a href="#">Viagens</a></li>
+                  <li id="parada"><a href="#">Parada</a></li>
+                  <li id="itinerario"><a href="#">Itinerario</a></li>
+                  <li id="onibus"><a href="#">Cadastro de Onibus</a></li>
                 </ul>
             <li>
               <li class="itens"><a href="#">Mecanico</a>
@@ -243,5 +253,10 @@
 
       </div>
     </div>
+    <?php if(isset($_GET['mensagem'])):?>
+      <script type="text/javascript">alert("Parada não pode ser apagada pois esta selecionada em um registro de Itinerario!")</script>
+    <?php
+   endif;
+   ?>
   </body>
 </html>

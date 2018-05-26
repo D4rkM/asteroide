@@ -61,6 +61,27 @@
 			//Fecha a conexão com o banco de dados
 			$conex->Desconectar();
   }
+  public function Select(){
+    $sql = "select * from endereco order by id desc";
+
+    $conex = new Mysql_db();
+    $PDO_conex = $conex->Conectar();
+    $select = $PDO_conex->query($sql);
+    $cont = 0;
+
+    while($rs=$select->fetch(PDO::FETCH_ASSOC)){
+      $listEndereco[] = new Endereco();
+
+      $listEndereco[$cont]->id = $rs['id'];
+      $listEndereco[$cont]->rua = $rs['logradouro'];
+
+      $cont+=1;
+    }
+    $conex->Desconectar();
+    if(isset($listEndereco)){
+      return $listEndereco;
+    }
+  }
 
   }
 

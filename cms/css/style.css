@@ -1356,37 +1356,7 @@ position: relative;
 }
 ul.simple_with_animation li.placeholder:before {
 position: absolute;
-/** Define arrowhead **/
-}
 
-.hold{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  height: 500px;
-  background-color: grey;
-}
-
-
-.list{
-  width: 400px;
-  height: 400px;
-  padding: 0px 20px;
-  background-color: #f3f3f3;
-  border: 1px solid black;
-}
-
-.list ul{
-  padding: 10px 5px;
-  min-height: 200px;
-  background-color: grey;
-}
-
-.list li{
-  background-color: #f3f3cc;
-  user-select: none;
-}
 /*Lista de Fale Conosco*/
 .lista_faleconosco{
   background-color: #084B8A;
@@ -1429,4 +1399,37 @@ position: absolute;
   overflow: auto;
   display: flex;
   justify-content: center;
+}
+
+/* Tela de Itinerario */
+/** Define arrowhead **/
+}
+
+.hold{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 500px;
+  background-color: grey;
+}
+
+
+.list{
+  width: 400px;
+  height: 400px;
+  padding: 0px 20px;
+  background-color: #f3f3f3;
+  border: 1px solid black;
+}
+
+.list ul{
+  padding: 10px 5px;
+  min-height: 200px;
+  background-color: grey;
+}
+
+.list li{
+  background-color: #f3f3cc;
+  user-select: none;
 }

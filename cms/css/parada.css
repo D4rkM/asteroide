@@ -1,0 +1,82 @@
+/* Tela de Parada */
+.cadastro_parada{
+  width: 50%;
+  height: 450px;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+  padding-top: 10px;
+}
+.text_parada{
+  font-size: 15px;
+  font-family: sans-serif;
+  margin-top: 13px;
+  text-align: center;
+  color: #084B8A;
+}
+
+.box_parada{
+  width: 80%;
+  margin-left: 10%;
+  height: 25px;
+  border-radius: 10px;
+}
+.select_parada{
+  width: 44%;
+  margin-left: 28%;
+  height: 25px;
+  border-radius: 10px;
+}
+
+.salvar_parada{
+  width: 24%;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 38%;
+  border-radius: 15px;
+  background-color: #084B8A;
+}
+.lista_parada{
+  background-color: #084B8A;
+  /* background-color: red; */
+  width: 80%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.item_parada{
+  width: 33%;
+  height: 40px;
+  float: left;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.container_lista_parada{
+  width: 80%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.itens_mostrar_parada{
+  width: 32%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}

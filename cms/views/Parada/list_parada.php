@@ -1,17 +1,8 @@
-<?php
-   require_once("../../controllers/parada_controller.php");
-   require_once("../../models/parada_class.php");
-?>
-
-  <!-- Lista de Estados -->
-  <div class="container_estados">
-<div class="list_estado">
-    <div class="itens_estado">
-      Parada
-    </div>
-    <div class="itens_estado">
-      OPÇÕES
-    </div>
+<link rel="stylesheet" href="css/parada.css">
+<div class="lista_parada">
+  <div class="item_parada">Tipo de Parada</div>
+  <div class="item_parada">Endereço</div>
+  <div class="item_parada">Opções</div>
 </div>
 
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -26,8 +17,6 @@
     	//FadeIn
       });
     });
-
-
 
     	function Modal(idIten){
     		$.ajax({
@@ -53,13 +42,11 @@
 
       while($cont < count($list)){
         ?>
-        <div class="container_lista_estado">
-          <div class="itens_mostrar_estado">
-            <?php echo $list[$cont]->nome ?>
-          </div>
-
-          <div class="itens_mostrar_estado">
-            <a href="router.php?controller=paradao&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
+        <div class="container_lista_parada">
+          <div class="itens_mostrar_parada"><?php echo $list[$cont]->tipo_parada ?></div>
+          <div class="itens_mostrar_parada"><?php echo $list[$cont]->rua ?></div>
+          <div class="itens_mostrar_parada">
+            <a href="router.php?controller=parada&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
               <img src="img/icon-delete.png" alt="">
             </a>
 
@@ -73,13 +60,3 @@
       }
 
     ?>
-
-  </div>
-  <form class="frmEstadosPostos" action="router.php?controller=parada&modo=novo" method="post">
-  <!-- Cadastro de Estados -->
-  <div class="cadastro_estado">
-    <div class="text_postos">Nome da Parada</div>
-    <input class="box_postos" type="text" name="txtnome">
-    <input class="salvar_postos" type="submit" name="btnsalvar" value="Salvar">
-  </div>
-</form>
