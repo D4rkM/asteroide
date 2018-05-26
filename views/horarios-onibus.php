@@ -37,7 +37,7 @@
 
       if(color == 0) {
         selecionado.css('background', 'yellow');
-        selecionado.attr('checked');
+        selecionado.prop('checked', true);
         color = 1;
         // Senão, troca pra amarelo
       } else if(color == 1) {
