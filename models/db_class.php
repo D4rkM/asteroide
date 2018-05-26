@@ -16,7 +16,7 @@
             $this->server = "localhost";
             $this->user = "root";
             $this->password = "bcd127";
-            $this->dataBaseName = "dbvoudeasteroide";
+            $this->dataBaseName = "db_voudeasteroide";
         }
 
         public function Conectar(){

@@ -158,11 +158,11 @@
     }
       break;
 
-<<<<<<< HEAD
-      case 'postos_rodoviarios':
-=======
+// <<<<<<< HEAD
+      // case 'postos_rodoviarios':
+// =======
     case 'postos_rodoviarios':
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+// >>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
 
       require_once('controllers/postos_rodoviarios_controller.php');
       require_once('models/postos_rodoviarios_class.php');
@@ -504,11 +504,11 @@
                     break;
                   }
                   break;
-<<<<<<< HEAD
-                  case 'pacote_viagem':
-=======
+// <<<<<<< HEAD
+                  // case 'pacote_viagem':
+// =======
     case 'pacote_viagem':
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+// >>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
 
                   require_once('controllers/pacote_viagem_controller.php');
                   require_once('models/pacote_viagem_class.php');
@@ -543,11 +543,11 @@
                       break;
                     }
                     break;
-<<<<<<< HEAD
-                    case 'viagem':
-=======
+// <<<<<<< HEAD
+                    // case 'viagem':
+// =======
     case 'viagem':
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+// >>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
 
                     require_once('controllers/viagem_controller.php');
                     require_once('models/viagem_class.php');
@@ -581,9 +581,9 @@
                         default:
                       }
                         break;
-<<<<<<< HEAD
-    }
-=======
+// <<<<<<< HEAD
+    // }
+// =======
     case 'faleconosco':
 
                         require_once('controllers/faleconosco_controller.php');
@@ -621,7 +621,7 @@
           $controllerUsuario = new controllerUsuario();
           $controllerUsuario::Excluir();
           break;
->>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
+// >>>>>>> b488cd1ef07daae0cf1c5e5deefb77a57537d394
 
         }
   break;

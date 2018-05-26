@@ -19,8 +19,9 @@ class PacoteViagem{
 
   public function Insert($pacote_viagem_dados){
 
-    $sql = "insert into pacote_viagem set titulo='$pacote_viagem_dados->titulo',
-                                   descricao='$pacote_viagem_dados->descricao';";
+    $sql = "insert into pacote_viagem set origem='$pacote_viagem_dados->origem',
+                                          destino='$pacote_viagem_dados->destino',
+                                          descricao='$pacote_viagem_dados->descricao';";
                                    // echo($sql);
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -42,10 +43,11 @@ class PacoteViagem{
   }
 
   public function Update($pacote_viagem_dados){
-    $sql = "update pacote_viagem set titulo='$pacote_viagem_dados->destino',
-                                     descricao='$pacote_viagem_dados->data' where id=$pacote_viagem_dados->id;";
+    $sql = "update pacote_viagem set origem='$pacote_viagem_dados->origem',
+                                          destino='$pacote_viagem_dados->destino',
+                                          descricao='$pacote_viagem_dados->descricao' where id=$pacote_viagem_dados->id;";
 
-    // echo ($sql);
+    // echo ($sql);die;
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -104,7 +106,7 @@ class PacoteViagem{
       $listPacoteViagem[$cont]->origem = $rs['origem'];
       $listPacoteViagem[$cont]->destino = $rs['destino'];
       $listPacoteViagem[$cont]->descricao = $rs['descricao'];
-
+      // echo($listPacoteViagem);die;
       $cont+=1;
     }
 

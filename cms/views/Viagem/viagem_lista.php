@@ -1,6 +1,6 @@
 <div class="lista_viagem">
-  <div class="item_viagem">Data Saida</div>
-  <div class="item_viagem">Data Chegada</div>
+  <div class="item_viagem">Data e Hora Saida</div>
+  <div class="item_viagem">Data e Hora Chegada</div>
   <div class="item_viagem">Descricão</div>
   <div class="item_viagem">Pacote Viagem</div>
   <div class="item_viagem">Opções</div>
@@ -45,8 +45,8 @@ $(document).ready(function() {
   while($cont < count($list)){
 ?>
 <div class="container_lista_viagem">
-  <div class="itens_mostrar_viagem"><?php echo $list[$cont]->saida ?></div>
-  <div class="itens_mostrar_viagem"><?php echo $list[$cont]->chegada ?></div>
+  <div class="itens_mostrar_viagem"><?php echo $list[$cont]->data_saida. " - " .$list[$cont]->hora_saida?></div>
+  <div class="itens_mostrar_viagem"><?php echo $list[$cont]->data_chegada. " - " .$list[$cont]->hora_chegada ?></div>
   <div class="itens_mostrar_viagem"><?php echo $list[$cont]->descricao ?></div>
 
   <div class="itens_mostrar_viagem"><?php
