@@ -12,7 +12,7 @@
     public function SelectById($filtro_dados){
       //$sql = "select idpacote_viagem='$filtro_dados->origem', idpacote_viagem='$filtro_dados->destino', previsto_saida='$filtro_dados->ida', from viagem where id = $filtro_dados->id";
 
-      $conex = new Mysql_db();
+      $conex = new Mysql_banco();
 
       $PDO_conex = $conex->Conectar();
 
@@ -34,7 +34,7 @@
       //$sql="select * from viagem where idpacote_viagem like '%$filtro_dados->origem%', idpacote_viagem like '%$filtro_dados->destino%', previsto_saida like '%$filtro_dados->ida%'";
       // $sql = "select * from viagem order by id desc";
 
-      $conex = new Mysql_db();
+      $conex = new Mysql_banco();
 
       $PDO_conex = $conex->Conectar();
 

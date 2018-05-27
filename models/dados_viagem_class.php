@@ -57,10 +57,11 @@
 
         $cont+=1;
       }
+      //Fecha a conexão com o Banco de Dados
+      $conex->Desconectar();
       return $listaViagem;
 
     }
-
 
 
   }

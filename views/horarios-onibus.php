@@ -25,10 +25,9 @@
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style_login.css">
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/style_detalhes.css">
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/pagina_pagamento.css">
-    <!-- <script src="<?php //echo($links); ?>js/jquery.min.js"></script> -->
     <script src="<?php echo($links); ?>js/jquery-3.3.1.js"></script>
     <script>
-    // var color = 0;
+    // Trabalha a parte de seleção de poltronas
     $(document).on('click', '.poltronas', function(){
 
       var selecionado = $(this);
@@ -47,21 +46,10 @@
         selecionado.data("polt", "0");
       }
     });
-
-    /**Função que pega a quantidade de poltronas do onibus na viagem clicada
-    *
-    */
-    // $(document).on('click', ".select", () =>{
-    //   var element = document.getElementsByClassName('.select');
-    //   console.log(element.dataset.polt);
-    // });
-
+    //
     function Onibus(poltronas,viagem_id){
       var bus = document.getElementById("container_onibus");
-      // navigator.geolocation.getCurrentPosition(function(pos){
-      //   console.log(pos);
-      // });
-
+      // Descarrega a página de seleção de poltronas
       $.ajax({
         url:'onibus_layout.php',
         type:'POST',
@@ -73,16 +61,24 @@
           }
         }
       });
-    // Abre a aba de poltronas pela passagem
-    if(bus.style.display == "none" ) {
-      // console.log(poltronas);
-        bus.style.display = "flex";
-
-    // Senão fecha a aba de poltronas
-    } else {
-        bus.style.display = "none";
+    // Abre a aba de poltronas pela viagem selecionada
+      if(bus.style.display == "none" ) {
+        // console.log(poltronas);
+          bus.style.display = "flex";
+        // Senão fecha a aba de poltronas
+        } else {
+          bus.style.display = "none";
+      }
     }
-}
+    // Função que dispara a compra de passagem
+    // $(document).on('submit', '#_comprar', (e) =>{
+    //   e.preventDefault();
+    //   alert('voce quase comprou hehe');
+    // });
+
+    // navigator.geolocation.getCurrentPosition(function(pos){
+    //   console.log(pos);
+    // });
 </script>
     <script>
       // Modal Login
@@ -95,7 +91,7 @@
       function Login(){
           $.ajax({
               type: "POST",
-              url: "views/login.php",
+              url: "<?php echo($paths); ?>login.php",
               success: function(dados){
                   $('.modal-login').html(dados);
                }
@@ -167,7 +163,6 @@
                  $cont = 0;
                  if($list[0]->origem != ''){
 
-
                    while($cont < count($list)){
                ?>
                <tr class="linha_horarios">
@@ -175,7 +170,7 @@
                  <td class="coluna_horarios"><?php echo $list[$cont]->data_saida;?>/<?php echo $list[$cont]->data_chegada;?></td>
                  <td class="coluna_horarios"><?php echo $list[$cont]->hora_saida;?></td>
                  <td class="coluna_horarios"><?php echo $list[$cont]->classe;?></td>
-                 <td class="coluna_horarios"><?php echo $list[$cont]->preco;?></td>
+                 <td class="coluna_horarios">R$ <?php echo $list[$cont]->preco;?></td>
                  <td class="coluna_horarios"><a href="#" class="select"  onClick="Onibus(<?php echo $list[$cont]->poltronas.','.$list[$cont]->id ?>);">Selecionar</td></a>
                </tr>
                <?php

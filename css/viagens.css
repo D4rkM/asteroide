@@ -147,8 +147,8 @@ border-bottom: solid 1px #458665;
   flex-wrap: wrap;
   justify-content: space-between;
   /* background-color: blue; */
-  /* min-width: 100%; */
   width: 550px;
+  /* width: auto; */
   /* right:0; */
   height: 88%;
   /* margin: auto; */
@@ -200,6 +200,15 @@ border-bottom: solid 1px #458665;
   text-align: center;
   margin-top: 20px;
   margin-left: 80%;
+}
+
+input.hidden_input{
+  display: none !important;
+  opacity: 0px !important;
+  width:0px !important;
+  height: 0px !important;
+  pointer-events:none;
+  user-select:none;
 }
 
 /*************************************************************/

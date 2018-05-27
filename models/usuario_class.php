@@ -161,7 +161,7 @@ class Usuario{
       $mensagem = $rs['@mensagem'];
       if($mensagem == true){
 
-        // session_start();
+        session_start();
 
         $_SESSION['nome_usuario']= $rs['@nome'];
         $_SESSION['id_usuario'] = $rs['@id'];
