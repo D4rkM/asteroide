@@ -6,6 +6,10 @@
    // require_once("../../controllers/parada_controller.php");
    // require_once("../../models/parada_class.php");
 ?>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/list.js"></script>
+
 <form enctype="multipart/form-data" method="post" action="router.php?controller=parada&modo=novo">
 <div class="hold">
     <div class="list">
