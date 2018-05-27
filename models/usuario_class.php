@@ -29,7 +29,7 @@ class Usuario{
 
   public static function Insert ($usuario_dados){
 
-    $sql_usuario ="insert into cliente set imagem_usuario='$usuario_dados->foto',
+    $sql_usuario ="insert into cliente set imagem_usuario='$usuario_dados->imagem',
                                            nome='$usuario_dados->nome',
                                            email='$usuario_dados->email',
                                            login='$usuario_dados->usuario',
@@ -50,12 +50,15 @@ class Usuario{
     $PDO_conex = $conex->Conectar();
 
     //Executa o script $sql no Banco de Dados
-    if($PDO_conex->query($sql_usuario))
+    if($PDO_conex->query($sql_usuario)){
+      $_SESSION['nome_usuario']= $rs['nome'];
+      $_SESSION['id_usuario'] = $rs['id'];
+      $_SESSION['imagem_usuario'] = $rs['imagem_usuario'];
 
-    header('location:views/Usuario/pagina_usuario.php');
-    else
-       echo("Erro ao inserir no BD");
-
+      header('location:views/Usuario/pagina_usuario.php');
+    }else{
+      echo("Erro ao inserir no BD");
+    }
     //Fecha a conexão com o Banco de Dados
       $conex->Desconectar();
   }

@@ -1,83 +1,85 @@
-<!--
-  Autor: BRUNA
-  Data de modificação: 25/03/2018
-  Detalhes: Está pagina tem como objetivo fazer o cadastro de usuarios
-  Obs: Página principal contém menu e rodapé para inserir as outras páginas
-  -->
-  <?php
+<?php
 
-    include('../../links.php');
+  include('../../links.php');
 
-    $links = alterarLinks(false);
-    $paths = alterarCaminhos(true);
+  $links = alterarLinks(false);
+  $paths = alterarCaminhos(false);
 
-   ?>
+ ?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta name="author" content="Magno">
+    <!--
+      Data de modificação: 19/03/2018
+      Obs: Página principal contém menu e rodapé para inserir as outras páginas
+    -->
+    <title>Editar - Bem vindo</title>
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>../css/footer.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/style.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/editar_usuario.css">
+    <script src="<?php echo($links); ?>../js/jquery.min.js"></script>
 
-<link rel="stylesheet" href="../../css/style.css">
-<?php require_once('nav.php'); ?>
-
+  </head>
+  <body>
+       <?php require_once('nav.php'); ?>
 <!-- Conteúdo da página -->
-<div class="conteudo-cadastro2">
+<div class="conteudo-cadastro">
   <!--Container responsael por segurar o titulo da pagima -->
   <div class="titulo-conteudo-padrao">
     <h2>Editar Perfil</h2>
   </div>
   <div class="menu_lateral2">
-  <ul>
-   <a href="editar_perfil.php"><li>Editar Perfil</li></a>
-   <a href="interacao_usuario.php"><li>Interação</li></a>
-   <a href="historico_viagem.php"><li>Historico de Compra</li></a>
-   <a href="acompanhamento_viagem.php"><li>Acompanhamento da viagem</li></a>
-  </ul>
-</div>
+    <ul>
+     <a href="editar_perfil.php"><li>Editar Perfil</li></a>
+     <a href="interacao_usuario.php"><li>Interação</li></a>
+     <a href="historico_viagem.php"><li>Historico de Compra</li></a>
+     <a href="acompanhamento_viagem.php"><li>Acompanhamento da viagem</li></a>
+    </ul>
+  </div>
   <!--Container que segura todas as informações da pagina -->
-  <div class="cadastro-container2">
-     <!--Segura todos os itens do cadastro-->
-
-    <div class="cadastro">
-
-    <div class="cadastro2">
+  <div class="cadastro-container">
 
       <?php
-      	require_once("../../controllers/usuario_controller.php");
-      	require_once("../../models/usuario_class.php");
-
-      	$usuario_controller = new controllerUsuario();
-
-      	// $dadosUsuario = $usuario_controller::Buscar($id);
-        $dadosUsuario = $usuario_controller::Buscar($_SESSION['id_usuario']);
+      	// require_once("../../controllers/usuario_controller.php");
+      	// require_once("../../models/usuario_class.php");
+        //
+      	// $usuario_controller = new controllerUsuario();
+      	// // $dadosUsuario = $usuario_controller::Buscar($id);
+        // $dadosUsuario = $usuario_controller::Buscar($_SESSION['id_usuario']);
       	?>
 
         <!--Form dos itens do cadastro-->
-        <form action="../../router.php?controller=usuario&modo=editar&id=<?php echo $_SESSION['id_usuario'] ?>" enctype="multipart/form-data" method="post">
-          <div class="campo-foto">
-            <!--texto da imagem de inserir foto de perfil-->
-            <div class="subtitulo text-center">
-              <h3>Foto de Perfil</h3>
+        <form action="../../router.php?controller=usuario&modo=editar&id=<?php //echo $_SESSION['id_usuario'] ?>" enctype="multipart/form-data" method="post">
+          <div class="subtitulo text-center">
+            <h3>Foto de Perfil</h3>
+          </div>
+          <label for="foto">
+            <div  class="adicionar_imagem" id="imagem">
+              <img id="id_sua_img" src="../img/client.png" alt="user"/>
             </div>
-            <label for="foto">
-              <div  class="adicionar_imagem" id="imagem">
-                <img id="id_sua_img" src="../../<?php echo $dadosUsuario->imagem ?>" alt="foto"/>
-              </div>
-            </label>
-            <!--Botão para selecionar a foto-->
-            <div class="input-foto">
-              <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
-            </div>
+          </label>
+          <!--Botão para selecionar a foto-->
+          <div class="input-foto">
+            <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
           </div>
           <!-- Inicia a entrada de dados principais do usuario -->
           <div class="dados-principais-cad">
             <div class="caixa-dados large">
               <label for="nome">Nome completo</label>
-              <input id="nome" class="" type="text" name="txtnome" value="<?php echo $dadosUsuario->nome ?>">
+              <input id="nome" class="" type="text" name="txtnome" value="<?php //echo $dadosUsuario->nome ?>">
             </div>
             <div class="caixa-dados large">
               <label for="email" class="">E-mail</label>
-              <input id="email" class="" type="text" name="txtemail" value="<?php echo $dadosUsuario->email ?>">
+              <input id="email" class="" type="text" name="txtemail" value="<?php //echo $dadosUsuario->email ?>">
             </div>
             <div class="caixa-dados large">
               <label for="senha" class="">Senha</label>
-              <input id="senha" class="" type="password" name="txtsenha" value="<?php echo $dadosUsuario->senha ?>">
+              <input id="senha" class="" type="password" name="txtsenha" value="<?php //echo $dadosUsuario->senha ?>">
             </div>
           </div>
           <!--Titulo dos dados pessoais-->
@@ -91,30 +93,30 @@
               <div class="dados-esquerda">
                 <div class="caixa-dados large">
                   <label for="dataNascimento">Data de Nascimento</label>
-                  <input id="dataNascimento" type="date" name="txtdatanasc" maxlength="10" value="<?php echo $dadosUsuario->datanasc ?>">
+                  <input id="dataNascimento" type="date" name="txtdatanasc" maxlength="10" value="<?php //echo $dadosUsuario->datanasc ?>">
                 </div>
                 <div class="caixa-dados">
                   <label for="sexo">Sexo</label>
                   <div id="sexo" class="radio-group">
-                    <input type="radio" name="rdosexo" value="M" <?php if($dadosUsuario->sexo == 'M') echo"checked"?>>Masculino
-                    <input type="radio" name="rdosexo" value="F" <?php if($dadosUsuario->sexo == 'F')echo"checked"?>>Feminino
+                    <input type="radio" name="rdosexo" value="M" <?php //if($dadosUsuario->sexo == 'M') echo"checked"?>>Masculino
+                    <input type="radio" name="rdosexo" value="F" <?php //if($dadosUsuario->sexo == 'F')echo"checked"?>>Feminino
                   </div>
                 </div>
                 <div class="caixa-dados large">
                   <label for="telefone">Telefone</label>
-                  <input id="telefone" type="text" name="txttelefone" maxlength="14" value="<?php echo $dadosUsuario->telefone ?>">
+                  <input id="telefone" type="text" name="txttelefone" maxlength="14" value="<?php //echo $dadosUsuario->telefone ?>">
                 </div>
                 <div class="caixa-dados large">
                   <label for="celular">Celular</label>
-                  <input id="celular" type="text" name="txtcelular" maxlength="15" value="<?php echo $dadosUsuario->celular ?>">
+                  <input id="celular" type="text" name="txtcelular" maxlength="15" value="<?php //echo $dadosUsuario->celular ?>">
                 </div>
                 <div class="caixa-dados large">
                   <label for="rg">RG</label>
-                  <input id="rg" name="txtrg" type="text" maxlength="12" value="<?php echo $dadosUsuario->rg ?>">
+                  <input id="rg" name="txtrg" type="text" maxlength="12" value="<?php //echo $dadosUsuario->rg ?>">
                 </div>
                 <div class="caixa-dados large">
                   <label for="cpf">CPF</label>
-                  <input id="cpf" name="txtcpf" type="text" maxlength="14" value="<?php echo $dadosUsuario->cpf ?>" >
+                  <input id="cpf" name="txtcpf" type="text" maxlength="14" value="<?php //echo $dadosUsuario->cpf ?>" >
                 </div>
                 <!-- <div class="caixa-dados small">
                   <label for="cep">CEP</label>
@@ -194,7 +196,8 @@
         </form>
     </div>
   </div>
-</div>
+</body>
+</html>
 <?php require_once('footer.php'); ?>
 <script src="../../js/jquery.min.js"></script>
 <script>

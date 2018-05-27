@@ -13,7 +13,7 @@
       $sql = "insert into interacao set comentario='$interacao_dados->comentario',
                                         imagem='$interacao_dados->imagem',
                                         nome_local='$interacao_dados->local',
-                                        id_usuario = '54',
+                                        id_usuario = '51',
                                         ativar=1;";
                                         // echo ($sql);die;
 
