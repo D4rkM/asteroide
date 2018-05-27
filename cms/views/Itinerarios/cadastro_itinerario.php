@@ -20,9 +20,10 @@
           $parada = new controllerParada();
           $list = $parada::Listar();
           $cont = 0;
+          // echo($list[1]->id);
           while($cont < count($list)){
             ?>
-            <li <?php echo('id='.$list[$cont]->id); ?><?php echo($list[$cont]->tipo_parada); ?></li>
+            <li> <?php echo('id='.$list[$cont]->id); ?><?php echo($list[$cont]->tipo_parada); ?></li>
             <?php
               $cont+=1;
               }
