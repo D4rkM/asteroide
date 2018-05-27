@@ -43,7 +43,7 @@ class Usuario{
                                            // echo ($sql_usuario);die;
       //echo($sql_usuario);die;
     //Instancia a classe do banco
-   $conex = new Mysql_db();
+   $conex = new Mysql_banco();
 
     //Chama o metodo para conectar no BD,
     //e guarda o retorno da conexao na variavel $PDO_conex
@@ -89,7 +89,7 @@ class Usuario{
                                              where id=$usuario_dados->id;";
     }
     //Instancia a classe do banco
-    $conex = new Mysql_db();
+    $conex = new Mysql_banco();
 
     //Chama o metodo para conectar no BD,
     //e guarda o retorno da conexao na variavel $PDO_conex
@@ -109,7 +109,7 @@ class Usuario{
     $sql = "select * from cliente where id = $usuario_dados->id";
     // echo($sql);die;
 
-    $conex = new Mysql_db();
+    $conex = new Mysql_banco();
 
     $PDO_conex = $conex->Conectar();
 
@@ -149,7 +149,7 @@ class Usuario{
       $sqlCall = "CALL sp_login_cliente('$usuario_dados->login', '$usuario_dados->senha', @mensagem, @id, @nome, @imagem_usuario);";
       $sqlResultado = "Select @mensagem, @id, @nome, @imagem_usuario";
 
-      $conex = new Mysql_db();
+      $conex = new Mysql_banco();
       $PDO_conex = $conex->Conectar();
       $PDO_conex->query($sqlCall);
       $select = $PDO_conex->query($sqlResultado);
@@ -158,7 +158,7 @@ class Usuario{
       $mensagem = $rs['@mensagem'];
       if($mensagem == true){
 
-        // session_start();
+        session_start();
 
         $_SESSION['nome_usuario']= $rs['@nome'];
         $_SESSION['id_usuario'] = $rs['@id'];

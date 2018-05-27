@@ -28,8 +28,8 @@
               AND destino LIKE '%$pesquisa->destino%'
               AND data_saida LIKE '%$pesquisa->data_saida%';";
 
-      $conex = new Mysql_db();
-      
+      $conex = new Mysql_banco();
+
       $PDO_conex = $conex->Conectar();
 
       //executa select no bd e guarda o retorno na variavel $select
@@ -57,10 +57,11 @@
 
         $cont+=1;
       }
+      //Fecha a conexão com o Banco de Dados
+      $conex->Desconectar();
       return $listaViagem;
 
     }
-
 
 
   }

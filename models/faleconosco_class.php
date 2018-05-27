@@ -15,7 +15,7 @@ class Reclamacao{
                                       email='$reclamacao_dados->email';";
                                           //  echo ($sql);die;
     //Instancia a classe do banco
-   $conex = new Mysql_db();
+   $conex = new Mysql_banco();
 
     //Chama o metodo para conectar no BD,
     //e guarda o retorno da conexao na variavel $PDO_conex
@@ -50,7 +50,7 @@ class Sugestao{
                                       email='$sugestao_dados->email';";
                                           //  echo ($sql);die;
     //Instancia a classe do banco
-   $conex = new Mysql_db();
+   $conex = new Mysql_banco();
 
     //Chama o metodo para conectar no BD,
     //e guarda o retorno da conexao na variavel $PDO_conex
@@ -82,7 +82,7 @@ class Elogio{
                                   email='$elogio_dados->email';";
                                             // echo ($sql);die;
     //Instancia a classe do banco
-   $conex = new Mysql_db();
+   $conex = new Mysql_banco();
 
     //Chama o metodo para conectar no BD,
     //e guarda o retorno da conexao na variavel $PDO_conex

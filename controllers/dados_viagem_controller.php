@@ -11,37 +11,33 @@
     }
 
     public function buscar(){
-      // @session_start();
-      $origem = $_POST['txtorigem'];
-      $destino = $_POST['txtdestino'];
-      $data_saida = $_POST['txtida'];
 
-      $novadata = new ControllerDadosViagem();
-      // $data_saida = $novadata::dateEmMysql($data_converter);
+      if(isset($_POST['txtorigem'])){
 
-      // $data_saida = dateEmMysql($data_converter);
+        $origem = $_POST['txtorigem'];
+        $destino = $_POST['txtdestino'];
+        $data_saida = $_POST['txtida'];
 
-      // echo('foi');
-      if($origem){
+        $novadata = new ControllerDadosViagem();
+        // $data_saida = $novadata::dateEmMysql($data_converter);
 
+        // $data_saida = dateEmMysql($data_converter);
+
+        // echo('foi');
         $dadosViagens = new DadosViagem();
         $dadosViagens->origem = $origem;
         $dadosViagens->destino = $destino;
         $dadosViagens->data_saida = $data_saida;
         $listaViagens = $dadosViagens::buscarViagens($dadosViagens);
         return $listaViagens;
-        // header('location:views/horarios-onibus.php');
+
       }else{
-        echo('<script>alert("insira os dados");</script>');
-        // header('location:views/horarios-onibus.php');
+        // header('location:../index.php');
+        echo('<script>alert("dados inválidos")</script>');
       }
 
-      // header('location:../views/pagina-pagamento.php');
     }
 
-
   }
-
-
 
  ?>

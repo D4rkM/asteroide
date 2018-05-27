@@ -1,7 +1,7 @@
 <!-- Filtro de busca de destino -->
 <div class="filtro_busca">
   <div class="txt_filtro">Filtro</div>
-  <form class="" action="views/horarios-onibus.php" method="post">
+  <form action="views/horarios-onibus.php" method="post">
     <div class="txt_filtro2">Origem:</div>
     <!-- <select class="" name="">
       <option value="Jundiai"></option>

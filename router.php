@@ -41,7 +41,6 @@
       require_once('controllers/usuario_controller.php');
       require_once('models/usuario_class.php');
       switch ($modo) {
-
         case 'novo':
           $controllerUsuario = new controllerUsuario();
           $controllerUsuario::Novo();
@@ -58,10 +57,11 @@
           break;
 
         case 'login':
+        echo('nsei');
             $controllerUsuario = new controllerUsuario();
             $controllerUsuario::Logar();
             //echo ("okkkkkkkkkkk");
-            require_once('index.php');
+            header('location:index.php');
             break;
       }
       break;
@@ -123,6 +123,21 @@
               // $var = json_encode($registro_poltronas[1]->num_poltrona);
               // echo($registro_poltronas);
               // echo $var;
+              break;
+            case "compra":
+              session_start();
+              if(isset($_SESSION['id_usuario'])){
+
+                  require_once('models/compra_class.php');
+                  require_once('controllers/compra_controller.php');
+
+                  $compra = new CompraController();
+                  $idCompra = $compra::novaCompra();
+
+                }else{
+
+                }
+
               break;
           }
         break;

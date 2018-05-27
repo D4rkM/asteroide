@@ -1,5 +1,5 @@
 <?php
-
+  session_start();
   $idViagem = $_POST['id_viagem'];
   $TotalPoltronas = $_POST['poltronas'];
 
@@ -8,8 +8,14 @@
 
   $ocupadas = new RegistroPassagemController();
   $ocupadas = $ocupadas::buscarPoltronas($idViagem);
-  // echo(sizeof($ocupadas));
 
+  if(isset($_SESSION['id_usuario'])){
+    $processo_de_compra = 'pagina-pagamento.php';
+  }else{
+    $processo_de_compra = 'usuario_identificacao.php';
+  }
+
+  // Desabilita as poltronas já compradas
   function verificaOcupacao($polt_num, $lista_ocupadas){
     $cont = 0;
     while($cont < sizeof($lista_ocupadas)){
@@ -20,7 +26,7 @@
       $cont ++;
     }
   }
-
+  // Estiliza a label da checkbox para aparecer como ocupada
   function verificaOcupacaoLabel($polt_num, $lista_ocupadas){
     $cont = 0;
     while($cont < sizeof($lista_ocupadas)){
@@ -31,7 +37,8 @@
       $cont ++;
     }
   }
-
+  // Indica ao data-attribute (usado na logica em javascript)
+  // qual poltrona está ocupada / selecionada / livre
   function setaCor($polt_num, $lista_ocupadas){
     $cont = 0;
     while($cont < sizeof($lista_ocupadas)){
@@ -48,7 +55,8 @@
   }
 
  ?>
-<form id="_comprar" method="post">
+
+<form id="_comprar" action="<?php echo $processo_de_compra; ?>" enctype="multipart/form-data" method="post">
   <div class="legenda">
     <div class="leg_hold">
       <div class="leg_box" style="background-color:green;"></div><div class="leg_text">Disponivel</div>
@@ -62,6 +70,7 @@
   </div>
 
    <div class="onibus">
+       <input type="hidden" name="idviagem" value="<?php echo($idViagem); ?>"  disabled>
      <div class="fileira">
 
        <?php
@@ -73,13 +82,13 @@
           <div class="fileira_corredor">
 
             <label for="polt" data-polt="<?php setaCor($a,$ocupadas); ?>" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
-            <input class="polt" type="checkbox" name="checkbox[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
+            <input class="polt" type="checkbox" name="poltrona[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
           <?php
           $a ++;
 
           ?>
             <label for="polt" data-polt="<?php setaCor($a, $ocupadas); ?>" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
-            <input class="polt" type="checkbox" name="checkbox[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
+            <input class="polt" type="checkbox" name="poltrona[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
           </div>
           <?php
         }
@@ -87,5 +96,5 @@
 
     </div>
   </div>
-  <button type="submit" name="button" class="btn btn_enviar">Continuar</button>
+  <button type="submit" name="btnComprar" class="btn btn_enviar">Continuar Compra</button>
 </form>
