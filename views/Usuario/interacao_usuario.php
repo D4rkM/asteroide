@@ -1,20 +1,32 @@
-<!--
-  Autor: BRUNA
-  Data de modificação: 28/03/2018
-  Detalhes: Está pagina tem como objetivo listar as viagens do usuario
-  Obs: Página principal contém menu e rodapé para inserir as outras páginas
-  -->
-  <?php
+<?php
 
-    include('../../links.php');
+  include('../../links.php');
 
-    $links = alterarLinks(false);
-    $paths = alterarCaminhos(true);
+  $links = alterarLinks(false);
+  $paths = alterarCaminhos(false);
 
-   ?>
-  <?php require_once('nav.php'); ?>
-<link rel="stylesheet" href="../../css/style.css">
+ ?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta name="author" content="Magno">
+    <!--
+      Data de modificação: 19/03/2018
+      Obs: Página principal contém menu e rodapé para inserir as outras páginas
+    -->
+    <title>Interação - Bem vindo</title>
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>../css/footer.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/style.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/interacao_usuario.css">
+    <script src="<?php echo($links); ?>../js/jquery.min.js"></script>
 
+  </head>
+  <body>
+       <?php require_once('nav.php'); ?>
 <!-- Conteúdo da página -->
 <div class="conteudo_interacao1">
   <!--Container que segura todas as informações da pagina -->
@@ -38,17 +50,15 @@
           <form action="../../router.php?controller=interacao&modo=novo" method="post" enctype="multipart/form-data">
             <textarea class="box_interacao" name="txtinteracao" placeholder="EX:Minha viagem para Minas Gerais foi muito legal..."></textarea>
             <!-- <img class="img_interacao2" src="../../img/praia-rio.jpg" alt="camera"> -->
-
             <label for="foto">
-              <div  class="adicionar_imagem2" id="imagem2">
-                <img id="id_sua_img2" src="../../img/praia-rio.jpg" alt="foto"/>
+              <div  class="adicionar_imagem" id="imagem">
+                <img id="id_sua_img" src="../img/client.png" alt="user"/>
               </div>
             </label>
             <!--Botão para selecionar a foto-->
             <div class="input-foto">
               <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
             </div>
-
             <img src="../../img/local2.png" alt="local">
             <input type="text" name="txtlocal" value="" placeholder="Local">
             <button class="btn2"type="submit" name="button">Postar</button>
@@ -99,6 +109,8 @@
       </div>
   </div>
 </div>
+</body>
+</html>
 <?php require_once('footer.php'); ?>
 <script src="../../js/jquery.min.js"></script>
 <script>

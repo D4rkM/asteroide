@@ -17,7 +17,7 @@ class RegistroPassagem{
     // echo($viagem_id);
     $sql = "SELECT num_poltrona FROM registro_passagem WHERE viagem_id ='$viagem_id'";
 
-    $conex = new Mysql_db();
+    $conex = new Mysql_banco();
     $PDO_conex = $conex->Conectar();
     $select = $PDO_conex->query($sql);
 
