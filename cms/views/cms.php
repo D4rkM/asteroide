@@ -177,7 +177,7 @@
         $("#itinerario").click(function(){
               $.ajax({
               type:"POST",
-              url:"views/Itinerario/itinerario_layout.php",
+              url:"views/Itinerarios/itinerario_layout.php",
               data:{},
               success: function(dados){
                 $("#main").html(dados);

@@ -180,7 +180,7 @@
                          while ($a <= 5) {
                           ?>
                            <li>
-                             <a href="#">
+                             <a href="views/interacao.php">
                                <div class="comentarios-pag-inicial">
                                  <div class="comentario-usuario">
                                    <img src="img/client.png" alt="Nome da Imagem" title="Nome da Imagem" />

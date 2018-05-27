@@ -4,7 +4,7 @@
     $("#list").click(function(){
       $.ajax({
         type:"POST",
-        url:"views/Itinerario/list_itinerario.php",
+        url:"views/Itinerarios/list_itinerario.php",
         data:{},
         success: function(dados){
           $("#conteudo").html(dados);
@@ -14,7 +14,7 @@
     $("#add").click(function(){
       $.ajax({
         type:"POST",
-        url:"views/Itinerario/cadastro_itinerario.php",
+        url:"views/Itinerarios/cadastro_itinerario.php",
         data:{},
         success: function(dados){
           $("#conteudo").html(dados);
