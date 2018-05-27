@@ -20,13 +20,28 @@
       $cont ++;
     }
   }
-  //
+
   function verificaOcupacaoLabel($polt_num, $lista_ocupadas){
     $cont = 0;
     while($cont < sizeof($lista_ocupadas)){
       if($polt_num == $lista_ocupadas[$cont]->num_poltrona){
         echo 'style="background-color:grey; pointer-events:none;"';
         return;
+      }
+      $cont ++;
+    }
+  }
+
+  function setaCor($polt_num, $lista_ocupadas){
+    $cont = 0;
+    while($cont < sizeof($lista_ocupadas)){
+      if($polt_num == $lista_ocupadas[$cont]->num_poltrona){
+        echo('2');
+        return;
+      }else{
+        if(($cont+1)==sizeof($lista_ocupadas)){
+          echo('0');
+        }
       }
       $cont ++;
     }
@@ -57,13 +72,13 @@
           ?>
           <div class="fileira_corredor">
 
-            <label for="polt" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
+            <label for="polt" data-polt="<?php setaCor($a,$ocupadas); ?>" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
             <input class="polt" type="checkbox" name="checkbox[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
           <?php
           $a ++;
 
           ?>
-            <label for="polt" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
+            <label for="polt" data-polt="<?php setaCor($a, $ocupadas); ?>" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
             <input class="polt" type="checkbox" name="checkbox[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
           </div>
           <?php

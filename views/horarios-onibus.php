@@ -28,24 +28,23 @@
     <!-- <script src="<?php //echo($links); ?>js/jquery.min.js"></script> -->
     <script src="<?php echo($links); ?>js/jquery-3.3.1.js"></script>
     <script>
-    var color = 0;
+    // var color = 0;
     $(document).on('click', '.poltronas', function(){
 
       var selecionado = $(this);
       // var bg = $(this).css('background-color');
       // console.log(bg);
+      if(selecionado.data('polt') == 0) {
 
-      if(color == 0) {
-        // selecionado.dataset.active =1;
         selecionado.css('background', 'yellow');
         selecionado.attr('checked', true );
 
-        color = 1;
+        selecionado.data("polt", "1");
         // Senão, troca pra amarelo
-      } else if(color == 1) {
+      } else if(selecionado.data('polt') == 1) {
         selecionado.css('background', 'green');
         selecionado.attr('checked', false);
-        color = 0;
+        selecionado.data("polt", "0");
       }
     });
 
