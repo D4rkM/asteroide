@@ -5,7 +5,18 @@
   $links = alterarLinks(false);
   $paths = alterarCaminhos(false);
 
-  if(isset($_POST['']))
+  function verificaUsuarioLogado(){
+    if(isset($_SESSION['id_usuario'])){
+      echo("eeeeeeee");
+      if(isset($_POST['poltronas'])){
+        echo("eeeee2");
+      }else{
+        echo("triste");
+      }
+    }else{
+      echo("aaaaahhh..");
+    }
+  }
 
  ?>
 <!DOCTYPE html>
@@ -22,6 +33,7 @@
     <title>Home - Bem vindo</title>
     <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/footer.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/viagens.css"/>
     <link rel="stylesheet" href="<?php echo($links); ?>css/style.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/pagina_pagamento.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
@@ -77,7 +89,11 @@
       <div class="modal-login">
       </div>
     </div>
-       <?php require_once('nav.php'); ?>
+       <?php
+       require_once('nav.php');
+       verificaUsuarioLogado();
+
+       ?>
        <div class="conteudo_pagamento">
          <div class="container_pagamento">
            <div class="container_pagamento2">

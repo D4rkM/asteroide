@@ -20,6 +20,7 @@
     <title>Home - Bem vindo</title>
     <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/footer.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/viagens.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/pagina_pagamento.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/identificacao_usuario.css"/>
     <link rel="stylesheet" href="<?php echo($links); ?>css/style.css">
