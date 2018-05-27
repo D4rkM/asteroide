@@ -449,7 +449,10 @@ body::-webkit-scrollbar-thumb {
   /* width: 390px; */
   /* height: 390px; */
 }
-
+.imagem_frota{
+  width: 350px;
+  height: 250px;
+}
 .galery-text{
   background-color: black;
   opacity: 0.6;

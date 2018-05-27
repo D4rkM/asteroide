@@ -11,10 +11,10 @@
 
     public static function Insert($interacao_dados){
       $sql = "insert into interacao set comentario='$interacao_dados->comentario',
-                                        imagem='$interacao_dados->imagem',
+                                        img='$interacao_dados->imagem',
                                         nome_local='$interacao_dados->local',
                                         id_usuario = '51',
-                                        ativar=1;";
+                                        aparecer=1;";
                                         // echo ($sql);die;
 
       $conex = new Mysql_banco();
@@ -45,11 +45,11 @@
 
         $listInteracao[$cont]->id = $rs['id'];
         $listInteracao[$cont]->comentario = $rs['comentario'];
-        $listInteracao[$cont]->imagem = $rs['imagem'];
+        $listInteracao[$cont]->imagem = $rs['img'];
         $listInteracao[$cont]->local = $rs['nome_local'];
         $listInteracao[$cont]->nome_usuario = $rs['nome'];
         $listInteracao[$cont]->imagem_usuario = $rs['imagem_usuario'];
-        $listInteracao[$cont]->ativo = $rs['ativar'];
+        $listInteracao[$cont]->ativo = $rs['aparecer'];
 
         $cont+=1;
       }

@@ -52,7 +52,7 @@
             <!-- <img class="img_interacao2" src="../../img/praia-rio.jpg" alt="camera"> -->
             <label for="foto">
               <div  class="adicionar_imagem" id="imagem">
-                <img id="id_sua_img" src="../img/client.png" alt="user"/>
+                <img id="id_sua_img" src="../../img/angra.jpg" alt="user"/>
               </div>
             </label>
             <!--Botão para selecionar a foto-->
@@ -95,7 +95,7 @@
                 <p><?php echo $list[$cont]->comentario ?></p>
                 </div>
               <div class="cardbox-img">
-                <img class="" src="<?php echo($links); ?>../<?php echo $list[$cont]->imagem ?>" alt="angra">
+                <img class="" src="../../<?php echo $list[$cont]->imagem ?>" alt="angra">
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@
 </body>
 </html>
 <?php require_once('footer.php'); ?>
-<script src="../../js/jquery.min.js"></script>
+<script src="<?php echo($links); ?>../js/jquery.min.js"></script>
 <script>
 $("#foto").change(function(){
    if($(this).val()){ // só se o input não estiver vazio

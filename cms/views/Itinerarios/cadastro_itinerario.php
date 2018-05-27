@@ -3,26 +3,30 @@
    // require_once("../../controllers/pacote_viagem_controller.php");
    // require_once("../../models/pacote_viagem_class.php");
 
-   require_once("../../controllers/parada_controller.php");
-   require_once("../../models/parada_class.php");
+   // require_once("../../controllers/parada_controller.php");
+   // require_once("../../models/parada_class.php");
 ?>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/list.js"></script>
+
 <form enctype="multipart/form-data" method="post" action="router.php?controller=parada&modo=novo">
 <div class="hold">
     <div class="list">
       <ul id="parada_para_selecionar">
         <?php
-        $parada = new Parada();
-        if(){
-          while($rs = mysqli_fetch_array($query)){
+          require_once("../../controllers/parada_controller.php");
+          require_once("../../models/parada_class.php");
+          $parada = new controllerParada();
+          $list = $parada::Listar();
+          $cont = 0;
+          while($cont < count($list)){
             ?>
-            <li <?php echo('id='.$rs['idparada']); ?>><?php echo($rs['nome']); ?></li>
+            <li <?php echo('id='.$list[$cont]->id); ?><?php echo($list[$cont]->tipo_parada); ?></li>
             <?php
-          }
-        }else{
-          echo("Não foi possível se conectar com o banco.\n". $query ."\n". $select);
-        }
-
-        ?>
+              $cont+=1;
+              }
+            ?>
       </ul>
     </div>
 
