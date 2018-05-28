@@ -125,7 +125,7 @@
              <div class="polaroid" >
                <img src="cms/<?php //echo($links); ?><?php echo $list[$cont]->imagem ?>" alt="Rio" style="width:100%">
                <div class="texto-polaroid">
-                 <p><?php echo $list[$cont]->destino ?></p>
+                 <p<?php echo $list[$cont]->id_viagem ?>><?php echo $list[$cont]->origem. " - " .$list[$cont]->destino ?></p>
                </div>
              </div>
              <?php

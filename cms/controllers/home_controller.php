@@ -30,7 +30,7 @@
               }
 
           $home->imagem=$diretorio_completo;
-          $home->destino = $_POST['txtdestino'];
+          $home->id_viagem = $_POST['id_viagem'];
           $home->tipo = $_POST['tipo'];
 
           $home::Insert($home);
@@ -66,7 +66,7 @@
              }
 
           $home->id = $idAlterar;
-          $home->destino = $_POST['txtdestino'];
+          $home->id_viagem = $_POST['id_viagem'];
           $home->imagem=$diretorio_completo;
           $home->imagem = $foto;
           $home->tipo = $_POST['tipo'];

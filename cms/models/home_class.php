@@ -9,7 +9,7 @@
 */
 class Home{
   public $id;
-  public $destino;
+  public $id_viagem;
   public $imagem;
   public $tipo;
 
@@ -19,7 +19,7 @@ class Home{
 
   public function Insert($home_dados){
 
-    $sql = "insert into pghome set destino='$home_dados->destino',
+    $sql = "insert into pghome set id_viagem='$home_dados->id_viagem',
                                    imagem='$home_dados->imagem',
                                    idTipo='$home_dados->tipo';";
     //Instancia a classe do banco
@@ -44,10 +44,10 @@ class Home{
   public function Update($home_dados){
     if ($home_dados->imagem == "nada"){
 
-    $sql = "update pghome set destino='$home_dados->destino',
+    $sql = "update pghome set id_viagem='$home_dados->id_viagem',
                               idTipo=$home_dados->tipo where id=$home_dados->id;";
     }else{
-      $sql = "update pghome set destino='$home_dados->destino',
+      $sql = "update pghome set id_viagem='$home_dados->id_viagem',
                                 imagem='$home_dados->imagem',
                                 idTipo=$home_dados->tipo where id=$home_dados->id;";
     }
@@ -91,7 +91,7 @@ class Home{
 
   public function Select(){
 
-    $sql = "select * from pghome order by id desc";
+    $sql = "select ph.*,p.origem, p.destino from pghome as ph, viagem as v, pacote_viagem as p where ph.id_viagem = v.id and v.idpacote_viagem = p.id;";
 
     $conex = new Mysql_db();
 
@@ -107,9 +107,11 @@ class Home{
       $listHome[] = new Home();
 
       $listHome[$cont]->id = $rs['id'];
-      $listHome[$cont]->destino = $rs['destino'];
+      $listHome[$cont]->id_viagem = $rs['id_viagem'];
       $listHome[$cont]->imagem = $rs['imagem'];
       $listHome[$cont]->tipo = $rs['idTipo'];
+      $listHome[$cont]->origem = $rs['origem'];
+      $listHome[$cont]->destino = $rs['destino'];
 
       $cont+=1;
     }
@@ -136,7 +138,7 @@ class Home{
       $home = new Home();
 
       $home->id = $rs['id'];
-      $home->destino = $rs['destino'];
+      $home->id_viagem = $rs['id_viagem'];
       $home->imagem = $rs['imagem'];
       $home->tipo = $rs['idTipo'];
 

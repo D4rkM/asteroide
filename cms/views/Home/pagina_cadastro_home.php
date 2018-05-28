@@ -18,7 +18,7 @@ $("#foto").change(function(){
 <form class="" action="router.php?controller=home&modo=novo" method="post" enctype="multipart/form-data">
   <div class="cadastro_home">
     <div class="text_home">Nome da Viagem</div>
-    <select class="select_home" name="destino">
+    <select class="select_home" name="id_viagem">
       <?php
           require_once("../../controllers/viagem_controller.php");
           require_once("../../models/viagem_class.php");
@@ -31,8 +31,8 @@ $("#foto").change(function(){
           while($cont < count($list)){
 
           ?>
-          <option value="<?php echo($list[$cont]->id)?>">
-              <?php echo($list[$cont]->pacote_viagem)?></option>
+          <option value="<?php echo($list[$cont]->pacote_viagem)?>">
+              <?php echo($list[$cont]->origem. " - " .$list[$cont]->destino)?></option>
 
           <?php
             $cont+=1;

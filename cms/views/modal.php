@@ -73,9 +73,33 @@ $("#foto").change(function(){
 	Edição da Home
 </div>
 		<form class="frmCadDuvida" method="post" action="router.php?controller=home&modo=editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
-			<div class="text_home">Nome do destino</div>
-	    <input class="box_home" type="text" name="txtdestino" value="<?php echo $dadosHome->destino ?>">
-	    <div class="text_home">Imagem</div>
+			<div class="text_home">Nome da Viagem</div>
+	    <select class="select_home" name="id_viagem">
+	      <?php
+	          require_once("../controllers/viagem_controller.php");
+	          require_once("../models/viagem_class.php");
+
+	          $controllerViagem = new controllerViagem;
+	          $list=$controllerViagem::Listar();
+
+	          $cont = 0;
+						$select = " ";
+	          while($cont < count($list)){
+							if ($list[$cont]->id == $dadosHome->tipo)	{
+								// echo("<script>alert(".$list[$cont]->id.");</script>");
+								$selected = 'selected';
+							}
+	          ?>
+	          <option <?php echo $select ?> value="<?php echo($list[$cont]->pacote_viagem)?>">
+	              <?php echo($list[$cont]->origem. " - " .$list[$cont]->destino)?></option>
+
+	          <?php
+	            $cont+=1;
+							$select = " ";
+	              }
+	              ?>
+	    </select>
+			<div class="text_home">Imagem</div>
 			<label for="foto">
         <div  class="adicionar_frota" id="imagem">
           <img id="id_sua_img" src="<?php echo $dadosHome->imagem ?>" alt="foto"/>
