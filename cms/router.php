@@ -665,5 +665,38 @@
 
       }
 break;
+          case 'itinerario':
+                require_once('controllers/itinerario_controller.php');
+                require_once('models/itinerario_class.php');
+
+                  switch ($modo) {
+                    case 'novo':
+                    $controllerItinerario = new controllerItinerario();
+                    $controllerItinerario::Novo();
+                    break;
+
+                    case 'editar':
+                    $controllerItinerario = new controllerItinerario();
+                    $controllerItinerario::Editar($_GET['id']);
+                    break;
+
+                    case 'excluir':
+                    $controllerItinerario = new controllerItinerario();
+                    $controllerItinerario::Excluir();
+                    break;
+
+                    case 'buscar':
+                    $controllerItinerario = new controllerItinerario();
+                    $controllerItinerario::Buscar();
+                    break;
+
+                    case 'listar':
+                    $controllerItinerario = new controllerItinerario();
+                    $controllerItinerario::Listar();
+                    break;
+
+                    default:
+                  }
+                    break;
     }
  ?>
