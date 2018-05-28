@@ -21,9 +21,14 @@
           $parada = new controllerParada();
           $list = $parada::Listar();
           $cont = 0;
+          // echo($list[1]->id);
           while($cont < count($list)){
             ?>
+<<<<<<< HEAD
             <li <?php echo('id='.$list[$cont]->id); ?>><?php echo($list[$cont]->tipo_parada); ?></li>
+=======
+            <li> <?php echo('id='.$list[$cont]->id); ?><?php echo($list[$cont]->tipo_parada); ?></li>
+>>>>>>> aeaf8fa1d0d8f1e5bed469dda8b7d793fde53f91
             <?php
               $cont+=1;
               }
