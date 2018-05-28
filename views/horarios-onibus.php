@@ -31,6 +31,7 @@
     $(document).on('click', '.poltronas', function(){
 
       var selecionado = $(this);
+      var test = $('.polt');
       // var bg = $(this).css('background-color');
       // console.log(bg);
       if(selecionado.data('polt') == 0) {
