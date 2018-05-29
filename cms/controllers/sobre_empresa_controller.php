@@ -1,10 +1,10 @@
 <?php
 session_start();
     /*
-        Autor:William
-        Data de Modificação:22/03/2018
-        Controller:Funcionario
-        Obs:Controller para realizar o CRUD de contatos que vai vir do contatos (RETIRAR OS DADOS DO FORMULÁRIO!!!!!)
+        Autor:Lucas
+        Data de Modificação:23/05/2018
+        Controller:Sobre Empresa
+        Obs:Controller para realizar o CRUD de titulos, textos e imagens na página de Sobre Empresa.
     */
 
     class controllerSobreEmpresa{
@@ -24,60 +24,95 @@ session_start();
 
           $sobre_empresa::Insert($sobre_empresa);
 
+          //pegando a foto
+             if (!empty($_FILES['imagem']['name'])) {
+                $imagem_file = true;
+                $diretorio_completo=salvarFoto($_FILES['imagem'],'arquivo');
+                if ($diretorio_completo == "Erro") {
+                      $MovUpload=false;
+                }else {
+                  $MovUpload=true;
+                }
+              }else {
+                $imagem_file = false;
+              }
+
         }
 
         //Atualiza um contato existente
-        public function Editar($idFuncionario){
-          $duvidas = new Duvidas();
+        public function Editar($sobre_empresa){
+          $sobre_empresa = new sobreEmpresa();
 
-          $duvidas->id = $idFuncionario;
-          $duvidas->pergunta = $_POST['txtDuvidaFreq'];
-          $duvidas->resposta = $_POST['txtAreaRespotaDuvidaFreq'];
-          if(isset($_POST['chkDuvidaFrequente'])){
-            $duvidas->aparecer = '1';
-          }else{
-            $duvidas->aparecer = '0';
-          }
+          require_once('trata_imagem.php');
 
-          $duvidas::Update($duvidas);
+           $diretorio_completo=Null;
+           $MovUpload=false;
+           $imagem_file=Null;
+           $foto="nada";
+
+          // $sobre_empresa->titulo1 = $_POST['txttitulo1'];
+          // $sobre_empresa->texto1 = $_POST['txttexto1'];
+          // $sobre_empresa->titulo2 = $_POST['txttitulo2'];
+          // $sobre_empresa->texto2 = $_POST['txttexto2'];
+          // $sobre_empresa->imagem = $_POST['imagem'];
+          // $sobre_empresa->icon1 = $_POST['icon1'];
+          // $sobre_empresa->detalhes1 = $_POST['txtdetalhes1'];
+
+          //pegando a foto
+             if (!empty($_FILES['imagem']['name'])) {
+                $imagem_file = true;
+                $diretorio_completo=salvarFoto($_FILES['imagem'],'arquivo');
+                if ($diretorio_completo == "Erro") {
+                      $MovUpload=false;
+                }else {
+                  $MovUpload=true;
+                }
+              }else {
+                $imagem_file = false;
+              }
+
+              if ($imagem_file == true && $MovUpload==true) {
+               $foto =$diretorio_completo;
+             }else {
+               $foto="nada";
+             }
+
+             $sobre_empresa->id = $idFrotas;
+             $sobre_empresa->imagem=$diretorio_completo;
+             $sobre_empresa->titulo1=$_POST['txttitulo1'];
+             $sobre_empresa->imagem = $foto;
+
+          $sobre_empresa::Update($sobre_empresa);
 
         }
 
         //Apaga um contato existente
         public function Excluir(){
-          $idDuvida = $_GET['id'];
+          $idEmpresa = $_GET['id'];
+          $sobre_empresa = new sobreEmpresa();
 
-          $duvida = new Duvidas();
+          $sobre_empresa->id = $idEmpresa;
 
-          $duvida->id = $idDuvida;
-
-          $duvida::Delete($duvida);
-
-
+          $sobre_empresa::Delete($sobre_empresa);
         }
 
         //Busca um registro existente
         public function Buscar($id){
+          $sobre_empresa = new sobreEmpresa();
+          $sobre_empresa->id = $id;
 
-          $duvida = new Duvidas();
-
-          $duvida->id = $id;
-
-          return $dadosDuvida= $duvida::SelectById($duvida);
+          return $sobre_empresa_dados= $sobre_empresa::SelectById($sobre_empresa);
 
         }
 
         //Lista todos os contatos existentes
         public function Listar(){
 
-          $duvidas = new Duvidas();
+          $sobre_empresa = new sobreEmpresa();
 
-          return $duvidas::Select();
+          return $sobre_empresa::Select();
 
         }
-
-
-
     }
 
 ?>
