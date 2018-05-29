@@ -10,7 +10,8 @@ class controllerPacoteViagem{
   public function Novo(){
     $pacote_viagem = new PacoteViagem();
 
-    $pacote_viagem->titulo = $_POST['titulo'];
+    $pacote_viagem->origem = $_POST['origem'];
+    $pacote_viagem->destino = $_POST['destino'];
     $pacote_viagem->descricao = $_POST['descricao'];
 
     $pacote_viagem::Insert($pacote_viagem);
@@ -20,7 +21,9 @@ class controllerPacoteViagem{
 
     $pacote_viagem = new PacoteViagem();
 
-    $pacote_viagem->titulo = $_POST['titulo'];
+    $pacote_viagem->id =$idPacoteViagem;
+    $pacote_viagem->origem = $_POST['origem'];
+    $pacote_viagem->destino = $_POST['destino'];
     $pacote_viagem->descricao = $_POST['descricao'];
 
     $pacote_viagem::Update($pacote_viagem);
@@ -52,7 +55,7 @@ class controllerPacoteViagem{
       $pacote_viagem = new PacoteViagem();
 
       return $pacote_viagem::Select();
-
+      // var_dump($pacote_viagem);die;
     }
 
 }

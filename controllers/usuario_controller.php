@@ -37,6 +37,7 @@ class controllerUsuario {
               $usuario->imagem=$diretorio_completo;
               $usuario->nome = $_POST['txtnome'];
               $usuario->email = $_POST['txtemail'];
+              $usuario->usuario = $_POST['txtusuario'];
               $usuario->senha = $_POST['txtsenha'];
               $data = implode("-",array_reverse(explode("/",$_POST['txtdatanasc'])));
               $usuario->datanasc = $data;
@@ -98,6 +99,7 @@ class controllerUsuario {
   public function Buscar($id){
     $usuario = new Usuario();
     $usuario->id = $id;
+
     return $dados_usuario = $usuario::SelectById($usuario);
   }
 
@@ -108,18 +110,21 @@ class controllerUsuario {
   $usuario->login = $_POST['txtemail'];
   $usuario->senha = $_POST['txtsenha'];
   $dadosUsuario = $usuario::Login($usuario);
+  //
+  // if($dadosUsuario!=false)
+  // {
+  //   $_SESSION['nome_usuario'] = $dadosUsuario->nome;
+  //   $_SESSION['id_usuario'] = $dadosUsuario->id;
+  //
+  //
+  // }else{
+  //   $_SESSION['erro'] = "Usuario ou senha incorretos, caso o erro percista entre em contato com o ADM";
+  //
+  // }
 
-  if($dadosUsuario!=false)
-  {
-    $_SESSION['nomeUser'] = $dadosUsuario->nome;
-    $_SESSION['idUser'] = $dadosUsuario->id;
-
-
-  }else{
-    $_SESSION['erro'] = "Usuario ou senha incorretos, caso o erro percista entre em contato com o ADM";
-  }
 }
 
 }
+
 
  ?>

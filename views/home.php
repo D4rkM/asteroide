@@ -16,7 +16,9 @@
       Obs: Página principal contém menu e rodapé para inserir as outras páginas
     -->
     <title>Home - Bem vindo</title>
-    <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_login.css">
     <link rel="stylesheet" href="css/style_detalhes.css">
@@ -78,24 +80,11 @@
       <div class="modal-login">
       </div>
     </div>
-       <?php require_once('nav.php'); ?>
+       <?php
+          require_once('nav.php');
+          require_once('filtro.php');
+        ?>
 
-       <div class="container">
-         <!-- Filtro de busca de destino -->
-         <div class="filtro_busca">
-           <div class="txt_filtro">Filtro</div>
-           <form class="" action="views/horarios-onibus.php" method="post">
-             <div class="txt_filtro2">Origem:</div>
-             <input class="box_filtro" type="text" name="txtorigem" value="">
-             <div class="txt_filtro2">Destino:</div>
-             <input class="box_filtro" type="text" name="txtdestino" value="">
-             <div class="txt_filtro2">Dara de Ida:</div>
-             <input class="box_filtro" type="text" name="txtida" value="">
-             <div class="txt_filtro2">Data de Volta:</div>
-             <input class="box_filtro" type="text" name="txtvolta" value="">
-             <button class="btn_buscar" type="submit" name="btn_confirma">Buscar</button>
-           </form>
-         </div>
          <!-- <div class="conteudo-video"> -->
            <div class="video-principal">
              <video muted autoplay loop>
@@ -136,7 +125,7 @@
              <div class="polaroid" >
                <img src="cms/<?php //echo($links); ?><?php echo $list[$cont]->imagem ?>" alt="Rio" style="width:100%">
                <div class="texto-polaroid">
-                 <p><?php echo $list[$cont]->destino ?></p>
+                 <p<?php echo $list[$cont]->id_viagem ?>><?php echo $list[$cont]->origem. " - " .$list[$cont]->destino ?></p>
                </div>
              </div>
              <?php
@@ -191,7 +180,7 @@
                          while ($a <= 5) {
                           ?>
                            <li>
-                             <a href="#">
+                             <a href="views/interacao.php">
                                <div class="comentarios-pag-inicial">
                                  <div class="comentario-usuario">
                                    <img src="img/client.png" alt="Nome da Imagem" title="Nome da Imagem" />

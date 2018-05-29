@@ -1,9 +1,16 @@
 <?php
     session_start();
+
+    if(isset($_POST['btnSair'])){
+      $_SESSION['nome_usuario'] = '0';
+      $_SESSION['id_usuario'] = '0';
+      $_SESSION['imagem_usuario'] = '0';
+      session_destroy();
+    }
  ?>
 <!-- Menu Superior -->
 <nav>
-  <div class="menu-container" id="men" style="background-color:#162E44;">
+  <div class="menu-container" id="men">
     <div class="login-menu">
 
     </div>
@@ -67,9 +74,17 @@
           require_once($paths.'../models/usuario_class.php');
 
           if(isset($_SESSION['nome_usuario'])){
+            if($_SESSION['nome_usuario'] != '0'){
           ?>
-           <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><img class="img_user" src="<?php echo($_SESSION['nome_imagem']); ?>" alt="user"></a>
-          <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><div class=""><?php echo($_SESSION['nome_usuario']); ?></div></a>
+          <form class="" action="<?php echo($links); ?>index.php"method="post">
+          <div class="user_log">
+            <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><img class="img_user" src="<?php echo($_SESSION['imagem_usuario']); ?>" alt="user"></a>
+            <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><div class=""><?php echo($_SESSION['nome_usuario']); ?></div></a>
+              <ul class="submenu">
+                <li> <button type="submit" name="btnSair">Sair</button> </li>
+              </ul>
+            </form>
+          </div>
           <?php
         }else{
            ?>
@@ -79,7 +94,11 @@
           ?>
         </div>
     <?php
-      //}
+      }else{
+        ?>
+          <a class="login" href="#" onclick="Login();"> <h5 class="btn"> <b>Acesso</b> </h5> </a>
+        <?php
+      }
     ?>
 
   </div>

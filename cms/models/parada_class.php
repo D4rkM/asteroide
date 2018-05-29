@@ -9,9 +9,8 @@
 */
 class Parada{
   public $id;
-  public $nome;
-  public $id_endereco;
   public $tipo_parada_id;
+  public $endereco_id;
 
   public function __construct(){
     require_once('db_class.php');
@@ -19,8 +18,9 @@ class Parada{
 
   public function Insert($parada_dados){
 
-    $sql = "insert into parada set nome='$parada_dados->nome';";
-    echo ($sql);
+    $sql = "insert into parada set endereco_id='$parada_dados->endereco_id',
+                                   tipo_parada_id='$parada_dados->tipo_parada_id';";
+    // echo ($sql);die;
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -41,7 +41,9 @@ class Parada{
   }
 
   public function Update($parada_dados){
-    $sql = "update parada set nome='$parada_dados->nome' where id=$parada_dados->id;";
+    $sql = "update parada set endereco_id='$parada_dados->endereco_id',
+                              tipo_parada_id='$parada_dados->tipo_parada_id'
+                              where id=$parada_dados->id;";
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -62,6 +64,7 @@ class Parada{
 
   public function Delete($parada_dados){
     $sql = "delete from parada where id = $parada_dados->id";
+    // echo ($sql);die;
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -70,16 +73,17 @@ class Parada{
     $PDO_conex = $conex->Conectar();
 
     //Executa o script $sql no Banco de Dados
-    if($PDO_conex->query($sql))
-        header('location:index.php');
-    else
-        echo("Erro ao deletar no BD");
-
+    if($PDO_conex->query($sql)){
+      header('location:index.php');
+    }else{
+      header('location:index.php?mensagem=apague');
+    }
     //Fecha a conexão com o Banco de Dados
     $conex->Desconectar();
   }
   public function Select(){
-    $sql = "SELECT * FROM parada ORDER BY id DESC";
+    $sql = "select p.*,tp.tipo_parada, e.logradouro from parada as p, tipo_parada as tp, endereco as e
+where p.tipo_parada_id=tp.id and p.endereco_id=e.id";
 
     $conex = new Mysql_db();
 
@@ -95,7 +99,10 @@ class Parada{
       $listParada[] = new Parada();
 
       $listParada[$cont]->id = $rs['id'];
-      $listParada[$cont]->nome = $rs['nome'];
+      $listParada[$cont]->endereco_id = $rs['endereco_id'];
+      $listParada[$cont]->tipo_parada_id = $rs['tipo_parada_id'];
+      $listParada[$cont]->tipo_parada = $rs['tipo_parada'];
+      $listParada[$cont]->rua = $rs['logradouro'];
 
       $cont+=1;
     }
@@ -123,7 +130,8 @@ class Parada{
       $listParada = new Parada();
 
       $listParada->id = $rs['id'];
-      $listParada->nome = $rs['nome'];
+      $listParada->endereco_id = $rs['endereco_id'];
+      $listParada->tipo_parada_id = $rs['tipo_parada_id'];
 
       $conex->Desconectar();
     }

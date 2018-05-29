@@ -40,7 +40,7 @@ $(document).ready(function() {
   while($cont < count($list)){
 ?>
 <div class="container_lista_home">
-  <div class="itens_mostrar_home"><?php echo $list[$cont]->destino ?></div>
+  <div class="itens_mostrar_home" <?php echo $list[$cont]->id_viagem ?>><?php echo $list[$cont]->origem." - ".$list[$cont]->destino?></div>
   <div class="itens_mostrar_home"><img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt="imagem"></div>
   <div class="itens_mostrar_home"><?php echo $list[$cont]->tipo ?></div>
   <div class="itens_mostrar_home">

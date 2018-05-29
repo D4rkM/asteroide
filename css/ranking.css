@@ -1,0 +1,95 @@
+/* Conteudo da página de ranking */
+.conteudo-ranking{
+  width: 100%;
+  min-height: 1430px;
+  height: auto;
+  /* padding-top: 70px; */
+  /* background-color: #E0FFFF; */
+}
+/*Segura todo conteudo do ranking*/
+.raking-container{
+  width: 1000px;
+  min-height: 1430px;
+  height: auto;
+  /* background-color: #00FA9A; */
+  margin: auto;
+}
+.rank-subtitulo{
+  width: 1000px;
+}
+
+/*Posição do ranking*/
+.classificacao{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-size: 100% 100%;
+  height: 300px;
+  margin:50px 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* .classificacao:hover>.bg-dark{
+  transition: 1s;
+  opacity: 0;
+} */
+
+/* deixa o fundo escuro */
+.bg-dark{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  position: relative;
+  /* transition: 1s; */
+}
+
+.btn-ranking{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  width: 20%;
+}
+
+.info-ranking{
+  width: 990px;
+  padding-left: 10px;
+  display: flex;
+  height: 300px;
+  flex-direction: row;
+  justify-content: flex-end;
+  opacity: 1;
+  position:absolute;
+}
+
+/*Conatiner da imagem do posto rodoviario*/
+.postos-content{
+  width: 1000px;
+  height: 250px;
+  background-color: #C71585;
+  margin: auto;
+  border-radius: 5px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Conteudo da página de ranking  modal*/
+.modal{
+  width: 60%;
+  height: 50%;
+  margin: auto;
+  margin-top: 150px;
+  z-index: 999;
+	background-color: #fff;
+}
+
+.modalContainer{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    display: none;
+    z-index: 998;
+}
+
+/* ------------------------------------------------------------------------- */

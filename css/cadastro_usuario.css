@@ -1,0 +1,132 @@
+/* Página de cadastro de usuarios*/
+.conteudo-cadastro{
+  width: 100%;
+  min-height: 1150px;
+  height: auto;
+  /* background-color: red; */
+}
+/*Container que segura o conteudo*/
+.cadastro-container{
+  display: flex;
+  width: 1000px;
+  min-height: 950px;
+  height: auto;
+  flex-direction: row;
+  justify-content: center;
+  /* background-color: red; */
+  border: solid 1px #000;
+  margin: auto;
+  /* border-radius: 10px; */
+}
+/* Padrão Imagens */
+#imagem{
+  cursor: pointer;
+  width: 180px;
+  height: 180px;
+  /* margin: auto; */
+}
+label#imagem{
+  margin: 0px;
+  align-self: center;
+}
+#id_sua_img{
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+}
+.adicionar_imagem{
+  display: flex;
+  align-self: center;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+/* Armazena os dados principais para cadastro */
+.dados-principais-cad{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 200px;
+  /* background-color: grey; */
+}
+/* Armazena os dados de conteudo que serão inseridos */
+.dados-complementares-cad{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  width: 100%;
+  height: 500px;
+}
+.dados-pessoais{
+  display: flex;
+  flex-direction: row ;
+}
+.dados-esquerda{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  /* align-items: center; */
+}
+.dados-direita{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+}
+/* mantem a label e input padronizadas */
+.caixa-dados{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+  /* width: 400px; */
+  height: 60px;
+  /* background-color: grey; */
+  /* border: solid 1px blue; */
+  /* margin: 10px 0px; */
+}
+/* Adiciona foto no cadastro ou edição de funcionarios */
+.adicionar-foto{
+  display: flex;
+  align-self: center;
+  width: 190px;
+  height: 200px;
+}
+.input-foto{
+  display: none;
+}
+/*Botão para selecionar a foto*/
+.botao_foto_perfil{
+  margin-left: 37.5%;
+}
+/*titulo das caixas de textos*/
+.text_left{
+  margin-left: 19%;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+/*Tabela que segura todos os itens dos dados pessoais do usuario*/
+.tabela_cadastro{
+  width: 60%;
+  height: 400px;
+  /* margin-left: 19%; */
+}
+/*Colunas que seguram o titulo da caixa de texto*/
+.colunas_cadastro_nome{
+  width: 50%;
+  height: 15px;
+}
+/*Colunas que seguram a caixa de texto*/
+.colunas_cadastro_caixa{
+  width: 50%;
+  height: 40px;
+}
+.dados-endereco{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

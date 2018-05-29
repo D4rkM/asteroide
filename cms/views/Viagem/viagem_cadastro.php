@@ -5,14 +5,18 @@
 ?>
 <form enctype="multipart/form-data" method="post" action="router.php?controller=viagem&modo=novo">
   <div class="cadastro_viagem">
-  <div class="txt_viagem">Data e Horario Saida</div>
-  <input class="box_viagem" type="text" name="saida" value="">
-  <div class="txt_viagem">Data e Horario Chehada</div>
-  <input class="box_viagem" type="text" name="chegada" value="">
+  <div class="txt_viagem">Data Saida</div>
+  <input class="box_viagem" type="text" name="data_saida">
+  <div class="txt_viagem">Horario Saida</div>
+  <input class="box_viagem" type="text" name="hora_saida">
+  <div class="txt_viagem">Data Chegada</div>
+  <input class="box_viagem" type="text" name="data_chegada">
+  <div class="txt_viagem">Horario Chegada</div>
+  <input class="box_viagem" type="text" name="hora_chegada">
   <div class="txt_viagem">Descricao</div>
-  <input class="box_viagem" type="text" name="descricao" value="">
+  <input class="box_viagem" type="text" name="descricao">
   <div class="txt_viagem">KM</div>
-  <input class="box_viagem" type="text" name="km" value="">
+  <input class="box_viagem" type="text" name="km">
   <div class="txt_viagem">Pacote de Viagem</div>
   <select class="select_viagem" name="pacote_viagem">
     <?php
@@ -28,13 +32,21 @@
 
         ?>
         <option value="<?php echo($list[$cont]->id)?>">
-            <?php echo($list[$cont]->titulo)?></option>
+
+            <?php echo($list[$cont]->origem. ' X ' .$list[$cont]->destino)?></option>
+
+
 
         <?php
           $cont+=1;
             }
             ?>
   </select>
+
+
+  <div class="txt_viagem">Preço</div>
+  <input class="box_viagem" type="text" name="preco" value="">
+
   <input class="salvar_viagem" type="submit" name="btnsalvar" value="Salvar">
   </div>
 </form>

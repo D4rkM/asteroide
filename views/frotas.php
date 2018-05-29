@@ -20,6 +20,7 @@
     -->
     <title>Home - Bem vindo</title>
     <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/footer.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
@@ -105,9 +106,9 @@
 
                while($cont < count($list)){
              ?>
-             <div class="polaroid img-galery">
+             <div class="">
                  <!-- <div class="container_onibus_imagem"> -->
-                   <img class="" src="../cms/<?php echo $list[$cont]->imagem ?>" alt="bus" title="frotas">
+                   <img class="imagem_frota" src="../cms/<?php echo $list[$cont]->imagem ?>" alt="bus" title="frotas">
                  <!-- </div> -->
                  <div class="texto-polaroid">
                    <p><?php echo $list[$cont]->nome ?></p>

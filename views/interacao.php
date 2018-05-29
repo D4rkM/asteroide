@@ -19,61 +19,11 @@
     -->
     <title>Home - Bem vindo</title>
     <link rel="stylesheet" href="<?php echo($links); ?>css/normalize.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>css/footer.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
-    <script src="<?php echo($links); ?>js/jquery.min.js"></script>
-    <script>
-      // Modal Login
-      $(document).ready(function() {
-            $(".login").click(function() {
-              $(".modalContainerLogin").fadeIn(500);
-            });
-      });
-      //função para abrir a modal
-      function Login(){
-          $.ajax({
-              type: "POST",
-              url: "views/login.php",
-              success: function(dados){
-                  $('.modal-login').html(dados);
-               }
-              });
-          }
-      // -------------------------------------------------------------------------------------
 
-      // Modal de detalhes
-      $(document).ready(function() {
-            $(".detalhes").click(function() {
-              $(".modalContainerDetalhes").slideToggle(1000);
-            });
-      });
-
-      function Detalhes(){
-          $.ajax({
-              type: "POST",
-              url: "views/detalhes.php",
-              success: function(dados){
-                  $('.modal-detalhes').html(dados);
-               }
-              });
-          }
-      // --------------------------------------------------------------------------------------
-    </script>
-    <script>
-      // Configura o Texto que irá aparecer na pagina inicial
-      $(document).ready(function(){
-        var textos = ["Deixe o stress de lado e curta nossa viagem", 'Viajar de "Bus" pode ser tão divertido como estar em família' , "Veja nossos pacotes de passagens"];
-        var atual = 0;
-        $('#frases').text(textos[atual++]);
-        setInterval(function() {
-            $('#frases').fadeOut(function() {
-                if (atual >= textos.length) atual = 0;
-                $('#frases').text(textos[atual++]).fadeIn();
-            });
-        }, 5000);
-      });
-    </script>
   </head>
   <body>
     <div class="modalContainerLogin">
@@ -137,5 +87,57 @@
       </div>
     </div>
     <?php require_once('footer.php'); ?>
+    <script src="<?php echo($links); ?>js/jquery.min.js"></script>
+    <script>
+      // Modal Login
+      $(document).ready(function() {
+            $(".login").click(function() {
+              $(".modalContainerLogin").fadeIn(500);
+            });
+      });
+      //função para abrir a modal
+      function Login(){
+          $.ajax({
+              type: "POST",
+              url: "views/login.php",
+              success: function(dados){
+                  $('.modal-login').html(dados);
+               }
+              });
+          }
+      // -------------------------------------------------------------------------------------
+
+      // Modal de detalhes
+      $(document).ready(function() {
+            $(".detalhes").click(function() {
+              $(".modalContainerDetalhes").slideToggle(1000);
+            });
+      });
+
+      function Detalhes(){
+          $.ajax({
+              type: "POST",
+              url: "views/detalhes.php",
+              success: function(dados){
+                  $('.modal-detalhes').html(dados);
+               }
+              });
+          }
+      // --------------------------------------------------------------------------------------
+    </script>
+    <script>
+      // Configura o Texto que irá aparecer na pagina inicial
+      $(document).ready(function(){
+        var textos = ["Deixe o stress de lado e curta nossa viagem", 'Viajar de "Bus" pode ser tão divertido como estar em família' , "Veja nossos pacotes de passagens"];
+        var atual = 0;
+        $('#frases').text(textos[atual++]);
+        setInterval(function() {
+            $('#frases').fadeOut(function() {
+                if (atual >= textos.length) atual = 0;
+                $('#frases').text(textos[atual++]).fadeIn();
+            });
+        }, 5000);
+      });
+    </script>
   </body>
 </html>

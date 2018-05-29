@@ -17,8 +17,28 @@ $("#foto").change(function(){
 </script>
 <form class="" action="router.php?controller=home&modo=novo" method="post" enctype="multipart/form-data">
   <div class="cadastro_home">
-    <div class="text_home">Nome do destino</div>
-    <input class="box_home" type="text" name="txtdestino" value="">
+    <div class="text_home">Nome da Viagem</div>
+    <select class="select_home" name="id_viagem">
+      <?php
+          require_once("../../controllers/viagem_controller.php");
+          require_once("../../models/viagem_class.php");
+
+          $controllerViagem = new controllerViagem;
+          $list=$controllerViagem::Listar();
+
+          $cont = 0;
+
+          while($cont < count($list)){
+
+          ?>
+          <option value="<?php echo($list[$cont]->pacote_viagem)?>">
+              <?php echo($list[$cont]->origem. " - " .$list[$cont]->destino)?></option>
+
+          <?php
+            $cont+=1;
+              }
+              ?>
+    </select>
     <div class="text_home">Imagem</div>
     <label for="foto">
       <div  class="adicionar_imagem" id="imagem">

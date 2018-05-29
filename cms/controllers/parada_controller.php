@@ -1,6 +1,4 @@
 <?php
-
-
     /*
         Autor:Bruna
         Data de Modificação:19/04/2018
@@ -8,12 +6,11 @@
         Obs:Controller para realizar o CRUD de contatos que vai vir do contatos (RETIRAR OS DADOS DO FORMULÁRIO!!!!!)
     */
 class controllerParada{
-
-
   public function Novo(){
     $parada = new Parada();
 
-    $parada->nome=$_POST['txtnome'];
+    $parada->tipo_parada_id=$_POST['tipo_parada_id'];
+    $parada->endereco_id=$_POST['endereco_id'];
 
     $parada::Insert($parada);
   }
@@ -22,7 +19,8 @@ class controllerParada{
     $parada = new Parada();
 
     $parada->id = $idAltera;
-    $parada->nome=$_POST['txtnome'];
+    $parada->tipo_parada_id=$_POST['tipo_parada_id'];
+    $parada->endereco_id=$_POST['endereco_id'];
 
     $parada::Update($parada);
   }

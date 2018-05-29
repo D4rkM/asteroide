@@ -14,10 +14,10 @@ function salvarFoto($file,$caminho){
       if (move_uploaded_file($file ['tmp_name'],$diretorio_completo)) {
           return $diretorio_completo;
       }else{
-        return $erro;
+        return $diretorio_completo;
       }
     }else{
-      return $erro;
+      return $diretorio_completo;
     }
 }
  ?>

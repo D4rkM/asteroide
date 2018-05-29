@@ -23,7 +23,7 @@ class controllerInteracao{
         $interacao->imagem=$diretorio_completo;
         $interacao->comentario = $_POST['txtinteracao'];
         $interacao->local = $_POST['txtlocal'];
-
+        // var_dump($interacao);die;
         $interacao::Insert($interacao);
   }
 

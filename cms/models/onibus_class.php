@@ -112,7 +112,7 @@
 
       public function Select(){
 
-        $sql = "select * from onibus order by id desc";
+        $sql = "SELECT * FROM onibus ORDER BY id DESC";
         $conex = new Mysql_db();
 
         $PDO_conex = $conex->Conectar();

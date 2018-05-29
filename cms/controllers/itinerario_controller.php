@@ -1,19 +1,44 @@
 <?php
-    class controllerInteracao{
+    class controllerItinerario{
         //Apaga um contato existente
-        public function Lista(){
-          $idInteracao = $_GET['id'];
-          $interacao = new Interacao();
-          $interacao->id = $idInteracao;
+        public function Novo(){
+          $itinerario = new Itinerario();
 
-          $interacao::Delete($interacao);
+          $itinerario->parada = $_POST['id'];
+          $itinerario->pacote_viagem = $_POST['pacote_viagem'];
+          $ordem = 0;
+          $itinerario->ordem = $ordem;
+                echo ($itinerario);die;
+          $interacao::Insert($interacao);
         }
-        //Lista todos os itinerarios existentes
-        public function Lista(){
+
+        public function Editar($id_itinerario){
+          $itinerario = new Itinerario();
+
+          $itinerario->id = $id_itinerario;
+          $itinerario->parada = $_POST['id'];
+          $itinerario->pacote_viagem = $_POST['pacote_viagem'];
+          $ordem = 0;
+          $itinerario->ordem = $ordem;
+                // echo ($itinerario);die;
+          $interacao::Update($interacao);
+        }
+        public function Excluir(){
+          $idItinerario = $_GET['id'];
+          $itinerario = new Itinerario();
+          $itinerario->id = $idItinerario;
+          $itinerario::Delete($itinerario);
+        }
+
+        public function Buscar($id){
+          $itinerario = new Itinerario();
+          $itinerario->id = $id;
+          return $dadosItinerario = $itinerario::SelectById();
+        }
+
+        public function Listar(){
           $itinerario = new Itinerario();
           return $itinerario::Select();
         }
-
     }
-
 ?>

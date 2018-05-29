@@ -1,20 +1,18 @@
 <?php
   class Interacao{
     public $id;
-    public $id_parada;
+    public $parada;
     public $ordem;
-    public $id_pacote_viagem;
+    public $pacote_viagem;
 
     public function __construct(){
       require_once('db_class.php');
     }
 
     public static function Insert($itinerario){
-      $sql = "INSERT into itinerario
-      SET id='$itinerario->id',
-          id_parada='$itinerario->id_parada',
-          ordem='$itinerario->ordem',
-          id_pacote_viagem = '$itinerario->id_pacote_viagem'";
+      $sql = "INSERT into itinerario SET id_parada='$itinerario->parada',
+                                          ordem='$itinerario->ordem',
+                                          id_pacote_viagem = '$itinerario->pacote_viagem'";
           // echo ($sql);die;
       $conex = new Mysql_db();
       $PDO_conex = $conex->Conectar();
@@ -26,82 +24,80 @@
       }
     }
 
-    public function SelectById($pacote_id){
-      // $sql = "select * from interacao
-      //as i, cliente as c where i.id_usuario=c.id;";
-      $sql = "SELECT * FROM itinerario WHERE id_pacote_viagem = '$pacote_id' order by id;";
+    public static function Update($itinerario){
+      $sql = "INSERT into itinerario SET id_parada='$itinerario->parada',
+                                          ordem='$itinerario->ordem',
+                                          id_pacote_viagem = '$itinerario->pacote_viagem'
+                                          where id=$itinerario->id";
+          // echo ($sql);die;
+      $conex = new Mysql_db();
+      $PDO_conex = $conex->Conectar();
+      if($PDO_conex->query($sql))
+        header('location:views/Usuario/interacao_usuario.php');
+        else {
+        echo("Erro ao inserir no banco de dados");
+      $conex->Desconectar();
+      }
+    }
+    public function Delete($itinerario){
+      $sql = "delete from itinerario where id = $itinerario->id";
+      //Instancia a classe do banco
+      $conex = new Mysql_db();
+      //Chama o metodo para conectar no BD,
+      //e guarda o retorno da conexao na variavel $PDO_conex
+      $PDO_conex = $conex->Conectar();
+      //Executa o script $sql no Banco de Dados
+      if($PDO_conex->query($sql))
+          header('location:index.php');
+      else
+          echo("Erro ao deletar no BD");
+      //Fecha a conexão com o Banco de Dados
+      $conex->Desconectar();
+    }
+    public function Select(){
+      $sql = "select * from itinerario order by id desc";
+      $conex = new Mysql_db();
+      $PDO_conex = $conex->Conectar();
+      //executa select no bd e guarda o retorno na variavel $select
+      $select = $PDO_conex->query($sql);
+      $cont = 0;
+      while($rs=$select->fetch(PDO::FETCH_ASSOC)){
+
+        $listItinerario[] = new Frotas();
+        $listItinerario[$cont]->id = $rs['id'];
+        $listItinerario[$cont]->parada = $rs['id_parada'];
+        $listItinerario[$cont]->ordem = $rs['ordem'];
+        $listItinerario[$cont]->pacote_viagem = $rs['id_pacote_viagem'];
+
+        $cont+=1;
+      }
+      $conex->Desconectar();
+      if(isset($listItinerario))
+          return $listItinerario;
+    }
+    public function SelectById($itinerario){
+      $sql = "select * from itinerario where id = $itinerario->id";
 
       $conex = new Mysql_db();
 
       $PDO_conex = $conex->Conectar();
 
-      //executa select no bd e guarda o retorno na variavel $select
       $select = $PDO_conex->query($sql);
 
-      $cont = 0;
+      if($rs=$select->fetch(PDO::FETCH_ASSOC)){
 
-      while($rs=$select->fetch(PDO::FETCH_ASSOC)){
+        $itinerario = new Itinerario();
 
-        $listInteracao[] = new Interacao();
+        $itinerario->id = $rs['id'];
+        $itinerario->parada = $rs['id_parada'];
+        $itinerario->ordem = $rs['ordem'];
+        $itinerario->pacote_viagem = $rs['id_pacote_viagem'];
 
-        $listInteracao[$cont]->id = $rs['id'];
-        $listInteracao[$cont]->comentario = $rs['comentario'];
-        $listInteracao[$cont]->imagem = $rs['imagem'];
-        $listInteracao[$cont]->local = $rs['nome_local'];
-        $listInteracao[$cont]->id_usuario = $rs['id_usuario'];
-        $listInteracao[$cont]->ativo = $rs['ativar'];
+        $conex->Desconectar();
 
-        $cont+=1;
       }
-      // header('location:views/Interacao/pagina_lista_interacao.php');
-      $conex->Desconectar();
-
-      if(isset($listInteracao))
-          return $listInteracao;
+      if(isset($itinerario))
+        return $itinerario;
     }
-    /*Ativar o registro no BD*/
-  public function AtivarPorId($interacao_dados){
-    //$sql1 = "UPDATE tbl_unidade set status=0";
-    $sql = "UPDATE interacao set ativar=1 WHERE id=".$interacao_dados->id;
-    //Instancio o banco e crio uma variavel
-    $conex = new Mysql_db();
-    /*Chama o método para conectar no banco de dados e guarda o retorno da conexao
-    na variavel que $PDO_conex*/
-    $PDO_conex = $conex->Conectar();
-    //Executa o script no banco de dados
-    if($PDO_conex->query($sql)){
-    //Se der true redireciona a tela
-      header('location:views/Interacao/pagina_lista_interacao.php');
-    }else {
-    //Mensagem de erro
-    echo "Error atualizar no Banco de Dados";
-    }
-    //Fecha a conexão com o banco de dados
-    echo($sql);
-    $conex->Desconectar();
-  }
-  /*Desativar o registro no BD*/
-  public function DesativarPorId($interacao_dados){
-    //$sql1 = "UPDATE tbl_unidade set status=0";
-    $sql = "UPDATE interacao set ativar=0 WHERE id=".$interacao_dados->id;
-    //Instancio o banco e crio uma variavel
-    $conex = new Mysql_db();
-    /*Chama o método para conectar no banco de dados e guarda o retorno da conexao
-    na variavel que $PDO_conex*/
-    $PDO_conex = $conex->Conectar();
-    //Executa o script no banco de dados
-    if($PDO_conex->query($sql)){
-    //Se der true redireciona a tela
-    echo($sql);
-    header('location:views/Interacao/pagina_lista_interacao.php');
-
-    }else {
-    //Mensagem de erro
-    echo "Error atualizar no Banco de Dados";
-    //echo($sql);
-    }
-    //Fecha a conexão com o banco de dados
-    $conex->Desconectar();
-  }
   }
  ?>

@@ -6,9 +6,6 @@
         Class:Banco de dados
         Obs:Essa Classe é a conexao com o banco de dados
     */
-
-
-
     class Mysql_db{
         private $server;
         private $user;
@@ -20,7 +17,7 @@
             $this->server = "localhost";
             $this->user = "root";
             $this->password = "bcd127";
-            $this->dataBaseName = "db_voudeasteroide";
+            $this->dataBaseName = "dbvoudeasteroide";
         }
 
         public function Conectar(){

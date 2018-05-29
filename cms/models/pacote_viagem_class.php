@@ -9,7 +9,8 @@
 */
 class PacoteViagem{
   public $id;
-  public $titulo;
+  public $origem;
+  public $destino;
   public $descricao;
 
   public function __construct(){
@@ -18,8 +19,9 @@ class PacoteViagem{
 
   public function Insert($pacote_viagem_dados){
 
-    $sql = "insert into pacote_viagem set titulo='$pacote_viagem_dados->titulo',
-                                   descricao='$pacote_viagem_dados->descricao';";
+    $sql = "insert into pacote_viagem set origem='$pacote_viagem_dados->origem',
+                                          destino='$pacote_viagem_dados->destino',
+                                          descricao='$pacote_viagem_dados->descricao';";
                                    // echo($sql);
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -41,10 +43,11 @@ class PacoteViagem{
   }
 
   public function Update($pacote_viagem_dados){
-    $sql = "update pacote_viagem set titulo='$pacote_viagem_dados->destino',
-                                     descricao='$pacote_viagem_dados->data' where id=$pacote_viagem_dados->id;";
+    $sql = "update pacote_viagem set origem='$pacote_viagem_dados->origem',
+                                          destino='$pacote_viagem_dados->destino',
+                                          descricao='$pacote_viagem_dados->descricao' where id=$pacote_viagem_dados->id;";
 
-    // echo ($sql);
+    // echo ($sql);die;
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -84,7 +87,7 @@ class PacoteViagem{
 
   public function Select(){
 
-    $sql = "select * from pacote_viagem order by id desc";
+    $sql = "SELECT * FROM pacote_viagem ORDER BY id DESC";
 
     $conex = new Mysql_db();
 
@@ -100,9 +103,10 @@ class PacoteViagem{
       $listPacoteViagem[] = new PacoteViagem();
 
       $listPacoteViagem[$cont]->id = $rs['id'];
-      $listPacoteViagem[$cont]->titulo = $rs['titulo'];
+      $listPacoteViagem[$cont]->origem = $rs['origem'];
+      $listPacoteViagem[$cont]->destino = $rs['destino'];
       $listPacoteViagem[$cont]->descricao = $rs['descricao'];
-
+      // echo($listPacoteViagem);die;
       $cont+=1;
     }
 
@@ -114,7 +118,7 @@ class PacoteViagem{
 
   public function SelectById($pacote_viagem_dados){
 
-    $sql = "select * from pacote_viagem where id = $pacote_viagem_dados->id";
+    $sql = "SELECT * FROM pacote_viagem WHERE id = $pacote_viagem_dados->id";
 
     $conex = new Mysql_db();
 
@@ -127,7 +131,8 @@ class PacoteViagem{
       $pacote_viagem = new PacoteViagem();
 
       $pacote_viagem->id = $rs['id'];
-      $pacote_viagem->titulo = $rs['titulo'];
+      $pacote_viagem->origem = $rs['origem'];
+      $pacote_viagem->destino = $rs['destino'];
       $pacote_viagem->descricao = $rs['descricao'];
 
       $conex->Desconectar();

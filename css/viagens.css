@@ -1,0 +1,214 @@
+/*******Horarios dos Onibus*******/
+/*Div que seguro toda pagina*/
+.conteudo_horarios{
+  height: auto;
+  width: 100%;
+  /* background-color: #000000; */
+  margin: 0px;
+  padding: 0px;
+}
+
+/*Container que segura todas as caixas*/
+.container_horarios{
+  width: 75%;
+  height:700px;
+  margin: auto;
+}
+
+.container_horarios2{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: #458665;
+  padding-top: 20px;
+
+}
+
+.nome_passagem{
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #000;
+  font-weight: bold;
+}
+
+.momentos{
+  width: 30%;
+  height: 100%;
+  background-color: #fff;
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+  border-radius: 15px;
+  line-height: 50px;
+  border: solid 1px blue;
+
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+.momentos_horario{
+  width: 30%;
+  height: 100%;
+  /* background-color: blue; */
+  background-color: #1F405E;
+  color: white;
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+  border-radius: 15px;
+  line-height: 50px;
+  border: solid 1px #fff;
+
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.lista_horarios{
+  width: 90%;
+  height: 75%;
+  background-color: #fff;
+  margin-left: 5%;
+  padding-top: 10px;
+  overflow: auto;
+}
+
+.tabela_horarios{
+  width: 100%;
+  height: 10%;
+  /* background-color: #fff; */
+}
+
+.linha_horarios{
+  border-bottom: solid 1px #458665;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+.coluna_horarios{
+border-bottom: solid 1px #458665;
+}
+/* Parte do onibus */
+#container_onibus{
+  /* display:flex; */
+  flex-direction: column;
+  width: 90%;
+  height: 350px;
+  background-color: white;
+  margin: auto;
+  border: solid 1px #000;
+  display: none;
+}
+
+.legenda{
+  display: flex;
+  flex-direction: row;
+  /* width: 100%; */
+  /* height: 16%; */
+  background-color: #585858;
+}
+
+.leg_box{
+  width: 50px;
+  height: 50px;
+  /* background-color: #fff; */
+  /* float: left; */
+  border-radius: 15px;
+}
+
+.leg_text{
+  margin-right: 100px;
+  /* float: left; */
+}
+
+.leg_hold{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+  width:30%;
+  height: auto;
+
+}
+
+.onibus{
+  /* background-color: black; */
+  display:flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  width: 100%;
+  height: 90%;
+  padding-top: 5px;
+  overflow-x: auto;
+}
+
+.fileira{
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* background-color: blue; */
+  width: 550px;
+  /* width: auto; */
+  /* right:0; */
+  height: 88%;
+  /* margin: auto; */
+  /* margin-top: 5px; */
+}
+
+#_comprar{
+  width: 100%;
+  height: 100%;
+}
+
+.fileira_corredor{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  width: 50px;
+  height: 110px;
+  margin-left: 10px;
+  /* margin-top: 30px; */
+  /* background-color: red; */
+}
+
+.poltronas{
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  /* float: left; */
+  /* margin:2px 2px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-right: 10px; */
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.Continua{
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #458665;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 80%;
+}
+
+input.hidden_input{
+  display: none !important;
+  opacity: 0px !important;
+  width:0px !important;
+  height: 0px !important;
+  pointer-events:none;
+  user-select:none;
+}
+
+/*************************************************************/
