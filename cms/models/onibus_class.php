@@ -2,7 +2,7 @@
     class Onibus{
       public $id;
       public $placa;
-      public $numeros_poltronas;
+      public $poltronas;
       public $km_rodado;
       public $status_manutencao;
       public $descricao;
@@ -17,7 +17,7 @@
       public function Insert ($onibus_dados){
 
         $sql = "insert into onibus set placa='$onibus_dados->placa',
-                                      numeros_poltronas='$onibus_dados->numeros_poltronas',
+                                      poltronas='$onibus_dados->poltronas',
                                       km_rodado='$onibus_dados->km_rodado',
                                       km_manutencao='$onibus_dados->km_manutencao',
                                       status_manutencao='$onibus_dados->status_manutencao',
@@ -47,7 +47,7 @@
         // echo $onibus_dados->salvarimagem;
     if( $onibus_dados->imagem == "nada"){
       $sql = "update onibus set placa='$onibus_dados->placa',
-                                    numeros_poltronas='$onibus_dados->numeros_poltronas',
+                                    poltronas='$onibus_dados->poltronas',
                                     km_rodado='$onibus_dados->km_rodado',
                                     km_manutencao='$onibus_dados->km_manutencao',
                                     status_manutencao='$onibus_dados->status_manutencao',
@@ -60,7 +60,7 @@
     }else{
 
       $sql = "update onibus set placa='$onibus_dados->placa',
-                                    numeros_poltronas='$onibus_dados->numeros_poltronas',
+                                    poltronas='$onibus_dados->poltronas',
                                     km_rodado='$onibus_dados->km_rodado',
                                     km_manutencao='$onibus_dados->km_manutencao',
                                     status_manutencao='$onibus_dados->status_manutencao',
@@ -128,7 +128,7 @@
 
           $listOnibus[$cont]->id = $rs['id'];
           $listOnibus[$cont]->placa = $rs['placa'];
-          $listOnibus[$cont]->numeros_poltronas = $rs['numeros_poltronas'];
+          $listOnibus[$cont]->poltronas = $rs['poltronas'];
           $listOnibus[$cont]->status_manutencao = $rs['status_manutencao'];
           $listOnibus[$cont]->km_manutencao = $rs['km_manutencao'];
           $listOnibus[$cont]->km_rodado = $rs['km_rodado'];
@@ -162,7 +162,7 @@
 
           $onibus->id = $rs['id'];
           $onibus->placa = $rs['placa'];
-          $onibus->numeros_poltronas = $rs['numeros_poltronas'];
+          $onibus->poltronas = $rs['poltronas'];
           $onibus->status_manutencao = $rs['status_manutencao'];
           $onibus->km_manutencao = $rs['km_manutencao'];
           $onibus->km_rodado = $rs['km_rodado'];

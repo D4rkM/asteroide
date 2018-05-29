@@ -25,8 +25,7 @@
 
       $sql = "SELECT * FROM view_lista_todas_as_viagens
               WHERE origem LIKE '%$pesquisa->origem%'
-              AND destino LIKE '%$pesquisa->destino%'
-              AND data_saida LIKE '%$pesquisa->data_saida%';";
+              AND destino LIKE '%$pesquisa->destino%';";
 
       $conex = new Mysql_banco();
 

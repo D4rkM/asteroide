@@ -41,7 +41,7 @@ $(document).ready(function() {
 ?>
 <div class="container_lista_onibus">
   <div class="itens_mostrar_onibus"><?php echo $list[$cont]->placa ?></div>
-  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->numeros_poltronas ?></div>
+  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->poltronas ?></div>
   <div class="itens_mostrar_onibus"><?php echo $list[$cont]->km_rodado ?></div>
   <div class="itens_mostrar_onibus"> <img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt="imagem"> </div>
   <div class="itens_mostrar_onibus"><?php echo $list[$cont]->classe ?></div>
