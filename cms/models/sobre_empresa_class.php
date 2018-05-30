@@ -16,6 +16,12 @@ class sobreEmpresa{
   public $imagem;
   public $icon1;
   public $detalhes1;
+  public $icon2;
+  public $detalhes2;
+  public $icon3;
+  public $detalhes3;
+  public $icon4;
+  public $detalhes4;
 
   public function __construct(){
     require_once('db_class.php');
@@ -29,7 +35,13 @@ class sobreEmpresa{
                                         texto2='$sobre_empresa_dados->texto2',
                                         imagem='$sobre_empresa_dados->imagem',
                                         icon1='$sobre_empresa_dados->icon1',
-                                        detalhes1='$sobre_empresa_dados->detalhes1';";
+                                        detalhes1='$sobre_empresa_dados->detalhes1',
+                                        icon2='$sobre_empresa_dados->icon2',
+                                        detalhes2='$sobre_empresa_dados->detalhes2',
+                                        icon3='$sobre_empresa_dados->icon3',
+                                        detalhes3='$sobre_empresa_dados->detalhes3',
+                                        icon4='$sobre_empresa_dados->icon4',
+                                        detalhes4='$sobre_empresa_dados->detalhes4';";
 
 //echo ($sql);
 //require_once('index.php');
@@ -55,13 +67,34 @@ class sobreEmpresa{
 
   public function Update($sobre_empresa_dados){
 
+    if ($sobre_empresa_dados->imagem == "nada"){
     $sql = "update pgsobre_nos set titulo1='$sobre_empresa_dados->titulo1',
                                    texto1='$sobre_empresa_dados->texto1',
                                    titulo2='$sobre_empresa_dados->titulo2',
                                    texto2='$sobre_empresa_dados->texto2',
-                                   imagem='$sobre_empresa_dados->imagem',
                                    icon1='$sobre_empresa_dados->icon1',
-                                   detalhes1='$sobre_empresa_dados->detalhes1';";
+                                   detalhes1='$sobre_empresa_dados->detalhes1'
+                                   icon2='$sobre_empresa_dados->icon2',
+                                   detalhes2='$sobre_empresa_dados->detalhes2',
+                                   icon3='$sobre_empresa_dados->icon3',
+                                   detalhes3='$sobre_empresa_dados->detalhes3',
+                                   icon4='$sobre_empresa_dados->icon4',
+                                   detalhes4='$sobre_empresa_dados->detalhes4';";
+    }else{
+      $sql = "update pgsobre_nos set titulo1='$sobre_empresa_dados->titulo1',
+                                     texto1='$sobre_empresa_dados->texto1',
+                                     titulo2='$sobre_empresa_dados->titulo2',
+                                     texto2='$sobre_empresa_dados->texto2',
+                                     imagem='$sobre_empresa_dados->imagem',
+                                     icon1='$sobre_empresa_dados->icon1',
+                                     detalhes1='$sobre_empresa_dados->detalhes1'
+                                     icon2='$sobre_empresa_dados->icon2',
+                                     detalhes2='$sobre_empresa_dados->detalhes2',
+                                     icon3='$sobre_empresa_dados->icon3',
+                                     detalhes3='$sobre_empresa_dados->detalhes3',
+                                     icon4='$sobre_empresa_dados->icon4',
+                                     detalhes4='$sobre_empresa_dados->detalhes4';";
+    }
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -125,8 +158,16 @@ class sobreEmpresa{
       $listSobrenos[$cont]->imagem = $rs['imagem'];
       $listSobrenos[$cont]->icon1 = $rs['icon1'];
       $listSobrenos[$cont]->detalhes1 = $rs['detalhes1'];
+      $listSobrenos[$cont]->icon2 = $rs['icon2'];
+      $listSobrenos[$cont]->detalhes2 = $rs['detalhes2'];
+      $listSobrenos[$cont]->icon3 = $rs['icon3'];
+      $listSobrenos[$cont]->detalhes3 = $rs['detalhes3'];
+      $listSobrenos[$cont]->icon4 = $rs['icon4'];
+      $listSobrenos[$cont]->detalhes4 = $rs['detalhes4'];
+
       $cont+=1;
     }
+
 
     $conex->Desconectar();
 
@@ -157,6 +198,12 @@ class sobreEmpresa{
       $listSobrenos[$cont]->imagem = $rs['imagem'];
       $listSobrenos[$cont]->icon1 = $rs['icon1'];
       $listSobrenos[$cont]->detalhes1 = $rs['detalhes1'];
+      $listSobrenos[$cont]->icon2 = $rs['icon2'];
+      $listSobrenos[$cont]->detalhes2 = $rs['detalhes2'];
+      $listSobrenos[$cont]->icon3 = $rs['icon3'];
+      $listSobrenos[$cont]->detalhes3 = $rs['detalhes3'];
+      $listSobrenos[$cont]->icon4 = $rs['icon4'];
+      $listSobrenos[$cont]->detalhes4 = $rs['detalhes4'];
 
       $conex->Desconectar();
 
