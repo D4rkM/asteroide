@@ -5,18 +5,26 @@
   $links = alterarLinks(false);
   $paths = alterarCaminhos(false);
 
-  // function verificaUsuarioLogado(){
-  //   if(isset($_SESSION['id_usuario'])){
-  //     echo("eeeeeeee");
-  //     if(isset($_POST['poltronas'])){
-  //       echo("eeeee2");
-  //     }else{
-  //       echo("triste");
-  //     }
-  //   }else{
-  //     echo("aaaaahhh..");
-  //   }
-  // }
+  $poltrona_selecionada = array();
+
+  function verificaUsuarioLogado(){
+    if(isset($_SESSION['id_usuario'])){
+      echo("id = OK");
+      if(isset($_POST['poltrona'])){
+        $cont = 0;
+        foreach($_POST['poltrona'] as $poltronas){
+          $poltrona_selecionada[$cont] = $poltronas;
+          $cont ++;
+        }
+
+      }else{
+        echo("poltronas = Error");
+      }
+    }else{
+      echo("id = Error");
+    }
+    echo($poltrona_selecionada[0]);
+  }
 
  ?>
 <!DOCTYPE html>
@@ -91,7 +99,7 @@
     </div>
        <?php
        require_once('nav.php');
-       // verificaUsuarioLogado();
+       verificaUsuarioLogado();
 
        ?>
        <div class="conteudo_pagamento">
@@ -152,6 +160,11 @@
                    <option value="">2x</option>
                    <option value="">3x</option>
                  </select>
+               </div>
+               <div class="cont_pague">
+                 <div class="text_pague">
+                    <?php echo($total); ?>
+                 </div>
                </div>
               <div class="finalizar">
                 <a href="Usuario/historico_viagem.php" onclick="Finalizar()">
