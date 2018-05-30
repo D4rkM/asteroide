@@ -7,6 +7,7 @@
 
  ?>
 <link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo($links); ?>../css/footer.css">
 <!--
   Autor: BRUNA
   Data de modificação: 25/03/2018
@@ -33,9 +34,19 @@
 
        <div class="container_informacoes">
          <div class="foto-user">
-           <img src="<?php echo($links); ?>../img/client.png" alt="user">
+           <?php
+             if($_SESSION['imagem_usuario'] == null){
+               ?>
+                <img src="<?php echo($_SESSION['imagem_usuario']); ?>" alt="user">
+                <?php
+                  }else{
+                  ?>
+                  <img src="<?php echo($links); ?>../img/client.png" alt="user">
+                  <?php
+                    }
+                  ?>
            <h3>
-             Medusa
+             <?php echo($_SESSION['nome_usuario']); ?>
            </h3>
          </div>
          <div class="informacoes_dados">

@@ -78,9 +78,21 @@
           ?>
           <form class="" action="<?php echo($links); ?>index.php"method="post">
           <div class="user_log">
-            <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><img class="img_user" src="<?php echo($_SESSION['imagem_usuario']); ?>" alt="user"></a>
-            <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><div class=""><?php echo($_SESSION['nome_usuario']); ?></div></a>
+            <?php
+              if($_SESSION['imagem_usuario'] == null){
+                ?>
+                <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><img class="img_user" src="img/user2.png" alt="user"></a>
+                <?php
+              }else{
+                ?>
+                <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><img class="img_user" src="<?php echo($_SESSION['imagem_usuario']); ?>" alt="user"></a>
+                <?php
+              }
+             ?>
+
+            <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><div class="nome_usuario"><?php echo($_SESSION['nome_usuario']); ?></div></a>
               <ul class="submenu">
+                <li> <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php">Conta</a> </li>
                 <li> <button type="submit" name="btnSair">Sair</button> </li>
               </ul>
             </form>

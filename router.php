@@ -130,7 +130,7 @@
 
                   require_once('models/compra_class.php');
                   require_once('controllers/compra_controller.php');
-
+                  
                   $compra = new CompraController();
                   $idCompra = $compra::novaCompra();
 

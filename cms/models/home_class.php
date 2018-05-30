@@ -92,7 +92,7 @@ class Home{
   public function Select(){
 
     $sql = "select ph.*,p.origem, p.destino from pghome as ph, viagem as v, pacote_viagem as p where ph.id_viagem = v.id and v.idpacote_viagem = p.id;";
-
+    // $sql = "select * from pghome order by id";
     $conex = new Mysql_db();
 
     $PDO_conex = $conex->Conectar();
@@ -101,7 +101,6 @@ class Home{
     $select = $PDO_conex->query($sql);
 
     $cont = 0;
-
     while($rs=$select->fetch(PDO::FETCH_ASSOC)){
 
       $listHome[] = new Home();

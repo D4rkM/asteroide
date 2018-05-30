@@ -10,7 +10,7 @@
   $ocupadas = $ocupadas::buscarPoltronas($idViagem);
 
   if(isset($_SESSION['id_usuario'])){
-    $processo_de_compra = 'pagina-pagamento.php?poltrona=2';
+    $processo_de_compra = 'pagina-pagamento.php';
   }else{
     $processo_de_compra = 'usuario_identificacao.php';
   }
@@ -81,14 +81,14 @@
           ?>
           <div class="fileira_corredor">
 
-            <label for="polt" data-polt="<?php setaCor($a,$ocupadas); ?>" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
-            <input class="polt" type="checkbox" name="poltrona[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
+            <label for="polt" data-num_polt="<?php echo($a); ?>"data-polt="<?php setaCor($a,$ocupadas); ?>" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
+            <input id="<?php echo('a_'.$a); ?>"class="polt" type="checkbox" name="poltrona[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
           <?php
           $a ++;
 
           ?>
-            <label for="polt" data-polt="<?php setaCor($a, $ocupadas); ?>" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
-            <input class="polt" type="checkbox" name="poltrona[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
+            <label for="polt" data-num_polt="<?php echo($a); ?>"data-polt="<?php setaCor($a, $ocupadas); ?>" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
+            <input id="<?php echo('a_'.$a); ?>"class="polt" type="checkbox" name="poltrona[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
           </div>
           <?php
         }

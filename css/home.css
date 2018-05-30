@@ -19,6 +19,7 @@
   margin-top: 100px;
   border-radius: 15px;
   z-index: 99999999999999;
+  border: solid 1px #000;
 }
 
 .txt_filtro{
@@ -60,6 +61,7 @@ font-size: 14px;
   margin-left: 50px;
   margin-top: 100px;
   border-radius: 15px;
+  border: solid 1px #000;
 }
 
 .txt_filtro{
@@ -260,5 +262,9 @@ margin: 1.6em 0;
   height: 50px;
 
 }
-
+.nome_usuario{
+  color: #fff;
+  font-family: sans-serif;;
+  font-size: 17px;
+}
 /* ------------------------------------------------------------------------- */

@@ -33,20 +33,29 @@
       var selecionado = $(this);
       var test = $('.polt');
       // var bg = $(this).css('background-color');
-      // console.log(bg);
+      var checkId = '#a_'+$(this).data('num_polt');
+      var checkbox = $(checkId);
+      // console.log(checkId);
       if(selecionado.data('polt') == 0) {
 
         selecionado.css('background', 'yellow');
-        selecionado.attr('checked', true );
+        // selecionado.attr('checked', true );
+        checkbox.attr('checked', true);
 
         selecionado.data("polt", "1");
         // Senão, troca pra amarelo
       } else if(selecionado.data('polt') == 1) {
         selecionado.css('background', 'green');
-        selecionado.attr('checked', false);
+        // selecionado.attr('checked', false);
+        checkbox.attr('checked', false);
         selecionado.data("polt", "0");
       }
     });
+    // $(document).on('click', 'label', function(){
+    //   var selecionado = $('this').attr('for');
+    //   console.log(selecionado);
+    // });
+
     //
     function Onibus(poltronas,viagem_id){
       var bus = document.getElementById("container_onibus");

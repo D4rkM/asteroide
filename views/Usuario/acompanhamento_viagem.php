@@ -12,6 +12,7 @@
 
  ?>
 <link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo($links); ?>../css/footer.css">
 <?php require_once('nav.php'); ?>
 <!-- Conteúdo da página -->
 <div class="titulo-conteudo-padrao">
