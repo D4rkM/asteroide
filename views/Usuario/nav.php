@@ -1,6 +1,12 @@
 <?php
   session_start();
 
+  if(isset($_POST['btnSair'])){
+    $_SESSION['nome_usuario'] = '0';
+    $_SESSION['id_usuario'] = '0';
+    $_SESSION['imagem_usuario'] = '0';
+    session_destroy();
+  }
  ?>
 <!-- Menu Superior -->
 <nav>
@@ -51,20 +57,50 @@
           </ul>
         </div>
       </div>
+    </div>
+    <div class="login-menu">
+      <?php
+      require_once($paths.'../../models/usuario_class.php');
 
+      if(isset($_SESSION['nome_usuario'])){
+        if($_SESSION['nome_usuario'] != '0'){
+      ?>
+      <form class="" action="<?php echo($links); ?>index.php"method="post">
+      <div class="user_log">
+        <?php
+          if($_SESSION['imagem_usuario'] == null){
+            ?>
+            <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><img class="img_user" src="../../img/user2.png" alt="user"></a>
+            <?php
+          }else{
+            ?>
+            <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><img class="img_user" src="<?php echo($_SESSION['imagem_usuario']); ?>" alt="user"></a>
+            <?php
+          }
+         ?>
+
+        <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php"><div class="nome_usuario"><?php echo($_SESSION['nome_usuario']); ?></div></a>
+          <ul class="submenu">
+            <li> <a href="<?php echo($paths); ?>pagina_usuario.php">Conta</a> </li>
+            <li> <button type="submit" name="btnSair">Sair</button> </li>
+          </ul>
+        </form>
+      </div>
+      <?php
+    }else{
+       ?>
+       <a class="login" href="#" onclick="Login();"> <h5 class="btn"> <b>Acesso</b> </h5> </a>
+       <?php
+      }
+      ?>
     </div>
     <?php
-    require_once('../../models/usuario_class.php');
-
-    if(isset($_SESSION['nome_usuario'])){
+      }else{
+        ?>
+          <a class="login" href="#" onclick="Login();"> <h5 class="btn"> <b>Acesso</b> </h5> </a>
+        <?php
+      }
     ?>
-
-     <a href="<?php echo($paths); ?>../../index.php"><img class="img_user" src="<?php echo($_SESSION['nome_imagem']); ?>" alt="user"></a>
-    <a href="<?php echo($paths); ?>../../index.php"><div class=""><?php echo($_SESSION['nome_usuario']); ?></div></a>
-
-    <?php
-  }
-     ?>
   </div>
 </nav>
 <!-- Aplica um espaçamento para o conteudo não invadir o menu superior -->

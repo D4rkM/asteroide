@@ -116,7 +116,7 @@
                  $list = $controller_home::Listar();
 
                  $cont = 0;
-                 if($list[$cont]->tipo == 1){
+                 // if($list[$cont]->id($list[$cont]->tipo == 1)){
                  while($cont < count($list)){
 
 
@@ -134,7 +134,7 @@
                <?php
                    $cont+=1;
                  }
-               }
+               // }
                ?>
 
                <?php
@@ -159,7 +159,7 @@
                $list = $controller_home::Listar();
 
                $cont = 0;
-               if($list[$cont]->tipo == 2){
+               // if($list[$cont]->tipo == 2){
                while($cont < count($list)){
 
              ?>
@@ -176,7 +176,7 @@
              <?php
                  $cont+=1;
                }
-               }
+               // }
              ?>
            </div>
          </div>
