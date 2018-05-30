@@ -81,7 +81,17 @@
       <div class="modal-login">
       </div>
     </div>
-       <?php require_once('nav.php'); ?>
+       <?php require_once('nav.php');
+       require_once("../cms/controllers/sobre_empresa_controller.php");
+       require_once("../cms/models/sobre_empresa_class.php");
+
+       // $select = Null;
+       $controller_sobre_empresa = new controllerSobreEmpresa();
+       $listSobrenos = $controller_sobre_empresa::Listar();
+       // $cont = 0;
+
+
+       ?>
 
 
        <!--
@@ -100,24 +110,22 @@
        </div>
        <!--Container responsael por segurar o titulo da pagima -->
        <div class="titulo-conteudo-padrao">
-         <h2>A VIAÇÃO ASTERÓIDE</h2>
+         <h2><?php echo($listSobrenos[0]->titulo1); ?></h2>
        </div>
 
        <div class="conteudo-sobre-empresa">
          <!--Primeiro texto da pagina-->
            <div class="intro-sobre">
-             <p>A viação Asteróide atende o ramo de transportes de passageiros e tem mais de 20 anos de tradição.           O principal serviço oferecido são viagens intermunicipais e interestaduais por toda a região sudeste e algumas áreas             ao redor, em transporte executivo atendendo como público alvo as classes C, D e E. A empresa tem sua sede na cidade             de Campinas-SP e conta com escritórios no Rio de Janeiro e em São Paulo. A empresa também conta com uma vasta frota             de ônibus e atende boa parte da região sudeste e algumas áreas próximas a região.</p>
-           </div>
+             <p><?php echo($listSobrenos[0]->texto1); ?></div>
              <!--Conteiner que segura a imagem e o texto do primeiro conteudo-->
 
            <div class="cardview-img-text">
                <div class="cardview-img">
-                 <img src="<?php echo($links); ?>img/empresa.jpg" alt="empresa">
+                 <img src="../cms/arquivo/<?php echo($listSobrenos[0]->imagem); ?>" alt="empresa">
                </div>
                <div class="cardview-text">
-                 <h2 class="subtitulo cardview-title">Nossa empresa</h2>
-                 <p>A viação Asteróide atende o ramo de transportes de passageiros e tem mais de 20 anos de                    tradição. O principal serviço oferecido são viagens intermunicipais e interestaduais por toda a região sudeste                  e algumas áreas ao redor, em transporte executivo atendendo como público alvo as classes C, D e E. A empresa                    tem sua sede na cidade de Campinas-SP e conta com escritórios no Rio de Janeiro e em São Paulo. A empresa                        também conta com uma vasta frota de ônibus e atende boa parte da região sudeste e algumas áreas próximas a                      região.A viação Asteróide atende o ramo de transportes de passageiros e tem mais de 20 anos de tradição. O                      principal serviço oferecido são viagens intermunicipais e interestaduais por toda a região sudeste e algumas                    áreas ao redor, em transporte executivo atendendo como público alvo as classes C, D e E. A empresa tem sua sede                  na cidade de Campinas-SP e conta com escritórios no Rio de Janeiro e em São Paulo.
-                 </p>
+                 <h2 class="subtitulo cardview-title"><?php echo($listSobrenos[0]->titulo2); ?></h2>
+                 <p><?php echo($listSobrenos[0]->texto2); ?></p>
                </div>
            </div>
              <!-- </div> -->
@@ -126,37 +134,37 @@
                <!--Classe das quatros imagens-->
                <div class="card-itens">
                  <div class="card-img">
-                   <img src="<?php echo($links); ?>img/icon/bus-img.png" alt="Frota">
+                   <img src="<?php echo($listSobrenos[0]->icon1); ?>img/icon/bus-img.png" alt="Frota">
                  </div>
                  <div class="card-itens-center subtitulo text-center">
-                   <p>Contamos com as melhores frotas de ônibus do Brasil.</p>
+                   <p><?php echo($listSobrenos[0]->detalhes1); ?></p>
                  </div>
                </div>
                <!--Classe das quatros imagens-->
                <div class="card-itens">
                  <div class="card-img">
-                   <img src="<?php echo($links); ?>img/icon/payment.png" alt="bus">
+                   <img src="<?php echo($listSobrenos[0]->icon2);?>img/icon/payment.png" alt="bus">
                  </div>
                  <div class="card-itens-center subtitulo text-center">
-                   <p>Formas de pagamento rápidas e fáceis, sejam online ou nos guichês.</p>
+                   <p><?php echo($listSobrenos[0]->detalhes2); ?></p>
                  </div>
                </div>
                <!--Classe das quatros imagens-->
                <div class="card-itens">
                  <div class="card-img">
-                   <img src="<?php echo($links); ?>img/icon/confort.png" alt="bus">
+                   <img src="<?php echo($listSobrenos[0]->icon3); ?>img/icon/confort.png" alt="bus">
                  </div>
                  <div class="card-itens-center subtitulo text-center">
-                   <p>Total conforto e qualidade para a sua viagem.</p>
+                   <p><?php echo($listSobrenos[0]->detalhes3); ?></p>
                  </div>
                </div>
                <!--Classe das quatros imagens-->
                <div class="card-itens">
                  <div class="card-img">
-                   <img src="<?php echo($links); ?>img/icon/happy.png" alt="bus">
+                   <img src="<?php echo($listSobrenos[0]->icon4); ?> img/icon/happy.png" alt="bus">
                  </div>
                  <div class="card-itens-center subtitulo text-center">
-                   <p>Equipe dedicada para manter o melhor serviço de viagem.</p>
+                   <p><?php echo($listSobrenos[0]->detalhes4); ?></p>
                  </div>
                </div>
            </div>

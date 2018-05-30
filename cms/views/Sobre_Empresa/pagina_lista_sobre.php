@@ -6,6 +6,12 @@
   <div class="item_sobre_empresa">Imagem</div>
   <div class="item_sobre_empresa">Icone1</div>
   <div class="item_sobre_empresa">Detalhes1</div>
+  <div class="item_sobre_empresa">Icone2</div>
+  <div class="item_sobre_empresa">Detalhes2</div>
+  <div class="item_sobre_empresa">Icone3</div>
+  <div class="item_sobre_empresa">Detalhes3</div>
+  <div class="item_sobre_empresa">Icone4</div>
+  <div class="item_sobre_empresa">Detalhes4</div>
   <div class="item_sobre_empresa">Opções</div>
 </div>
 
@@ -43,9 +49,15 @@ $(document).ready(function() {
   <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->texto1 ?></div>
   <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->titulo2 ?></div>
   <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->texto2 ?></div>
-  <div class="itens_mostrar_sobre_empresa"><img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>"></div>
+  <div class="itens_mostrar_sobre_empresa"><img class="imagem_lista" src="../arquivo/<?php echo $list[$cont]->imagem ?>" alt"imagem"> </div>
   <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->icon1 ?></div>
   <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->detalhes1 ?></div>
+  <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->icon2 ?></div>
+  <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->detalhes2 ?></div>
+  <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->icon3 ?></div>
+  <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->detalhes3 ?></div>
+  <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->icon4 ?></div>
+  <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->detalhes4 ?></div>
   <div class="itens_mostrar_sobre_empresa">
     <a href="router.php?controller=sobreEmpresa&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
         <img src="img/icon-delete.png" alt="">

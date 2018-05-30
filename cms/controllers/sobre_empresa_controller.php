@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
     /*
         Autor:Lucas
         Data de Modificação:23/05/2018
@@ -18,11 +18,31 @@ session_start();
           $sobre_empresa->texto1 = $_POST['txttexto1'];
           $sobre_empresa->titulo2 = $_POST['txttitulo2'];
           $sobre_empresa->texto2 = $_POST['txttexto2'];
-          $sobre_empresa->imagem = $_POST['imagem'];
-          $sobre_empresa->icon1 = $_POST['icon1'];
           $sobre_empresa->detalhes1 = $_POST['txtdetalhes1'];
+          $sobre_empresa->detalhes2 = $_POST['txtdetalhes2'];
+          $sobre_empresa->detalhes3 = $_POST['txtdetalhes3'];
+          $sobre_empresa->detalhes4 = $_POST['txtdetalhes4'];
 
-          $sobre_empresa::Insert($sobre_empresa);
+          //NAO PEGA IMAGEM ASSIM
+          // $sobre_empresa->imagem = $_POST['imagem'];
+          // $sobre_empresa->icon1 = $_POST['icon1'];
+          // $sobre_empresa->icon2 = $_POST['icon2'];
+          // $sobre_empresa->icon3 = $_POST['icon3'];
+          // $sobre_empresa->icon4 = $_POST['icon4'];
+
+          //PRIMEIRO PEGA AS IMAGENS PRA DEPOIS CHAMAR ESSA FUNÇÃO COM INSERT
+          // $frotas->imagem=$diretorio_completo;
+          // $frotas->nome=$_POST['txttitulo1'];
+          // $sobre_empresa::Insert($sobre_empresa);
+
+
+        // PEGA AS IMAGENS
+          require_once('trata_imagem.php');
+
+          // iniciado variaveis
+           $diretorio_completo=Null;
+           $MovUpload=false;
+           $imagem_file=Null;
 
           //pegando a foto
              if (!empty($_FILES['imagem']['name'])) {
@@ -33,9 +53,13 @@ session_start();
                 }else {
                   $MovUpload=true;
                 }
-              }else {
+              } else {
                 $imagem_file = false;
               }
+
+              $sobre_empresa->imagem = $diretorio_completo;
+              $sobre_empresa::Insert($sobre_empresa);
+
 
         }
 
@@ -50,13 +74,19 @@ session_start();
            $imagem_file=Null;
            $foto="nada";
 
-          // $sobre_empresa->titulo1 = $_POST['txttitulo1'];
-          // $sobre_empresa->texto1 = $_POST['txttexto1'];
-          // $sobre_empresa->titulo2 = $_POST['txttitulo2'];
-          // $sobre_empresa->texto2 = $_POST['txttexto2'];
-          // $sobre_empresa->imagem = $_POST['imagem'];
-          // $sobre_empresa->icon1 = $_POST['icon1'];
-          // $sobre_empresa->detalhes1 = $_POST['txtdetalhes1'];
+          $sobre_empresa->titulo1 = $_POST['txttitulo1'];
+          $sobre_empresa->texto1 = $_POST['txttexto1'];
+          $sobre_empresa->titulo2 = $_POST['txttitulo2'];
+          $sobre_empresa->texto2 = $_POST['txttexto2'];
+          $sobre_empresa->imagem = $_POST['imagem'];
+          $sobre_empresa->icon1 = $_POST['icon1'];
+          $sobre_empresa->detalhes1 = $_POST['txtdetalhes1'];
+          $sobre_empresa->icon2 = $_POST['icon2'];
+          $sobre_empresa->detalhes2 = $_POST['txtdetalhes2'];
+          $sobre_empresa->icon3 = $_POST['icon3'];
+          $sobre_empresa->detalhes3 = $_POST['txtdetalhes3'];
+          $sobre_empresa->icon4 = $_POST['icon4'];
+          $sobre_empresa->detalhes4 = $_POST['txtdetalhes4'];
 
           //pegando a foto
              if (!empty($_FILES['imagem']['name'])) {
