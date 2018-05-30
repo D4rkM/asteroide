@@ -87,9 +87,9 @@
 
          <!-- <div class="conteudo-video"> -->
            <div class="video-principal">
-             <video muted autoplay loop>
-               <source src="<?php echo($links); ?>img/video.mp4" type="video/mp4">
-             </video>
+             <div muted autoplay loop>
+               <img src="<?php echo($links); ?>img/busasteroide.jpg" type="">
+             </div>
              <!-- <img src="img/Paleta-de-Cores.jpg" alt="" width="500"> -->
              <div class="frase-inicial">
                 <h2 id="frases">Deixe o stress de lado e curta nossa viagem</h2>
@@ -106,6 +106,50 @@
            <div class="titulo_locais" style="color:#1f405e;">
              <h2><strong>QUE TAL CONHECER NOVOS LUGARES?</strong></h2>
            </div>
+           <a href="#">
+             <div class="locais-viagem">
+               <?php
+                 require_once("cms/controllers/home_controller.php");
+                 require_once("cms/models/home_class.php");
+
+                 $controller_home = new controllerHome();
+                 $list = $controller_home::Listar();
+
+                 $cont = 0;
+                 if($list[$cont]->tipo == 1){
+                 while($cont < count($list)){
+
+
+               ?>
+               <?php
+               // $a = 0;
+               // while ($a <= 2) {
+                ?>
+               <div class="polaroid" >
+                 <img src="cms/<?php //echo($links); ?><?php echo $list[$cont]->imagem ?>" alt="Rio" style="width:100%">
+                 <div class="texto-polaroid">
+                   <p<?php echo $list[$cont]->id_viagem ?>><?php echo $list[$cont]->origem. " - " .$list[$cont]->destino ?></p>
+                 </div>
+               </div>
+               <?php
+                   $cont+=1;
+                 }
+               }
+               ?>
+
+               <?php
+                 // $a ++;
+                 // }
+               ?>
+             </div>
+           </a>
+
+         </div>
+
+         <div class="conteudo_locais">
+           <div class="titulo_locais" style="color:#1f405e;">
+             <h2><strong>APROVEITE NOSSAS SUGESTÕES DE VIAGENS!</strong> </h2>
+           </div>
            <div class="locais-viagem">
              <?php
                require_once("cms/controllers/home_controller.php");
@@ -115,8 +159,9 @@
                $list = $controller_home::Listar();
 
                $cont = 0;
-
+               if($list[$cont]->tipo == 2){
                while($cont < count($list)){
+
              ?>
              <?php
              // $a = 0;
@@ -131,35 +176,6 @@
              <?php
                  $cont+=1;
                }
-             ?>
-
-             <?php
-               // $a ++;
-               // }
-             ?>
-           </div>
-         </div>
-
-         <div class="conteudo_locais">
-           <div class="titulo_locais" style="color:#1f405e;">
-             <h2><strong>APROVEITE NOSSAS SUGESTÕES DE VIAGENS!</strong> </h2>
-           </div>
-           <div class="locais-viagem">
-
-             <?php
-             $a = 0;
-             while ($a <= 2) {
-              ?>
-             <div class="polaroid">
-               <img src="<?php echo($links); ?>img/rio-de-janeiro.jpg" alt="Rio" style="width:100%">
-               <div class="texto-polaroid">
-                 <p>Rio de Janeiro</p>
-               </div>
-             </div>
-
-
-             <?php
-               $a ++;
                }
              ?>
            </div>

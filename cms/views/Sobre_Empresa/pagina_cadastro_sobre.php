@@ -4,6 +4,20 @@
   // require_once("../../models//sobre_empresa_class.php");
 ?>
 
+<script src="js/jquery.min.js"></script>
+<script>
+$("#foto").change(function(){
+   if($(this).val()){ // só se o input não estiver vazio
+      var img = this.files[0]; // seleciona o arquivo do input
+      var f = new FileReader(); // cria o objeto FileReader
+      f.onload = function(e){ // ao carregar a imagem
+         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
+      }
+      f.readAsDataURL(img); // lê o arquivo
+   }
+});
+</script>
+
 <form class="frmCadDuvida" method="post" action="router.php?controller=sobreEmpresa&modo=novo">
   <div class="cadastro_empresa">
     <div class="cont_text">
@@ -16,11 +30,14 @@
       <div class="text_empresa">Texto2</div>
       <textarea class="box_area" name="txttexto2"></textarea>
       <div class="text_empresa">Imagem</div>
-      <label for="Foto">
-          <img class="img_empresa" src="img/bus.jpg" alt="imagem">
+      <label for="foto">
+        <div  class="adicionar_imagem" id="imagem">
+          <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
+        </div>
       </label>
-      <div class="inpt_foto">
-        <input id="Foto" type="file" name="imagem">
+      <!--Botão para selecionar a foto-->
+      <div class="input-foto">
+        <input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
       </div>
     </div>
     <div class="cont_icons">

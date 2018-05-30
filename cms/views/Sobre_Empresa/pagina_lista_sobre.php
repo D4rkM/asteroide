@@ -1,13 +1,14 @@
-<div class="lista_motorista">
-  <div class="item_motorista">Titulo1</div>
-  <div class="item_motorista">Texto1</div>
-  <div class="item_motorista">Titulo2</div>
-  <div class="item_motorista">Texto2</div>
-  <div class="item_motorista">Imagem</div>
-  <div class="item_motorista">Icone1</div>
-  <div class="item_motorista">Detalhes1</div>
-  <div class="item_motorista">Opções</div>
+<div class="lista_sobre_empresa">
+  <div class="item_sobre_empresa">Titulo1</div>
+  <div class="item_sobre_empresa">Texto1</div>
+  <div class="item_sobre_empresa">Titulo2</div>
+  <div class="item_sobre_empresa">Texto2</div>
+  <div class="item_sobre_empresa">Imagem</div>
+  <div class="item_sobre_empresa">Icone1</div>
+  <div class="item_sobre_empresa">Detalhes1</div>
+  <div class="item_sobre_empresa">Opções</div>
 </div>
+
 <script type="text/javascript" src="js/jquery.js"></script>
 <script>
 $(document).ready(function() {
@@ -20,7 +21,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			url: "views/modal.php",
-			data: {id:idIten, pagina:'sobre empresa'},
+			data: {id:idIten, pagina:'sobre_empresa'},
 			success: function(dados){
 				$('.modal').html(dados);
 			}
@@ -37,18 +38,18 @@ $(document).ready(function() {
 
   while($cont < count($list)){
 ?>
-<div class="container_lista_motorista">
-  <div class="itens_mostrar_motorista"><?php echo $list[$cont]->titulo1 ?></div>
-  <div class="itens_mostrar_motorista"><?php echo $list[$cont]->texto1 ?></div>
-  <div class="itens_mostrar_motorista"><?php echo $list[$cont]->titulo2 ?></div>
-  <div class="itens_mostrar_motorista"><?php echo $list[$cont]->texto2 ?></div>
-  <div class="itens_mostrar_motorista"><?php echo $list[$cont]->imagem ?></div>
-  <div class="itens_mostrar_motorista"><?php echo $list[$cont]->icon1 ?></div>
-  <div class="itens_mostrar_motorista"><?php echo $list[$cont]->detalhes1 ?></div>
-  <div class="itens_mostrar_motorista">
-    <a href="router.php?controller=motorista&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
+<div class="container_lista_sobre_empresa">
+  <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->titulo1 ?></div>
+  <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->texto1 ?></div>
+  <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->titulo2 ?></div>
+  <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->texto2 ?></div>
+  <div class="itens_mostrar_sobre_empresa"><img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>"></div>
+  <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->icon1 ?></div>
+  <div class="itens_mostrar_sobre_empresa"><?php echo $list[$cont]->detalhes1 ?></div>
+  <div class="itens_mostrar_sobre_empresa">
+    <a href="router.php?controller=sobreEmpresa&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
         <img src="img/icon-delete.png" alt="">
-      </a>
+    </a>
     <a href="#" class="ver" onclick="Modal(<?php echo($list[$cont]->id);?>)">
         <img src="img/icon-edit.png" alt="">
     </a>

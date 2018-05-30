@@ -31,7 +31,7 @@ class sobreEmpresa{
                                         icon1='$sobre_empresa_dados->icon1',
                                         detalhes1='$sobre_empresa_dados->detalhes1';";
 
-echo ($sql);
+//echo ($sql);
 //require_once('index.php');
 
     //Instancia a classe do banco
@@ -80,7 +80,7 @@ echo ($sql);
     $conex->Desconectar();
   }
 
-  public function Delete($duvida_dados){
+  public function Delete($sobre_empresa_dados){
     $sql = "delete from pgsobre_nos where id = $sobre_empresa_dados->id";
 
     //Instancia a classe do banco
@@ -154,9 +154,9 @@ echo ($sql);
       $listSobrenos[$cont]->texto1 = $rs['texto1'];
       $listSobrenos[$cont]->titulo2 = $rs['titulo2'];
       $listSobrenos[$cont]->texto2 = $rs['texto2'];
-      $listSobrenos[$cont]->titulo2 = $rs['imagem'];
-      $listSobrenos[$cont]->titulo2 = $rs['icon1'];
-      $listSobrenos[$cont]->titulo2 = $rs['detalhes1'];
+      $listSobrenos[$cont]->imagem = $rs['imagem'];
+      $listSobrenos[$cont]->icon1 = $rs['icon1'];
+      $listSobrenos[$cont]->detalhes1 = $rs['detalhes1'];
 
       $conex->Desconectar();
 
