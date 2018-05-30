@@ -40,7 +40,9 @@
   border: solid 5px #162E44;
   border-radius: 10px;
 }
-
+.caixa-dados{
+  margin-top: 15px;
+}
 .itens-center{
   display: flex;
   width: auto;
