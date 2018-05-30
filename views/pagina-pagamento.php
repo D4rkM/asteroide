@@ -163,7 +163,7 @@
                </div>
                <div class="cont_pague">
                  <div class="text_pague">
-                    <?php echo($total); ?>
+                    <?php //echo($total); ?>
                  </div>
                </div>
               <div class="finalizar">
