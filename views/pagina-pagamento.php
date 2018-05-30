@@ -5,18 +5,18 @@
   $links = alterarLinks(false);
   $paths = alterarCaminhos(false);
 
-  function verificaUsuarioLogado(){
-    if(isset($_SESSION['id_usuario'])){
-      echo("eeeeeeee");
-      if(isset($_POST['poltronas'])){
-        echo("eeeee2");
-      }else{
-        echo("triste");
-      }
-    }else{
-      echo("aaaaahhh..");
-    }
-  }
+  // function verificaUsuarioLogado(){
+  //   if(isset($_SESSION['id_usuario'])){
+  //     echo("eeeeeeee");
+  //     if(isset($_POST['poltronas'])){
+  //       echo("eeeee2");
+  //     }else{
+  //       echo("triste");
+  //     }
+  //   }else{
+  //     echo("aaaaahhh..");
+  //   }
+  // }
 
  ?>
 <!DOCTYPE html>
@@ -91,7 +91,7 @@
     </div>
        <?php
        require_once('nav.php');
-       verificaUsuarioLogado();
+       // verificaUsuarioLogado();
 
        ?>
        <div class="conteudo_pagamento">
@@ -129,7 +129,7 @@
                <div class="line_vertical"></div>
                <div class="registro_pague">
                  <div class="text_pague">Dados do Titular</div>
-                 <div class="box_pague"><input type="text" name="txtnome" value="" placeholder="Nome"></div>
+                 <div class="box_pague"><input type="text" name="txtnome" value="<?php echo $_SESSION['nome_usuario'];  ?>" disabled></div>
                  <div class="box_pague"><input type="text" name="txtcpf" value="" placeholder="cpf"></div>
                  <div class="box_pague"><input type="text" name="txtcartao" value="" placeholder="Numero do cartao"></div>
                  <select class="combo_pague" name="mes_val">
@@ -154,7 +154,7 @@
                  </select>
                </div>
               <div class="finalizar">
-                <a href="../pagina-pagamento.php" onclick="Finalizar()">
+                <a href="Usuario/historico_viagem.php" onclick="Finalizar()">
                   Finalizar</a></div>
              </div>
            </div>

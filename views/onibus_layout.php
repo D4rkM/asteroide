@@ -10,7 +10,7 @@
   $ocupadas = $ocupadas::buscarPoltronas($idViagem);
 
   if(isset($_SESSION['id_usuario'])){
-    $processo_de_compra = 'pagina-pagamento.php?poltrona=2';
+    $processo_de_compra = 'pagina-pagamento.php';
   }else{
     $processo_de_compra = 'usuario_identificacao.php';
   }

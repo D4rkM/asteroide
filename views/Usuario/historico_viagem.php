@@ -14,6 +14,7 @@
  ?>
   <?php require_once('nav.php'); ?>
 <link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo($links); ?>../css/footer.css">
 <!-- Conteúdo da página -->
 <div class="conteudo_historico">
   <!--Container que segura todas as informações da pagina -->

@@ -7,6 +7,7 @@
 
  ?>
 <link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo($links); ?>../css/footer.css">
 <!--
   Autor: BRUNA
   Data de modificação: 25/03/2018
