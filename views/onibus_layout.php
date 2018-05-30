@@ -81,14 +81,14 @@
           ?>
           <div class="fileira_corredor">
 
-            <label for="polt" data-polt="<?php setaCor($a,$ocupadas); ?>" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
-            <input class="polt" type="checkbox" name="poltrona[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
+            <label for="polt" data-num_polt="<?php echo($a); ?>"data-polt="<?php setaCor($a,$ocupadas); ?>" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
+            <input id="<?php echo('a_'.$a); ?>"class="polt" type="checkbox" name="poltrona[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
           <?php
           $a ++;
 
           ?>
-            <label for="polt" data-polt="<?php setaCor($a, $ocupadas); ?>" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
-            <input class="polt" type="checkbox" name="poltrona[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
+            <label for="polt" data-num_polt="<?php echo($a); ?>"data-polt="<?php setaCor($a, $ocupadas); ?>" class="poltronas" <?php verificaOcupacaoLabel($a, $ocupadas); ?>><?php echo $a; ?></label>
+            <input id="<?php echo('a_'.$a); ?>"class="polt" type="checkbox" name="poltrona[]" value="<?php echo $a; ?>" style="display:none; opacity:0;" <?php verificaOcupacao($a, $ocupadas); ?>>
           </div>
           <?php
         }
