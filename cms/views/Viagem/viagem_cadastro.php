@@ -6,11 +6,11 @@
 <form enctype="multipart/form-data" method="post" action="router.php?controller=viagem&modo=novo">
   <div class="cadastro_viagem">
   <div class="txt_viagem">Data Saida</div>
-  <input class="box_viagem" type="text" name="data_saida">
+  <input class="box_viagem" type="date" name="data_saida">
   <div class="txt_viagem">Horario Saida</div>
   <input class="box_viagem" type="text" name="hora_saida">
   <div class="txt_viagem">Data Chegada</div>
-  <input class="box_viagem" type="text" name="data_chegada">
+  <input class="box_viagem" type="date" name="data_chegada">
   <div class="txt_viagem">Horario Chegada</div>
   <input class="box_viagem" type="text" name="hora_chegada">
   <div class="txt_viagem">Descricao</div>
