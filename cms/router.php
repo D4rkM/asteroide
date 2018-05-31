@@ -698,5 +698,17 @@ break;
                     default:
                   }
                     break;
+        case 'acompanhamento':
+          require_once('controllers/acompanhamento_controller.php');
+          require_once('models/acompanhamento_class.php');
+
+            switch ($modo) {
+              case 'listar':
+              $controllerAcompanhamento = new controllerAcompanhamento();
+              $controllerAcompanhamento::Listar();
+              break;
+
+            }
+      break;
     }
  ?>

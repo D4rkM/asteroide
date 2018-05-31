@@ -14,10 +14,10 @@
 
         //Metodo mágico ou construtor;
         public function __construct(){
-            $this->server = "localhost";
-            $this->user = "root";
-            $this->password = "bcd127";
-            $this->dataBaseName = "db_voudeasteroide";
+            $this->server = "192.168.0.106";
+            $this->user = "voudeasteroide";
+            $this->password = "4st3r01d3";
+            $this->dataBaseName = "dbvoudeasteroide";
         }
 
         public function Conectar(){

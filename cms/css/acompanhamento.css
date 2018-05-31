@@ -1,0 +1,43 @@
+/*lista*/
+.lista_acompanha{
+  background-color: #084B8A;
+  width: 85%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.item_acompanha{
+  width: 16.5%;
+  height: 40px;
+  float: left;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.container_lista_acompanha{
+  width: 85%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.itens_mostrar_acompanha{
+  width: 16%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}

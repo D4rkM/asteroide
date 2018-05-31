@@ -53,10 +53,12 @@
 
           // if($list->ativo == 1){
           $cont = 0;
+          if($list[$cont]->ativo == 1){
+            // var_dump($list[$cont]->ativo);die;
           while($cont < count($list)){
            ?>
         <div class="cardbox">
-          <div class="cardbox-title">
+          <div class="cardbox-title" <?php $list[$cont]->ativo ?>>
             <div class="foto-user">
               <img src="<?php echo($links); ?><?php echo $list[$cont]->imagem_usuario ?>" alt="user">
               <h3>
@@ -82,6 +84,7 @@
     // }
     $cont += 1;
   }
+}
   // }
     ?>
       </div>

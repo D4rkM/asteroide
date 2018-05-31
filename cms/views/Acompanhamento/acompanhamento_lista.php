@@ -1,10 +1,11 @@
-<div class="lista_interacao">
-  <div class="item_interacao">Viagem</div>
-  <div class="item_interacao">Latitude do Onibus</div>
-  <div class="item_interacao">Longetude do Onibus</div>
-  <div class="item_interacao">Data de registro</div>
-  <div class="item_interacao">Status da Viagem</div>
-  <div class="item_interacao">Opções</div>
+<link rel="stylesheet" href="css/acompanhamento.css">
+<div class="lista_acompanha">
+  <div class="item_acompanha">Viagem</div>
+  <div class="item_acompanha">Latitude do Onibus</div>
+  <div class="item_acompanha">Longetude do Onibus</div>
+  <div class="item_acompanha">Data de registro</div>
+  <div class="item_acompanha">Status da Viagem</div>
+  <div class="item_acompanha">Opções</div>
 </div>
 
 <script type="text/javascript"></script>
@@ -33,28 +34,24 @@ $(document).ready(function() {
 	}
 </script>
 <?php
-  // require_once("../../controllers/acompanhamento_controller.php");
-  // require_once("../../models/acompanhamento_class.php");
-  //
-  // $controllerAcompanhamento = new controllerAcompanhamento();
-  // $list = $controllerAcompanhamento::Lista();
-  // $cont = 0;
-  //
-  // while($cont < count($list)){
-?>
-<div class="container_lista_interacao">
-  <div class="itens_mostrar_interacao"><?php //echo $list[$cont]->id_usuario ?></div>
-  <div class="itens_mostrar_interacao"><?php //echo $list[$cont]->local ?></div>
-  <div class="itens_mostrar_interacao"><img class="imagem_lista" src="<?php //echo $list[$cont]->imagem ?>" alt=""> </div>
-  <div class="itens_mostrar_interacao"><?php //echo $list[$cont]->comentario ?></div>
-  <div class="itens_mostrar_interacao">
+  require_once("../../controllers/acompanhamento_controller.php");
+  require_once("../../models/acompanhamento_class.php");
 
-    <a href="router.php?controller=acompanhamento&modo=excluir&id=<?php //echo($list[$cont]->id) ?>">
-      <img src="img/icon-delete.png" alt="">
-    </a>
-  </div>
+  $controllerAcompanhamento = new controllerAcompanhamento();
+  $list = $controllerAcompanhamento::Listar();
+  $cont = 0;
+
+  while($cont < count($list)){
+?>
+<div class="container_lista_acompanha">
+  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->latitude ?></div>
+  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->longetude ?></div>
+  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->data ?></div>
+  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->status ?></div>
+  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->viagem ?></div>
+  <div class="itens_mostrar_acompanha"></div>
 </div>
 <?php
-  //   $cont+=1;
-  // }
+    $cont+=1;
+  }
 ?>
