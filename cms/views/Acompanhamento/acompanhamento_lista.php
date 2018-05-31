@@ -45,13 +45,12 @@ $(document).ready(function() {
   while($cont < count($list)){
 ?>
 <div class="container_lista_acompanha">
-  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->viagem ?></div>
+  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->origem. " - " .$list[$cont]->destino?></div>
   <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->latitude ?></div>
   <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->longetude ?></div>
   <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->data ?></div>
   <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->status ?></div>
-
-  <div class="itens_mostrar_acompanha"></div>
+  <div class="itens_mostrar_acompanha"><img src="img/baseline-remove_red_eye-24px.svg" alt=""> </div>
 </div>
 <?php
     $cont+=1;
