@@ -416,7 +416,7 @@ nav{
 /*lista*/
 .lista_interacao{
   background-color: #084B8A;
-  width: 70%;
+  width: 75%;
   height: 40px;
   margin: auto;
   margin-top: 10px;
@@ -435,7 +435,7 @@ nav{
   font-family: sans-serif;
 }
 .container_lista_interacao{
-  width: 70%;
+  width: 75%;
   height: 40px;
   margin: auto;
   margin-top: 10px;
@@ -444,7 +444,7 @@ nav{
 }
 .itens_mostrar_interacao{
   width: 19%;
-  height: 100px;
+  height: 50px;
   float: left;
   margin-left:4px;
   font-size: 16px;
@@ -609,8 +609,8 @@ nav{
 /*Sobre_Empresa*/
 .cadastro_empresa{
   width: 60%;
-  height: 60vh;
-  background-color: yellow;
+  height: 70vh;
+  background-color: #fff;
   margin: auto;
   margin-top: 50px;
   border-radius: 15px;
@@ -618,7 +618,7 @@ nav{
 }
 .cont_text{
   width: 50%;
-  height: 60vh;
+  height: 70vh;
   float: left;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -1214,13 +1214,13 @@ nav{
 }
 
 .item_sobre_empresa{
-  width: 12%;
+  width: 7%;
   height: 40px;
   float: left;
   color: #fff;
   line-height: 40px;
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   font-family: sans-serif;
 }
 .container_lista_sobre_empresa{
@@ -1232,14 +1232,14 @@ nav{
   border-top-right-radius: 15px;
 }
 .itens_mostrar_sobre_empresa{
-  width: 12%;
-  height: 50px;
+  width: 7%;
+  height: 40px;
   float: left;
-  font-size: 16px;
+  font-size: 14px;
   font-family: "opensansbold";
   text-align: center;
   line-height: 40px;
-  border: 1px #fff solid;
+  border: 1px black solid;
   overflow: auto;
   display: flex;
   justify-content: center;

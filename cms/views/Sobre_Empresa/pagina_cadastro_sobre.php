@@ -43,13 +43,48 @@ $("#foto").change(function(){
     <div class="cont_icons">
       <div class="text_empresa">icone 1</div>
         <label for="Foto">
-            <div class="icon_empresa">Escolha uma imagem</div>
+            <div class="icon_empresa">Escolha um icone</div>
         </label>
         <div class="inpt_foto">
           <input id="Foto" type="file" name="icon1">
         </div>
         <div class="text_empresa">Detalhes dos icone 1</div>
         <input class="box_empresa" type="text" name="txtdetalhes1">
+
+        <div class="text_empresa">icone 2</div>
+        <label for="Foto">
+            <div class="icon_empresa">Escolha um icone</div>
+        </label>
+        <div class="inpt_foto">
+          <input id="Foto" type="file" name="icon2">
+        </div>
+
+        <div class="text_empresa">Detalhes dos icone 2</div>
+        <input class="box_empresa" type="text" name="txtdetalhes2">
+
+        <div class="text_empresa">icone 3
+        </div>
+        <label for="Foto">
+            <div class="icon_empresa">Escolha um icone</div>
+        </label>
+        <div class="inpt_foto">
+          <input id="Foto" type="file" name="icon3">
+        </div>
+
+        <div class="text_empresa">Detalhes dos icone 3</div>
+        <input class="box_empresa" type="text" name="txtdetalhes3">
+
+        <div class="text_empresa">icone 4</div>
+        <label for="Foto">
+            <div class="icon_empresa">Escolha um icone</div>
+        </label>
+        <div class="inpt_foto">
+          <input id="Foto" type="file" name="icon4">
+        </div>
+
+        <div class="text_empresa">Detalhes dos icone 4</div>
+        <input class="box_empresa" type="text" name="txtdetalhes4">
+
       <input class="salva_empresa" type="submit" name="btnCadastrar" value="Cadastrar">
     </div>
   </div>

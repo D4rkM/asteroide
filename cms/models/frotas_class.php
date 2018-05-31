@@ -51,7 +51,7 @@ class Frotas{
 
     }
 
-    echo $sql;
+    //echo $sql;
     //Instancia a classe do banco
     $conex = new Mysql_db();
 

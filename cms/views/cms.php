@@ -184,6 +184,16 @@
             }
           });
         });
+        $("#acompanhamento").click(function(){
+              $.ajax({
+              type:"POST",
+              url:"views/Acompanhamento/acompanhamento_layout.php",
+              data:{},
+              success: function(dados){
+                $("#main").html(dados);
+            }
+          });
+        });
       });
     </script>
   </head>
@@ -239,6 +249,7 @@
                   <li id="parada"><a href="#">Parada</a></li>
                   <li id="itinerario"><a href="#">Itinerario</a></li>
                   <li id="onibus"><a href="#">Cadastro de Onibus</a></li>
+                  <li id="acompanhamento"><a href="#">Acompanhamento das Viagens</a></li>
                 </ul>
             <li>
               <li class="itens"><a href="#">Mecanico</a>
