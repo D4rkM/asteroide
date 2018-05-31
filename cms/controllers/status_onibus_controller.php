@@ -5,10 +5,10 @@
     Controller:Classe
     Obs:Controller para realizar o CRUD de contatos que vai vir do contatos (RETIRAR OS DADOS DO FORMULÁRIO!!!!!)
 */
-class controllerClasseOnibus{
+class controllerStatusOnibus{
   public function Listar(){
-    $classe_onibus = new ClasseOnibus();
-    return $classe_onibus::Select();
+    $status_onibus = new StatusOnibus();
+    return $status_onibus::Select();
   }
 }
  ?>

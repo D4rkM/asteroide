@@ -270,41 +270,6 @@
           }
           break;
 
-    case 'classe_onibus':
-
-          require_once('controllers/classe_onibus_controller.php');
-          require_once('models/classe_onibus_class.php');
-
-            switch ($modo) {
-              case 'novo':
-              $controllerClasseOnibus = new controllerClasseOnibus();
-              $controllerClasseOnibus::Novo();
-              break;
-
-              case 'editar':
-              $controllerClasseOnibus = new controllerClasseOnibus();
-              $controllerClasseOnibus::Editar($_GET['id']);
-              break;
-
-              case 'excluir':
-              $controllerClasseOnibus = new controllerClasseOnibus();
-              $controllerClasseOnibus::Excluir();
-              break;
-
-              case 'buscar':
-              $controllerClasseOnibus = new controllerClasseOnibus();
-              $controllerClasseOnibus::Buscar();
-              break;
-
-              case 'listar':
-              $controllerClasseOnibus = new controllerClasseOnibus();
-              $controllerClasseOnibus::Listar();
-              break;
-
-              default:
-              break;
-            }
-
     case 'motorista':
 
           require_once('controllers/motorista_controller.php');
@@ -463,40 +428,62 @@
                 }
                 break;
     case 'onibus':
+        require_once('controllers/onibus_controller.php');
+        require_once('models/onibus_class.php');
 
-                      require_once('controllers/onibus_controller.php');
-                      require_once('models/onibus_class.php');
+      switch ($modo) {
+        case 'novo':
+        $controllerOnibus = new controllerOnibus();
+        $controllerOnibus::Novo();
+        break;
 
-                switch ($modo) {
-                  case 'novo':
-                  $controllerOnibus = new controllerOnibus();
-                  $controllerOnibus::Novo();
-                  break;
+        case 'editar':
+        $controllerOnibus = new controllerOnibus();
+        $controllerOnibus::Editar();
+        break;
 
-                  case 'editar':
-                  $controllerOnibus = new controllerOnibus();
-                  $controllerOnibus::Editar();
-                  break;
+        case 'excluir':
+        $controllerOnibus = new controllerOnibus();
+        $controllerOnibus::Excluir();
+        break;
 
-                  case 'excluir':
-                  $controllerOnibus = new controllerOnibus();
-                  $controllerOnibus::Excluir();
-                  break;
+        case 'buscar':
+        $controllerOnibus = new controllerOnibus();
+        $controllerOnibus::Buscar();
+        break;
 
-                  case 'buscar':
-                  $controllerOnibus = new controllerOnibus();
-                  $controllerOnibus::Buscar();
-                  break;
+        case 'listar':
+        $controllerOnibus = new controllerOnibus();
+        $controllerOnibus::Listar();
+        break;
 
-                  case 'listar':
-                  $controllerOnibus = new controllerOnibus();
-                  $controllerOnibus::Listar();
-                  break;
+        default:
+        break;
+    }
+    break;
+    case 'classe_onibus':
+      require_once('controllers/classe_onibus_controller.php');
+      require_once('models/classe_onibus_class.php');
 
-                  default:
-                  break;
-                }
-                break;
+        switch ($modo) {
+          case 'listar':
+          $controllerClasseOnibus = new controllerClasseOnibus();
+          $controllerClasseOnibus::Listar();
+          break;
+
+        }
+      break;
+      case 'status_onibus':
+          require_once('controllers/status_onibus_controller.php');
+          require_once('models/status_onibus_class.php');
+
+        switch ($modo) {
+          case 'listar':
+          $controllerStatusOnibus = new controllerStatusOnibus();
+          $controllerStatusOnibus::Listar();
+
+          break;
+        }
     case 'caminho':
 
                 require_once('controllers/caminho_controller.php');

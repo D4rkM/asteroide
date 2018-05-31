@@ -143,10 +143,10 @@
                   }
                 });
               });
-          $("#caminho").click(function(){
+          $("#auditoria").click(function(){
                     $.ajax({
                       type:"POST",
-                      url:"views/Caminho/pagina_layout_caminho.php",
+                      url:"views/Auditoria/auditoria_layout.php",
                       data:{},
                       success: function(dados){
                         $("#main").html(dados);
@@ -229,7 +229,7 @@
                 <li id="funcionario"><a href="#">Cadastro de funcionarios</a></li>
                 <li id="motorista"><a href="#">Cadastro de Motorista</a></li>
                 <li id="usuarios"><a href="#">Usuarios</a></li>
-                <li id="caminho"><a href="#">Caminho</a></li>
+                <li id="auditoria"><a href="#">Auditoria</a></li>
               </ul>
           <li>
           <li class="itens"><a href="#">Marketing</a>
