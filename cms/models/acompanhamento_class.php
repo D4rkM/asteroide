@@ -14,7 +14,7 @@ class Acompanhamento{
   }
 
   public function Select(){
-    $sql = "select * from historico_viagem order by id desc";
+    $sql = "select hv.*,sv.status from historico_viagem as hv, status_viagem as sv where hv.status_viagem_id= sv.id order by id;";
 
     $conex = new Mysql_db();
     $PDO_conex = $conex->Conectar();
@@ -30,7 +30,7 @@ class Acompanhamento{
       $listAcompanha[$cont]->latitude = $rs['latitude_onibus'];
       $listAcompanha[$cont]->longetude = $rs['logitude_onibus'];
       $listAcompanha[$cont]->data = $rs['data_registro'];
-      $listAcompanha[$cont]->status = $rs['status_viagem_id'];
+      $listAcompanha[$cont]->status = $rs['status'];
       $listAcompanha[$cont]->viagem = $rs['viagem_id'];
 
       $cont+=1;

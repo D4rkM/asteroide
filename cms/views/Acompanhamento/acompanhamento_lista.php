@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="css/acompanhamento.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="lista_acompanha">
   <div class="item_acompanha">Viagem</div>
   <div class="item_acompanha">Latitude do Onibus</div>
@@ -44,11 +45,12 @@ $(document).ready(function() {
   while($cont < count($list)){
 ?>
 <div class="container_lista_acompanha">
+  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->viagem ?></div>
   <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->latitude ?></div>
   <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->longetude ?></div>
   <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->data ?></div>
   <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->status ?></div>
-  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->viagem ?></div>
+
   <div class="itens_mostrar_acompanha"></div>
 </div>
 <?php
