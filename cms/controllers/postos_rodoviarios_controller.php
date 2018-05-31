@@ -5,26 +5,6 @@ class controllerPostosRodoviarios{
   public function Novo($id_endereco){
     $postos_rodoviarios = new PostosRodoviarios();
 
-    require_once('trata_imagem.php');
-    // iniciado variaveis
-     $diretorio_completo=Null;
-     $MovUpload=false;
-     $imagem_file=Null;
-
-    //pegando a foto
-       if (!empty($_FILES['imagem']['name'])) {
-          $imagem_file = true;
-          $diretorio_completo=salvarFoto($_FILES['imagem'],'arquivo');
-          if ($diretorio_completo == "Erro") {
-                $MovUpload=false;
-          }else {
-            $MovUpload=true;
-          }
-        }else {
-          $imagem_file = false;
-        }
-
-    $postos_rodoviarios->imagem=$diretorio_completo;
     $postos_rodoviarios->nome=$_POST['nome'];
     $postos_rodoviarios->id_endereco=$id_endereco;
 
@@ -34,7 +14,8 @@ class controllerPostosRodoviarios{
   public function Editar($idPostoRodoviario){
     $postos = new PostosRodoviarios();
 
-  
+    $postos_rodoviarios->nome=$_POST['nome'];
+    $postos_rodoviarios->id_endereco=$id_endereco;
 
     $postos_rodoviarios::Updadte($postos_rodoviarios);
   }
@@ -54,11 +35,8 @@ class controllerPostosRodoviarios{
   }
 
   public function Listar(){
-
     $postos_rodoviarios = new PostosRodoviarios();
-
     return $postos_rodoviarios::Select();
-
   }
 }
 

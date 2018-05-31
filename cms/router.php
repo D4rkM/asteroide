@@ -439,7 +439,7 @@
 
         case 'editar':
         $controllerOnibus = new controllerOnibus();
-        $controllerOnibus::Editar();
+        $controllerOnibus::Editar($_GET['id']);
         break;
 
         case 'excluir':

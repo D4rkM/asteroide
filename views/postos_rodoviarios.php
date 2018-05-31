@@ -4,7 +4,7 @@
 
   $links = alterarLinks(false);
   $paths = alterarCaminhos(false);
-  
+
  ?>
 <!DOCTYPE html>
 <html lang="br">
@@ -20,6 +20,7 @@
     <title>Home - Bem vindo</title>
     <link rel="stylesheet" href="<?php echo($links);?>css/normalize.css">
     <link rel="stylesheet" href="<?php echo($links);?>css/style.css">
+    <link rel="stylesheet" href="<?php echo($links);?>css/footer.css">
     <link rel="stylesheet" href="<?php echo($links);?>css/style_login.css">
     <link rel="stylesheet" href="<?php echo($links);?>css/style_detalhes.css">
     <script src="<?php echo($links);?>js/jquery.min.js"></script>
@@ -93,37 +94,23 @@
 
          <div class="caixas-inf">
            <?php
-             require_once("../cms/controllers/estados_postos_controller.php");
-             require_once("../cms/models/estados_postos_class.php");
+             require_once("../cms/controllers/postos_rodoviarios_controller.php");
+             require_once("../cms/models/postos_rodoviarios_class.php");
 
-             $estados_postos = new controllerEstadosPostos();
-             $list = $estados_postos::Listar();
-
+             $controllerPostosRodoviarios = new controllerPostosRodoviarios();
+             $list = $controllerPostosRodoviarios::Listar();
              $cont = 0;
+
              while($cont < count($list)){
            ?>
            <div class="inf-subtitulos">
              <div class="escrita-principal">
-              <h2 class="subtitulo" style="padding:0px; margin:0px; color:#1f405e;"><?php echo $list[$cont]->estado  ?></h2>
+              <h2 class="subtitulo" style="padding:0px; margin:0px; color:#1f405e;"><?php echo $list[$cont]->nome  ?></h2>
              </div>
              <div class="icon">
                <img src="<?php echo($links); ?>img/icon/down.svg" alt="Mostrar Mais" title="Mostrar mais">
              </div>
            </div>
-           <?php
-             $cont+=1;
-             }
-           ?>
-           <?php
-             require_once("../cms/controllers/postos_controller.php");
-             require_once("../cms/models/postos_class.php");
-
-             $controller_postos = new controllerPostos();
-             $list = $controller_postos::Listar();
-             $cont = 0;
-
-             while($cont < count($list)){
-           ?>
            <div class="inf-conteudo border-none">
              <div class="conteudo-legislacao">
 
@@ -139,10 +126,10 @@
                    </thead>
                    <tbody style="overflow:auto;">
                     <tr>
-                      <td><?php echo $list[$cont]->nome ?></td>
-                      <td><?php echo $list[$cont]->estado ?></td>
+                      <td><?php //echo $list[$cont]->nome ?></td>
+                      <td><?php //echo $list[$cont]->estado ?></td>
                       <td></td>
-                      <td style="text-align:right;"><?php echo $list[$cont]->localizacao ?></td>
+                      <td style="text-align:right;"><?php //echo $list[$cont]->localizacao ?></td>
                     </tr>
                    </tbody>
                  </table>

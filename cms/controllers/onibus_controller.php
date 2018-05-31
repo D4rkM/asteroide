@@ -16,9 +16,10 @@ class controllerOnibus{
   }
 
 
-  public function Editar(){
+  public function Editar($id_onibus){
     $onibus = new Onibus();
 
+    $onibus->id = $id_onibus;
     $onibus->poltronas = $_POST['poltronas'];
     $onibus->km = $_POST['km'];
     $onibus->classe = $_POST['classe'];

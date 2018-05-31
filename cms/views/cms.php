@@ -225,7 +225,7 @@
               <ul class="submenu">
                 <li><a href="#">Relatorios</a></li>
                 <li><a href="#">Graficos</a></li>
-                <li id="postos_rodoviarios"><a href="#">Cadastro de Postos Rodoviarios</a></li>
+
                 <li id="funcionario"><a href="#">Cadastro de funcionarios</a></li>
                 <li id="motorista"><a href="#">Cadastro de Motorista</a></li>
                 <li id="usuarios"><a href="#">Usuarios</a></li>
@@ -250,6 +250,7 @@
                   <li id="itinerario"><a href="#">Itinerario</a></li>
                   <li id="onibus"><a href="#">Cadastro de Onibus</a></li>
                   <li id="acompanhamento"><a href="#">Acompanhamento das Viagens</a></li>
+                  <li id="postos_rodoviarios"><a href="#">Postos Rodoviarios</a></li>
                 </ul>
             <li>
               <li class="itens"><a href="#">Mecanico</a>

@@ -398,65 +398,65 @@ $("#foto").change(function(){
 					$onibus_controller = new controllerOnibus();
 					$dadosOnibus = $onibus_controller::Buscar($id);
 			?>
-			<script src="js/jquery.min.js"></script>
-			<script>
-			$("#foto").change(function(){
-			   if($(this).val()){ // só se o input não estiver vazio
-			      var img = this.files[0]; // seleciona o arquivo do input
-			      var f = new FileReader(); // cria o objeto FileReader
-			      f.onload = function(e){ // ao carregar a imagem
-			         $("#id_sua_img").attr("src",e.target.result); // altera o src da imagem
-			      }
-			      f.readAsDataURL(img); // lê o arquivo
-			   }
-			});
-			</script>
 								<div class="tltModal">
 									Edição do Onibus
 								</div>
 
-								<form action="router.php?controller=onibus&modo=editar&id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
-								    <div class="cadastro_onibus">
-								      <div class="cont_onibus1">
-								        <div class="text_onibus">Placa</div>
-								        <input class="box_onibus" type="text" name="txtplaca" value="<?php echo $dadosOnibus->placa ?>">
-								        <div class="text_onibus">Numero de poltranas</div>
-								        <input class="box_onibus" type="text" name="txtpoltrona" value="<?php echo $dadosOnibus->numeros_poltronas ?>">
-								        <div class="text_onibus">KM rodado</div>
-								        <input class="box_onibus" type="text" name="txtkmrodado" value="<?php echo $dadosOnibus->km_rodado ?>">
-								        <div class="text_onibus">KM para manutemção</div>
-								        <input class="box_onibus" type="text" name="txtkmmanutencao" value="<?php echo $dadosOnibus->km_manutencao ?>">
+								<form action="router.php?controller=onibus&modo=editar&id=<?php echo $id ?>" method="post" enctype="multipart/form-data">
+									<div class="text_onibus">Poltronas</div>
+									<input class="box_onibus" type="text" name="poltronas" value="<?php echo $dadosOnibus->poltronas ?>">
+									<div class="text_onibus">KM rodado</div>
+									<input class="box_onibus" type="text" name="km" value="<?php echo $dadosOnibus->km ?>">
+									<div class="text_onibus">Classe</div>
+									<select class="select_onibus" name="classe">
+										<?php
+												require_once("../controllers/classe_onibus_controller.php");
+												require_once("../models/classe_onibus_class.php");
+												$controllerClasseOnibus = new controllerClasseOnibus();
+												$list=$controllerClasseOnibus::Listar();
+												$cont = 0;
+												$selected = "";
+												while($cont < count($list)){
+													if($list[$cont]->id == $dadosOnibus->classe){
+														$selected = "selected";
+													}
+												?>
+												<option <?php echo $selected ?> value="<?php echo($list[$cont]->id)?>">
+														<?php echo($list[$cont]->classe)?></option>
+										<?php
+										$selected = "";
+												$cont+=1;
+												}
+										?>
+									</select>
+									<div class="text_onibus">Placa</div>
+									<input class="box_onibus" type="text" name="placa" value="<?php echo $dadosOnibus->placa ?>">
+									<div class="text_onibus">Status de manutenção</div>
+									<select class="select_onibus" name="status">
+										<?php
+												require_once("../controllers/status_onibus_controller.php");
+												require_once("../models/status_onibus_class.php");
+												$controllerStatusOnibus = new controllerStatusOnibus();
+												$list=$controllerStatusOnibus::Listar();
+												$cont = 0;
+												$selected = "";
+												while($cont < count($list)){
+													if($list[$cont]->id == $dadosOnibus->status){
+														$selected = "selected";
+													}
+												?>
+												<option <?php $selected ?> value="<?php echo($list[$cont]->id)?>">
+														<?php echo($list[$cont]->status)?></option>
+										<?php
+												$selected = "";
+												$cont+=1;
+												}
+										?>
+									</select>
+									<div class="text_onibus">codigo</div>
+									<input class="box_onibus" type="text" name="codigo" value="<?php echo $dadosOnibus->codigo ?>">
+									<input class="salva_onibus" type="submit" name="btnsalvar" value="Alterar">
 
-								        <div class="text_onibus">Imagem do onibus</div>
-												<label for="foto">
-															<div  class="adicionar-foto" id="imagem">
-																<img id="id_sua_img" src="<?php echo $dadosOnibus->imagem ?>" alt="foto" />
-															</div>
-														</label>
-														<!--Botão para selecionar a foto-->
-														<div class="input-foto">
-															<input id="foto" class="botao_foto_perfil" type="file" name="imagem"/>
-														</div>
-
-								      </div>
-								      <div class="cont_onibus2">
-
-								        <div class="text_onibus">Detalhes</div>
-								        <input class="box_onibus" type="text" name="txtdesc" value="<?php echo $dadosOnibus->descricao ?>">
-
-								        <div class="text_onibus">Classe</div>
-								        <select class="select_onibus" name="classe">
-								          <option value="">Executivo</option>
-								          <option value="">Teste</option>
-								        </select>
-
-								        <div class="text_onibus">Status de manutenção</div>
-								        <input class="box_onibus" type="text" value="<?php echo $dadosOnibus->status_manutencao ?>" name="txtstatus">
-
-								        <input class="salva_onibus" type="submit" name="btnsalvar" value="Salvar">
-								      </div>
-
-								    </div>
 								</form>
  <?php
 }if($pagina=='classe'){
