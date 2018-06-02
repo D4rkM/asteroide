@@ -1,13 +1,6 @@
 <link rel="stylesheet" href="css/acompanhamento.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div class="lista_acompanha">
-  <div class="item_acompanha">Viagem</div>
-  <div class="item_acompanha">Latitude do Onibus</div>
-  <div class="item_acompanha">Longetude do Onibus</div>
-  <div class="item_acompanha">Data de registro</div>
-  <div class="item_acompanha">Status da Viagem</div>
-  <div class="item_acompanha">Opções</div>
-</div>
+
 
 <script type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -34,7 +27,21 @@ $(document).ready(function() {
 		});
 	}
 </script>
-<?php
+<div class="list-content top-margin">
+  
+  <table class="table" style="overflow-x:auto;">
+ 
+    <tr class="thead">
+      <td >Viagem</td>
+      <td >Latitude do Onibus</td>
+      <td >Longetude do Onibus</td>
+      <td >Data de registro</td>
+      <td >Status da Viagem</td>
+      <td >Opções</td>  
+    </tr>
+  
+  <tbody class="tbody">
+    <?php
   require_once("../../controllers/acompanhamento_controller.php");
   require_once("../../models/acompanhamento_class.php");
 
@@ -43,16 +50,29 @@ $(document).ready(function() {
   $cont = 0;
 
   while($cont < count($list)){
+    $line= 'tr-white';
+    if(($cont %2) == 1){
+      $line = 'tr-dark';
+    }
 ?>
-<div class="container_lista_acompanha">
-  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->origem. " - " .$list[$cont]->destino?></div>
-  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->latitude ?></div>
-  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->longetude ?></div>
-  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->data ?></div>
-  <div class="itens_mostrar_acompanha"><?php echo $list[$cont]->status ?></div>
-  <div class="itens_mostrar_acompanha"><img src="img/baseline-remove_red_eye-24px.svg" alt=""> </div>
-</div>
-<?php
+
+    <tr class="<?php echo($line); ?>">
+      <td class="td"><?php echo $list[$cont]->origem. " - " .$list[$cont]->destino?></td>
+      <td class="td"><?php echo $list[$cont]->latitude ?></td>
+      <td class="td"><?php echo $list[$cont]->longetude ?></td>
+      <td class="td"><?php echo $list[$cont]->data ?></td>
+      <td class="td"><?php echo $list[$cont]->status ?></td>
+      <td class="td"><img src="img/baseline-remove_red_eye-24px.svg" alt=""></td>
+    </tr>
+    <?php
     $cont+=1;
   }
 ?>
+  </tbody>
+
+</table>
+
+
+</div>
+
+

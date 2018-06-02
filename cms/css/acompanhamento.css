@@ -1,15 +1,35 @@
 /*lista*/
-.lista_acompanha{
-  background-color: #084B8A;
-  width: 85%;
-  height: 40px;
-  margin: auto;
-  margin-top: 10px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+
+.list-content{
+  display: flex;
+  width: inherit;
+  height: inherit;
+  overflow: auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-.item_acompanha{
+.table{
+  width:800px;
+  height:auto;
+  font-family: sans-serif;
+  /*font-family: "opensansbold";  */
+
+  /*background-color: blue;*/
+
+
+}
+
+.thead{
+  background-color: #084B8A;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  height: 50px;
+} 
+
+/*.item_acompanha{
   width: 16.5%;
   height: 40px;
   float: left;
@@ -17,27 +37,33 @@
   line-height: 40px;
   text-align: center;
   font-size: 18px;
-  font-family: sans-serif;
-}
-.container_lista_acompanha{
-  width: 85%;
+
+}*/
+.tbody{
+/*  width: 85%;
   height: 40px;
   margin: auto;
   margin-top: 10px;
   border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-right-radius: 15px;*/
 }
-.itens_mostrar_acompanha{
-  width: 16%;
-  height: 50px;
-  float: left;
-  margin-left:4px;
+
+.tr-dark{
+  background-color: #f3f3f3;
+}
+
+.tr-white{
+
+}
+.td{
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  background-color: inherit;
   font-size: 16px;
-  font-family: "opensansbold";
+
   text-align: center;
   line-height: 40px;
   border: 1px #fff solid;
   overflow: auto;
-  display: flex;
-  justify-content: center;
 }

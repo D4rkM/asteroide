@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>CMS Central</title>
     <script src="js/jquery-3.3.1.js"></script>
@@ -205,37 +206,48 @@
 
      </div>
    </div>
-    <div class="container_cms">
       <!-- Cabeçalho -->
       <header>
         <!-- Logo -->
-        <div class="cont_logo">
-          <img class="img_logo" src="img/logo-cms.png" alt="logo">
-          <div class="tex_logo">Viação Asteroide</div>
+        <div class="header-content" style="">
+          <img class="img_user" src="img/logo-cms.png" alt="logo">
+          <a href=""><div class="text_user">rea Administrativa</div></a>
         </div>
         <!-- usuario -->
-        <div class="cont_usuario">
-          <input class="logout" type="submit" name="btnlogout" value="Logout">
-          <div class="text_user">Bem vindo Teste</div>
+        <div class="header-content" style="">
           <img class="img_user" src="img/user-icon-cms.png" alt="user">
+          <div class="text_user">Bem vindo Teste</div>
+          <!-- <input class="logout" type="submit" name="btnlogout" value="Logout"> -->
         </div>
       </header>
+    <div class="container_cms"> 
       <!-- menu lateral -->
       <nav>
         <ul class="mainmenu">
-          <li class="itens"><a href="#">Admistração</a>
-              <ul class="submenu">
+          <li class="itens" >
+            <div class="nav_title">
+
+              <img src="img/adm.png">
+              <a href="#">Admistração</a>
+            </div>
+            
+              <ul id='1' class="submenu">
                 <li><a href="#">Relatorios</a></li>
                 <li><a href="#">Graficos</a></li>
-
                 <li id="funcionario"><a href="#">Cadastro de funcionarios</a></li>
                 <li id="motorista"><a href="#">Cadastro de Motorista</a></li>
                 <li id="usuarios"><a href="#">Usuarios</a></li>
                 <li id="auditoria"><a href="#">Auditoria</a></li>
               </ul>
           <li>
-          <li class="itens"><a href="#">Marketing</a>
-              <ul class="submenu">
+          <li class="itens" >
+
+            <div class="nav_title">
+
+              <img src="img/mark.png">
+              <a href="#">Marketing</a>
+            </div>
+              <ul id='2' class="submenu">
                 <li id="sobre"><a href="#" >Sobre a Empresa</a></li>
                 <li id="duvidas"><a href="#">Duvidas Frequentes</a></li>
                 <li id="interacao"><a href="#">Interação</a></li>
@@ -244,7 +256,12 @@
                 <li id="faleconosco"><a href="#">Fale Conosco</a></li>
               </ul>
           <li>
-            <li class="itens"><a href="#">Vendas</a>
+            <li id='3' class="itens" >
+              <div class="nav_title">
+                
+              <img src="img/vend.png">
+              <a href="#">Vendas</a>
+            </div>
                 <ul class="submenu">
                   <li id="pacote_viagem"><a href="#">Pacotes de Viagens</a></li>
                   <li id="viagem"><a href="#">Viagens</a></li>
@@ -255,7 +272,11 @@
                   <li id="postos_rodoviarios"><a href="#">Postos Rodoviarios</a></li>
                 </ul>
             <li>
-              <li class="itens"><a href="#">Mecanico</a>
+              <li id='4' class="itens" >
+                <div class="nav_title">
+              <img src="img/mec.png">
+              <a href="#">Mecânico</a>
+            </div>
                   <ul class="submenu">
                     <li><a href="#">Onibus em Manutenção</a></li>
                   </ul>
@@ -272,5 +293,6 @@
     <?php
    endif;
    ?>
+   
   </body>
 </html>
