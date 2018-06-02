@@ -23,7 +23,7 @@ class controllerUsuario {
   }
 
   public function BuscarPorId(){
-    $idUsuario = 
+    $idUsuario = $_POST['idusuario'];
   }
 
 }

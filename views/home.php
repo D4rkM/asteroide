@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/style_login.css">
     <link rel="stylesheet" href="css/style_detalhes.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/chatbot.css">
     <!-- <script src="js/jquery.min.js"></script> -->
 
     
@@ -174,11 +175,11 @@
          </div>
 
        </div>
-      <?php require_once('footer.php'); ?>
-
+      <?php require_once('footer.php'); 
+            // require_once('chatbot.php');
+      ?>
         <!-- <script src="<?php //echo($links); ?>js/jquery.min.js"></script>  -->
        <script src="js/jquery-3.3.1.js"></script>
-
        <script src="<?php echo($links); ?>js/jcarousellite.js"></script>
        <script src="<?php echo($links); ?>js/carrossel.js"></script>
         <script src="js/jquery-ui.js"></script>

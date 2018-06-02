@@ -66,17 +66,22 @@
 ?>
 <!-- action="router.php?controller=registro_passagem&modo=compra" -->
 <script>
-  $('_compra').submit(function(e){
+  $(document).on("submit", "#_finalizar",function(e){
     e.preventDefault();
     $.ajax({
       url:'router.php?controller=registro_passagem&modo=compra',
       type: 'POST',
-      ''
+      data: new FormData($('#_finalizar')[0]),
+      processData: false,
+      contentType: false,
+      success: function(res){
+        $(".pague").html('<h2>Foi</h2>');
+      }
     });
   });
 
 </script>
-<form id='_compra' class="" enctype="multipart/form-data" method="post">
+<form id='_finalizar' class="" enctype="multipart/form-data" method="post">
 
    <div class="cont_pague">
        <div class="text_pague">Bandeiras</div>
@@ -147,8 +152,9 @@
      <select class="combo_pague" name="year">
         <?php 
         for($a = 0; $a < sizeof($anos); $a++){
-          ?><option value="<?php echo(substr($anos[
-          $a],2)); ?>"><?php echo($anos[$a]); ?></option><?php
+          ?><option value="<?php echo(substr($anos[$a],2)); ?>">
+          <?php echo($anos[$a]); ?>
+          </option><?php
         }
          ?>
      </select>
@@ -160,7 +166,6 @@
         while($a < 5){
           ?>
           <option value="<?php echo $a; ?>"><?php echo $a; ?>x</option>
-
           <?php
           $a++;
         }
