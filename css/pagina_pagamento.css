@@ -69,7 +69,10 @@
   margin-bottom: 15px;
 }
 .pague{
+  display: flex;
+  flex-direction: row;
   width: 90%;
+  justify-content: space-between;
   height: 70%;
   background-color: #fff;
   margin-left: 5%;
@@ -119,6 +122,26 @@
 }
 
 .finalizar{
- margin-left: 90%;
+ /*margin-left: 90%;*/
+}
+
+.forma_pagamento{
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  height:100%;
+  align-items: center;
+  justify-content: center;
+}
+
+#boleto, #cartao{
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+#boleto img, #cartao img{
+  width: 70px;
+  height: 70px;
 }
 /*******************************************************/

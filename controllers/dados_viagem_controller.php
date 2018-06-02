@@ -38,6 +38,14 @@
 
     }
 
+    public function BuscarPorId($id){
+
+        $dadosViagens = new DadosViagem();
+        $listaViagens = $dadosViagens::buscarPorId($id);
+        return $listaViagens;
+
+    }
+
   }
 
  ?>

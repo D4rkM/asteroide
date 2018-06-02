@@ -21,7 +21,15 @@ class Usuario{
   public $celular;
   public $cpf;
   public $rg;
+  // Relacionado ao Endereco do cliente
   public $cep;
+  public $logradouro;
+  public $numero;
+  public $bairro;
+  public $complemento;
+  public $cidade;
+  public $estado;
+  public $uf;
 
   public function __construct(){
     require_once('db_class.php');
@@ -65,7 +73,7 @@ class Usuario{
   public function Update($usuario_dados){
 
     if ($usuario_dados->foto == "nada"){
-    $sql_usuario = "update cliente set nome='$usuario_dados->nome',
+    $sql_usuario = "UPDATE cliente SET nome='$usuario_dados->nome',
                               email='$usuario_dados->email',
                               login='$usuario_dados->usuario',
                               senha='$usuario_dados->senha',
@@ -75,10 +83,10 @@ class Usuario{
                               celular='$usuario_dados->celular',
                               cpf='$usuario_dados->cpf',
                               rg='$usuario_dados->rg'
-                              where id=$usuario_dados->id;";
+                              WHERE id=$usuario_dados->id;";
 
     }else{
-      $sql_usuario = "update cliente set imagem_usuario='$usuario_dados->foto',
+      $sql_usuario = "UPDATE cliente SET imagem_usuario='$usuario_dados->foto',
                                              nome='$usuario_dados->nome',
                                              email='$usuario_dados->email',
                                              login='$usuario_dados->usuario',
@@ -89,7 +97,7 @@ class Usuario{
                                              celular='$usuario_dados->celular',
                                              cpf='$usuario_dados->cpf',
                                              rg='$usuario_dados->rg'
-                                             where id=$usuario_dados->id;";
+                                             WHERE id=$usuario_dados->id;";
     }
     //Instancia a classe do banco
     $conex = new Mysql_banco();
@@ -109,7 +117,7 @@ class Usuario{
   }
   public function SelectById($usuario_dados){
 
-    $sql = "select * from cliente where id = $usuario_dados->id";
+    $sql = "SELECT * FROM view_cliente_endereco WHERE id = ".$usuario_dados->id;
     // echo($sql);die;
 
     $conex = new Mysql_banco();
@@ -136,7 +144,14 @@ class Usuario{
       $usuario->telefone = $rs['telefone'];
       $usuario->celular = $rs['celular'];
       $usuario->cpf = $rs['cpf'];
-      $usuario->rg = $rs['rg'];
+      $usuario->cep = $rs['cep'];
+      $usuario->bairro = $rs['bairro'];
+      $usuario->numero = $rs['numero'];
+      $usuario->logradouro = $rs['logradouro'];
+      $usuario->complemento = $rs['complemento'];
+      $usuario->cidade= $rs['cidade'];
+      $usuario->estado = $rs['estado'];
+      $usuario->uf = $rs['Uf'];
 
       $conex->Desconectar();
 

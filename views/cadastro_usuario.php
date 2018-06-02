@@ -119,7 +119,7 @@
             </div>
             <div class="caixa-dados large">
               <label for="senha" class="">Usuario</label>
-              <input id="senha" class="" type="txt" name="txtusuario">
+              <input id="usuario" class="" type="txt" name="txtusuario">
             </div>
             <div class="caixa-dados large">
               <label for="senha" class="">Senha</label>

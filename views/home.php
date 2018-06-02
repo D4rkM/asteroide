@@ -22,58 +22,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_login.css">
     <link rel="stylesheet" href="css/style_detalhes.css">
-    <script src="js/jquery.min.js"></script>
-    <script>
-      // Modal Login
-      $(document).ready(function() {
-            $(".login").click(function() {
-              $(".modalContainerLogin").fadeIn(500);
-            });
-      });
-      //função para abrir a modal
-      function Login(){
-          $.ajax({
-              type: "POST",
-              url: "views/login.php",
-              success: function(dados){
-                  $('.modal-login').html(dados);
-               }
-              });
-          }
-      // -------------------------------------------------------------------------------------
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <!-- <script src="js/jquery.min.js"></script> -->
 
-      // Modal de detalhes
-      $(document).ready(function() {
-            $(".detalhes").click(function() {
-              $(".modalContainerDetalhes").slideToggle(1000);
-            });
-      });
-
-      function Detalhes(){
-          $.ajax({
-              type: "POST",
-              url: "views/detalhes.php",
-              success: function(dados){
-                  $('.modal-detalhes').html(dados);
-               }
-              });
-          }
-      // --------------------------------------------------------------------------------------
-    </script>
-    <script>
-      // Configura o Texto que irá aparecer na pagina inicial
-      $(document).ready(function(){
-        var textos = ["Deixe o stress de lado e curta nossa viagem", 'Viajar de "Bus" pode ser tão divertido como estar em família' , "Veja nossos pacotes de passagens"];
-        var atual = 0;
-        $('#frases').text(textos[atual++]);
-        setInterval(function() {
-            $('#frases').fadeOut(function() {
-                if (atual >= textos.length) atual = 0;
-                $('#frases').text(textos[atual++]).fadeIn();
-            });
-        }, 5000);
-      });
-    </script>
+    
   </head>
   <body>
     <div class="modalContainerLogin">
@@ -81,7 +33,7 @@
       </div>
     </div>
        <?php
-          require_once('nav.php');
+          require_once('views/nav.php');
           require_once('filtro.php');
         ?>
 
@@ -221,15 +173,128 @@
          </div>
 
        </div>
-       <script src="<?php echo($links); ?>js/jquery.min.js"></script>
+      <?php require_once('footer.php'); ?>
+
+        <!-- <script src="<?php //echo($links); ?>js/jquery.min.js"></script>  -->
+       <script src="js/jquery-3.3.1.js"></script>
+
        <script src="<?php echo($links); ?>js/jcarousellite.js"></script>
        <script src="<?php echo($links); ?>js/carrossel.js"></script>
-       <script>
+        <script src="js/jquery-ui.js"></script>
+        <script>
+      // Modal Login
+      $(document).ready(function() {
+            $(".login").click(function() {
+              $(".modalContainerLogin").fadeIn(500);
+            });
+      });
+      //função para abrir a modal
+      function Login(){
+          $.ajax({
+              type: "POST",
+              url: "views/login.php",
+              success: function(dados){
+                  $('.modal-login').html(dados);
+               }
+              });
+          }
+      // -------------------------------------------------------------------------------------
 
-       </script>
+      // Modal de detalhes
+      $(document).ready(function() {
+            $(".detalhes").click(function() {
+              $(".modalContainerDetalhes").slideToggle(1000);
+            });
+      });
+
+      function Detalhes(){
+          $.ajax({
+              type: "POST",
+              url: "views/detalhes.php",
+              success: function(dados){
+                  $('.modal-detalhes').html(dados);
+               }
+              });
+          }
+      // --------------------------------------------------------------------------------------
+    </script>
+    <script>
+      // Configura o Texto que irá aparecer na pagina inicial
+      $(document).ready(function(){
+        var textos = ["Deixe o stress de lado e curta nossa viagem", 'Viajar de "Bus" pode ser tão divertido como estar em família' , "Veja nossos pacotes de passagens"];
+        var atual = 0;
+        $('#frases').text(textos[atual++]);
+        setInterval(function() {
+            $('#frases').fadeOut(function() {
+                if (atual >= textos.length) atual = 0;
+                $('#frases').text(textos[atual++]).fadeIn();
+            });
+        }, 5000);
+      });
+
+      function sugestaoPesquisa(pesquisa){
+
+      return $.ajax({
+          url: 'router.php?controller=cidade&modo=pesquisa',
+          type: 'POST',
+          data:{'pesquisa':pesquisa},
+        });
 
 
-    <?php require_once('footer.php'); ?>
+      }
+
+      $(function(){
+        var listorigem;
+
+        $(document).on('keyup', '#txtorigem', function(){
+          var origem = $(this).val();
+          // console.log(origem);
+          if(origem.length > 0){
+
+            sugestaoPesquisa(origem).done(autocompletarOrigem);
+
+          }
+          
+          
+        });
+
+        $(document).on('keyup', '#txtdestino', function(){
+          var destino = $(this).val();
+          // console.log(origem);
+          if(destino.length > 0){
+
+            sugestaoPesquisa(destino).done(autocompletarDestino);
+
+          }
+          
+          
+        });
+
+        function autocompletarOrigem(listorigem){
+          var lista = JSON.parse(listorigem);
+          // console.log('lista');
+          $( "#txtorigem" ).autocomplete({
+            source: lista
+          }
+          );
+        }
+
+        function autocompletarDestino(listdestino){
+          var lista = JSON.parse(listdestino);
+          // console.log('lista');
+          $( "#txtdestino" ).autocomplete({
+            source: lista
+          }
+          );
+        }
+      });
+
+      
+ 
+
+    </script>
+
+
 
   </body>
 </html>

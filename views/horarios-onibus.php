@@ -1,9 +1,17 @@
 <?php
 
-  include('../links.php');
+  include('links.php');
 
-  $links = alterarLinks(false);
-  $paths = alterarCaminhos(false);
+  $links = alterarLinks(true);
+  $paths = alterarCaminhos(true);
+
+  $idUsuario;
+
+  if(isset($_SESSION['id_usuario'])){
+    $idUsuario = $_SESSION['id_usuario'];
+  }else{
+    $idUsuario = 0;
+  }
 
  ?>
 <!DOCTYPE html>
@@ -27,69 +35,107 @@
     <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>css/pagina_pagamento.css">
     <script src="<?php echo($links); ?>js/jquery-3.3.1.js"></script>
     <script>
-    // Trabalha a parte de seleção de poltronas
-    $(document).on('click', '.poltronas', function(){
+        // Trabalha a parte de seleção de poltronas
+        $(document).on('click', '.poltronas', function(){
 
-      var selecionado = $(this);
-      var test = $('.polt');
-      // var bg = $(this).css('background-color');
-      var checkId = '#a_'+$(this).data('num_polt');
-      var checkbox = $(checkId);
-      // console.log(checkId);
-      if(selecionado.data('polt') == 0) {
+          var selecionado = $(this);
+          var test = $('.polt');
+          // var bg = $(this).css('background-color');
+          var checkId = '#a_'+$(this).data('num_polt');
+          var checkbox = $(checkId);
+          // console.log(checkId);
+          if(selecionado.data('polt') == 0) {
 
-        selecionado.css('background', 'yellow');
-        // selecionado.attr('checked', true );
-        checkbox.attr('checked', true);
+            selecionado.css('background', 'yellow');
+            // selecionado.attr('checked', true );
+            checkbox.attr('checked', true);
 
-        selecionado.data("polt", "1");
-        // Senão, troca pra amarelo
-      } else if(selecionado.data('polt') == 1) {
-        selecionado.css('background', 'green');
-        // selecionado.attr('checked', false);
-        checkbox.attr('checked', false);
-        selecionado.data("polt", "0");
-      }
-    });
-    // $(document).on('click', 'label', function(){
-    //   var selecionado = $('this').attr('for');
-    //   console.log(selecionado);
-    // });
+            selecionado.data("polt", "1");
+            // Senão, troca pra amarelo
+          } else if(selecionado.data('polt') == 1) {
+            selecionado.css('background', 'green');
+            // selecionado.attr('checked', false);
+            checkbox.attr('checked', false);
+            selecionado.data("polt", "0");
+          }
+        });
+        // $(document).on('click', 'label', function(){
+        //   var selecionado = $('this').attr('for');
+        //   console.log(selecionado);
+        // });
 
-    //
-    function Onibus(poltronas,viagem_id){
-      var bus = document.getElementById("container_onibus");
-      // Descarrega a página de seleção de poltronas
-      $.ajax({
-        url:'onibus_layout.php',
-        type:'POST',
-        data:{id_viagem: viagem_id, 'poltronas': poltronas},
-        success: function(dados){
-          $('#container_onibus').html(dados);
-          if($('.poltronas').disabled){
-            $('.poltronas').css('background', 'black');
+        //
+        function Onibus(poltronas,viagem_id){
+          var bus = document.getElementById("container_onibus");
+          // Descarrega a página de seleção de poltronas
+          $.ajax({
+            url:'<?php echo($paths); ?>onibus_layout.php',
+            type:'POST',
+            data:{id_viagem: viagem_id, 'poltronas': poltronas},
+            success: function(dados){
+              $('#container_onibus').html(dados);
+              if($('.poltronas').disabled){
+                $('.poltronas').css('background', 'black');
+              }
+            }
+          });
+        // Abre a aba de poltronas pela viagem selecionada
+          if(bus.style.display == "none" ) {
+            // console.log(poltronas);
+              bus.style.display = "flex";
+            // Senão fecha a aba de poltronas
+            } else {
+              bus.style.display = "none";
           }
         }
-      });
-    // Abre a aba de poltronas pela viagem selecionada
-      if(bus.style.display == "none" ) {
-        // console.log(poltronas);
-          bus.style.display = "flex";
-        // Senão fecha a aba de poltronas
-        } else {
-          bus.style.display = "none";
-      }
-    }
-    // Função que dispara a compra de passagem
-    // $(document).on('submit', '#_comprar', (e) =>{
-    //   e.preventDefault();
-    //   alert('voce quase comprou hehe');
-    // });
 
-    // navigator.geolocation.getCurrentPosition(function(pos){
-    //   console.log(pos);
-    // });
-</script>
+        // $("#_comprar").submit(function(e){
+          
+        //   e.preventDefault();
+
+        //   if(userOn(<?php //echo($idUsuario); ?>)){
+
+        //     $.ajax({
+        //       url:"usuario_identificacao.php",
+        //       type:"POST",
+        //       success: function(){
+
+        //       }
+        //     });
+
+
+        //   }else{
+
+        //     $.ajax({
+
+        //     });
+
+        //   }
+
+        //    $.ajax({
+
+        //    });
+
+        // });
+
+        // function userOn(idUser){
+        //   if(idUser > 0){
+        //     return true;
+        //   }else{
+        //     return false;
+        //   }
+        // }
+
+        // Função que dispara a compra de passagem
+        // $(document).on('submit', '#_comprar', (e) =>{
+        //   e.preventDefault();
+        //   alert('voce quase comprou hehe');
+        // });
+
+        // navigator.geolocation.getCurrentPosition(function(pos){
+        //   console.log(pos);
+        // });
+    </script>
     <script>
       // Modal Login
       $(document).ready(function() {
@@ -134,7 +180,7 @@
       </div>
     </div>
        <?php
-          require_once('nav.php');
+         require_once($paths.'nav.php');
        ?>
        <div class="conteudo_horarios">
        <div class="container_horarios">
@@ -163,8 +209,8 @@
                </tr>
                <?php
 
-                 require_once('../models/dados_viagem_class.php');
-                 require_once('../controllers/dados_viagem_controller.php');
+                require_once('models/dados_viagem_class.php');
+                require_once('controllers/dados_viagem_controller.php');
 
                  $controller_viagens = new ControllerDadosViagem();
 

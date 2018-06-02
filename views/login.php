@@ -32,7 +32,7 @@
            </div>
            <div class="caixa-dados medium ">
              <label for="login" class="">Usuario:</label>
-             <input class="login" type="text" name="txtemail" value="">
+             <input class="login" type="text" name="txtlogin" value="">
            </div>
            <div class="caixa-dados medium box_senha">
              <label for="senhaLogin">Senha:</label>
@@ -43,12 +43,6 @@
            </div>
            <div class="itens-center">
              <img src="<?php //echo($links); ?>img/Facebook.png" alt="redes-sociais">
-           </div>
-           <div class="itens-center">
-             <img src="<?php //echo($links); ?>img/Google.png" alt="redes-sociais">
-           </div>
-           <div class="itens-center">
-             <img src="<?php //echo($links); ?>img/Twitter.png" alt="redes-sociais">
            </div>
            <div class="text-center">
              Não tem conta ainda?

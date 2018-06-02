@@ -1,29 +1,36 @@
 <?php
 
-  include('../links.php');
+  include('links.php');
 
-  $links = alterarLinks(false);
-  $paths = alterarCaminhos(false);
+  $links = alterarLinks(true);
+  $paths = alterarCaminhos(true);
 
-  $poltrona_selecionada = array();
 
+  // var_dump($_SESSION['_idViagem']);
   function verificaUsuarioLogado(){
     if(isset($_SESSION['id_usuario'])){
-      echo("id = OK");
-      if(isset($_POST['poltrona'])){
-        $cont = 0;
-        foreach($_POST['poltrona'] as $poltronas){
-          $poltrona_selecionada[$cont] = $poltronas;
-          $cont ++;
-        }
+      // echo("id = OK");
+      if(isset($_SESSION["_selected"])){
+
+          $cont = 0;
+          foreach($_SESSION['_selected'] as $poltronas){
+            $poltrona_selecionada[$cont] = $poltronas;
+            // echo($poltrona_selecionada[$cont].", ");
+            $cont ++;
+          }
+          
+          require_once('cms/models/viagem_class.php');
+          require_once('cms/controllers/viagem_controller.php');
 
       }else{
         echo("poltronas = Error");
+        // header('location:index.php');
       }
     }else{
       echo("id = Error");
+        // header('location:../index.php');
     }
-    echo($poltrona_selecionada[0]);
+
   }
 
  ?>
@@ -47,8 +54,9 @@
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/pagina_pagamento.css">
-    <script src="<?php echo($links); ?>js/jquery.min.js"></script>
-    <script src="../js/jquery-3.3.1.js"></script>
+    <!-- <script src="<?php echo($links); ?>js/jquery.min.js"></script> -->
+    <script src="<?php echo($links); ?>js/jquery-3.3.1.js"></script>
+    <script src="<?php echo($links); ?>js/jquery.mask.js"></script>
     <script>
         function Finalizar(){
           alert('Compra finalizada com Sucesso!');
@@ -89,7 +97,18 @@
                }
               });
           }
+
+        $(document).on('click', '#boleto', function(){
+          $('.pague').load('views/boleto.php')
+        });
+
+        $(document).on('click', '#cartao', function(){
+          $('.pague').load('views/cartao.php');
+        });
       // --------------------------------------------------------------------------------------
+      $(document).ready(function(){
+        $("#cpf").mask("000.000.000-00");
+      });
     </script>
   </head>
   <body>
@@ -114,61 +133,19 @@
              </div>
 
              <div class="pague">
+                <div class="forma_pagamento">
+                  <span id="cartao">
+                    <img src="<?php echo($links); ?>img/icon/credit_card.svg" alt="Cartão de Credito">
+                  Cartão  
+                  </div>
+                </span>
+                <div class="forma_pagamento">
+                  <span id='boleto'>
+                    <img src="<?php echo($links); ?>img/icon/boleto.svg" alt="Boleto Bancário">
+                    Boleto
+                  </span>
+                </div>
 
-               <div class="cont_pague">
-                   <div class="text_pague">Bandeiras</div>
-                  <div class="bandeiras">
-                    <input type="radio" name="rdband" value="1">
-                    <img class="img_pague" src="../img/icon/elo-icon.png" alt="elo">
-                  </div>
-                  <div class="bandeiras">
-                    <input type="radio" name="rdband" value="2">
-                    <img class="img_pague" src="../img/icon/Visa-icon.png" alt="">
-                  </div>
-                  <div class="bandeiras">
-                    <input type="radio" name="rdband" value="3">
-                    <img class="img_pague" src="../img/icon/mastercard-icon.png" alt="">
-                  </div>
-                  <div class="bandeiras">
-                    <input type="radio" name="rdband" value="4">
-                    <img class="img_pague" src="../img/icon/americanexpress-icon.png" alt="">
-                  </div>
-               </div>
-               <div class="line_vertical"></div>
-               <div class="registro_pague">
-                 <div class="text_pague">Dados do Titular</div>
-                 <div class="box_pague"><input type="text" name="txtnome" value="<?php echo $_SESSION['nome_usuario'];  ?>" disabled></div>
-                 <div class="box_pague"><input type="text" name="txtcpf" value="" placeholder="cpf"></div>
-                 <div class="box_pague"><input type="text" name="txtcartao" value="" placeholder="Numero do cartao"></div>
-                 <select class="combo_pague" name="mes_val">
-                   <option value="">Janeiro</option>
-                   <option value="">Fevereiro</option>
-                   <option value="">Março</option>
-                 </select>
-                 <select class="combo_pague" name="ano_val">
-                   <option value="">2018</option>
-                   <option value="">2019</option>
-                   <option value="">2020</option>
-                 </select>
-                 <div class="box_pague"><input type="text" name="txtcodigo" value="" placeholder="Codigo de segurança"></div>
-               </div>
-               <div class="line_vertical"></div>
-               <div class="cont_pague">
-                 <div class="text_pague">Parcelamento</div>
-                 <select class="combo_pague" name="ano_val">
-                   <option value="">1x</option>
-                   <option value="">2x</option>
-                   <option value="">3x</option>
-                 </select>
-               </div>
-               <div class="cont_pague">
-                 <div class="text_pague">
-                    <?php //echo($total); ?>
-                 </div>
-               </div>
-              <div class="finalizar">
-                <a href="Usuario/historico_viagem.php" onclick="Finalizar()">
-                  Finalizar</a></div>
              </div>
            </div>
          </div>

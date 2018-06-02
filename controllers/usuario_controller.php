@@ -99,7 +99,7 @@ class controllerUsuario {
   public function Buscar($id){
     $usuario = new Usuario();
     $usuario->id = $id;
-
+    // echo('foi');
     return $dados_usuario = $usuario::SelectById($usuario);
   }
 
@@ -107,20 +107,9 @@ class controllerUsuario {
 
   $usuario = new Usuario();
 
-  $usuario->login = $_POST['txtemail'];
+  $usuario->login = $_POST['txtlogin'];
   $usuario->senha = $_POST['txtsenha'];
   $dadosUsuario = $usuario::Login($usuario);
-  //
-  // if($dadosUsuario!=false)
-  // {
-  //   $_SESSION['nome_usuario'] = $dadosUsuario->nome;
-  //   $_SESSION['id_usuario'] = $dadosUsuario->id;
-  //
-  //
-  // }else{
-  //   $_SESSION['erro'] = "Usuario ou senha incorretos, caso o erro percista entre em contato com o ADM";
-  //
-  // }
 
 }
 

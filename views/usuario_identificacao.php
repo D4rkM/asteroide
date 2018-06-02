@@ -1,9 +1,10 @@
 <?php
 
-  include('../links.php');
+  include('links.php');
 
-  $links = alterarLinks(false);
-  $paths = alterarCaminhos(false);
+  $links = alterarLinks(true);
+  $paths = alterarCaminhos(true);
+
 
  ?>
 <!DOCTYPE html>
@@ -84,26 +85,20 @@
            </div>
 
            <div class="identifi_user">
-             <form class="" action="" method="post">
+             <form class="" action="<?php echo ($links); ?>router.php?controller=usuario&modo=login&c=true" method="post">
                <div class="consulta_user">
                  <div class="text_ident">Identifique - se para continuar sua compra!</div>
                  <div class="text_ident2">Usuario:</div>
-                 <input class="box_ident" type="text" name="txtusuario" value=""> <br> <br>
+                 <input class="box_ident" type="text" name="txtlogin" value=""> <br> <br>
                  <div class="text_ident2">Senha:</div>
                  <input class="box_ident" type="password" name="txtsenha" value=""><br> <br>
                  <button class="btn_confirma" type="submit" name="button">Entrar</button>
                  <div class="itens-center">
                    <img src="<?php //echo($links); ?>../../img/Facebook.png" alt="redes-sociais">
                  </div>
-                 <div class="itens-center">
-                   <img src="<?php //echo($links); ?>../../img/Google.png" alt="redes-sociais">
-                 </div>
-                 <div class="itens-center">
-                   <img src="<?php //echo($links); ?>../../img/Twitter.png" alt="redes-sociais">
-                 </div>
                  <div class="text-center">
                    Não tem conta ainda?
-                   <a href="views/Usuario/cadastro_usuario.php"><strong style="color:#162E44;">Cadastre-se</strong></a>
+                   <a href="views/cadastro_usuario.php?modo=contCompra"><strong style="color:#162E44;">Cadastre-se</strong></a>
                  </div>
                </div>
              <div class="Continua">

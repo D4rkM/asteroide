@@ -1,4 +1,3 @@
-
 <?php
    // require_once("../../controllers/viagem_controller.php");
    // require_once("../../models/viagem_class.php");
@@ -7,12 +6,12 @@
   <div class="cadastro_viagem">
   <div class="txt_viagem">Data Saida</div>
   <input class="box_viagem" type="date" name="data_saida">
-  <div class="txt_viagem">Horario Saida</div>
-  <input class="box_viagem" type="text" name="hora_saida">
+  <div  class="txt_viagem">Horario Saida</div>
+  <input id='hora_saida' class="box_viagem" type="text" name="hora_saida">
   <div class="txt_viagem">Data Chegada</div>
   <input class="box_viagem" type="date" name="data_chegada">
   <div class="txt_viagem">Horario Chegada</div>
-  <input class="box_viagem" type="text" name="hora_chegada">
+  <input id='hora_chegada' class="box_viagem" type="text" name="hora_chegada">
   <div class="txt_viagem">Descricao</div>
   <input class="box_viagem" type="text" name="descricao">
   <div class="txt_viagem">KM</div>
@@ -50,3 +49,11 @@
   <input class="salvar_viagem" type="submit" name="btnsalvar" value="Salvar">
   </div>
 </form>
+<script>
+  
+  $(document).ready(function(){
+    $("#hora_chegada").mask('00:00:00');
+    $('#hora_saida').mask('00:00:00');
+  });
+
+</script>

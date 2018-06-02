@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  //session_start();
   $idViagem = $_POST['id_viagem'];
   $TotalPoltronas = $_POST['poltronas'];
 
@@ -8,12 +8,6 @@
 
   $ocupadas = new RegistroPassagemController();
   $ocupadas = $ocupadas::buscarPoltronas($idViagem);
-
-  if(isset($_SESSION['id_usuario'])){
-    $processo_de_compra = 'pagina-pagamento.php';
-  }else{
-    $processo_de_compra = 'usuario_identificacao.php';
-  }
 
   // Desabilita as poltronas já compradas
   function verificaOcupacao($polt_num, $lista_ocupadas){
@@ -55,8 +49,7 @@
   }
 
  ?>
-
-<form id="_comprar" action="<?php echo $processo_de_compra; ?>" enctype="multipart/form-data" method="post">
+<form id="_comprar" action="router.php?controller=registro_passagem&modo=selecao_polt" enctype="multipart/form-data" method="post">
   <div class="legenda">
     <div class="leg_hold">
       <div class="leg_box" style="background-color:green;"></div><div class="leg_text">Disponivel</div>
@@ -70,7 +63,7 @@
   </div>
 
    <div class="onibus">
-       <input type="hidden" name="idviagem" value="<?php echo($idViagem); ?>"  disabled>
+       <input type="hidden" name="idviagem" value="<?php echo($idViagem); ?>" >
      <div class="fileira">
 
        <?php

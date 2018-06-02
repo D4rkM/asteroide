@@ -20,7 +20,7 @@
 
           $controllerDadosViagem::buscar();
 
-          header('location:views/horarios-onibus.php');
+          require_once('views/horarios-onibus.php');
           break;
 
         case 'buscar_denovo':
@@ -57,11 +57,21 @@
           break;
 
         case 'login':
-        echo('nsei');
             $controllerUsuario = new controllerUsuario();
             $controllerUsuario::Logar();
+            // echo('nsei');
+            if(isset($_GET['c'])){
+
+              $continuacao = $_GET['c'];
+              if($continuacao == true){
+                require_once('views/pagina-pagamento.php');
+              }
+            }else{
+              require_once('index.php');
+              
+            }
             //echo ("okkkkkkkkkkk");
-            header('location:index.php');
+            // require_once('nav.php');
             break;
       }
       break;
@@ -110,6 +120,27 @@
           require_once('models/registro_passagem_class.php');
 
           switch($modo){
+              case "selecao_polt":
+              session_start();
+
+              if(isset($_POST['idviagem'])){
+              $_SESSION['_idViagem'] = $_POST['idviagem'];
+              $_SESSION['_selected'] = $_POST['poltrona'];
+                
+              if(isset($_SESSION['id_usuario'])){
+
+                  require_once('views/pagina-pagamento.php');
+
+                }else{
+                  
+                  require_once('views/usuario_identificacao.php');
+
+                }
+              }else{
+                header("location:index.php");
+              }
+
+              break;
             case 'buscar':
               $id = $_POST['id_viagem'];
               $registro_poltronas = new RegistroPassagemController();
@@ -127,19 +158,50 @@
             case "compra":
               session_start();
               if(isset($_SESSION['id_usuario'])){
+                  // require_once('models/compra_class.php');
+                  // require_once('controllers/compra_controller.php');
+                  require_once('models/transacao_class.php');
+                  require_once('controllers/transacao_controller.php');
 
-                  require_once('models/compra_class.php');
-                  require_once('controllers/compra_controller.php');
-                  
-                  $compra = new CompraController();
-                  $idCompra = $compra::novaCompra();
+                // echo('aaaaee');
+                  $transacao = new TransacaoController();
+                  $transacao::cartaoDeCredito();
+
+
+
+                  // $compra = new CompraController();
+                  // $idCompra = $compra::novaCompra();
 
                 }else{
 
                 }
 
               break;
+
           }
+
+        break;
+
+        case "cidade":
+          require_once("models/cidade_estado_class.php");
+          require_once("controllers/cidade_estado_controller.php");
+
+          switch($modo){
+            case "pesquisa":
+
+            $pesquisa = new CidadeEstadoController();
+            // $var = array();
+            $retorno = $pesquisa::pesquisar();
+            $var = array();
+            $a = 0;
+            while($a<sizeof($retorno)){
+              $var[$a] = $retorno[$a]->cidade_estado;
+              $a++;
+            }
+            echo(json_encode($var));
+
+            break;
+          }  
         break;
 
 

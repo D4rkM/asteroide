@@ -22,6 +22,10 @@ class controllerUsuario {
     $usuario::Delete($usuario);
   }
 
+  public function BuscarPorId(){
+    $idUsuario = 
+  }
+
 }
 
  ?>

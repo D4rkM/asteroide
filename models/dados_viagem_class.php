@@ -23,9 +23,13 @@
 
     public static function buscarViagens($pesquisa){
 
+      $pesquisa->origem = substr($pesquisa->origem, 0,strpos($pesquisa->origem, ' -'));
+      $pesquisa->destino = substr($pesquisa->destino, 0,strpos($pesquisa->destino, ' -'));
+      // echo($pesquisa->origem.'/'.$pesquisa->destino);
+
       $sql = "SELECT * FROM view_lista_todas_as_viagens
-              WHERE origem LIKE '%$pesquisa->origem%'
-              AND destino LIKE '%$pesquisa->destino%';";
+              WHERE origem LIKE '$pesquisa->origem%'
+              AND destino LIKE '$pesquisa->destino%';";
 
       $conex = new Mysql_banco();
 
@@ -61,6 +65,50 @@
       return $listaViagem;
 
     }
+
+    public static function buscarPorId($idViagem){
+
+
+      $sql = "SELECT * FROM view_lista_todas_as_viagens
+              WHERE id =".$idViagem;
+
+      $conex = new Mysql_banco();
+
+      $PDO_conex = $conex->Conectar();
+
+      //executa select no bd e guarda o retorno na variavel $select
+      $select = $PDO_conex->query($sql);
+
+      $cont = 0;
+
+      if($rs=$select->fetch(PDO::FETCH_ASSOC)){
+      $listaViagem = new DadosViagem();
+
+        $listaViagem->id = $rs['id'];
+        $listaViagem->origem = $rs['origem'];
+        $listaViagem->destino = $rs['destino'];
+        $listaViagem->data_saida = $rs['data_saida'];
+        $listaViagem->data_chegada = $rs['data_chegada'];
+        $listaViagem->hora_saida = $rs['hora_saida'];
+        $listaViagem->hora_chegada = $rs['hora_chegada'];
+        $listaViagem->endereco_saida = $rs['endereco_saida'];
+        $listaViagem->endereco_chegada = $rs['endereco_chegada'];
+        $listaViagem->km = $rs['km'];
+        $listaViagem->img = $rs['img'];
+        $listaViagem->classe = $rs['classe'];
+        $listaViagem->preco = $rs['preco'];
+        $listaViagem->poltronas = $rs['poltronas'];
+
+      }
+      //Fecha a conexão com o Banco de Dados
+      $conex->Desconectar();
+      if(isset($listaViagem)){
+        return $listaViagem;
+        
+      }
+
+    }
+
 
 
   }
