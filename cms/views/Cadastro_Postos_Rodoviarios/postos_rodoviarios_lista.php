@@ -1,7 +1,7 @@
 <div class="lista_duvida">
   <div class="item_duvida">Nome</div>
-  <div class="item_duvida">imagem</div>
-  <div class="item_duvida">Cep</div>
+  <div class="item_duvida">Logradouro</div>
+  <div class="item_duvida">Cidade</div>
   <div class="item_duvida">Opções</div>
 </div>
 
@@ -40,8 +40,8 @@ $(document).ready(function() {
 ?>
 <div class="container_lista_duvidas">
   <div class="itens_mostrar_duvidas"><?php echo $list[$cont]->nome ?></div>
-  <div class="itens_mostrar_duvidas"><img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt=""> </div>
-  <div class="itens_mostrar_duvidas"><?php //echo $list[$cont]->cep ?></div>
+  <div class="itens_mostrar_duvidas"><?php //echo $list[$cont]->rua ?></div>
+  <div class="itens_mostrar_duvidas"><?php //echo $list[$cont]->cidade ?></div>
   <div class="itens_mostrar_duvidas">
     <a href="router.php?controller=postos_rodoviarios&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
       <img src="img/icon-delete.png" alt="">

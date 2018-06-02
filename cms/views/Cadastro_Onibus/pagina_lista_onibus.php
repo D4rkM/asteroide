@@ -1,8 +1,9 @@
+<div class="container_onibus">
 <div class="lista_onibus">
   <div class="item_onibus">Placa</div>
-  <div class="item_onibus">Numeros_poltronas</div>
-  <div class="item_onibus">Km rodado</div>
-  <div class="item_onibus">Imagem do onibus</div>
+  <div class="item_onibus">Poltronas</div>
+  <div class="item_onibus">Km</div>
+  <div class="item_onibus">Status</div>
   <div class="item_onibus">Classe</div>
   <div class="item_onibus">Opções</div>
 </div>
@@ -40,10 +41,10 @@ $(document).ready(function() {
   while($cont < count($list)){
 ?>
 <div class="container_lista_onibus">
-  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->placa ?></div>
-  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->poltronas ?></div>
-  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->km_rodado ?></div>
-  <div class="itens_mostrar_onibus"> <img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt="imagem"> </div>
+  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->placa?></div>
+  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->poltronas?></div>
+  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->km?></div>
+  <div class="itens_mostrar_onibus"><?php echo $list[$cont]->status ?></div>
   <div class="itens_mostrar_onibus"><?php echo $list[$cont]->classe ?></div>
   <div class="itens_mostrar_onibus">
     <a href="router.php?controller=onibus&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
@@ -60,3 +61,4 @@ $(document).ready(function() {
     $cont+=1;
   }
 ?>
+</div>

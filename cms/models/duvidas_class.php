@@ -22,7 +22,7 @@ class Duvidas{
     $sql = "insert into pgduvidas_frequentes set pergunta='$duvida_dados->pergunta',
                                                  resposta='$duvida_dados->resposta',
                                                  aparecer=$duvida_dados->aparecer;";
-
+// echo $sql;die;
 
     //Instancia a classe do banco
     $conex = new Mysql_db();

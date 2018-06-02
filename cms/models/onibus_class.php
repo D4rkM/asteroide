@@ -1,14 +1,12 @@
 <?php
     class Onibus{
       public $id;
-      public $placa;
       public $poltronas;
-      public $km_rodado;
-      public $status_manutencao;
-      public $descricao;
-      public $imagem;
+      public $km;
       public $classe;
-      public $km_manutencao;
+      public $placa;
+      public $status;
+      public $codigo;
 
       public function __construct(){
         require_once('db_class.php');
@@ -16,18 +14,14 @@
 
       public function Insert ($onibus_dados){
 
-        $sql = "insert into onibus set placa='$onibus_dados->placa',
-                                      poltronas='$onibus_dados->poltronas',
-                                      km_rodado='$onibus_dados->km_rodado',
-                                      km_manutencao='$onibus_dados->km_manutencao',
-                                      status_manutencao='$onibus_dados->status_manutencao',
-                                      imagem='$onibus_dados->imagem',
-                                      id_classe='$onibus_dados->classe',
-                                      descricao='$onibus_dados->descricao';";
-
-     // echo($sql);
+        $sql = "insert into onibus set poltronas='$onibus_dados->poltronas',
+                                       km_rodado='$onibus_dados->km',
+                                       id_classe='$onibus_dados->classe',
+                                       placa='$onibus_dados->placa',
+                                       status_onibus_id='$onibus_dados->status',
+                                       cod_antt='$onibus_dados->codigo';";
+     // echo($sql);die;
       $conex = new Mysql_db();
-
       $PDO_conex = $conex->Conectar();
 
       //Executa o script $sql no Banco de Dados
@@ -38,39 +32,17 @@
 
       //Fecha a conexão com o Banco de Dados
       $conex->Desconectar();
-
       }
 
       public function Update($onibus_dados){
+      $sql = "update onibus set poltronas='$onibus_dados->poltronas',
+                                     km_rodado='$onibus_dados->km',
+                                     id_classe='$onibus_dados->classe',
+                                     placa='$onibus_dados->placa',
+                                     status_onibus_id='$onibus_dados->status',
+                                     cod_antt='$onibus_dados->codigo' where id=$onibus_dados->id;";
 
-
-        // echo $onibus_dados->salvarimagem;
-    if( $onibus_dados->imagem == "nada"){
-      $sql = "update onibus set placa='$onibus_dados->placa',
-                                    poltronas='$onibus_dados->poltronas',
-                                    km_rodado='$onibus_dados->km_rodado',
-                                    km_manutencao='$onibus_dados->km_manutencao',
-                                    status_manutencao='$onibus_dados->status_manutencao',
-                                    id_classe='$onibus_dados->classe',
-                                    km_manutencao='$onibus_dados->km_manutencao',
-                                    descricao='$onibus_dados->descricao' where id=$onibus_dados->id;";
-
-
-
-    }else{
-
-      $sql = "update onibus set placa='$onibus_dados->placa',
-                                    poltronas='$onibus_dados->poltronas',
-                                    km_rodado='$onibus_dados->km_rodado',
-                                    km_manutencao='$onibus_dados->km_manutencao',
-                                    status_manutencao='$onibus_dados->status_manutencao',
-                                    km_manutencao='$onibus_dados->km_manutencao',
-                                    id_classe='$onibus_dados->classe',
-                                    imagem='$onibus_dados->imagem',
-                                    descricao='$onibus_dados->descricao' where id=$onibus_dados->id;";
-
-    }
-    echo $sql;
+                                     // echo $sql;die;
 
         //Instancia a classe do banco
         $conex = new Mysql_db();
@@ -112,7 +84,9 @@
 
       public function Select(){
 
-        $sql = "SELECT * FROM onibus ORDER BY id DESC";
+        $sql = "select o.*, so.status, c.tipo_classe
+        from onibus as o, status_onibus as so, classe as c
+        where o.status_onibus_id = so.id and o.id_classe = c.id";
         $conex = new Mysql_db();
 
         $PDO_conex = $conex->Conectar();
@@ -127,14 +101,12 @@
           $listOnibus[] = new Onibus();
 
           $listOnibus[$cont]->id = $rs['id'];
-          $listOnibus[$cont]->placa = $rs['placa'];
           $listOnibus[$cont]->poltronas = $rs['poltronas'];
-          $listOnibus[$cont]->status_manutencao = $rs['status_manutencao'];
-          $listOnibus[$cont]->km_manutencao = $rs['km_manutencao'];
-          $listOnibus[$cont]->km_rodado = $rs['km_rodado'];
-          $listOnibus[$cont]->classe = $rs['id_classe'];
-          $listOnibus[$cont]->imagem = $rs['imagem'];
-          $listOnibus[$cont]->descricao = $rs['descricao'];
+          $listOnibus[$cont]->km = $rs['km_rodado'];
+          $listOnibus[$cont]->classe = $rs['tipo_classe'];
+          $listOnibus[$cont]->placa = $rs['placa'];
+          $listOnibus[$cont]->status = $rs['status'];
+          $listOnibus[$cont]->codigo = $rs['cod_antt'];
 
           $cont+=1;
         }
@@ -159,19 +131,15 @@
         if($rs=$select->fetch(PDO::FETCH_ASSOC)){
 
           $onibus = new Onibus();
-
           $onibus->id = $rs['id'];
-          $onibus->placa = $rs['placa'];
           $onibus->poltronas = $rs['poltronas'];
-          $onibus->status_manutencao = $rs['status_manutencao'];
-          $onibus->km_manutencao = $rs['km_manutencao'];
-          $onibus->km_rodado = $rs['km_rodado'];
-          $onibus->descricao = $rs['descricao'];
+          $onibus->km = $rs['km_rodado'];
           $onibus->classe = $rs['id_classe'];
-          $onibus->imagem = $rs['imagem'];
+          $onibus->placa = $rs['placa'];
+          $onibus->status = $rs['status_onibus_id'];
+          $onibus->codigo = $rs['cod_antt'];
 
           $conex->Desconectar();
-
 
         }
         if(isset($onibus))

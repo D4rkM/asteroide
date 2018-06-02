@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="Magno">
+    
     <!--
       Data de modificação: 19/03/2018
       Obs: Página principal contém menu e rodapé para inserir as outras páginas

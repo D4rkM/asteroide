@@ -18,12 +18,8 @@ class PostosRodoviarios{
 
   public function Insert($postos_rodoviarios_dados){
     $sql = "insert into posto_rodoviario set nome='$postos_rodoviarios_dados->nome',
-                                                 imagem='$postos_rodoviarios_dados->imagem',
                                                  id_endereco='$postos_rodoviarios_dados->id_endereco';";
                                                  // echo($sql);die;
-
-
-
     //Instancia a classe do banco
     $conex = new Mysql_db();
 
@@ -44,12 +40,7 @@ class PostosRodoviarios{
 
   public function Update($postos_rodoviarios_dados){
     $sql = "update posto_rodoviario set nome='$postos_rodoviarios_dados->nome',
-                                                 imagem='$postos_rodoviarios_dados->imagem',
-                                                 cep='$postos_rodoviarios_dados->cep',
-                                                 logradouro='$postos_rodoviarios_dados->logradouro',
-                                                 numero='$postos_rodoviarios_dados->numero'
-                                                 bairro='$postos_rodoviarios_dados->bairro'
-                                                 idCidade='$postos_rodoviarios_dados->cidade' where id=$postos_dados->id;";
+    id_endereco='$postos_rodoviarios_dados->id_endereco where id=$postos_dados->id;";
 
     //Instancia a classe do banco
     $conex = new Mysql_db();
@@ -108,7 +99,6 @@ class PostosRodoviarios{
 
       $listPostosRodoviarios[$cont]->id = $rs['id'];
       $listPostosRodoviarios[$cont]->nome = $rs['nome'];
-      $listPostosRodoviarios[$cont]->imagem = $rs['imagem'];
       // $listPostosRodoviarios[$cont]->cidade = $rs['cidade'];
 
       $cont+=1;
@@ -135,7 +125,6 @@ class PostosRodoviarios{
 
       $postos_rodoviarios->id = $rs['id'];
       $postos_rodoviarios->nome = $rs['noma'];
-      $postos_rodoviarios->imagem = $rs['imagem'];
 
       $conex->Desconectar();
 

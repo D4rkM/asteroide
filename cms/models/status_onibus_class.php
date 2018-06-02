@@ -6,16 +6,16 @@
   Obs:Essa Classe é uma replica dos campos de dados com ações do CRUD
 
 */
-class ClasseOnibus{
+class StatusOnibus{
   public $id;
-  public $classe;
+  public $status;
 
   public function __construct(){
     require_once('db_class.php');
   }
 
   public function Select(){
-    $sql = "select * from classe order by id desc";
+    $sql = "select * from status_onibus order by id desc";
 
     $conex = new Mysql_db();
 
@@ -31,7 +31,7 @@ class ClasseOnibus{
       $listClasse[] = new ClasseOnibus();
 
       $listClasse[$cont]->id = $rs['id'];
-      $listClasse[$cont]->classe = $rs['tipo_classe'];
+      $listClasse[$cont]->status = $rs['status'];
 
       $cont+=1;
     }

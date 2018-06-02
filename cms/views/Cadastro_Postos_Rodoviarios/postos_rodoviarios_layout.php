@@ -29,7 +29,7 @@
 <div class="abas">
   <div class="labels" id="list">Lista</div>
   <div class="labels" id="add">Cadastrar</div>
-  <div class="title_page">Cadastro de Postos Rodoviarios</div>
+  <div class="title_page">Postos Rodoviarios</div>
 </div>
 <div id="conteudo">
 
