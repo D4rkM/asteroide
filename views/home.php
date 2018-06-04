@@ -20,11 +20,14 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/style_login.css">
     <link rel="stylesheet" href="css/style_detalhes.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/caroussel.css">
     <!-- <script src="js/jquery.min.js"></script> -->
 
 
@@ -140,14 +143,14 @@
                    <h2>VEJA QUEM ESTÁ VIAJANDO COM A GENTE!</h2>
            </div>
            <div id="content">
-             <nav class="menu-carrossel">
-               <a href="#" class="prev" title="Anterior"> <img src="<?php echo($links); ?>img/icon/left.svg" alt="Esquerda"> </a>
+             <!-- <nav class="menu-carrossel">
+               <a href="#" class="prev" title="Anterior"> <img src="<?php //echo($links); ?>img/icon/left.svg" alt="Esquerda"> </a>
              </nav>
                    <div id="carrossel">
                        <ul>
                          <?php
-                         $a = 0;
-                         while ($a <= 5) {
+                         //$a = 0;
+                         //while ($a <= 5) {
                           ?>
                            <li>
                              <a href="views/interacao.php">
@@ -163,14 +166,35 @@
                              </a>
                            </li>
                            <?php
-                             $a ++;
-                             }
+                            // $a ++;
+                             //}
                            ?>
                        </ul>
                    </div>
                    <nav class="menu-carrossel">
                        <a href="#" class="next" title="Próximo"> <img src="img/icon/right.svg" alt="Direita"> </a>
-                   </nav>
+                   </nav> -->
+
+                   <section class="regular slider">
+                     <div>
+                       <img src="http://placehold.it/350x300?text=1">
+                     </div>
+                     <div>
+                       <img src="http://placehold.it/350x300?text=2">
+                     </div>
+                     <div>
+                       <img src="http://placehold.it/350x300?text=3">
+                     </div>
+                     <div>
+                       <img src="http://placehold.it/350x300?text=4">
+                     </div>
+                     <div>
+                       <img src="http://placehold.it/350x300?text=5">
+                     </div>
+                     <div>
+                       <img src="http://placehold.it/350x300?text=6">
+                     </div>
+                   </section>
                </div>
          </div>
 
@@ -180,15 +204,22 @@
       ?>
         <!-- <script src="<?php //echo($links); ?>js/jquery.min.js"></script>  -->
        <script src="js/jquery-3.3.1.js"></script>
+       <script src="<?php echo($links); ?>js/slick.js" type="text/javascript" charset="utf-8"></script>
        <script src="<?php echo($links); ?>js/jcarousellite.js"></script>
        <script src="<?php echo($links); ?>js/carrossel.js"></script>
         <script src="js/jquery-ui.js"></script>
         <script>
       // Modal Login
       $(document).ready(function() {
-            $(".login").click(function() {
-              $(".modalContainerLogin").fadeIn(500);
-            });
+        $(".login").click(function() {
+          $(".modalContainerLogin").fadeIn(500);
+        });
+        $(".regular").slick({
+          dots: true,
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3
+        });
       });
       //função para abrir a modal
       function Login(){
