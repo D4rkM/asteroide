@@ -31,7 +31,7 @@ $("#foto").change(function(){
           while($cont < count($list)){
 
           ?>
-          <option value="<?php echo($list[$cont]->pacote_viagem)?>">
+          <option value="<?php echo($list[$cont]->id)?>">
               <?php echo($list[$cont]->origem. " - " .$list[$cont]->destino)?></option>
 
           <?php

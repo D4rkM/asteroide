@@ -42,7 +42,7 @@ $(document).ready(function() {
 <div class="container_lista_home">
   <div class="itens_mostrar_home" <?php echo $list[$cont]->id_viagem ?>><?php echo $list[$cont]->origem." - ".$list[$cont]->destino?></div>
   <div class="itens_mostrar_home"><img class="imagem_lista" src="<?php echo $list[$cont]->imagem ?>" alt="imagem"></div>
-  <div class="itens_mostrar_home"><?php echo $list[$cont]->tipo ?></div>
+  <div class="itens_mostrar_home"><?php echo $list[$cont]->nome_tipo ?></div>
   <div class="itens_mostrar_home">
     <a href="router.php?controller=home&modo=excluir&id=<?php echo($list[$cont]->id) ?>">
       <img src="img/icon-delete.png" alt="">

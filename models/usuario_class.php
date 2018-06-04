@@ -37,11 +37,11 @@ class Usuario{
 
   public static function Insert ($usuario_dados){
 
-    $sql_usuario ="insert into cliente set imagem_usuario='$usuario_dados->imagem',
+    $sql_usuario ="INSERT INTO cliente set imagem_usuario='$usuario_dados->imagem',
                                            nome='$usuario_dados->nome',
                                            email='$usuario_dados->email',
                                            login='$usuario_dados->usuario',
-                                           senha='$usuario_dados->senha',
+                                           senha=MD5('$usuario_dados->senha'),
                                            datanasc='$usuario_dados->datanasc',
                                            sexo='$usuario_dados->sexo',
                                            telefone='$usuario_dados->telefone',
@@ -59,11 +59,20 @@ class Usuario{
 
     //Executa o script $sql no Banco de Dados
     if($PDO_conex->query($sql_usuario)){
-      $_SESSION['nome_usuario']= $rs['nome'];
-      $_SESSION['id_usuario'] = $rs['id'];
-      $_SESSION['imagem_usuario'] = $rs['imagem_usuario'];
 
-      header('location:views/Usuario/pagina_usuario.php');
+      $autolog = "SELECT * FROM cliente ORDER BY id DESC LIMIT 1";
+
+          $select = $PDO_conex->query($autolog);
+
+          if($rs=$select->fetch(PDO::FETCH_ASSOC)){
+            session_start();
+            $_SESSION['nome_usuario']= $rs['nome'];
+            $_SESSION['id_usuario'] = $rs['id'];
+            $_SESSION['imagem_usuario'] = $rs['imagem_usuario'];
+
+          }
+          header('location:views/Usuario/pagina_usuario.php');
+
     }else{
       echo("Erro ao inserir no BD");
     }
