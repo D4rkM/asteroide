@@ -7,16 +7,16 @@
   <div class="content-filtro">
     <form action="router.php?controller=viagens&modo=buscar" enctype="multipart/form-data" method="post">
       <div class="control-filtro">
-        <label for="txtorigem" class="txt_filtro2 subtitulo">Origem:</label>
-        <input id="txtorigem" class="input-box" type="text" name="txtorigem" required autocomplete="off">
+        <label for="txtorigem" class="txt_filtro2">Origem:</label>
+        <input id="txtorigem" class="input-box box_filtro" type="text" name="txtorigem" required autocomplete="off">
       </div>
       <div class="control-filtro">
-        <div class="txt_filtro2 subtitulo">Destino:</div>
+        <label for="txtdestino" class="txt_filtro2 ">Destino:</label>
         <input id="txtdestino" class="input-box box_filtro" type="text" name="txtdestino" required autocomplete="off">
       </div>
       <div class="control-filtro">
-        <div class="txt_filtro2 subtitulo">Dara de Ida:</div>
-        <input class="box_filtro input-box" type="date" name="txtida" >
+        <label for="txtdata" class="txt_filtro2 ">Dara de Ida:</label>
+        <input id="txtdata" class="box_filtro input-box" type="date" name="txtida" >
       </div>
       <!-- <div class="txt_filtro2">Data de Volta:</div>
       <input class="box_filtro" type="text" name="txtvolta" value=""> -->
