@@ -37,11 +37,11 @@ class Usuario{
 
   public static function Insert ($usuario_dados){
 
-    $sql_usuario ="insert into cliente set imagem_usuario='$usuario_dados->imagem',
+    $sql_usuario ="INSERT INTO cliente set imagem_usuario='$usuario_dados->imagem',
                                            nome='$usuario_dados->nome',
                                            email='$usuario_dados->email',
                                            login='$usuario_dados->usuario',
-                                           senha='$usuario_dados->senha',
+                                           senha=MD5('$usuario_dados->senha'),
                                            datanasc='$usuario_dados->datanasc',
                                            sexo='$usuario_dados->sexo',
                                            telefone='$usuario_dados->telefone',
@@ -59,11 +59,20 @@ class Usuario{
 
     //Executa o script $sql no Banco de Dados
     if($PDO_conex->query($sql_usuario)){
-      $_SESSION['nome_usuario']= $rs['nome'];
-      $_SESSION['id_usuario'] = $rs['id'];
-      $_SESSION['imagem_usuario'] = $rs['imagem_usuario'];
 
-      header('location:views/Usuario/pagina_usuario.php');
+      $autolog = "SELECT * FROM cliente ORDER BY id DESC LIMIT 1";
+
+          $select = $PDO_conex->query($autolog);
+
+          if($rs=$select->fetch(PDO::FETCH_ASSOC)){
+            session_start();
+            $_SESSION['nome_usuario']= $rs['nome'];
+            $_SESSION['id_usuario'] = $rs['id'];
+            $_SESSION['imagem_usuario'] = $rs['imagem_usuario'];
+
+          }
+          header('location:views/Usuario/pagina_usuario.php');
+
     }else{
       echo("Erro ao inserir no BD");
     }
@@ -106,18 +115,29 @@ class Usuario{
     //e guarda o retorno da conexao na variavel $PDO_conex
     $PDO_conex = $conex->Conectar();
 
-    //Executa o script $sql no Banco de Dados
-    if($PDO_conex->query($sql_usuario))
-        header('location:views/Usuario/pagina_usuario.php');
-    else
-        echo("Erro ao inserir no BD");
+    if($PDO_conex->query($sql_usuario)){
+      $autolog = "SELECT id, nome, imagem_usuario FROM cliente WHERE id =$usuario_dados->id";
+      // echo($autolog);die;
 
+        $select = $PDO_conex->query($autolog);
+
+        if($rs=$select->fetch(PDO::FETCH_ASSOC)){
+          session_start();
+          $_SESSION['nome_usuario']= $rs['nome'];
+          $_SESSION['id_usuario'] = $rs['id'];
+          $_SESSION['imagem_usuario'] = $rs['imagem_usuario'];
+
+        }
+        header('location:views/Usuario/pagina_usuario.php');
+    }else{
+      echo("Erro ao inserir no BD");
+    }
     //Fecha a conexão com o Banco de Dados
     $conex->Desconectar();
   }
   public function SelectById($usuario_dados){
-
-    $sql = "SELECT * FROM view_cliente_endereco WHERE id = ".$usuario_dados->id;
+    // var_dump($_SESSION['id_usuario']);die;
+    $sql = "select * from cliente where id = $usuario_dados->id";
     // echo($sql);die;
 
     $conex = new Mysql_banco();
@@ -144,14 +164,7 @@ class Usuario{
       $usuario->telefone = $rs['telefone'];
       $usuario->celular = $rs['celular'];
       $usuario->cpf = $rs['cpf'];
-      $usuario->cep = $rs['cep'];
-      $usuario->bairro = $rs['bairro'];
-      $usuario->numero = $rs['numero'];
-      $usuario->logradouro = $rs['logradouro'];
-      $usuario->complemento = $rs['complemento'];
-      $usuario->cidade= $rs['cidade'];
-      $usuario->estado = $rs['estado'];
-      $usuario->uf = $rs['Uf'];
+      $usuario->rg = $rs['rg'];
 
       $conex->Desconectar();
 

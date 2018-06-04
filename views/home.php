@@ -72,32 +72,20 @@
                  $controller_home = new controllerHome();
                  $list = $controller_home::Listar();
 
-                 $cont = 0;
-                 // if($list[$cont]->id($list[$cont]->tipo == 1)){
-                 while($cont < count($list)){
-
+                 foreach ($list as $value) {
+                 if($value->tipo == 2){
 
                ?>
-               <?php
-               // $a = 0;
-               // while ($a <= 2) {
-                ?>
                <div class="polaroid" >
-                 <img src="cms/<?php //echo($links); ?><?php echo $list[$cont]->imagem ?>" alt="Rio" style="width:100%">
+                 <img src="cms/<?php //echo($links); ?><?php echo $value->imagem ?>" alt="Rio" style="width:100%">
                  <div class="texto-polaroid">
-                   <p<?php echo $list[$cont]->id_viagem ?>><?php echo $list[$cont]->origem. " - " .$list[$cont]->destino ?></p>
+                   <p<?php echo $value->id_viagem ?>><?php echo $value->origem. " - " .$value->destino ?></p>
                  </div>
                </div>
                <?php
-                   $cont+=1;
-                 }
-               // }
-               ?>
-
-               <?php
-                 // $a ++;
-                 // }
-               ?>
+                     }
+                   }
+                   ?>
              </div>
            </a>
 
@@ -115,26 +103,20 @@
                $controller_home = new controllerHome();
                $list = $controller_home::Listar();
 
-               $cont = 0;
-               // if($list[$cont]->tipo == 2){
-               while($cont < count($list)){
+               foreach ($list as $value) {
+                   if($value->tipo == 1){
 
              ?>
-             <?php
-             // $a = 0;
-             // while ($a <= 2) {
-              ?>
              <div class="polaroid" >
-               <img src="cms/<?php //echo($links); ?><?php echo $list[$cont]->imagem ?>" alt="Rio" style="width:100%">
+               <img src="cms/<?php //echo($links); ?><?php echo $value->imagem ?>" alt="Rio" style="width:100%">
                <div class="texto-polaroid">
-                 <p<?php echo $list[$cont]->id_viagem ?>><?php echo $list[$cont]->origem. " - " .$list[$cont]->destino ?></p>
+                 <p<?php echo $value->id_viagem ?>><?php echo $value->origem. " - " .$value->destino ?></p>
                </div>
              </div>
              <?php
-                 $cont+=1;
-               }
-               // }
-             ?>
+                    }
+                  }
+                  ?>
            </div>
          </div>
 

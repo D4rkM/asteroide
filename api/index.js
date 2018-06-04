@@ -212,9 +212,24 @@ router.post('/api/v1/buscaviagem', (req, res) =>{
     console.log('origem: '+origem, '\ndestino: '+destino, '\ndataSaida: '+datamysql);
     const test = `SELECT * FROM view_lista_todas_as_viagens WHERE origem LIKE "%${origem}%" AND destino LIKE "%${destino}%" AND data_saida LIKE "%${datamysql}%";`;
     db.execSQLQuery(test, res);
-    console.log(res);
+    console.log(test);
 });
 
+//Busca de poltronas
+router.post('/api/v1/registro_poltronas', (req, res) =>{
+    const id_viagem = req.body.id_viagem;
+//    console.log('origem: '+origem, '\ndestino: '+destino, '\ndataSaida: '+datamysql);
+    const sql = `SELECT num_poltrona FROM registro_passagem WHERE viagem_id = '${id_viagem}';`;
+    db.execSQLQuery(sql, res);
+});
+
+//Busca vaigem por id
+router.post('/api/v1/buscaviagemporid', (req, res) =>{
+    const id = req.body.id;
+    const test = `SELECT * FROM view_lista_todas_as_viagens WHERE id = "${id}";`;
+    db.execSQLQuery(test, res);
+    console.log(test);
+});
 
 router.post('/api/v1/feedback/:id', (req, res) => {
 
@@ -260,6 +275,9 @@ router.get('/api/v1/busca_endereco/:cep?', (req,res) => {
   // res.json(dados);
 
 });
+
+
+
 
 
 // inicia o servidor

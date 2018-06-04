@@ -91,7 +91,7 @@ class Home{
 
   public function Select(){
 
-    $sql = "select ph.*,p.origem, p.destino from pghome as ph, viagem as v, pacote_viagem as p where ph.id_viagem = v.id and v.idpacote_viagem = p.id;";
+    $sql = "select ph.*,p.origem, p.destino, td.tipo from pghome as ph, viagem as v, pacote_viagem as p, tipo_destino as td where ph.id_viagem = v.id and v.idpacote_viagem = p.id and ph.idTipo = td.id;";
     // $sql = "select * from pghome order by id";
     $conex = new Mysql_db();
 
@@ -109,6 +109,7 @@ class Home{
       $listHome[$cont]->id_viagem = $rs['id_viagem'];
       $listHome[$cont]->imagem = $rs['imagem'];
       $listHome[$cont]->tipo = $rs['idTipo'];
+      $listHome[$cont]->nome_tipo = $rs['tipo'];
       $listHome[$cont]->origem = $rs['origem'];
       $listHome[$cont]->destino = $rs['destino'];
 

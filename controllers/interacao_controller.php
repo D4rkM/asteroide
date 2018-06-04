@@ -1,6 +1,6 @@
 <?php
 class controllerInteracao{
-  public function Novo(){
+  public function Novo($id_usuario){
     $interacao = new Interacao();
     require_once('trata_imagem.php');
     // iniciado variaveis
@@ -23,6 +23,7 @@ class controllerInteracao{
         $interacao->imagem=$diretorio_completo;
         $interacao->comentario = $_POST['txtinteracao'];
         $interacao->local = $_POST['txtlocal'];
+        $interacao->id_usuario = $id_usuario;
         // var_dump($interacao);die;
         $interacao::Insert($interacao);
   }

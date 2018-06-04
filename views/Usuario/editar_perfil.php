@@ -26,7 +26,9 @@
 
   </head>
   <body>
-       <?php require_once('nav.php'); ?>
+       <?php require_once('nav.php');
+       // @session_start();
+       // echo $_SESSION['id_usuario'];die;?>
 <!-- Conteúdo da página -->
 <div class="conteudo-cadastro">
   <!--Container responsael por segurar o titulo da pagima -->
@@ -45,16 +47,16 @@
   <div class="cadastro-container">
 
       <?php
-      	// require_once("../../controllers/usuario_controller.php");
-      	// require_once("../../models/usuario_class.php");
-        //
-      	// $usuario_controller = new controllerUsuario();
-      	// // $dadosUsuario = $usuario_controller::Buscar($id);
-        // $dadosUsuario = $usuario_controller::Buscar($_SESSION['id_usuario']);
+      	require_once("../../controllers/usuario_controller.php");
+      	require_once("../../models/usuario_class.php");
+
+      	$usuario_controller = new controllerUsuario();
+      	$dadosUsuario = $usuario_controller::Buscar($_SESSION['id_usuario']);
+        // var_dump($_SESSION['id_usuario']);die;
       	?>
 
         <!--Form dos itens do cadastro-->
-        <form action="../../router.php?controller=usuario&modo=editar&id=<?php //echo $_SESSION['id_usuario'] ?>" enctype="multipart/form-data" method="post">
+        <form action="../../router.php?controller=usuario&modo=editar&id=<?php echo $_SESSION['id_usuario']; ?>" enctype="multipart/form-data" method="post">
           <div class="subtitulo text-center">
             <h3>Foto de Perfil</h3>
           </div>
@@ -71,15 +73,15 @@
           <div class="dados-principais-cad">
             <div class="caixa-dados large">
               <label for="nome">Nome completo</label>
-              <input id="nome" class="" type="text" name="txtnome" value="<?php //echo $dadosUsuario->nome ?>">
+              <input id="nome" class="" type="text" name="txtnome" value="<?php echo $dadosUsuario->nome ?>">
             </div>
             <div class="caixa-dados large">
               <label for="email" class="">E-mail</label>
-              <input id="email" class="" type="text" name="txtemail" value="<?php //echo $dadosUsuario->email ?>">
+              <input id="email" class="" type="text" name="txtemail" value="<?php echo $dadosUsuario->email ?>">
             </div>
             <div class="caixa-dados large">
               <label for="senha" class="">Senha</label>
-              <input id="senha" class="" type="password" name="txtsenha" value="<?php //echo $dadosUsuario->senha ?>">
+              <input id="senha" class="" type="password" name="txtsenha" value="<?php echo $dadosUsuario->senha ?>">
             </div>
           </div>
           <!--Titulo dos dados pessoais-->
@@ -93,30 +95,30 @@
               <div class="dados-esquerda">
                 <div class="caixa-dados large">
                   <label for="dataNascimento">Data de Nascimento</label>
-                  <input id="dataNascimento" type="date" name="txtdatanasc" maxlength="10" value="<?php //echo $dadosUsuario->datanasc ?>">
+                  <input id="dataNascimento" type="date" name="txtdatanasc" maxlength="10" value="<?php echo $dadosUsuario->datanasc ?>">
                 </div>
                 <div class="caixa-dados">
                   <label for="sexo">Sexo</label>
                   <div id="sexo" class="radio-group">
-                    <input type="radio" name="rdosexo" value="M" <?php //if($dadosUsuario->sexo == 'M') echo"checked"?>>Masculino
-                    <input type="radio" name="rdosexo" value="F" <?php //if($dadosUsuario->sexo == 'F')echo"checked"?>>Feminino
+                    <input type="radio" name="rdosexo" value="M" <?php if($dadosUsuario->sexo == 'M') echo"checked"?>>Masculino
+                    <input type="radio" name="rdosexo" value="F" <?php if($dadosUsuario->sexo == 'F')echo"checked"?>>Feminino
                   </div>
                 </div>
                 <div class="caixa-dados large">
                   <label for="telefone">Telefone</label>
-                  <input id="telefone" type="text" name="txttelefone" maxlength="14" value="<?php //echo $dadosUsuario->telefone ?>">
+                  <input id="telefone" type="text" name="txttelefone" maxlength="14" value="<?php echo $dadosUsuario->telefone ?>">
                 </div>
                 <div class="caixa-dados large">
                   <label for="celular">Celular</label>
-                  <input id="celular" type="text" name="txtcelular" maxlength="15" value="<?php //echo $dadosUsuario->celular ?>">
+                  <input id="celular" type="text" name="txtcelular" maxlength="15" value="<?php echo $dadosUsuario->celular ?>">
                 </div>
                 <div class="caixa-dados large">
                   <label for="rg">RG</label>
-                  <input id="rg" name="txtrg" type="text" maxlength="12" value="<?php //echo $dadosUsuario->rg ?>">
+                  <input id="rg" name="txtrg" type="text" maxlength="12" value="<?php echo $dadosUsuario->rg ?>">
                 </div>
                 <div class="caixa-dados large">
                   <label for="cpf">CPF</label>
-                  <input id="cpf" name="txtcpf" type="text" maxlength="14" value="<?php //echo $dadosUsuario->cpf ?>" >
+                  <input id="cpf" name="txtcpf" type="text" maxlength="14" value="<?php echo $dadosUsuario->cpf ?>" >
                 </div>
                 <!-- <div class="caixa-dados small">
                   <label for="cep">CEP</label>
@@ -296,9 +298,9 @@ function mascara(o,f){
             id('rg').onkeypress = function(){
                 mascara( this, mrg );
             }
-            id('cep').onkeypress = function(){
-                mascara( this, mcep );
-            }
+            // id('cep').onkeypress = function(){
+            //     mascara( this, mcep );
+            // }
         }
 
         //mascara para caracter

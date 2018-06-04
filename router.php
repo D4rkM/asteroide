@@ -83,7 +83,7 @@
       switch ($modo) {
         case 'novo':
           $controllerInteracao = new controllerInteracao();
-          $controllerInteracao::Novo();
+          $controllerInteracao::Novo($_GET['id']);
           break;
 
         case 'lista':
