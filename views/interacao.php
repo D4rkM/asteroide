@@ -57,7 +57,7 @@
             // var_dump($list[$cont]->ativo);die;
           while($cont < count($list)){
            ?>
-        <div class="cardbox">
+        <div class="cardbox card-blog">
           <div class="cardbox-title" <?php $list[$cont]->ativo ?>>
             <div class="foto-user">
               <img src="<?php echo($links); ?><?php echo $list[$cont]->imagem_usuario ?>" alt="user">

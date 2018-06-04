@@ -10,8 +10,9 @@ body{
   margin: 0px;
   padding: 0px;
   overflow-y: hidden;
-  font-family: ;  
-}
+  font-family: sans-serif;
+  font-size: 1.0em;
+}#
 
 a{
   text-decoration: none;
@@ -36,10 +37,10 @@ header{
 }
 /*area do logo da empresa*/
 .header-content{
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
   width: auto;
-  align-items: center;
+  /* align-items: center; */
   /*height: 10vh;*/
   height: inherit;
 
@@ -52,6 +53,7 @@ header{
   width: 100px;
   height: 25px;
   float: left;
+
   margin-right: 30px;
   margin-top: 3vh;
   border-radius: 10px;
@@ -59,7 +61,7 @@ header{
 
 .text_user{
   width: 180px;
-  font-family: sans-serif;;
+  font-family: sans-serif;
   font-size: 18px;
     color:white;
 }
@@ -70,7 +72,7 @@ header{
 }
 /*menu lateral do sistema*/
 nav{
-  width: 160px;
+  width: 200px;
   height: 100%;
   background-color: #1F405E;
   user-select: none;
@@ -145,11 +147,10 @@ nav{
 /*Conteudo que aparecera a partir da opção d menu lateral*/
 #main{
   height: auto;
-  height: 
   background-color: #fff;
-  /*float: left;*/
-  overflow-x: hidden;
-
+  display: block;
+  /* overflow-x: hidden; */
+  width: 100%;
 }
 /*Duvidas Frequentes*/
 /*layout*/
@@ -157,38 +158,38 @@ nav{
   display: flex;
   flex-direction: row;
   background-color: #fff;
-  /*width: 100%;*/
+  width: 100%;
   height: 35px;
-  border-bottom: solid 1px #000;
+  border-bottom: solid 1px rgba(0,0,0,0.4);
 }
+
 .labels{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 120px;
   height: 30px;
-  background-color: #f3f3f3;
+  background-color: #c3c3c3;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  text-align: center;
-  box-shadow: 
-  border-bottom:none;
+  margin-top: 5px;
+  margin-left: 5px;
   color: #4d9b61;
-/*  margin-top: 7px;
-  margin-right: 10px;*/
-  bottom:0px;
-  line-height: 6vh;
-  font-size: 15px;
-  font-family: sans-serif;
+  margin-bottom:-5px;
+  text-align: center;
   cursor: pointer;
   font-weight: bold;
 }
 
 .title_page{
-  /*float: left;*/
-  margin-left: 58%;
   font-size: 20px;
   font-family: sans-serif;
   color: #084B8A;
+  margin-left: 60%;
   margin-top: 10px;
   font-weight: bold;
+  min-width: 200px;
+  width: auto;
 }
 
 .top-margin{
@@ -645,7 +646,7 @@ nav{
   margin-top: 10px;
 }
 /*Sobre_Empresa*/
-.cadastro_empresa{
+/* .cadastro_empresa{
   width: 60%;
   height: 70vh;
   background-color: #fff;
@@ -653,7 +654,7 @@ nav{
   margin-top: 50px;
   border-radius: 15px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
-}
+} */
 .cont_text{
   width: 50%;
   height: 70vh;
@@ -1291,7 +1292,9 @@ label#imagem{
   width: 100%;
   height: 100%;
   box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
+  background-image: url('../../img/foto-img.png');
   border-radius: 15px;
+  background-repeat:no-repeat;
 }
 .adicionar_imagem{
   display: flex;

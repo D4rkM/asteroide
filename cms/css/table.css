@@ -11,14 +11,11 @@
 }
 
 .table{
-  width:800px;
+  min-width:1200px;
   height:auto;
+  /* margin-left: 80px; */
   font-family: sans-serif;
-  /*font-family: "opensansbold";  */
-
-  /*background-color: blue;*/
-
-
+  overflow-x: auto;
 }
 
 .thead{
@@ -27,7 +24,8 @@
   font-weight: bold;
   text-align: center;
   height: 50px;
-} 
+  border: solid 1px blue;
+}
 
 /*.item_acompanha{
   width: 16.5%;
@@ -61,7 +59,6 @@
   margin: 0px;
   background-color: inherit;
   font-size: 16px;
-
   text-align: center;
   line-height: 40px;
   border: 1px #fff solid;

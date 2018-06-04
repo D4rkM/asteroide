@@ -1,5 +1,5 @@
-<?php 
-  session_start();	
+<?php
+  session_start();
   $poltrona_selecionada = array();
   $meses = array('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro');
   $ano = date("Y");
@@ -68,16 +68,31 @@
 <script>
   $(document).on("submit", "#_finalizar",function(e){
     e.preventDefault();
+    // var ret = [];
+
     $.ajax({
       url:'router.php?controller=registro_passagem&modo=compra',
       type: 'POST',
       data: new FormData($('#_finalizar')[0]),
       processData: false,
       contentType: false,
+      async: false,
+      // dataType:'json',
       success: function(res){
-        $(".pague").html('<h2>Foi</h2>');
+        // $(".pague").html('<h2>Foi</h2>');
+
+        // console.log(res);
+        var resp = JSON.parse(res.substring(res.indexOf('{"object":"transa')-1));
+        // console.log(res.substring(res.indexOf('KEY-----\n"}'+1333)));
+        // console.log(res.substring(res.indexOf(') "')+13));
+        console.log(resp.id);
+        // console.log(res);
+      },
+      error: function(a,err,b){
+        console.log(err);
       }
     });
+
   });
 
 </script>
@@ -113,8 +128,8 @@
      <div id="cpf" class="box_pague">
         <input type="text" name="cpf" value="<?php echo $Usuario->cpf; ?>" >
      </div>
-          <div id="telefone" class="box_pague">
-        <input type="text" name="telefone" value="<?php echo $Usuario->telefone; ?>" >
+          <div id="celular" class="box_pague">
+        <input type="text" name="celular" value="<?php echo $Usuario->celular; ?>" >
      </div>
       <input type="hidden" name="email" value="<?php echo $Usuario->email; ?>" >
      <h2 class="subtitulo center">Endereco</h2>
@@ -140,9 +155,9 @@
         <input type="text" name="cartao"  placeholder="Numero do cartao" maxlength="16" required>
       </div>
      <select class="combo_pague" name="month">
-      <?php 
+      <?php
         for($a = 0; $a < sizeof($meses); $a++){
-          ?><option value="<?php 
+          ?><option value="<?php
           if($a < 10){echo('0'.$a);}else{echo($a+1);}
 
            ?>"><?php echo($meses[$a]); ?></option><?php
@@ -150,7 +165,7 @@
        ?>
      </select>
      <select class="combo_pague" name="year">
-        <?php 
+        <?php
         for($a = 0; $a < sizeof($anos); $a++){
           ?><option value="<?php echo(substr($anos[$a],2)); ?>">
           <?php echo($anos[$a]); ?>
@@ -161,7 +176,7 @@
      <div class="box_pague"><input type="text" name="codigo" value="" maxlength="3" required="required" placeholder="Codigo de segurança"></div>
     <div class="text_pague">Parcelamento</div>
      <select class="combo_pague" name="installments">
-       <?php 
+       <?php
        $a = 1;
         while($a < 5){
           ?>
@@ -180,11 +195,12 @@
        <label><?php echo($DadosViagem->preco * sizeof($poltrona_selecionada)); ?></label>
        <input type="hidden" value="<?php echo($DadosViagem->preco * sizeof($poltrona_selecionada)); ?>" name="total">
        <input type="hidden" name="preco" value="<?php echo($DadosViagem->preco); ?>">
+       <input type="hidden" name="tipo" value="cartao">
      </div>
    </div>
    <div class="cont_pague">
      <div class="finalizar">
-   
+
   </div>
    </div>
    <div class="cont_pague">
@@ -195,5 +211,3 @@
    </div>
    <button type="submit" class="btn">Finalizar Compra</button>
   </form>
-
-

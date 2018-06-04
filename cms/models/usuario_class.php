@@ -28,7 +28,7 @@ class Usuario{
   }
 
   public function Select(){
-    $sql = "select * from cliente order by;";
+    $sql = "select * from cliente order by id desc;";
 
     $conex = new Mysql_db();
 

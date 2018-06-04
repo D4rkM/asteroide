@@ -104,7 +104,7 @@
       $conex->Desconectar();
       if(isset($listaViagem)){
         return $listaViagem;
-        
+
       }
 
     }

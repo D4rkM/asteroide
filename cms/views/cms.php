@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/table.css">
     <title>CMS Central</title>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/jquery.mask.js"></script>
@@ -220,7 +221,7 @@
           <!-- <input class="logout" type="submit" name="btnlogout" value="Logout"> -->
         </div>
       </header>
-    <div class="container_cms"> 
+    <div class="container_cms">
       <!-- menu lateral -->
       <nav>
         <ul class="mainmenu">
@@ -230,7 +231,7 @@
               <img src="img/adm.png">
               <a href="#">Admistração</a>
             </div>
-            
+
               <ul id='1' class="submenu">
                 <li><a href="#">Relatorios</a></li>
                 <li><a href="#">Graficos</a></li>
@@ -258,7 +259,7 @@
           <li>
             <li id='3' class="itens" >
               <div class="nav_title">
-                
+
               <img src="img/vend.png">
               <a href="#">Vendas</a>
             </div>
@@ -293,6 +294,6 @@
     <?php
    endif;
    ?>
-   
+
   </body>
 </html>

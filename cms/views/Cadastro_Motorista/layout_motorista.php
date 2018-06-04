@@ -1,6 +1,7 @@
 
 <script type="text/javascript ">
   $(document).ready(function() {
+    $('#conteudo').load('views/Cadastro_Motorista/lista_motorista.php');
     $("#list").click(function(){
       $.ajax({
         type:"POST",

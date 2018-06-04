@@ -1,6 +1,7 @@
 
 <script type="text/javascript ">
   $(document).ready(function() {
+    $('#conteudo').load('views/Cadastro_Funcionario/pagina_lista_funcionario.php');
     $("#list").click(function(){
       $.ajax({
         type:"POST",

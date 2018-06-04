@@ -91,7 +91,9 @@
           <h4> <b>SEGURO</b> </h4>
         </div>
         <div class="referencias-rodape">
-          <h4>Copyright © 2018 Viação Asteróide</h4>
+          <a href="./cms" style="cursor:default; color: #fff;">
+            <h4>Copyright © 2018 Viação Asteróide</h4>
+          </a>
         </div>
         <div class="referencias-rodape">
           <h4>Desenvolvido por <a href="#"> <b>Pulsar</b> </a> </h4>

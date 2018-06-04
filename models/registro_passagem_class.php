@@ -14,7 +14,7 @@ class RegistroPassagem{
   }
 
   public static function buscarPoltronas($viagem_id){
-    // echo($viagem_id);
+
     $sql = "SELECT num_poltrona FROM registro_passagem WHERE viagem_id ='$viagem_id'";
 
     $conex = new Mysql_banco();
@@ -37,9 +37,43 @@ class RegistroPassagem{
 
     // echo($registro_poltronas[$cont]->num_poltrona);
     if(isset($registro_poltronas)){
-      // echo(sizeof($registro_poltronas));
+      // echo("jooj");
+      // echo($registro_poltronas);
       return $registro_poltronas;
     }
+
+  }
+
+  public static function registrarPoltrona($compra_id, $num_poltrona, $viagem_id){
+
+    $sql = "INSERT INTO registro_passagem
+            SET num_poltrona = '$num_poltrona',
+                compra_id = '$compra_id',
+                viagem_id ='$viagem_id'";
+
+
+    //Instancia a classe do banco
+    $conex = new Mysql_banco();
+
+    //Chama o metodo para conectar no BD,
+    //e guarda o retorno da conexao na variavel $PDO_conex
+    $PDO_conex = $conex->Conectar();
+
+    //Executa o script $sql no Banco de Dados
+    if($PDO_conex->query($sql)){
+    // echo('foi');
+
+      // echo('inseriu poltrona');
+      // return $sql;
+
+
+    // echo("<script> alert('Mensagem enviada com sucesso.'); </script>");
+    }else{
+    echo("Erro ao inserir registro de passagem:  $sql  \n");
+    }
+
+    //Fecha a conexão com o Banco de Dados
+    $conex->Desconectar();
 
   }
 

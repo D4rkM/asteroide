@@ -21,7 +21,7 @@ $("#foto").change(function(){
     <div class="cont_pessoais">
       <label for="foto">
         <div  class="adicionar_imagem" id="imagem">
-          <img id="id_sua_img" src="img/bus.jpg" alt="foto"/>
+          <img id="id_sua_img" src="" alt="foto"/>
         </div>
       </label>
       <!--Botão para selecionar a foto-->

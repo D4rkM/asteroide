@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="css/acompanhamento.css">
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-<script type="text/javascript"></script>
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<!-- <script type="text/javascript"></script> -->
+<!-- <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script> -->
 
 <script>
 $(document).ready(function() {
@@ -28,18 +28,21 @@ $(document).ready(function() {
 	}
 </script>
 <div class="list-content top-margin">
-  
+
   <table class="table" style="overflow-x:auto;">
- 
-    <tr class="thead">
-      <td >Viagem</td>
-      <td >Latitude do Onibus</td>
-      <td >Longetude do Onibus</td>
-      <td >Data de registro</td>
-      <td >Status da Viagem</td>
-      <td >Opções</td>  
-    </tr>
-  
+    <thead class="thead">
+      <tr class="thead">
+        <th >Viagem</th>
+        <th >Latitude do Onibus</th>
+        <th >Longetude do Onibus</th>
+        <th >Data de registro</th>
+        <th >Status da Viagem</th>
+        <th >Foto</th>
+        <th >Opções</th>
+      </tr>
+    </thead>
+
+
   <tbody class="tbody">
     <?php
   require_once("../../controllers/acompanhamento_controller.php");
@@ -74,5 +77,3 @@ $(document).ready(function() {
 
 
 </div>
-
-

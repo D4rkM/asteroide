@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="Magno">
-    
+
     <!--
       Data de modificação: 19/03/2018
       Obs: Página principal contém menu e rodapé para inserir as outras páginas
@@ -19,15 +19,15 @@
     <title>Home - Bem vindo</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/style_login.css">
     <link rel="stylesheet" href="css/style_detalhes.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/chatbot.css">
     <!-- <script src="js/jquery.min.js"></script> -->
 
-    
+
   </head>
   <body>
     <div class="modalContainerLogin">
@@ -175,7 +175,7 @@
          </div>
 
        </div>
-      <?php require_once('footer.php'); 
+      <?php require_once('footer.php');
             // require_once('chatbot.php');
       ?>
         <!-- <script src="<?php //echo($links); ?>js/jquery.min.js"></script>  -->
@@ -252,12 +252,13 @@
           var origem = $(this).val();
           // console.log(origem);
           if(origem.length > 0){
-
+            // Retorna o log com valores da pesquisa
+            // console.log(
             sugestaoPesquisa(origem).done(autocompletarOrigem);
-
+            // );
           }
-          
-          
+
+
         });
 
         $(document).on('keyup', '#txtdestino', function(){
@@ -268,8 +269,8 @@
             sugestaoPesquisa(destino).done(autocompletarDestino);
 
           }
-          
-          
+
+
         });
 
         function autocompletarOrigem(listorigem){
@@ -291,8 +292,8 @@
         }
       });
 
-      
- 
+
+
 
     </script>
 

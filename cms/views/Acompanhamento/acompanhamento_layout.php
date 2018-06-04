@@ -1,6 +1,7 @@
 
 <script type="text/javascript ">
   $(document).ready(function() {
+    $('#conteudo').load('views/Acompanhamento/acompanhamento_lista.php');
     $("#list").click(function(){
       $.ajax({
         type:"POST",

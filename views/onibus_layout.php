@@ -9,42 +9,53 @@
   $ocupadas = new RegistroPassagemController();
   $ocupadas = $ocupadas::buscarPoltronas($idViagem);
 
+  // echo count($lista_ocupadas);
   // Desabilita as poltronas já compradas
   function verificaOcupacao($polt_num, $lista_ocupadas){
-    $cont = 0;
-    while($cont < sizeof($lista_ocupadas)){
-      if($polt_num == $lista_ocupadas[$cont]->num_poltrona){
-        echo 'disabled';
-        return;
+    if($lista_ocupadas){
+
+      echo count($lista_ocupadas);
+      $cont = 0;
+      while($cont < sizeof($lista_ocupadas)){
+        if($polt_num == $lista_ocupadas[$cont]->num_poltrona){
+          echo 'disabled';
+          return;
+        }
+        $cont ++;
       }
-      $cont ++;
-    }
+  }
   }
   // Estiliza a label da checkbox para aparecer como ocupada
   function verificaOcupacaoLabel($polt_num, $lista_ocupadas){
-    $cont = 0;
-    while($cont < sizeof($lista_ocupadas)){
-      if($polt_num == $lista_ocupadas[$cont]->num_poltrona){
-        echo 'style="background-color:grey; pointer-events:none;"';
-        return;
+    if($lista_ocupadas){
+
+      $cont = 0;
+      while($cont < sizeof($lista_ocupadas)){
+        if($polt_num == $lista_ocupadas[$cont]->num_poltrona){
+          echo 'style="background-color:grey; pointer-events:none;"';
+          return;
+        }
+        $cont ++;
       }
-      $cont ++;
     }
   }
   // Indica ao data-attribute (usado na logica em javascript)
   // qual poltrona está ocupada / selecionada / livre
   function setaCor($polt_num, $lista_ocupadas){
-    $cont = 0;
-    while($cont < sizeof($lista_ocupadas)){
-      if($polt_num == $lista_ocupadas[$cont]->num_poltrona){
-        echo('2');
-        return;
-      }else{
-        if(($cont+1)==sizeof($lista_ocupadas)){
-          echo('0');
+    if($lista_ocupadas){
+
+      $cont = 0;
+      while($cont < sizeof($lista_ocupadas)){
+        if($polt_num == $lista_ocupadas[$cont]->num_poltrona){
+          echo('2');
+          return;
+        }else{
+          if(($cont+1)==sizeof($lista_ocupadas)){
+            echo('0');
+          }
         }
+        $cont ++;
       }
-      $cont ++;
     }
   }
 

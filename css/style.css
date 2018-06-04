@@ -39,7 +39,12 @@ body{
   padding: 0px;
 }
 /* Padroniza  a input */
-input{
+.input-box{
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.4);
+}
+
+.exinput{
   border: none;
   background-color: inherit;
   width: auto;
@@ -59,20 +64,20 @@ input{
 }
 
 /* Aplica efeito de troca de cores na borda da input */
-input.btn:hover{
+.-input.btn:hover{
   background-color: #4d9b61;
   border:0px;
   transition: 1s;
 }
 /* Padroniza a estilização de inputs ao receber foco */
-input:focus, select:focus {
-    /* box-shadow: 5 5; */
+/* .input:focus, .select:focus {
+    /* box-shadow: 5 5;
     border-bottom:  none;
     outline: 0;
     border-bottom: 2px solid #384e59;
-    /* border-bottom: 2px solid #1F405E; */
+    /* border-bottom: 2px solid #1F405E;
     transition:1s;
-}
+} */
 /* Define padrao de curvatura da select */
 select{
   border-radius:5px;
@@ -1739,10 +1744,13 @@ box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  margin-bottom: 40px;
+}
+
+.card-blog{
   width: 80%;
   height:400px;
-  margin-bottom: 40px;
-
 }
 
 /*  */

@@ -3,6 +3,7 @@
   $controller = $_GET['controller'];
   $modo = $_GET['modo'];
 
+
   switch($controller){
 
     case 'viagens':
@@ -68,7 +69,7 @@
               }
             }else{
               require_once('index.php');
-              
+
             }
             //echo ("okkkkkkkkkkk");
             // require_once('nav.php');
@@ -126,13 +127,13 @@
               if(isset($_POST['idviagem'])){
               $_SESSION['_idViagem'] = $_POST['idviagem'];
               $_SESSION['_selected'] = $_POST['poltrona'];
-                
+
               if(isset($_SESSION['id_usuario'])){
 
                   require_once('views/pagina-pagamento.php');
 
                 }else{
-                  
+
                   require_once('views/usuario_identificacao.php');
 
                 }
@@ -157,24 +158,50 @@
               break;
             case "compra":
               session_start();
-              if(isset($_SESSION['id_usuario'])){
-                  // require_once('models/compra_class.php');
-                  // require_once('controllers/compra_controller.php');
-                  require_once('models/transacao_class.php');
-                  require_once('controllers/transacao_controller.php');
-
-                // echo('aaaaee');
-                  $transacao = new TransacaoController();
-                  $transacao::cartaoDeCredito();
 
 
+              if(isset($_POST['tipo'])){
+                $tipo = $_POST['tipo'];
+                // echo('tipo');
+              }
+              switch($tipo){
 
-                  // $compra = new CompraController();
-                  // $idCompra = $compra::novaCompra();
+                case 'boleto':
+                  if(isset($_SESSION['id_usuario'])){
+                    // require_once('models/compra_class.php');
+                    // require_once('controllers/compra_controller.php');
+                    require_once('models/transacao_class.php');
+                    require_once('controllers/transacao_controller.php');
 
-                }else{
+                    // echo('aaaaee');
+                    $transacao = new TransacaoController();
+                    $transacao::boletoBancario();
+                  }
 
-                }
+                  break;
+                case 'cartao':
+                  if(isset($_SESSION['id_usuario'])){
+                    // echo('foi');
+                      // require_once('models/compra_class.php');
+                      // require_once('controllers/compra_controller.php');
+                      require_once('models/transacao_class.php');
+                      require_once('controllers/transacao_controller.php');
+
+                    // echo('aaaaee');
+                      $transacao = new TransacaoController();
+                      $transacao::cartaoDeCredito();
+
+
+
+                      // $compra = new CompraController();
+                      // $idCompra = $compra::novaCompra();
+
+                    }else{
+
+                    }
+                    break;
+              }
+
 
               break;
 
@@ -201,7 +228,7 @@
             echo(json_encode($var));
 
             break;
-          }  
+          }
         break;
 
 

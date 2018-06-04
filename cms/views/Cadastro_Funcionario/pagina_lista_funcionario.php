@@ -6,7 +6,7 @@
   <div class="item_funcionario">Opções</div>
 </div>
 
-<script type="text/javascript" src="js/jquery.js"></script>
+<!-- <script type="text/javascript" src="js/jquery.js"></script> -->
 <script>
 $(document).ready(function() {
   $(".ver").click(function() {

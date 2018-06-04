@@ -1,6 +1,6 @@
 <?php
 
-	require '../api_pagarme/pagarme/pagarme-php/Pagarme.php';
+	require 'api_pagarme/pagarme/pagarme-php/Pagarme.php';
 
   PagarMe::setApiKey('ak_test_8WyR0RFHABj4zuSDjFJfy6QpYk6Z0M'); //Seta a Key da api
 
@@ -50,12 +50,12 @@
 
 
 		public function efetuarTransacao($req){
-		    try{	
+		    try{
 		    	// var_dump($req);
 	    		$transaction = new PagarMe_Transaction($req);
-  				$transaction->charge();
+					$res = $transaction->charge();
   				// echo('Compra efetuada com sucesso');
-  				return true;
+  				return $res;
 
 		    }catch(Exception $err){
 		    	echo("Não foi possível realizar a transacao: \n Erro: ".$err);
@@ -63,27 +63,39 @@
 		    }
 		}
 
-		public function viaBoleto($compraEmboleto){
+		public function viaBoleto($compraEmBoleto){
+			// var_dump($compraEmBoleto);
+			try{
 
-			$req = array(
-			    'amount' => $compraEmboleto->amount, //10000
-			    'payment_method' => $compraEmboleto->payment_method, //"boleto"
-			    'postback_url' => $compraEmboleto->postback_url, //"http://requestb.in/pkt7pgpk"
-			    'customer' => array(
-			        'type' => $compraEmboleto->type, //"individual"
-			        'country' => 'br', //"br"
-			        'name' => $compraEmBoleto->name, //"Aardvark Silva"
-			        'email' => $compraEmBoleto->email, //"aardvark.silva@pagar.me"
-			        'documents' => [
-		            [
-		                'type' => 'cpf', //"cpf"
-		                'number' => $compraEmboleto->cpf //"0000000000000"
-		            ]
-		        ]
+				$req = array(
+		      "amount" => $compraEmBoleto->amount, //10000
+		      "payment_method" => "boleto", //"credit_card"
+			    'postback_url' => "http://requestb.in/pkt7pgpk",
+		      "customer" => array(
+		          "name" => $compraEmBoleto->name, //"John Doe"
+		          "type" => "individual", //"Individual"
+		          "country" => "br", // "br"
+		          "documents" => array(
+		            array(
+		              "type" => "cpf", //"cpf"
+		              "number" => $compraEmBoleto->cpf //"00000000000"
+		            )
+		          ),
+		          "phone_numbers" => array( $compraEmBoleto->phone_numbers ), // "+5511999999999"
+		          "email" => $compraEmBoleto->email // "aardvark.silva@pagar.me"
 		      )
 		    );
 
-			efetuarTransacao($req);
+				// var_dump($req);
+			$enviar = new Transacao();
+
+			$enviar::efetuarTransacao($req);
+
+				return true;
+			}catch(Exception $e){
+				echo($e);
+				return false;
+			}
 
 		}
 
@@ -92,11 +104,11 @@
 
 				$req = array(
 		      "amount" => $compraEmCartao->amount, //10000
-		      "card_number" => $compraEmCartao->card_number, //"4111111111111111"
+		      "card_number" => "4111111111111111", //"4111111111111111"
 		      "card_cvv" => $compraEmCartao->card_cvv, //123
 		      "card_brand" => $compraEmCartao->card_brand,
-		      "card_expiration_month" => $compraEmCartao->card_expiration_month, //"09"
-		      "card_expiration_year" => $compraEmCartao->card_expiration_year, //"22"
+		      "card_expiration_month" => "09",
+		      "card_expiration_year" => "22",
 		      "card_holder_name" => $compraEmCartao->card_holder_name, //"John Doe"
 		      "payment_method" => "credit_card", //"credit_card"
 		      "installments" => $compraEmCartao->installments, // 1
@@ -132,7 +144,7 @@
 		          "title" => $compraEmCartao->title, // "NOme do ITem"
 		          "unit_price" => $compraEmCartao->unit_price, //"PRecoUnitario"
 		          "quantity" => $compraEmCartao->quantity, //"Quantidade"
-		          "tangible" => false //"false" -- Não é um bem fisico como um sapato ou camiseta, 
+		          "tangible" => false //"false" -- Não é um bem fisico como um sapato ou camiseta,
 		          //mas sim uma poltrona que será utilizada até o fim de sua viagem
 		        )
 		      )
@@ -148,11 +160,63 @@
 				echo($e);
 				return false;
 			}
-			
+
 
 		}
 
-	}
+		public function buscarTodas(){
+			try{
+
+			// echo($transaction['status']);
+			 $transaction = PagarMe_Transaction::all();
+				// $transaction = PagarMe_Transaction::findById("3633816");
+
+				// $res = $transaction->refund();
+				// var_dump($res['status']);
+
+			} catch (Exception $ex) {
+
+					echo $ex->getMessage();
+
+			}
+		}
+
+		public function buscarTransacaoPorId($id_transacao){
+				try{
+
+				$transaction = PagarMe_Transaction::findById($id_transacao);
+
+				$res = $transaction->refund();
+				var_dump($res);
+
+			} catch (Exception $ex) {
+
+					echo $ex->getMessage();
+
+			}
+		}
+
+		public function cancelarCompra($id_transacao){
+			try{
+
+			// echo($transaction['status']);
+			 // $transaction = PagarMe_Transaction::all();
+				$transaction = PagarMe_Transaction::findById($id_transacao);
+
+				$res = $transaction->refund();
+				// var_dump($res['status']);
+				return true;
+
+			} catch (Exception $ex) {
+
+					echo $ex->getMessage();
+					return false;
+
+			}
+		}
+}
+
+
 
 
 ?>
