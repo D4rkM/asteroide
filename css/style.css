@@ -25,7 +25,11 @@ Obs: Arquivo principal para edições nas páginas
   src: url('../fonts/nunito/Nunito-Regular.ttf');
   font-family: "Nunito", sans-serif;
 }
-
+.nome_usuario{
+  color: #fff;
+  font-family: sans-serif;;
+  font-size: 17px;
+}
 
 /* Configurações dos itens para todas as páginas */
 body{

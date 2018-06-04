@@ -99,7 +99,7 @@ class controllerUsuario {
   public function Buscar($id){
     $usuario = new Usuario();
     $usuario->id = $id;
-    // echo('foi');
+    // var_dump($usuario->id);die;
     return $dados_usuario = $usuario::SelectById($usuario);
   }
 

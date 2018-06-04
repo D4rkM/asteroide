@@ -26,7 +26,7 @@
 
   </head>
   <body>
-       <?php require_once('nav.php'); ?>
+       <?php require_once('nav.php');?>
 <!-- Conteúdo da página -->
 <div class="conteudo_interacao1">
   <!--Container que segura todas as informações da pagina -->
@@ -47,7 +47,7 @@
       <div class="interacao">
         <h2>Gostou da viagem? Compatilhe com seus amigos como foi a experiencia de viajar com a Viação Asteroide</h2>
         <div class="postar_viagem">
-          <form action="../../router.php?controller=interacao&modo=novo" method="post" enctype="multipart/form-data">
+          <form action="../../router.php?controller=interacao&modo=novo&id=<?php $_SESSION['id_usuario']; ?>" method="post" enctype="multipart/form-data">
             <textarea class="box_interacao" name="txtinteracao" placeholder="EX:Minha viagem para Minas Gerais foi muito legal..."></textarea>
             <!-- <img class="img_interacao2" src="../../img/praia-rio.jpg" alt="camera"> -->
             <label for="foto">

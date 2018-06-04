@@ -13,9 +13,9 @@
       $sql = "insert into interacao set comentario='$interacao_dados->comentario',
                                         img='$interacao_dados->imagem',
                                         nome_local='$interacao_dados->local',
-                                        id_usuario = '1',
+                                        id_usuario = '$interacao_dados->id_usuario',
                                         aparecer=1;";
-                                        // echo ($sql);die;
+                                        echo ($sql);die;
 
       $conex = new Mysql_banco();
       $PDO_conex = $conex->Conectar();
