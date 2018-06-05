@@ -4,13 +4,14 @@
     public $comentario;
     public $imagem;
     public $local;
+    public $nome;
 
     public function __construct(){
       require_once('db_class.php');
     }
 
     public static function Insert($interacao_dados){
-      $sql = "insert into interacao set comentario='$interacao_dados->comentario',
+      $sql = "INSERT INTO interacao SET comentario='$interacao_dados->comentario',
                                         img='$interacao_dados->imagem',
                                         nome_local='$interacao_dados->local',
                                         id_usuario = '$interacao_dados->id_usuario',
@@ -28,7 +29,7 @@
     }
 
     public function Select(){
-      $sql = "select * from interacao as i, cliente as c where i.id_usuario=c.id;";
+      $sql = "select * from interacao as i, cliente as c where i.id_usuario = c.id;";
 
       $conex = new Mysql_banco();
 

@@ -1,5 +1,5 @@
 <?php
-    
+
     if (session_status() == PHP_SESSION_NONE) {
       session_start();
     }
@@ -22,12 +22,12 @@
     <div class="conteudo-menu">
       <div class="segura-itens-menu">
         <div class="itens-menu">
-          <h2>Empresa <img src="<?php echo($links); ?>img/icon/down.svg" alt="" style="width:20px; height:20px;"> </h2>
+          <h2>Empresa  </h2>
+          <!-- <img src="<?php //echo($links); ?>img/icon/down.svg" alt="" style="width:20px; height:20px;"> -->
           <ul class="submenu">
             <li><a href="<?php echo($paths); ?>sobre_empresa.php">Sobre a Empresa</a></li>
             <li><a href="<?php echo($paths); ?>fale_conosco.php">Fale Conosco</a></li>
             <li><a href="<?php echo($paths); ?>frotas.php">Nossas Frotas</a></li>
-            <li><a href="<?php echo($paths); ?>trabalhe_conosco.php">Trabalhe Conosco</a></li>
           </ul>
         </div>
         <div class="itens-menu">
@@ -47,10 +47,10 @@
 
         <div class="itens-menu">
           <h2>Passagens</h2>
-          <ul class="submenu">
+          <!-- <ul class="submenu">
             <li>item</li>
             <li>item</li>
-          </ul>
+          </ul> -->
         </div>
         <div class="itens-menu">
           <h2>Locais</h2>
@@ -79,7 +79,7 @@
           if(isset($_SESSION['nome_usuario'])){
             if($_SESSION['nome_usuario'] != '0'){
           ?>
-          <form class="" action="<?php echo($links); ?>index.php"method="post">
+          <form action="<?php echo($links); ?>index.php" method="post">
           <div class="user_log">
             <?php
               if($_SESSION['imagem_usuario'] == null){
@@ -98,8 +98,8 @@
                 <li> <a href="<?php echo($paths); ?>Usuario/pagina_usuario.php">Conta</a> </li>
                 <li> <button type="submit" name="btnSair">Sair</button> </li>
               </ul>
-            </form>
           </div>
+        </form>
           <?php
         }else{
            ?>

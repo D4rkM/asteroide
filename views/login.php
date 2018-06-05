@@ -49,6 +49,6 @@
              <a href="views/cadastro_usuario.php"><strong style="color:#162E44;">Cadastre-se</strong></a>
            </div>
          </form>
-      </div>
+       </div>
     </body>
 </html>

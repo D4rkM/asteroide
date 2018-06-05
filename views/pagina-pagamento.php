@@ -1,7 +1,7 @@
 <?php
 
   include('links.php');
-
+  $_GET['tipo'];
   $links = alterarLinks(true);
   $paths = alterarCaminhos(true);
 

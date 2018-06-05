@@ -281,6 +281,17 @@ body::-webkit-scrollbar-thumb {
     background-color: #458665;
   }
 
+  .itens-menu h2{
+    /* border-bottom: 0px solid white; */
+    transition: 2s;
+  }
+
+  .itens-menu:hover h2{
+    text-decoration: underline white;
+    /* border-bottom: solid 1px white; */
+    transition: 2s;
+  }
+
 .itens-menu:hover>.submenu{
   /* width:130px; */
 	height:auto;

@@ -27,12 +27,9 @@
     <link rel="stylesheet" href="css/style_detalhes.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/chatbot.css">
-    <link rel="stylesheet" href="css/caroussel.css">
     <!-- <script src="js/jquery.min.js"></script> -->
-
-
   </head>
-  <body>
+  <body >
     <div class="modalContainerLogin">
       <div class="modal-login">
       </div>
@@ -44,8 +41,8 @@
 
          <!-- <div class="conteudo-video"> -->
            <div class="video-principal">
-             <div muted autoplay loop>
-               <img src="<?php echo($links); ?>img/busasteroide.jpg" type="">
+             <div>
+               <img src="<?php echo($links); ?>img/road.jpg" alt="home"style="width:100vw; height:90vh; overflow:hidden;">
              </div>
              <!-- <img src="img/Paleta-de-Cores.jpg" alt="" width="500"> -->
              <div class="frase-inicial">
@@ -125,58 +122,40 @@
                    <h2>VEJA QUEM ESTÁ VIAJANDO COM A GENTE!</h2>
            </div>
            <div id="content">
-             <!-- <nav class="menu-carrossel">
-               <a href="#" class="prev" title="Anterior"> <img src="<?php //echo($links); ?>img/icon/left.svg" alt="Esquerda"> </a>
-             </nav>
+
                    <div id="carrossel">
+
                        <ul>
                          <?php
-                         //$a = 0;
-                         //while ($a <= 5) {
+                         // require_once('controllers/interacao_controller.php');
+                         require_once('models/interacao_class.php');
+
+                         $interacao = new Interacao();
+                         $listInteracao = $interacao::Select();
+
+                         $a = 0;
+                         while ($a <= 2) {
                           ?>
                            <li>
                              <a href="views/interacao.php">
                                <div class="comentarios-pag-inicial">
                                  <div class="comentario-usuario">
-                                   <img src="img/client.png" alt="Nome da Imagem" title="Nome da Imagem" />
-                                   <b>Username</b>
+                                   <img src="<?php echo($listInteracao[$a]->imagem); ?>" alt="Nome da Imagem" title="Nome da Imagem" />
+                                   <b><?php $listInteracao[$a]->nome_usuario ?></b>
                                  </div>
-                                 <div class="comentario-conteudo" style="color:grey;">
-                                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                 <div class="comentario-conteudo" style="color:grey; text-overflow:ellipsis;">
+                                   <?php echo($listInteracao[$a]->comentario); ?>
                                  </div>
                                </div>
                              </a>
                            </li>
                            <?php
-                            // $a ++;
-                             //}
+                            $a ++;
+                             }
                            ?>
                        </ul>
                    </div>
-                   <nav class="menu-carrossel">
-                       <a href="#" class="next" title="Próximo"> <img src="img/icon/right.svg" alt="Direita"> </a>
-                   </nav> -->
 
-                   <section class="regular slider">
-                     <div>
-                       <img src="http://placehold.it/350x300?text=1">
-                     </div>
-                     <div>
-                       <img src="http://placehold.it/350x300?text=2">
-                     </div>
-                     <div>
-                       <img src="http://placehold.it/350x300?text=3">
-                     </div>
-                     <div>
-                       <img src="http://placehold.it/350x300?text=4">
-                     </div>
-                     <div>
-                       <img src="http://placehold.it/350x300?text=5">
-                     </div>
-                     <div>
-                       <img src="http://placehold.it/350x300?text=6">
-                     </div>
-                   </section>
                </div>
          </div>
 

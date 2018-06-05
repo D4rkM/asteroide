@@ -5,7 +5,7 @@
   </div>
 
   <div class="content-filtro">
-    <form action="router.php?controller=viagens&modo=buscar" enctype="multipart/form-data" method="post">
+    <form action="router.php?controller=viagens&modo=buscar&tipo=0" enctype="multipart/form-data" method="post">
       <div class="control-filtro">
         <label for="txtorigem" class="txt_filtro2">Origem:</label>
         <input id="txtorigem" class="input-box box_filtro" type="text" name="txtorigem" required autocomplete="off">
