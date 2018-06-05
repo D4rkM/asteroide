@@ -1,20 +1,32 @@
-<!--
-  Autor: BRUNA
-  Data de modificação: 28/03/2018
-  Detalhes: Está pagina tem como objetivo listar as viagens do usuario
-  Obs: Página principal contém menu e rodapé para inserir as outras páginas
--->
 <?php
 
   include('../../links.php');
 
   $links = alterarLinks(false);
-  $paths = alterarCaminhos(true);
+  $paths = alterarCaminhos(false);
 
  ?>
-  <?php require_once('nav.php'); ?>
-<link rel="stylesheet" href="../../css/style.css">
-<link rel="stylesheet" type="text/css" href="<?php echo($links); ?>../css/footer.css">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta name="author" content="Magno">
+    <!--
+      Data de modificação: 19/03/2018
+      Obs: Página principal contém menu e rodapé para inserir as outras páginas
+    -->
+    <title>Editar - Bem vindo</title>
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo($links); ?>../css/footer.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/style.css">
+    <link rel="stylesheet" href="<?php echo($links); ?>../css/editar_usuario.css">
+    <script src="<?php echo($links); ?>../js/jquery.min.js"></script>
+
+  </head>
+  <body>
+       <?php require_once('nav.php');?>
 <!-- Conteúdo da página -->
 <div class="conteudo_historico">
   <!--Container que segura todas as informações da pagina -->
@@ -31,8 +43,8 @@
 </div>
   <?php
 
-    $historico_viagens = new RegistroPassagem();
-    $historico_viagens:
+//    $historico_viagens = new RegistroPassagem();
+//    $historico_viagens:
 
    ?>
   <div class="historico_container">
