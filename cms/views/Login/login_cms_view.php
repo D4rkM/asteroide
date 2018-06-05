@@ -2,6 +2,8 @@
 
 
 <div class="are_login">
+  <div style=" font-family: sans-serif; width:100%; height:40px; background-color:#4d9b61;"></div>
+
   <div class="logo-login">
     <img src="img/logo-cms.png" width="100px" height="100px" alt="">
   </div>
@@ -15,13 +17,13 @@
         Usuário:
       </div>
       <div class="area-txt">
-        <input type="text" name="txtUsuario" value="" placeholder="Seu usuário" required maxlength="12">
+        <input type="text" name="txtUsuario" value="" placeholder="" required maxlength="12">
       </div>
       <div class="usuario-senha-txt">
         Senha:
       </div>
       <div class="area-txt">
-        <input type="password" name="txtSenha" value="" placeholder="Ex: *****" required maxlength="8">
+        <input type="password" name="txtSenha" value="" placeholder="" required maxlength="8">
       </div>
 
       <div class="btnLogin">

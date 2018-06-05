@@ -49,7 +49,7 @@
   $Usuario = new Usuario();
   $usuarioController = new controllerUsuario();
   $Usuario = $usuarioController::
-      Buscar($_SESSION['id_usuario']);
+      BuscarEnd($_SESSION['id_usuario']);
       // echo($Usuario->uf);
 
 
@@ -69,7 +69,7 @@
   $(document).on("submit", "#_finalizar",function(e){
     e.preventDefault();
     // var ret = [];
-
+    // $(".pague").html('<h2>Foi</h2>');
     $.ajax({
       url:'router.php?controller=registro_passagem&modo=compra',
       type: 'POST',
@@ -79,13 +79,15 @@
       async: false,
       // dataType:'json',
       success: function(res){
-        // $(".pague").html('<h2>Foi</h2>');
 
         // console.log(res);
         var resp = JSON.parse(res.substring(res.indexOf('{"object":"transa')-1));
         // console.log(res.substring(res.indexOf('KEY-----\n"}'+1333)));
         // console.log(res.substring(res.indexOf(') "')+13));
         console.log(resp.id);
+        console.log(resp.status);
+
+        $(".pague").html('<h2>Foi</h2>');
         // console.log(res);
       },
       error: function(a,err,b){

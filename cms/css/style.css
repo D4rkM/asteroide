@@ -1347,11 +1347,11 @@ label#imagem2{
 .are_login{
   width: 630px;
   height: 350px;
-  background-color: #ededed;
+  background-color: #c3c3c3;
   margin-left: auto;
   margin-right: auto;
   margin-top: 200px;
-  padding-top: 20px;
+  /* padding-top: 20px; */
   border-radius: 10px 10px 10px 10px;
 }
 .logo-login{
@@ -1368,7 +1368,7 @@ label#imagem2{
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
-  font-family: "opensansbold";
+  /* font-family: "opensansbold"; */
 }
 .itens-login-container{
   width: 400px;
@@ -1382,7 +1382,7 @@ label#imagem2{
   height: 15px;
   margin-left: 10px;
   font-size: 16px;
-  font-family: "opensansbold";
+  /* font-family: "opensansbold"; */
 }
 .area-txt{
   width: 300px;

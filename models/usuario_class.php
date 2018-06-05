@@ -173,6 +173,51 @@ class Usuario{
       return $usuario;
   }
 
+  public function SelectByIdUserEnd($usuario_dados){
+    // var_dump($_SESSION['id_usuario']);die;
+    $sql = "SELECT * FROM view_cliente_endereco where id = $usuario_dados->id";
+    // echo($sql);die;
+
+    $conex = new Mysql_banco();
+
+    $PDO_conex = $conex->Conectar();
+
+    $select = $PDO_conex->query($sql);
+
+    if($rs=$select->fetch(PDO::FETCH_ASSOC)){
+
+      $usuario = new Usuario();
+
+      $usuario->id = $rs['id'];
+      $usuario->foto = $rs['imagem_usuario'];
+      $usuario->nome = $rs['nome'];
+      $usuario->email = $rs['email'];
+      // $usuario->id = $rs[$_SESSION['id_usuario']];
+      $usuario->nome = $rs['nome'];
+      $usuario->email = $rs['email'];
+      $usuario->usuario = $rs['login'];
+      $usuario->senha = $rs['senha'];
+      $usuario->datanasc = $rs['datanasc'];
+      $usuario->sexo = $rs['sexo'];
+      $usuario->telefone = $rs['telefone'];
+      $usuario->celular = $rs['celular'];
+      $usuario->cpf = $rs['cpf'];
+      $usuario->rg = $rs['rg'];
+      $usuario->cep = $rs['cep'];
+      $usuario->bairro = $rs['bairro'];
+      $usuario->numero = $rs['numero'];
+      $usuario->logradouro = $rs['logradouro'];
+      $usuario->cidade = $rs['estado'];
+      $usuario->uf = $rs['Uf'];
+
+
+      $conex->Desconectar();
+
+    }
+    if(isset($usuario))
+      return $usuario;
+  }
+
   public function Login($usuario_dados){
 
       $mensagem = null;

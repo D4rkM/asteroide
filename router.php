@@ -15,13 +15,18 @@
           session_start();
           $controllerDadosViagem = new ControllerDadosViagem();
 
-          $_SESSION['origem'] = $_POST['txtorigem'];
-          $_SESSION['destino'] = $_POST['txtdestino'];
-          $_SESSION['data_saida'] = $controllerDadosViagem::dateEmMysql($_POST['txtida']);
+          if(isset($_POST['txtorigem'])){
 
-          $controllerDadosViagem::buscar();
+            $_SESSION['origem'] = $_POST['txtorigem'];
+            $_SESSION['destino'] = $_POST['txtdestino'];
+            $_SESSION['data_saida'] = $controllerDadosViagem::dateEmMysql($_POST['txtida']);
 
-          require_once('views/horarios-onibus.php');
+            $controllerDadosViagem::buscar();
+
+            require_once('views/horarios-onibus.php');
+          }else{
+            header('../index.php');
+          }
           break;
 
         case 'buscar_denovo':

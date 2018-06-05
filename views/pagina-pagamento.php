@@ -18,7 +18,7 @@
             // echo($poltrona_selecionada[$cont].", ");
             $cont ++;
           }
-          
+
           require_once('cms/models/viagem_class.php');
           require_once('cms/controllers/viagem_controller.php');
 
@@ -54,6 +54,28 @@
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_login.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/style_detalhes.css">
     <link rel="stylesheet" href="<?php echo($links); ?>css/pagina_pagamento.css">
+    <style>
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
     <!-- <script src="<?php echo($links); ?>js/jquery.min.js"></script> -->
     <script src="<?php echo($links); ?>js/jquery-3.3.1.js"></script>
     <script src="<?php echo($links); ?>js/jquery.mask.js"></script>
@@ -136,7 +158,7 @@
                 <div class="forma_pagamento">
                   <span id="cartao">
                     <img src="<?php echo($links); ?>img/icon/credit_card.svg" alt="Cartão de Credito">
-                  Cartão  
+                  Cartão
                   </div>
                 </span>
                 <div class="forma_pagamento">

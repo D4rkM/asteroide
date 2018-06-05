@@ -103,6 +103,13 @@ class controllerUsuario {
     return $dados_usuario = $usuario::SelectById($usuario);
   }
 
+  public function BuscarEnd($id){
+    $usuario = new Usuario();
+    $usuario->id = $id;
+    // var_dump($usuario->id);die;
+    return $dados_usuario = $usuario::SelectByIdUserEnd($usuario);
+  }
+
   public function Logar(){
 
   $usuario = new Usuario();
