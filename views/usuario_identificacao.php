@@ -101,11 +101,7 @@
                    <a href="views/cadastro_usuario.php?modo=contCompra"><strong style="color:#162E44;">Cadastre-se</strong></a>
                  </div>
                </div>
-             <div class="Continua">
-               <a href="../pagina-pagamento.php">
-                Continuar
-               </a>
-             </div>
+
              </form>
            </div>
          </div>

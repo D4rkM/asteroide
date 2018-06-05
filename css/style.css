@@ -31,6 +31,7 @@ Obs: Arquivo principal para edições nas páginas
   font-size: 17px;
 }
 
+
 /* Configurações dos itens para todas as páginas */
 body{
   font-family: 'Nunito', sans-serif;
@@ -206,10 +207,12 @@ body::-webkit-scrollbar-thumb {
     background: #dad7d7;
 }
 
+/* @media screen and(min-width:1224px) { */
 /* ------------------------------------------------------------------------- */
 /* Configurações do menu superior */
 /* Container do menu */
 .menu-container{
+  user-select: none;
   display: flex;
   /* background-color: #FFF; */
   background-color:#162E44;
@@ -1175,11 +1178,12 @@ body::-webkit-scrollbar-thumb {
 
 .duvidas-container{
   display: flex;
+  flex-direction: row;
   width: 1300px;
   min-height: 500px;
   height: auto;
   margin: auto;
-  flex-wrap: wrap;
+
   /* background-color: #458665; */
   /* border: solid 1px #000; */
 }
@@ -1828,7 +1832,7 @@ box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
 }
-
+/* } */
 /*******************************************/
 
 /* Mobile */

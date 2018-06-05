@@ -19,7 +19,7 @@
   width: 100%;
   height: 100%;
   margin: auto;
-  background-color: #458665;
+  /* background-color: #458665; */
   padding-top: 20px;
 }
 
@@ -33,7 +33,7 @@
 .momentos_identificacao{
   width: 30%;
   height: 100%;
-  background-color: blue;
+  /* background-color: blue; */
   float: left;
   margin-right: 1%;
   margin-left: 1%;

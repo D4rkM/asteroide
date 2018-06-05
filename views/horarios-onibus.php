@@ -90,7 +90,7 @@
         }
 
         // $("#_comprar").submit(function(e){
-          
+
         //   e.preventDefault();
 
         //   if(userOn(<?php //echo($idUsuario); ?>)){

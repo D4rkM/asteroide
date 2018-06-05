@@ -18,12 +18,12 @@
   width: 100%;
   height: 100%;
   margin: auto;
-  background-color: #458665;
+  /* background-color: #458665; */
 }
 .momentos_identificacao{
   width: 30%;
   height: 100%;
-  background-color: blue;
+  background-color: #1F405E;
   float: left;
   margin-right: 1%;
   margin-left: 1%;
@@ -42,14 +42,15 @@
 .momentos_pagamento{
   width: 30%;
   height: 100%;
-  background-color: blue;
+  /* background-color: blue; */
+  background-color:#458665;
   float: left;
   margin-right: 1%;
   margin-left: 1%;
   border-radius: 15px;
   line-height: 50px;
   border: solid 1px #fff;
-
+  color: white;
   text-align: center;
   font-size: 18px;
   font-family: sans-serif;

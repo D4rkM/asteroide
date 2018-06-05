@@ -246,7 +246,7 @@ button.ui-button::-moz-focus-inner {
 }
 .ui-controlgroup > .ui-controlgroup-item:focus,
 .ui-controlgroup > .ui-controlgroup-item.ui-visual-focus {
-	z-index: 9999;
+	z-index: 999999;
 }
 .ui-controlgroup-vertical > .ui-controlgroup-item {
 	display: block;
@@ -676,7 +676,7 @@ button.ui-button::-moz-focus-inner {
 }
 .ui-selectable-helper {
 	position: absolute;
-	z-index: 100;
+	z-index: 999999;
 	border: 1px dotted black;
 }
 .ui-selectmenu-menu {

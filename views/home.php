@@ -27,9 +27,10 @@
     <link rel="stylesheet" href="css/style_detalhes.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/mobile.css">
     <!-- <script src="js/jquery.min.js"></script> -->
   </head>
-  <body >
+  <body style="overflow-x:hidden;">
     <div class="modalContainerLogin">
       <div class="modal-login">
       </div>
@@ -42,7 +43,7 @@
          <!-- <div class="conteudo-video"> -->
            <div class="video-principal">
              <div>
-               <img src="<?php echo($links); ?>img/road.jpg" alt="home"style="width:100vw; height:90vh; overflow:hidden;">
+               <img src="<?php echo($links); ?>img/road.jpg" alt="home"style="width:100vw; height:95vh; overflow:hidden;">
              </div>
              <!-- <img src="img/Paleta-de-Cores.jpg" alt="" width="500"> -->
              <div class="frase-inicial">
@@ -60,7 +61,7 @@
            <div class="titulo_locais" style="color:#1f405e;">
              <h2><strong>QUE TAL CONHECER NOVOS LUGARES?</strong></h2>
            </div>
-           <a href="#">
+
              <div class="locais-viagem">
                <?php
                  require_once("cms/controllers/home_controller.php");
@@ -84,7 +85,7 @@
                    }
                    ?>
              </div>
-           </a>
+
 
          </div>
 
@@ -283,8 +284,6 @@
           );
         }
       });
-
-
 
 
     </script>
