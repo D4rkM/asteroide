@@ -22,9 +22,15 @@
     }
 
     public static function buscarViagens($pesquisa){
+      if(strpos($pesquisa->origem, ' -')){
 
-      // $pesquisa->origem = substr($pesquisa->origem, 0,strpos($pesquisa->origem, ' -'));
-      // $pesquisa->destino = substr($pesquisa->destino, 0,strpos($pesquisa->destino, ' -'));
+        $pesquisa->origem = substr($pesquisa->origem, 0,strpos($pesquisa->origem, ' -'));
+      }
+
+      if(strpos($pesquisa->destino, ' -')){
+
+        $pesquisa->destino = substr($pesquisa->destino, 0,strpos($pesquisa->destino, ' -'));
+      }
       // echo($pesquisa->origem.'/'.$pesquisa->destino);
 
       $sql = "SELECT * FROM view_lista_todas_as_viagens
