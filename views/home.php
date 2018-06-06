@@ -20,8 +20,6 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/slick.css">
-    <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/style_login.css">
     <link rel="stylesheet" href="css/style_detalhes.css">
@@ -68,7 +66,7 @@
                  require_once("cms/models/home_class.php");
 
                  $controller_home = new controllerHome();
-                 $list = $controller_home::Listar();
+                 $list = $controller_home->Listar();
 
                  foreach ($list as $value) {
                  if($value->tipo == 2){
@@ -99,7 +97,7 @@
                require_once("cms/models/home_class.php");
 
                $controller_home = new controllerHome();
-               $list = $controller_home::Listar();
+               $list = $controller_home->Listar();
 
                foreach ($list as $value) {
                    if($value->tipo == 1){
@@ -132,7 +130,7 @@
                          require_once('models/interacao_class.php');
 
                          $interacao = new Interacao();
-                         $listInteracao = $interacao::Select();
+                         $listInteracao = $interacao->Select();
 
                          $a = 0;
                          while ($a <= 2) {
@@ -166,9 +164,6 @@
       ?>
         <!-- <script src="<?php //echo($links); ?>js/jquery.min.js"></script>  -->
        <script src="js/jquery-3.3.1.js"></script>
-       <script src="<?php echo($links); ?>js/slick.js" type="text/javascript" charset="utf-8"></script>
-       <script src="<?php echo($links); ?>js/jcarousellite.js"></script>
-       <script src="<?php echo($links); ?>js/carrossel.js"></script>
         <script src="js/jquery-ui.js"></script>
         <script>
       // Modal Login
@@ -277,7 +272,7 @@
 
         function autocompletarDestino(listdestino){
           var lista = JSON.parse(listdestino);
-          // console.log('lista');
+          console.log('lista');
           $( "#txtdestino" ).autocomplete({
             source: lista
           }

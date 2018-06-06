@@ -23,8 +23,8 @@
 
     public static function buscarViagens($pesquisa){
 
-      $pesquisa->origem = substr($pesquisa->origem, 0,strpos($pesquisa->origem, ' -'));
-      $pesquisa->destino = substr($pesquisa->destino, 0,strpos($pesquisa->destino, ' -'));
+      // $pesquisa->origem = substr($pesquisa->origem, 0,strpos($pesquisa->origem, ' -'));
+      // $pesquisa->destino = substr($pesquisa->destino, 0,strpos($pesquisa->destino, ' -'));
       // echo($pesquisa->origem.'/'.$pesquisa->destino);
 
       $sql = "SELECT * FROM view_lista_todas_as_viagens
@@ -32,7 +32,7 @@
               AND destino LIKE '$pesquisa->destino%';";
 
       $conex = new Mysql_banco();
-
+      // echo($pesquisa->origem);
       $PDO_conex = $conex->Conectar();
 
       //executa select no bd e guarda o retorno na variavel $select

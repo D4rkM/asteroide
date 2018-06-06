@@ -182,67 +182,75 @@
        <?php
          require_once($paths.'nav.php');
        ?>
-       <div class="conteudo_horarios">
-       <div class="container_horarios">
-         <div class="container_horarios2">
-           <div class="nome_passagem">Passagem de Onibus de <?php echo $_POST['txtorigem']; ?> -  para <?php echo $_POST['txtdestino']; ?></div>
-
-           <div class="tempo_compra">
-             <div class="momentos_horario">Horarios</div>
-             <div class="momentos">Identificação</div>
-             <div class="momentos">Pagamento</div>
-             <div class="normalizar">
-
-             </div>
-           </div>
-
-           <div class="lista_horarios">
-
-             <table class="tabela_horarios">
-               <tr class="linha_horarios">
-                 <td class="coluna_horarios">Saida/Chegada</td>
-                 <td class="coluna_horarios">Embarque/Desembarque</td>
-                 <td class="coluna_horarios">Hora de saída</td>
-                 <td class="coluna_horarios">Classe</td>
-                 <td class="coluna_horarios">Preço</td>
-                 <td class="coluna_horarios"></td>
-               </tr>
-               <?php
-
-                require_once('models/dados_viagem_class.php');
-                require_once('controllers/dados_viagem_controller.php');
-
-                 $controller_viagens = new ControllerDadosViagem();
-
-                 $list = $controller_viagens::buscar();
-                 // echo(sizeof($list));
-                 $cont = 0;
-                 if($list[0]->origem != ''){
-
-                   while($cont < count($list)){
-               ?>
-               <tr class="linha_horarios">
-                 <td class="coluna_horarios"><?php echo $list[$cont]->origem;?>/<?php echo $list[$cont]->destino;?></td>
-                 <td class="coluna_horarios"><?php echo $list[$cont]->data_saida;?>/<?php echo $list[$cont]->data_chegada;?></td>
-                 <td class="coluna_horarios"><?php echo $list[$cont]->hora_saida;?></td>
-                 <td class="coluna_horarios"><?php echo $list[$cont]->classe;?></td>
-                 <td class="coluna_horarios">R$ <?php echo $list[$cont]->preco;?></td>
-                 <td class="coluna_horarios"><a href="#" class="select"  onClick="Onibus(<?php echo $list[$cont]->poltronas.','.$list[$cont]->id ?>);">Selecionar</td></a>
-               </tr>
-               <?php
-                      $cont+=1;
-                    }
-                 }else{
-                   // header('location:../index.php');
-                   // echo('<script>alert("ERRO!!")</script>');
-                 }
-               ?>
-             </table>
-             <div id="container_onibus" style="display: none;"></div>
-           </div>
+       <div class="imagem-de-fundo" style='background-image: url( "img/inf_legislacao.jpg");'>
+         <div class="titulo-sobre-imagem">
+           COMPRA DE PASSAGENS
          </div>
        </div>
-       </div>
+       <div class="inf">
+
+         <div class="container_horarios">
+           <div class="container_horarios2">
+             <div class="nome_passagem subtitulo center" style="text-align:center;"><h3>Passagem de Onibus de <?php echo $_POST['txtorigem']; ?> -  para <?php echo $_POST['txtdestino']; ?></h3></div>
+
+             <div class="tempo_compra">
+               <div class="momentos_horario">Horarios</div>
+               <div class="momentos">Identificação</div>
+               <div class="momentos">Pagamento</div>
+               <div class="normalizar">
+
+               </div>
+             </div>
+
+             <div class="lista_horarios">
+
+               <table class="tabela_horarios">
+                 <tr class="linha_horarios">
+                   <td class="coluna_horarios">Saida/Chegada</td>
+                   <td class="coluna_horarios">Embarque/Desembarque</td>
+                   <td class="coluna_horarios">Hora de saída</td>
+                   <td class="coluna_horarios">Classe</td>
+                   <td class="coluna_horarios">Preço</td>
+                   <td class="coluna_horarios"></td>
+                 </tr>
+                 <?php
+
+                  require_once('models/dados_viagem_class.php');
+                  require_once('controllers/dados_viagem_controller.php');
+
+                   $controller_viagens = new ControllerDadosViagem();
+
+                   $list = $controller_viagens::buscar();
+                   // echo(sizeof($list));
+                   $cont = 0;
+                   if($list[0]->origem != ''){
+
+                     while($cont < count($list)){
+                 ?>
+                 <tr class="linha_horarios">
+                   <td class="coluna_horarios"><?php echo $list[$cont]->origem;?>/<?php echo $list[$cont]->destino;?></td>
+                   <td class="coluna_horarios"><?php echo $list[$cont]->data_saida;?>/<?php echo $list[$cont]->data_chegada;?></td>
+                   <td class="coluna_horarios"><?php echo $list[$cont]->hora_saida;?></td>
+                   <td class="coluna_horarios"><?php echo $list[$cont]->classe;?></td>
+                   <td class="coluna_horarios">R$ <?php echo $list[$cont]->preco;?></td>
+                   <td class="coluna_horarios"><a href="#" class="select"  onClick="Onibus(<?php echo $list[$cont]->poltronas.','.$list[$cont]->id ?>);">Selecionar</td></a>
+                 </tr>
+                 <?php
+                        $cont+=1;
+                      }
+                   }else{
+                     // header('location:../index.php');
+                     // echo('<script>alert("ERRO!!")</script>');
+                   }
+                 ?>
+               </table>
+               <div id="container_onibus" style="display: none;"></div>
+             </div>
+           </div>
+         </div>
+         </div>
+      </div>
+       <div class="conteudo_horarios">
     <?php require_once('footer.php'); ?>
   </body>
 </html>

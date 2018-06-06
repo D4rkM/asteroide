@@ -11,7 +11,7 @@
 
 /*Container que segura todas as caixas*/
 .container_horarios{
-  width: 75%;
+  width: 100%;
   min-height:700px;
   margin: auto;
   /* background-color: blue; */
@@ -131,7 +131,7 @@ border-bottom: solid 1px #458665;
   flex-direction: row;
   align-items: center;
   /* justify-content: center; */
-  width:30%;
+  /* width:30%; */
   height: auto;
 
 }

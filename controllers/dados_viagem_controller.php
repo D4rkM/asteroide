@@ -13,7 +13,7 @@
     public function buscar(){
 
       if(isset($_POST['txtorigem'])){
-
+        // echo($_POST['txtorigem']);
         $origem = $_POST['txtorigem'];
         $destino = $_POST['txtdestino'];
         $data_saida = $_POST['txtida'];

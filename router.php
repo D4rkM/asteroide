@@ -16,7 +16,7 @@
           $controllerDadosViagem = new ControllerDadosViagem();
 
           if(isset($_POST['txtorigem'])){
-
+            // echo($_POST['txtorigem']);
             $_SESSION['origem'] = $_POST['txtorigem'];
             $_SESSION['destino'] = $_POST['txtdestino'];
             $_SESSION['data_saida'] = $controllerDadosViagem::dateEmMysql($_POST['txtida']);
