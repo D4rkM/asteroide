@@ -9,6 +9,8 @@
     public $posto_rodoviario_id;
     public $preco_passagem;
     public $local_compra_id;
+    public $transacao_id;
+    public $status;
 
     public function __construct(){
       require_once('db_class.php');
@@ -21,7 +23,9 @@
               id_usuario = '$compra->id_usuario',
               qrcode = '$compra->qrcode',
               preco_passagem = '$compra->preco_passagem',
-              local_compra_id = '$compra->local_compra_id'";
+              local_compra_id = '$compra->local_compra_id',
+              status_compra = '$compra->status_compra',
+              id_compra = '$compra->transacao_id'";
 
               //Instancia a classe do banco
              $conex = new Mysql_banco();

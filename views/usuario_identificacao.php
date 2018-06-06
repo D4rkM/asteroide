@@ -73,6 +73,13 @@
       </div>
     </div>
        <?php require_once('nav.php'); ?>
+       <div class="imagem-de-fundo" style='background-image: url( "img/inf_legislacao.jpg");'>
+         <div class="titulo-sobre-imagem">
+           IDENTIFICAÇÃO
+         </div>
+       </div>
+       <div class="inf">
+
        <div class="conteudo_identificacao">
        <div class="container_identificacao">
          <div class="container_identificacao2">
@@ -107,6 +114,8 @@
          </div>
        </div>
        </div>
+     </div>
+       
     <?php require_once('footer.php'); ?>
   </body>
 </html>

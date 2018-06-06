@@ -51,29 +51,6 @@ header('Content-Type: text/html; charset=utf-8');
 				if($res == 1 || $res == true){
 					// registrarCompra($compra,$_SESSION['_selected'], $_SESSION['id_usuario'])
 
-					require_once('models/compra_class.php');
-					// require_once('controllers/compra_controller.php');
-					require_once('models/registro_passagem_class.php');
-					// require_once('controllers/registro_passagem_controller.php');
-
-					$compra = new Compra();
-					$registro_passagem = new RegistroPassagem();
-
-
-					$compra->id_usuario = $_SESSION['id_usuario'];
-					$compra->preco_passagem = $_POST['preco'];
-					$compra->local_compra_id = 7;
-
-					$polt = $_SESSION['_selected'];
-					$viagem = $_SESSION['_idViagem'];
-
-					$a=0;
-					while($a < sizeof($polt)){
-						// echo($a);
-						$compra->qrcode = $activation = sha1(uniqid(rand(), true));
-						$registro_passagem::registrarPoltrona($compra::registrarCompra($compra), $polt[$a], $viagem);
-						$a++;
-					}
 
 				}
 			}

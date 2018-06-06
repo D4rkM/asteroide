@@ -143,10 +143,17 @@
        verificaUsuarioLogado();
 
        ?>
+       <div class="imagem-de-fundo" style='background-image: url("img/inf_legislacao.jpg");'>
+         <div class="titulo-sobre-imagem">
+           INFORMAÇÕES SOBRE SERVIÇO
+         </div>
+       </div>
+       <div class="inf">
+
        <div class="conteudo_pagamento">
          <div class="container_pagamento">
            <div class="container_pagamento2">
-             <div class="nome_passagem">Passagem de Onibus de São Paulo - SP para Rio de Janeiro - RJ</div>
+             <div class="nome_passagem subtitulo">Passagem de Onibus de São Paulo - SP para Rio de Janeiro - RJ</div>
 
              <div class="tempo_compra">
                <div class="momentos">Horarios</div>
@@ -172,6 +179,7 @@
            </div>
          </div>
        </div>
+     </div>
 
     <?php require_once('footer.php'); ?>
 

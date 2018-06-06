@@ -69,6 +69,8 @@
   $(document).on("submit", "#_finalizar",function(e){
     e.preventDefault();
     // var ret = [];
+    var preco = $('#preco').val();
+    alert(preco);
     // $(".pague").html('<h2>Foi</h2>');
     $.ajax({
       url:'router.php?controller=registro_passagem&modo=compra',
@@ -86,6 +88,14 @@
         // console.log(res.substring(res.indexOf(') "')+13));
         console.log(resp.id);
         console.log(resp.status);
+        $.ajax({
+          url:`router.php?controller=registro_compra&modo=salvar`,
+          type: 'POST',
+          data: {'transacao_id':resp.id, 'status':resp.status, 'preco': preco},
+          success: function(e){
+            console.log(e);
+          }
+        });
 
         $(".pague").html('<h2>Foi</h2>');
         // console.log(res);
@@ -134,7 +144,7 @@
         <input type="text" name="celular" value="<?php echo $Usuario->celular; ?>" >
      </div>
       <input type="hidden" name="email" value="<?php echo $Usuario->email; ?>" >
-     <h2 class="subtitulo center">Endereco</h2>
+     <h2 class="text_pague subtitulo">Endereco</h2>
      <div id="cep" class="box_pague">
         <input type="text" name="cep" value="<?php echo $Usuario->cep; ?>" >
      </div>
@@ -152,7 +162,7 @@
    </div>
    <div class="line_vertical"></div>
    <div class="cont_pague">
-    <h2 class="subtitulo">Dados do Cartão</h2>
+    <h2 class="text_pague subtitulo">Dados do Cartão</h2>
      <div class="box_pague">
         <input type="text" name="cartao"  placeholder="Numero do cartao" maxlength="16" required>
       </div>
@@ -176,7 +186,7 @@
          ?>
      </select>
      <div class="box_pague"><input type="text" name="codigo" value="" maxlength="3" required="required" placeholder="Codigo de segurança"></div>
-    <div class="text_pague">Parcelamento</div>
+    <div class="text_pague subtitulo">Parcelamento</div>
      <select class="combo_pague" name="installments">
        <?php
        $a = 1;
@@ -196,7 +206,7 @@
         Total: R$
        <label><?php echo($DadosViagem->preco * sizeof($poltrona_selecionada)); ?></label>
        <input type="hidden" value="<?php echo($DadosViagem->preco * sizeof($poltrona_selecionada)); ?>" name="total">
-       <input type="hidden" name="preco" value="<?php echo($DadosViagem->preco); ?>">
+       <input id="preco" type="hidden" name="preco" value="<?php echo($DadosViagem->preco); ?>">
        <input type="hidden" name="tipo" value="cartao">
      </div>
    </div>

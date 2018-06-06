@@ -250,7 +250,7 @@
          </div>
          </div>
       </div>
-       <div class="conteudo_horarios">
+
     <?php require_once('footer.php'); ?>
   </body>
 </html>

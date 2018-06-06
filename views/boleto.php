@@ -100,65 +100,71 @@ function mostraPoltronasSelecionadas($selecionadas){
 	});
 </script>
 <div class="">
-	<form id="_finalizarBoleto" method="post">
-		<div class="info">
-			<h2 class="subtitulo center">Finalizar Compra</h2>
-			<h4>Verifique se seus dados de compra estão corretos</h4>
-	    <div class="line_vertical"></div>
-	    <div class="registro_pague">
-	      <div class="text_pague">
-	         Dados do Titular
-	       </div>
-	      <div class="box_pague">
-	         <input type="text" name="nome" value="<?php echo $_SESSION['nome_usuario'];  ?>" >
-	       </div>
-	      <div id="cpf" class="box_pague">
-	         <input type="text" name="cpf" value="<?php echo $Usuario->cpf; ?>" >
-	      </div>
-	           <div id="celular" class="box_pague">
-	         <input type="text" name="celular" value="<?php echo $Usuario->celular; ?>" >
-	      </div>
-	       <input type="hidden" name="email" value="<?php echo $Usuario->email; ?>" >
-	      <h2 class="subtitulo center">Endereco</h2>
-	      <div id="cep" class="box_pague">
-	         <input type="text" name="cep" value="<?php echo $Usuario->cep; ?>" >
-	      </div>
-	      <div id="logradouro" class="box_pague">
-	         <input type="text" name="logradouro" value="<?php echo $Usuario->logradouro; ?>" >
-	       </div>
-	       <div id="bairro" class="box_pague">
-	         <input type="text" name="bairro" value="<?php echo $Usuario->bairro; ?>" >
-	       </div>
-	       <div id="cidade" class="box_pague">
-	         <input type="text" name="cidade" value="<?php echo $Usuario->cidade; ?>" >
-	         <input type="hidden" name="uf" value="<?php echo $Usuario->uf; ?>">
-	         <input type="hidden" name="numero" value="<?php echo $Usuario->numero; ?>">
-	       </div>
-	    </div>
-	    <div class="line_vertical"></div>
-			<div class="preco">
-				 Total: R$
-				<label><?php echo($DadosViagem->preco * sizeof($poltrona_selecionada)); ?></label>
-				<input type="hidden" value="<?php echo($DadosViagem->preco * sizeof($poltrona_selecionada)); ?>" name="total">
-				<input type="hidden" name="preco" value="<?php echo($DadosViagem->preco); ?>">
-				<input type="text" name="tipo" value="boleto">
-			</div>
-	    <div class="cont_pague">
-	      <div class="finalizar">
+	<form id='_finalizar' class="" enctype="multipart/form-data" method="post">
+
+	   <div class="cont_pague">
 
 	   </div>
-	    </div>
-	    <div class="cont_pague">
-				<div class="registro_pague">
-					<button id="_geraBoleto" type="submit" name="finalizar">Finalizar Compra</button>
-					<a id="baixarBoleto" href="boletophp-master/boleto_bradesco.php" class="btn" target="_blank" style="display:none;">Baixe seu boleto</a>
-				</div>
-	      <div class="text_pague">
-	         <?php //echo($total); ?>
-
+	   <div class="line_vertical"></div>
+	   <div class="registro_pague">
+	     <div class="text_pague">
+	        Dados do Titular
 	      </div>
-	    </div>
+	     <div class="box_pague">
+	        <input type="text" name="nome" value="<?php echo $_SESSION['nome_usuario'];  ?>" >
+	      </div>
+	     <div id="cpf" class="box_pague">
+	        <input type="text" name="cpf" value="<?php echo $Usuario->cpf; ?>" >
+	     </div>
+        <div id="celular" class="box_pague">
+	        <input type="text" name="celular" value="<?php echo $Usuario->celular; ?>" >
+	     </div>
+			 <div class="box_pague">
+			 	<input type="text" name="email" value="<?php echo $Usuario->email; ?>" >
+			 </div>
 
-		</div>
-	</form>
+	     <h2 class="text_pague subtitulo">Endereco</h2>
+	     <div id="cep" class="box_pague">
+	        <input type="text" name="cep" value="<?php echo $Usuario->cep; ?>" >
+	     </div>
+	     <div id="logradouro" class="box_pague">
+	        <input type="text" name="logradouro" value="<?php echo $Usuario->logradouro; ?>" >
+	      </div>
+	      <div id="bairro" class="box_pague">
+	        <input type="text" name="bairro" value="<?php echo $Usuario->bairro; ?>" >
+	      </div>
+	      <div id="cidade" class="box_pague">
+	        <input type="text" name="cidade" value="<?php echo $Usuario->cidade; ?>" >
+	        <input type="hidden" name="uf" value="<?php echo $Usuario->uf; ?>">
+	        <input type="hidden" name="numero" value="<?php echo $Usuario->numero; ?>">
+	      </div>
+	   </div>
+	   <div class="line_vertical"></div>
+	   <div class="cont_pague">
+
+
+	     <div>
+	       Poltrona(s) selecionada(s): <?php mostraPoltronasSelecionadas($poltrona_selecionada); ?>
+	     </div>
+	     <div class="preco">
+	        Total: R$
+	       <label><?php echo($DadosViagem->preco * sizeof($poltrona_selecionada)); ?></label>
+	       <input type="hidden" value="<?php echo($DadosViagem->preco * sizeof($poltrona_selecionada)); ?>" name="total">
+	       <input type="hidden" name="preco" value="<?php echo($DadosViagem->preco); ?>">
+	       <input type="hidden" name="tipo" value="cartao">
+	     </div>
+	   </div>
+	   <div class="cont_pague">
+	     <div class="finalizar">
+
+	  </div>
+	   </div>
+	   <div class="cont_pague">
+	     <div class="text_pague">
+	        <?php //echo($total); ?>
+
+	     </div>
+	   </div>
+	   <button type="submit" class="btn">Finalizar Compra</button>
+	  </form>
 </div>

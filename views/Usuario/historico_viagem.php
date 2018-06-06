@@ -26,7 +26,7 @@
  <a href="editar_perfil.php"><li>Editar Perfil</li></a>
  <a href="interacao_usuario.php"><li>Interação</li></a>
  <a href="historico_viagem.php"><li>Historico de Compra</li></a>
- <a href="acompanhamento_viagem.php"><li>Acompanhamento da viagem</li></a>
+ <!-- <a href="acompanhamento_viagem.php"><li>Acompanhamento da viagem</li></a> -->
 </ul>
 </div>
   <?php
