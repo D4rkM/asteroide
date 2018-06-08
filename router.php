@@ -165,26 +165,26 @@
               session_start();
 
 
-              if(isset($_POST['tipo'])){
-                $tipo = $_POST['tipo'];
-                // echo('tipo');
-              }
-              switch($tipo){
-
-                case 'boleto':
-                  if(isset($_SESSION['id_usuario'])){
-                    // require_once('models/compra_class.php');
-                    // require_once('controllers/compra_controller.php');
-                    require_once('models/transacao_class.php');
-                    require_once('controllers/transacao_controller.php');
-
-                    // echo('aaaaee');
-                    $transacao = new TransacaoController();
-                    $transacao::boletoBancario();
-                  }
-
-                  break;
-                case 'cartao':
+              // if(isset($_POST['tipo'])){
+              //   $tipo = $_POST['tipo'];
+              // //   // echo('tipo');
+              // // }
+              // switch($tipo){
+              //
+              //   case 'boleto':
+              //     if(isset($_SESSION['id_usuario'])){
+              //       // require_once('models/compra_class.php');
+              //       // require_once('controllers/compra_controller.php');
+              //       require_once('models/transacao_class.php');
+              //       require_once('controllers/transacao_controller.php');
+              //
+              //       // echo('aaaaee');
+              //       $transacao = new TransacaoController();
+              //       $transacao::boletoBancario();
+              //     }
+              //
+              //     break;
+                // case 'cartao':
                   if(isset($_SESSION['id_usuario'])){
                     // echo('foi');
                       // require_once('models/compra_class.php');
@@ -200,11 +200,11 @@
 
                       // $compra = new CompraController();
                       // $idCompra = $compra::novaCompra();
-
-                    }else{
-
-                    }
-                    break;
+              //
+              //       }else{
+              //
+              //       }
+              //       break;
               }
 
 

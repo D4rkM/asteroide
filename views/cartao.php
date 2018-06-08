@@ -70,7 +70,7 @@
     e.preventDefault();
     // var ret = [];
     var preco = $('#preco').val();
-    alert(preco);
+    // alert(preco);
     // $(".pague").html('<h2>Foi</h2>');
     $.ajax({
       url:'router.php?controller=registro_passagem&modo=compra',
@@ -94,10 +94,10 @@
           data: {'transacao_id':resp.id, 'status':resp.status, 'preco': preco},
           success: function(e){
             console.log(e);
+            $(".pague").html('<h2>Transação efetuada com sucesso</h2>');
           }
         });
 
-        $(".pague").html('<h2>Foi</h2>');
         // console.log(res);
       },
       error: function(a,err,b){
