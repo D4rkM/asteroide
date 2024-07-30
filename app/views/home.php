@@ -11,23 +11,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="Magno">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval';">
 
     <!--
       Data de modificação: 19/03/2018
       Obs: Página principal contém menu e rodapé para inserir as outras páginas
     -->
     <title>Home - Bem vindo</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/slick.css">
     <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
-    <link rel="stylesheet" href="css/home.css">
+    <!-- <link rel="stylesheet" href="css/home.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/home.css">
     <link rel="stylesheet" href="css/style_login.css">
     <link rel="stylesheet" href="css/style_detalhes.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/chatbot.css">
     <link rel="stylesheet" href="css/mobile.css">
+
     <!-- <script src="js/jquery.min.js"></script> -->
   </head>
   <body style="overflow-x:hidden;">

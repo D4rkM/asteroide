@@ -1,4 +1,9 @@
 <?php
+    // MUST BE CALLED FIRST ON New Versions
+    if (session_status() == PHP_SESSION_NONE) {
+      get_defined_vars();
+      session_start();
+    }
   // Importa a classe links para verificação dos links das paginas
   include('links.php');
   //Aplica a verificação dos links que a pagina vai receber
